@@ -1,16 +1,22 @@
 import { createBrowserRouter } from "react-router-dom";
 import Register from "../Pages/Register";
-import MainLayout from "../layouts/MainLayout";
+import Home from "../pages/Home/Home";
+import Root from "../Root";
+
 const router = createBrowserRouter([ 
     { 
     path: "/", 
-    element: <MainLayout/>, 
+    element: <Root></Root>,
     children: [
         {
+            path: "/",
+            element: <Home></Home>
+        },
+       {
           path: '/register',
           element: <Register/>,
         },
-      ]
+    ]
     }, 
    ]); 
 
