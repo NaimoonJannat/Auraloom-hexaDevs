@@ -6,6 +6,7 @@ const LogInPage = () => {
         <div>
             <div className="h-screen mx-auto">
                 <div className="flex bg-white mx-auto flex-col-reverse md:flex-col h-screen lg:flex-row p-7 ">
+                    
                     <div className="items-center w-full my-auto max-w-md px-6 mx-auto lg:w-2/6">
                         <div className="flex-1">
                             <div className="text-center">
