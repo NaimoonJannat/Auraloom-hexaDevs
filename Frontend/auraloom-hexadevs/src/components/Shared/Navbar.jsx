@@ -37,15 +37,15 @@ const Navbar = () => {
               {navlist}
             </ul>
           </div>
-          <a className="btn btn-ghost text-xl w-52">
+          <Link to={"/"} className="btn btn-ghost text-xl w-52">
             <img src={logo} alt="" />
-          </a>
+          </Link>
         </div>
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal px-1">{navlist}</ul>
         </div>
         <div className="navbar-end flex gap-3">
-          <Link to={"/signup"} className="btn bg-transparent hover:bg-transparent border-0 text-white">Sign Up</Link>
+          <Link to={"/register"} className="btn bg-transparent hover:bg-transparent border-0 text-white">Sign Up</Link>
           <Link to={"/login"} className="btn rounded-full bg-white text-[#0B2F9F] hover:text-white">Log In</Link>
         </div>
       </div>
