@@ -2,7 +2,7 @@ import React from 'react';
 
 const Newsletter = () => {
     return (
-        <div className="grid max-w-screen-xl grid-cols-1 gap-8 px-8 py-16 mx-auto rounded-lg md:grid-cols-2 md:px-12 lg:px-16 xl:px-32 border-2 border-[#0B2F9F] text-[#0B2F9F]">
+        <div className="grid max-w-screen-xl grid-cols-1 gap-8 px-8 py-16 mx-auto rounded-lg md:grid-cols-2 md:px-12 lg:px-16 xl:px-32 border-2 border-[#3F7D5A] text-[#3F7D5A]">
         <div className="flex flex-col justify-between">
             <div className="space-y-2">
                 <h2 className="text-4xl font-bold leading-tight lg:text-5xl">Let's talk!</h2>
