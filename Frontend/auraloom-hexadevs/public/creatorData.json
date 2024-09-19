@@ -1,0 +1,48 @@
+[
+    {
+      "id": 1,
+      "name": "Samantha Reed",
+      "profilePicture": "https://i.pinimg.com/736x/bf/44/de/bf44de2335a5ca3e5a181228546aa599.jpg",
+      "bio": "Podcast host of 'Mindful Minutes,' exploring mindfulness, meditation, and mental well-being.",
+      "followers": 12350,
+      "totalPodcasts": 56,
+      "badge": "Top Creator",
+      "highestListener": 34500,
+      "socialLinks": {
+        "twitter": "https://twitter.com/samantha_reed",
+        "instagram": "https://instagram.com/samantha_reed",
+        "website": "https://mindfulminutes.com"
+      }
+    },
+    {
+      "id": 2,
+      "name": "Billal Abbas",
+      "profilePicture": "https://i.pinimg.com/736x/e6/94/ea/e694eae30d7e8255fe778258062838a3.jpg",
+      "bio": "Tech enthusiast and creator of 'Future Talks,' covering AI, blockchain, and future tech trends.",
+      "followers": 20500,
+      "totalPodcasts": 89,
+      "badge": "Highest Listener",
+      "highestListener": 54000,
+      "socialLinks": {
+        "twitter": "https://twitter.com/david_jenkins",
+        "instagram": "https://instagram.com/david_jenkins",
+        "website": "https://futuretalks.com"
+      }
+    },
+    {
+      "id": 3,
+      "name": "Emma Watson",
+      "profilePicture": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQlUFBJT2UgtdB7OQxOg_Ctue-Ve4-HmVjsHw&s",
+      "bio": "Creator of 'Literary Haven,' where books meet insightful discussions and interviews with authors.",
+      "followers": 17800,
+      "totalPodcasts": 65,
+      "badge": "Most Listened",
+      "highestListener": 48000,
+      "socialLinks": {
+        "twitter": "https://twitter.com/emma_watson",
+        "instagram": "https://instagram.com/emma_watson",
+        "website": "https://literaryhaven.com"
+      }
+    }
+  ]
+  

@@ -1,15 +1,14 @@
 import Banner from "../../components/Banner/Banner";
-import Navbar from "../../components/Shared/Navbar";
+import Newsletter from "./OtherSections/Newsletter";
+import TopCreator from "./OtherSections/TopCreator";
 
 const Home = () => {
     return (
-        <div className="container mx-auto">
-<<<<<<< HEAD
-            <Navbar></Navbar>
+        <div className="w-full space-y-12 md:w-4/5 mx-auto">
+
             <Banner></Banner>
-=======
-            
->>>>>>> 13a2dc51c6fd876d884640e9ea64c1f9500c5bc6
+            <TopCreator></TopCreator>
+            <Newsletter></Newsletter>
         </div>
     );
 };
