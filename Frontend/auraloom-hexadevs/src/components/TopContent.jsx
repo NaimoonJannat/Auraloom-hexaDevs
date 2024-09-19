@@ -38,7 +38,7 @@ const TopContent = () => {
                     //onAutoplayTimeLeft={onAutoplayTimeLeft}
                     className="mySwiper"
                 >
-                    <div className=''>
+                    <div className='border border-white'>
                         <SwiperSlide>
                             <div
                                 className="hero min-h-screen"
@@ -50,10 +50,9 @@ const TopContent = () => {
                                     <div className="max-w-xl">
                                         <h1 className="mb-5 text-5xl font-bold">Mental health awareness and self-care practices</h1>
                                         <p className="mb-5">
-                                            Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi exercitationem
-                                            quasi. In deleniti eaque aut repudiandae et a id nisi.
+                                            A Nature survey shows many scientists expect the virus that causes COVID-19 to become...
                                         </p>
-                                        <button className="btn btn-primary">Explore Now</button>
+                                        <button className="btn border-white btn-primary">Explore Now</button>
                                     </div>
                                 </div>
                             </div>
@@ -67,12 +66,11 @@ const TopContent = () => {
                                 <div className="hero-overlay bg-opacity-60"></div>
                                 <div className="hero-content text-neutral-content text-center">
                                     <div className="max-w-xl">
-                                        <h1 className="mb-5 text-5xl font-bold">Mental health awareness and self-care practices</h1>
+                                        <h1 className="mb-5 text-5xl font-bold">Dating and navigating the modern dating scene</h1>
                                         <p className="mb-5">
-                                            Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi exercitationem
-                                            quasi. In deleniti eaque aut repudiandae et a id nisi.
+                                            A look back at history shows that women have made great strides in the fight for equality...
                                         </p>
-                                        <button className="btn btn-primary">Explore Now</button>
+                                        <button className="btn border-white btn-primary">Explore Now</button>
                                     </div>
                                 </div>
                             </div>
@@ -86,23 +84,17 @@ const TopContent = () => {
                                 <div className="hero-overlay bg-opacity-60"></div>
                                 <div className="hero-content text-neutral-content text-center">
                                     <div className="max-w-xl">
-                                        <h1 className="mb-5 text-5xl font-bold">Mental health awareness and self-care practices</h1>
+                                        <h1 className="mb-5 text-5xl font-bold">Building and maintaining healthy relationships</h1>
                                         <p className="mb-5">
-                                            Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi exercitationem
-                                            quasi. In deleniti eaque aut repudiandae et a id nisi.
+                                            Social class refers to a group of people with similar levels of wealth, influence, and...
                                         </p>
-                                        <button className="btn btn-primary">Explore Now</button>
+                                        <button className="btn border-white btn-primary">Explore Now</button>
                                     </div>
                                 </div>
                             </div>
                         </SwiperSlide>
 
-                        {/* <div className="autoplay-progress" slot="container-end">
-                            <svg viewBox="0 0 48 48" ref={progressCircle}>
-                                <circle cx="24" cy="24" r="20"></circle>
-                            </svg>
-                            <span ref={progressContent}></span>
-                        </div> */}
+
                     </div>
 
                 </Swiper>
