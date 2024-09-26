@@ -30,13 +30,13 @@ const page = () => {
 
             {/* Review Carousel */}
             <div className="flex flex-col mt-4 md:mt-14 lg:mt-16 justify-center items-center mb-16">
-                <div className="lg:carousel md:carousel carousel-center w-2/5 p-4 space-x-4 rounded-box hidden bg-[#90E0EF] ">
+                <div className="lg:carousel md:carousel carousel-center w-2/5 p-4 space-x-4 rounded-box hidden bg-[#0077B6] ">
                 {/* LARGE DEVICE */}
                     {
-                        reviews.map(rev=> <div key={rev.id} className="carousel-item md:w-3/5 lg:w-3/6 rounded-box flex flex-col gap-6 text-center p-20 bg-[linear-gradient(45deg,rgba(19,19,24,0.50),rgba(19,19,24,0.50)),url('https://i.ibb.co/V9z4RgS/food-bg-1-min.jpg')] bg-cover"> 
+                        reviews.map(rev=> <div key={rev.id} className="carousel-item md:w-3/5 lg:w-3/6 rounded-box flex flex-col gap-6 text-center p-20 bg-gradient-to-b from-[#90E0EF] to-[#00B4D8]"> 
                         {/* <FaUserCircle className="text-[#CCC3AA] mx-auto text-5xl"></FaUserCircle> */}
-                        <h2 className="md:text-xl lg:text-2xl font-semibold text-[#90E0EF]">{rev.username}</h2>
-                        <p className="text-[#90E0EF] md:text-base lg:text-xl leading-relaxed"><span className="text-2xl font-bold ">"</span>{rev.comment}<span className="text-2xl font-bold">"</span></p> 
+                        <h2 className="md:text-xl lg:text-2xl font-semibold text-[#03045E]">{rev.username}</h2>
+                        <p className="text-[#03045E] md:text-base lg:text-xl leading-relaxed"><span className="text-2xl font-bold ">"</span>{rev.comment}<span className="text-2xl font-bold">"</span></p> 
                         </div> )
                         
                     }
