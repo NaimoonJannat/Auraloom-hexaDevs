@@ -19,7 +19,7 @@ const page = () => {
         .then(data => setReviews(data.comments));
     },[])
 
-    console.log(reviews);
+    // console.log(reviews);
 
 
     return (
