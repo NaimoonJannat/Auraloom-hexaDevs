@@ -1,10 +1,11 @@
-import LogIn from '@/Components/LogIn/LogIn';
+
+import AddPodcast from '@/Components/add-podcast/AddPodcast';
 import React from 'react';
 
 const page = () => {
     return (
         <div>
-           <LogIn></LogIn> 
+            <AddPodcast></AddPodcast>
         </div>
     );
 };
