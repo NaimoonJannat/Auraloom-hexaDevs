@@ -12,7 +12,7 @@ export default function Home() {
         <TrendingContent></TrendingContent>
         <TopContent></TopContent>
       </div>
-        <Footer></Footer>
+      <Footer></Footer>
     </div>
   );
 }
