@@ -28,7 +28,7 @@ const TopContent = () => {
                     <div className="absolute inset-0 z-10 bg-gradient-to-t from-black"></div>
                     <div className="absolute inset-x-0 bottom-0 z-20 p-4">
                         <div className='flex items-center gap-2'>
-                            <p className="mb-1 text-sm text-white text-opacity-80">Andrea Felsted</p>
+                            <p className="mb-1 text-sm text-white text-opacity-80">Andrea Chase</p>
                             <CiMicrophoneOn className='text-[#00b4d8] text-lg' />
                         </div>
 
