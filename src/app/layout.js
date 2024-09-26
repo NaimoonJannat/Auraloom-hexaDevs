@@ -29,11 +29,6 @@ export default function RootLayout({ children }) {
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-
-        <TrendingContent />
-        <TopContent />
-        {children}
-
         <AuthProvider>
           {children}
         </AuthProvider>
