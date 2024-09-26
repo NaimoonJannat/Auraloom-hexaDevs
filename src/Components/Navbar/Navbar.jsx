@@ -27,7 +27,7 @@ const Navbar = () => {
         <Link href={"/settings"}>Settings</Link>
       </li>
       <li>
-        <Link href={"/buy-package"}>Be a Pro</Link>
+        <Link href={"/pro-mode"}>Be a Pro</Link>
       </li>
       <li>
         <button onClick={signOutUser}>Log Out</button>
@@ -56,7 +56,7 @@ const Navbar = () => {
                 </Link>
               </li>
               <li className="flex">
-                <Link rel="noopener noreferrer" href="/menu">
+                <Link rel="noopener noreferrer" href="/directory">
                   Menu
                 </Link>
               </li>
@@ -93,7 +93,7 @@ const Navbar = () => {
                     </Link>
                   </li>
                   <li className="flex">
-                    <Link rel="noopener noreferrer" href="/menu">
+                    <Link rel="noopener noreferrer" href="/directory">
                       Menu
                     </Link>
                   </li>
@@ -137,7 +137,7 @@ const Navbar = () => {
                 </Link>
               </li>
               <li className="flex">
-                <Link rel="noopener noreferrer" href="/menu">
+                <Link rel="noopener noreferrer" href="/directory">
                   Menu
                 </Link>
               </li>
@@ -174,7 +174,7 @@ const Navbar = () => {
                     </Link>
                   </li>
                   <li className="flex">
-                    <Link rel="noopener noreferrer" href="/menu">
+                    <Link rel="noopener noreferrer" href="/directory">
                       Menu
                     </Link>
                   </li>
