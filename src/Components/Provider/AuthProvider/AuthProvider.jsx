@@ -40,7 +40,7 @@ const AuthProvider = ({ children }) => {
         signOut(auth);
     };
 
-    // ovserver
+    // observer
     useEffect(() => {
         onAuthStateChanged(auth, (user) => {
             if (user) {
