@@ -63,85 +63,84 @@ const Register = () => {
 
     return (
         <div>
-            <section className="bg-white dark:bg-gray-200">
-                <div className="flex justify-center min-h-screen">
-                    <div
-                        className="bg-cover md:block md:w-2/5 lg:block lg:w-2/5"
-                        style={{
-                            backgroundImage: "url('https://i.ibb.co.com/ngW6qjg/pexels-photo-1081685.webp')",
-                        }}
-                    ></div>
 
-                    <div className="flex items-center w-full max-w-3xl p-8 mx-auto lg:px-12 lg:w-3/5">
-                        <div className="w-full">
-                            <div className="text-center">
-                                <div className="">
-                                    <img className="w-20 lg:w-36 h-12 lg:h-20 mx-auto" src="https://i.ibb.co.com/ssjWYHm/logo.png" alt="" />
-                                </div>
-                                {/* <p className="mt-3 text-sky-700 dark:text-sky-700">Log In to Your Account</p> */}
-                            </div>
+            <div className='font-montserrat my-20 flex w-full max-w-sm mx-auto overflow-hidden bg-white rounded-lg shadow-lg  lg:max-w-4xl '>
+                <div
+                    className='hidden bg-cover bg-center lg:block lg:w-1/2'
+                    style={{
+                        backgroundImage: `url('https://i.postimg.cc/cH15hgM4/vinyl-3557749-1280.jpg')`,
+                    }}
+                >
+                </div>
+                <div className='w-full px-6 py-8 md:px-8 lg:w-1/2'>
 
-                            <p className="mt-4 text-sky-950 dark:text-sky-950">
-                                Start your journey with us by creating a new account. Sign up now to unlock exclusive features, connect with opportunities, and elevate your career path.
-                            </p>
+                    <p className='mt-3 lg:text-2xl font-medium text-[16px] text-center text-[#161D6F] '>
+                        Welcome to Auraloom!
+                    </p>
+                    <div className='flex items-center justify-between mt-4'>
+                        <span className='w-1/5 border-b border-[#161D6F] lg:w-1/4'></span>
+                        <div className='text-xs text-center text-[#161D6F] uppercase  hover:underline'>
+                            Sign Up  with email
+                        </div>
+                        <span className='w-1/5 border-b border-[#161D6F]  lg:w-1/4'></span>
+                    </div>
+                    <form onSubmit={handleSubmit(onSubmit)} className="grid grid-cols-1 gap-6 mt-8 md:grid-cols-2">
+                        <div>
+                            <label className="block mb-2 text-sm text-sky-950 dark:text-sky-950">Name</label>
+                            <input
+                                type="text"
+                                placeholder="Your name"
+                                className="block w-full px-5 py-3 mt-2w-full  border rounded-md border-gray-300 focus:outline-[#98DED9]  text-gray-900"
+                                {...register("FullName", { required: true })}
+                            />
+                            {errors.FullName && (
+                                <span className="text-red-500">This field is required</span>
+                            )}
+                        </div>
 
-                            <form onSubmit={handleSubmit(onSubmit)} className="grid grid-cols-1 gap-6 mt-8 md:grid-cols-2">
-                                <div>
-                                    <label className="block mb-2 text-sm text-sky-950 dark:text-sky-950">Name</label>
-                                    <input
-                                        type="text"
-                                        placeholder="Your name"
-                                        className="block w-full px-5 py-3 mt-2 text-sky-950 placeholder-gray-950 bg-white border border-gray-950 rounded-lg dark:placeholder-gray-600 dark:bg-gray-900 dark:text-sky-300 dark:border-gray-700 focus:border-blue-950 dark:focus:border-blue-950 focus:ring-blue-950 focus:outline-none focus:ring focus:ring-opacity-40"
-                                        {...register("FullName", { required: true })}
-                                    />
-                                    {errors.FullName && (
-                                        <span className="text-red-500">This field is required</span>
-                                    )}
-                                </div>
+                        <div>
+                            <label className="block mb-2 text-sm text-sky-950 dark:text-sky-950">Photo URL</label>
+                            <input
+                                type="text"
+                                placeholder="Photo URL"
+                                className="block w-full px-5 py-3 mt-2w-full  border rounded-md border-gray-300 focus:outline-[#98DED9]  text-gray-900"
+                                {...register("photo_url", { required: true })}
+                            />
+                            {errors.photo_url && (
+                                <span className="text-red-500">This field is required</span>
+                            )}
+                        </div>
 
-                                <div>
-                                    <label className="block mb-2 text-sm text-sky-950 dark:text-sky-950">Photo URL</label>
-                                    <input
-                                        type="text"
-                                        placeholder="Photo URL"
-                                        className="block w-full px-5 py-3 mt-2 text-sky-950 placeholder-gray-950 bg-white border border-gray-950 rounded-lg dark:placeholder-gray-600 dark:bg-gray-900 dark:text-sky-300 dark:border-gray-700 focus:border-blue-950 dark:focus:border-blue-950 focus:ring-blue-950 focus:outline-none focus:ring focus:ring-opacity-40"
-                                        {...register("photo_url", { required: true })}
-                                    />
-                                    {errors.photo_url && (
-                                        <span className="text-red-500">This field is required</span>
-                                    )}
-                                </div>
+                        <div>
+                            <label className="block mb-2 text-sm text-sky-950 dark:text-sky-950">Email address</label>
+                            <input
+                                type="email"
+                                placeholder="Email"
+                               className="block w-full px-5 py-3 mt-2w-full  border rounded-md border-gray-300 focus:outline-[#98DED9]  text-gray-900"
+                                {...register("email", { required: true })}
+                            />
+                            {errors.email && (
+                                <span className="text-red-500">This field is required</span>
+                            )}
+                        </div>
 
-                                <div>
-                                    <label className="block mb-2 text-sm text-sky-950 dark:text-sky-950">Email address</label>
-                                    <input
-                                        type="email"
-                                        placeholder="Email"
-                                        className="block w-full px-5 py-3 mt-2 text-sky-950 placeholder-gray-950 bg-white border border-gray-950 rounded-lg dark:placeholder-gray-600 dark:bg-gray-900 dark:text-sky-300 dark:border-gray-700 focus:border-blue-950 dark:focus:border-blue-950 focus:ring-blue-950 focus:outline-none focus:ring focus:ring-opacity-40"
-                                        {...register("email", { required: true })}
-                                    />
-                                    {errors.email && (
-                                        <span className="text-red-500">This field is required</span>
-                                    )}
-                                </div>
+                        <div>
+                            <label className="block mb-2 text-sm text-sky-950 dark:text-sky-950">Password</label>
+                            <input
+                                type={showPassword ? "text" : "password"}
+                                placeholder="Password"
+                               className="block w-full px-5 py-3 mt-2w-full  border rounded-md border-gray-300 focus:outline-[#98DED9]  text-gray-900"
+                                {...register("password", { required: true })}
+                            />
+                            <span className="absolute top-96 right-24" onClick={() => setShowPassword(!showPassword)}>
+                                {/* {showPassword ? <FaEyeSlash /> : <FaEye />} */}
+                            </span>
+                            {errors.password && (
+                                <span className="text-red-500">This field is required</span>
+                            )}
+                        </div>
 
-                                <div>
-                                    <label className="block mb-2 text-sm text-sky-950 dark:text-sky-950">Password</label>
-                                    <input
-                                        type={showPassword ? "text" : "password"}
-                                        placeholder="Password"
-                                        className="block w-full px-5 py-3 mt-2 text-sky-950 placeholder-gray-950 bg-white border border-gray-950 rounded-lg dark:placeholder-gray-600 dark:bg-gray-900 dark:text-sky-300 dark:border-gray-700 focus:border-blue-950 dark:focus:border-blue-950 focus:ring-blue-950 focus:outline-none focus:ring focus:ring-opacity-40"
-                                        {...register("password", { required: true })}
-                                    />
-                                    <span className="absolute top-96 right-24" onClick={() => setShowPassword(!showPassword)}>
-                                        {/* {showPassword ? <FaEyeSlash /> : <FaEye />} */}
-                                    </span>
-                                    {errors.password && (
-                                        <span className="text-red-500">This field is required</span>
-                                    )}
-                                </div>
-
-                                <button className="flex items-center justify-between w-full px-6 py-3 text-sm tracking-wide text-white capitalize transition-colors duration-300 transform bg-blue-500 rounded-lg hover:bg-blue-950 focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-50">
+                        {/* <button className="flex items-center justify-between w-full px-6 py-3 text-sm tracking-wide text-white capitalize transition-colors duration-300 transform bg-blue-500 rounded-lg hover:bg-blue-950 focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-50">
                                     <span>Sign Up</span>
                                     <svg xmlns="http://www.w3.org/2000/svg" className="w-5 h-5 rtl:-scale-x-100" viewBox="0 0 20 20" fill="currentColor">
                                         <path
@@ -150,24 +149,25 @@ const Register = () => {
                                             clipRule="evenodd"
                                         />
                                     </svg>
-                                    <Toaster />
-                                </button>
-                            </form>
-
-                            <div>
-                                <p className="mt-4 text-center text-sky-950 dark:text-sky-950">or sign in with</p>
-                                <SocialLogin />
-                                <p className="mt-4 text-center text-sky-950 dark:text-sky-950">
-                                    Already have an account?{" "}
-                                    <Link href="/log-in" className="underline text-sky-950 dark:text-sky-950">
-                                        Log In
-                                    </Link>
-                                </p>
-                            </div>
+                                    
+                                </button> */}
+                        <div className="form-control mt-6 w-full col-span-2">
+                            <button className="btn bg-[#00b4d8] rounded-lg hover:bg-[#0077b6] text-white">Sign Up</button>
+                            <Toaster />
                         </div>
+                    </form>
+                    <div>
+                        <p className="mt-4 text-center text-sky-950 dark:text-sky-950">or sign in with</p>
+                        <SocialLogin />
+                        <p className="mt-4 text-center text-sky-950 dark:text-sky-950">
+                            Already have an account?{" "}
+                            <Link href="/log-in" className="underline text-sky-950 dark:text-sky-950">
+                                Log In
+                            </Link>
+                        </p>
                     </div>
                 </div>
-            </section>
+            </div>
         </div>
     );
 };
