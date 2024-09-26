@@ -1,6 +1,11 @@
 import localFont from "next/font/local";
 import "./globals.css";
+
+import TopContent from "@/components/TopContent";
+import TrendingContent from "@/components/TrendingContent";
+
 import AuthProvider from "@/Components/Provider/AuthProvider/AuthProvider";
+
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -24,9 +29,15 @@ export default function RootLayout({ children }) {
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
+
+        <TrendingContent />
+        <TopContent />
+        {children}
+
         <AuthProvider>
           {children}
         </AuthProvider>
+
       </body>
     </html>
   );
