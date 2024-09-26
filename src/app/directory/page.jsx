@@ -1,4 +1,4 @@
-"use client"
+"use client";
 
 import SectionTitle from "@/Components/Heading/SectionTitle";
 import { useEffect, useState } from "react";
@@ -17,7 +17,7 @@ const page = () => {
         const fetchData = async () => {
             try {
                 console.log("Fetching data...");
-                const response = await fetch('/data.json'); // Adjust the path if needed
+                const response = await fetch('http://localhost:5000/podcasts'); // Adjust the path if needed
 
                 if (!response.ok) {
                     throw new Error("Failed to fetch data");
@@ -30,7 +30,7 @@ const page = () => {
 
                 // Filter podcasts by category and store in separate arrays
                 const tech = data.filter(podcast => podcast.category === 'Technology');
-                const lifestyle = data.filter(podcast => podcast.category === 'Lifestyle');
+                const lifestyle = data.filter(podcast => podcast.category === 'Life');
                 const entertainment = data.filter(podcast => podcast.category === 'Entertainment');
                 const food = data.filter(podcast => podcast.category === 'Food');
 

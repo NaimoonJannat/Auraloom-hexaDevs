@@ -18,7 +18,7 @@ const TopContent = () => {
             </span>
 
             {/* CARD */}
-
+            <div className='mx-auto'>
             <div className='grid gap-4 sm:grid-cols-2 md:gap-6 lg:grid-cols-3 xl:grid-cols-4 xl:gap-8 font-montserrat '>
                 <div className="relative mx-auto max-w-md overflow-hidden rounded-lg bg-white shadow scale-90">
                     <div>
@@ -69,6 +69,7 @@ const TopContent = () => {
                     </div>
                 </div>
 
+            </div>
             </div>
         </div>
     );
