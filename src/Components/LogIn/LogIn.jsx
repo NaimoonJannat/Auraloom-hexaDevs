@@ -85,7 +85,7 @@ const LogIn = () => {
                     </div>
                 </div>
 
-                <div className="bg-cover md:block md:w-2/5 lg:block lg:w-2/5" style={{ backgroundImage: "url(https://i.ibb.co.com/tPFZRsg/guitar-classical-guitar-acoustic-guitar-electric-guitar.webp)" }}>
+                <div className="bg-cover md:block md:w-2/5 lg:block lg:w-2/5" style={{ backgroundImage: "url(https://i.ibb.co.com/ngW6qjg/pexels-photo-1081685.webp)" }}>
                     <div className="flex items-center h-full px-20 bg-gray-900 bg-opacity-40">
                         <div>
                             <h2 className="text-2xl font-bold text-white sm:text-3xl">Log In to Your Account</h2>
