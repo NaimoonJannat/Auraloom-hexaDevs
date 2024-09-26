@@ -3,8 +3,9 @@ import "./globals.css";
 
 import TopContent from "@/Components/Home/TopContent";
 import TrendingContent from "@/Components/Home/TrendingContent";
-
 import AuthProvider from "@/Components/Provider/AuthProvider/AuthProvider";
+
+//import AuthProvider from "@/Components/Provider/AuthProvider/AuthProvider";
 
 
 const geistSans = localFont({
@@ -29,10 +30,6 @@ export default function RootLayout({ children }) {
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-
-        <TrendingContent />
-        <TopContent />
-        {children}
 
         <AuthProvider>
           {children}
