@@ -1,0 +1,31 @@
+{
+  "id": "64829a3e-32d1-4ebc-a2bb-27e4de349e7d",
+  "title": "Tech Innovations",
+  "artist": "TechTalks",
+  "cover": "https://i.ibb.co.com/XFtwyS3/images-1.png",
+  "category": "Technology",
+  "plays": 1250,
+  "upvotes": 200,
+  "downvotes": 10,
+  "comments": [
+    {
+      "id": "c1fb9b3c-8a6d-42f7-a62f-2bb66f992f8e",
+      "username": "John Doe",
+      "email": "john.doe@example.com",
+      "comment": "A very informative podcast indeed!"
+    },
+    {
+      "id": "c210d3c7-5a3c-4b0e-bde6-7c33a646b07b",
+      "username": "Sarah Lee",
+      "email": "sarah.lee@example.com",
+      "comment": "The artist has a great way with words!"
+    },
+    {
+      "id": "4b9ec587-fcd2-41f6-9eae-7b36a85bc999",
+      "username": "Alex Green",
+      "email": "alex.green@example.com",
+      "comment": "A great message"
+    }
+  ],
+  "description": "Explore the cutting-edge world of technology with Tech Innovations! In this podcast, TechTalks dives deep into the latest trends, gadgets, and breakthroughs shaping our future. Whether you’re a tech enthusiast, an innovator, or just curious about how technology affects our daily lives, this podcast brings expert insights and thought-provoking discussions. From AI advancements to the next big smartphone release, we cover it all. Stay informed and ahead of the curve with each episode, as we take a look at how tech continues to transform industries, from healthcare to entertainment. Don’t miss out—tune in and get inspired!"
+}

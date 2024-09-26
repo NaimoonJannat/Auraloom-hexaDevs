@@ -16,6 +16,7 @@ module.exports = {
       },
     },
   },
+<<<<<<< HEAD
   plugins: [require('daisyui')],
   daisyui: {
     darkTheme: false,
@@ -24,4 +25,7 @@ module.exports = {
       "dark",
     ],
   },
+=======
+  plugins: [require('daisyui'),],
+>>>>>>> 05ef0d76dd2408a46ec14f2a804a182c1a622381
 };
