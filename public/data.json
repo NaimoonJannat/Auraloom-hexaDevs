@@ -1,9 +1,10 @@
 [
   {
-    "title": "Tech Innovations",
-    "artist": "TechTalks",
-    "cover": "",
-    "category": "Technology",
+    "title": "Secrets Episode 59",
+    "artist": "Rishad",
+    "cover": "https://t4.ftcdn.net/jpg/01/01/04/97/360_F_101049774_sEoWobtUla8ygcWQdczPHm1sToF4YDqG.jpg",
+    "audio": "https://drive.google.com/file/d/1xOEu4mvIol8D2jvIMDhWgXmVrmF7H7mf/preview",
+    "category": "Life",
     "plays": 1250,
     "upvotes": 200,
     "downvotes": 10,
@@ -11,10 +12,11 @@
     "description": "Explore the cutting-edge world of technology with Tech Innovations! In this podcast, TechTalks dives deep into the latest trends, gadgets, and breakthroughs shaping our future. Whether you’re a tech enthusiast, an innovator, or just curious about how technology affects our daily lives, this podcast brings expert insights and thought-provoking discussions. From AI advancements to the next big smartphone release, we cover it all. Stay informed and ahead of the curve with each episode, as we take a look at how tech continues to transform industries, from healthcare to entertainment. Don’t miss out—tune in and get inspired!"
   },
   {
-    "title": "Coding Unlocked",
-    "artist": "TechTalks",
-    "cover": "",
-    "category": "Technology",
+    "title": "Story of Life",
+    "artist": "Jisan Soaib",
+    "cover": "https://www.univariety.com/blog/wp-content/uploads/2014/08/motivational-goals.jpg",
+    "audio":"https://drive.google.com/file/d/1cqN6w8LunANFW7VWiXZwCGb3eBeYXkYw/preview",
+    "category": "Motivation",
     "plays": 950,
     "upvotes": 180,
     "downvotes": 15,
@@ -22,10 +24,10 @@
     "description": "Whether you're a seasoned developer or just starting your coding journey, 'Coding Unlocked' is your go-to resource for all things programming. In this podcast, TechTalks unpacks coding concepts, discusses popular programming languages, and shares tips for overcoming coding challenges. Each episode covers essential topics like debugging, best practices in development, and new coding tools, making it a perfect listen for developers of all skill levels. Get hands-on advice from industry experts, learn from real-life coding success stories, and unlock the secrets to becoming a more efficient coder. Tune in to 'Coding Unlocked' and level up your programming skills!"
   },
   {
-    "title": "Future of Work",
+    "title": "Kuasha FM Episode 122",
     "artist": "TechTalks",
-    "cover": "",
-    "category": "Technology",
+    "cover": "https://img.freepik.com/premium-photo/horror-creepy-scary-nature-environment_492154-1549.jpg",
+    "category": "Horror",
     "plays": 780,
     "upvotes": 140,
     "downvotes": 12,
