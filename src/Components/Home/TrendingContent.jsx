@@ -1,9 +1,9 @@
 import Image from 'next/image';
 import React from 'react';
-import img1 from '../../public/pexels-cottonbro-6686442.jpg'
-import img2 from '../../public/pexels-cottonbro-7598552.jpg'
-import img3 from '../../public/pexels-cowomen-1058097-2041381.jpg'
-import img4 from '../../public/pexels-george-milton-6954162.jpg'
+import img1 from '../../../public/pexels-cottonbro-6686442.jpg'
+import img2 from '../../../public/pexels-cottonbro-7598552.jpg'
+import img3 from '../../../public/pexels-cowomen-1058097-2041381.jpg'
+import img4 from '../../../public/pexels-george-milton-6954162.jpg'
 
 const TrendingContent = () => {
     return (

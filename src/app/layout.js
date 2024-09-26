@@ -1,8 +1,8 @@
 import localFont from "next/font/local";
 import "./globals.css";
 
-import TopContent from "@/components/TopContent";
-import TrendingContent from "@/components/TrendingContent";
+import TopContent from "@/Components/Home/TopContent";
+import TrendingContent from "@/Components/Home/TrendingContent";
 
 import AuthProvider from "@/Components/Provider/AuthProvider/AuthProvider";
 

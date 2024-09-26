@@ -1,9 +1,9 @@
 import Image from 'next/image';
 import React from 'react';
 import { CiMicrophoneOn } from "react-icons/ci";
-import img1 from '../../public/pexels-brett-sayles-3990842.jpg'
-import img2 from '../../public/kenny-eliason-h0rXrHzhFXU-unsplash.jpg'
-import img3 from '../../public/convertkit-soon-to-be-kit--CbLJAUI_js-unsplash.jpg'
+import img1 from '../../../public/pexels-brett-sayles-3990842.jpg'
+import img2 from '../../../public/kenny-eliason-h0rXrHzhFXU-unsplash.jpg'
+import img3 from '../../../public/convertkit-soon-to-be-kit--CbLJAUI_js-unsplash.jpg'
 
 
 const TopContent = () => {
