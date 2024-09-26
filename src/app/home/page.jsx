@@ -6,7 +6,6 @@ const home = () => {
         <div>
             <TopContent></TopContent>
             <TrendingContent></TrendingContent>
-            
         </div>
     );
 };
