@@ -10,8 +10,8 @@ import { IoMdNotificationsOutline } from "react-icons/io";
 
 
 const Navbar = () => {
-  // const { user, logout } = useContext(AuthContext);
-  const user = true;
+  //const { user, logout } = useContext(AuthContext);
+  const user = false;
   const signOutUser = () => {
     logout()
       .then(() => {})
@@ -79,7 +79,7 @@ const Navbar = () => {
                         <div className="w-10 rounded-full">
                           <Image
                             alt="Tailwind CSS Navbar component"
-                            src={user.photoURL ? user.photoURL : <FaRegUserCircle />}
+                            src={user?.photoURL ? user?.photoURL : <FaRegUserCircle />}
                           />
                         </div>
                       </div>
@@ -94,7 +94,7 @@ const Navbar = () => {
                 </>
               ) : (
                 <>
-                  <li className="flex">
+                  {/* <li className="flex">
                     <Link rel="noopener noreferrer" href="/">
                       Home
                     </Link>
@@ -108,7 +108,7 @@ const Navbar = () => {
                     <Link rel="noopener noreferrer" href="/notifications">
                     <IoMdNotificationsOutline />
                     </Link>
-                  </li>
+                  </li> */}
                   <li>
                     <Link href="/log-in" className="">
                       Sign In
@@ -171,7 +171,7 @@ const Navbar = () => {
                         <div className="w-10 rounded-full">
                           <Image
                             alt="Tailwind CSS Navbar component"
-                            src={user.photoURL ? user.photoURL : <FaRegUserCircle />}
+                            src={user?.photoURL ? user?.photoURL : <FaRegUserCircle />}
                           />
                         </div>
                       </div>

@@ -2,8 +2,8 @@ import Banner1 from "@/Components/Banners/Banner1";
 import Banner2 from "@/Components/Banners/Banner2";
 import CategorySelector from "@/Components/category-selector/CategorySelector";
 import Newsletter from "@/Components/Home/Newsletter";
-import TopCreator from "@/Components/Home/TopCreator";
-import TrendingContent from "@/Components/Home/TrendingContent";
+import TopCreator from "@/Components/Home/TopContent";
+import TrendingContent from "@/Components/Home/TopCreator";
 import TrendingTopic from "@/Components/Home/TrendingTopic";
 
 
