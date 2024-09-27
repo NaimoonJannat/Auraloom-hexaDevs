@@ -1,17 +1,17 @@
-import Footer from "@/Components/Footer/Footer";
-import TopContent from "@/Components/Home/TopContent";
+import CategorySelector from "@/Components/category-selector/CategorySelector";
+import Newsletter from "@/Components/Home/Newsletter";
+import TopCreator from "@/Components/Home/TopCreator";
 import TrendingContent from "@/Components/Home/TrendingContent";
-import Navbar from "@/Components/Navbar/Navbar";
+
 
 export default function Home() {
   return (
-    <div>
-      <div className="container mx-auto">
-        <Navbar></Navbar>
-        <TrendingContent></TrendingContent>
-        <TopContent></TopContent>
-      </div>
-      <Footer></Footer>
+    <div className="container mx-auto">
+      <TopCreator></TopCreator>
+            <TrendingContent></TrendingContent>
+            <CategorySelector></CategorySelector>
+            <Newsletter></Newsletter>
+
     </div>
   );
 }
