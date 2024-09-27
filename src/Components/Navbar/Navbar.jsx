@@ -10,8 +10,8 @@ import { IoMdNotificationsOutline } from "react-icons/io";
 
 
 const Navbar = () => {
-  // const { user, logout } = useContext(AuthContext);
-  const user = true;
+  //const { user, logout } = useContext(AuthContext);
+  const user = false;
   const signOutUser = () => {
     logout()
       .then(() => {})
@@ -37,7 +37,7 @@ const Navbar = () => {
     </>
   );
   return (
-    <div>
+    <div className="text-[#03045E]">
       <div className="navbar bg-[#CAF0F8] font-montserrat">
         <div className="navbar-start">
           <Link href="/" className="btn btn-ghost text-xl">
@@ -51,7 +51,7 @@ const Navbar = () => {
         <div className="navbar-center"></div>
         <div className="navbar-end flex gap-4">
           <div className="hidden lg:flex">
-            <ul className="menu menu-horizontal px-1 flex items-center gap-3">
+            <ul className="menu menu-horizontal px-1 flex items-center gap-3 text-lg font-medium">
               <li className="flex">
                 <Link rel="noopener noreferrer" href="/">
                   Home
@@ -64,7 +64,7 @@ const Navbar = () => {
               </li>
               <li className="flex">
                 <Link rel="noopener noreferrer" href="/notifications">
-                  <IoMdNotificationsOutline />
+                  <IoMdNotificationsOutline className="text-2xl"/>
                 </Link>
               </li>
               {user ? (
@@ -79,7 +79,7 @@ const Navbar = () => {
                         <div className="w-10 rounded-full">
                           <Image
                             alt="Tailwind CSS Navbar component"
-                            src={user.photoURL ? user.photoURL : <FaRegUserCircle />}
+                            src={user?.photoURL ? user?.photoURL : <FaRegUserCircle />}
                           />
                         </div>
                       </div>
@@ -94,7 +94,7 @@ const Navbar = () => {
                 </>
               ) : (
                 <>
-                  <li className="flex">
+                  {/* <li className="flex">
                     <Link rel="noopener noreferrer" href="/">
                       Home
                     </Link>
@@ -108,7 +108,7 @@ const Navbar = () => {
                     <Link rel="noopener noreferrer" href="/notifications">
                     <IoMdNotificationsOutline />
                     </Link>
-                  </li>
+                  </li> */}
                   <li>
                     <Link href="/log-in" className="">
                       Sign In
@@ -155,7 +155,8 @@ const Navbar = () => {
               </li>
               <li className="flex">
                 <Link rel="noopener noreferrer" href="/notifications">
-                <IoMdNotificationsOutline />
+                {/* <IoMdNotificationsOutline /> */}
+                Notifications
                 </Link>
               </li>
               {user ? (
@@ -170,7 +171,7 @@ const Navbar = () => {
                         <div className="w-10 rounded-full">
                           <Image
                             alt="Tailwind CSS Navbar component"
-                            src={user.photoURL ? user.photoURL : <FaRegUserCircle />}
+                            src={user?.photoURL ? user?.photoURL : <FaRegUserCircle />}
                           />
                         </div>
                       </div>
@@ -197,7 +198,8 @@ const Navbar = () => {
                   </li>
                   <li className="flex">
                     <Link rel="noopener noreferrer" href="/notifications">
-                    <IoMdNotificationsOutline />
+                    {/* <IoMdNotificationsOutline/> */}
+                    Notifications
                     </Link>
                   </li>
                   <li>
