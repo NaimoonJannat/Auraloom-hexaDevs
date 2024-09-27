@@ -1,4 +1,5 @@
 "use client";
+import Image from "next/image";
 import { useEffect, useState } from "react";
 
 const PodcastDetails = () => {
@@ -14,7 +15,7 @@ const PodcastDetails = () => {
     <div className="bg-[#CAF0F8] p-6 lg:p-10 md:w-2/3 lg:w-1/2 mx-auto rounded-xl md:mb-10 lg:mb-16">
       {/* Podcast Header Section */}
       <div className="flex flex-row gap-3 md:gap-6 lg:gap-10 mb-3 md:mb-6 lg:mb-10">
-        <img
+        <Image
           className="h-20 w-20 md:h-32 md:w-32 lg:h-44 lg:w-44 rounded-lg"
           src={podcast.cover}
           alt=""
@@ -115,19 +116,19 @@ const PodcastDetails = () => {
       {/* Podcast Stats */}
       <div className="text-[#00B4D8] text-[11px] md:text-sm lg:text-xl flex justify-around mt-3 md:mt-6 lg:mt-10">
         <div className="flex gap-1 md:gap-3 items-center">
-          <img className="w-4 h-4 md:w-6 md:h-6" src="/play.png" alt="play" />
+          <Image className="w-4 h-4 md:w-6 md:h-6" src="/play.png" alt="play" />
           <p>
             <span className="font-semibold ">{podcast.plays}</span> times
           </p>
         </div>
         <div className="flex gap-1 md:gap-3 items-center">
-          <img className="w-4 h-4 md:w-6 md:h-6 mt-1" src="/like_icon.png" alt="like" />
+          <Image className="w-4 h-4 md:w-6 md:h-6 mt-1" src="/like_icon.png" alt="like" />
           <p>
             <span className="font-semibold">{podcast.upvotes}</span> times
           </p>
         </div>
         <div className="flex gap-1 md:gap-3 items-center justify-center">
-          <img className="w-4 h-4 md:w-6 md:h-6 mt-1 md:mt-2" src="/dislike_icon.png" alt="dislike" />
+          <Image className="w-4 h-4 md:w-6 md:h-6 mt-1 md:mt-2" src="/dislike_icon.png" alt="dislike" />
           <p>
             <span className="font-semibold">{podcast.downvotes}</span> times
           </p>

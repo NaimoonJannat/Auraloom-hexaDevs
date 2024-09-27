@@ -1,6 +1,7 @@
 "use client";
 
 import SectionTitle from "@/Components/Heading/SectionTitle";
+import Image from "next/image";
 import { useEffect, useState } from "react";
 import { IoIosSearch } from "react-icons/io";
 
@@ -159,7 +160,7 @@ const page = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-14 mt-16 px-10">
             {
                 podcasts.map(podcast=> <div key={podcast._id} className="lg:px-8 lg:py-8 bg-[#CAF0F8] text-lg rounded-xl shadow-xl">
-                <figure><img className="mx-auto w-full rounded-xl" src={podcast.cover} alt="Shoes" /></figure>
+                <figure><Image className="mx-auto w-full rounded-xl" src={podcast.cover} alt="Shoes" /></figure>
                 <div className="card-body ">
                   <h2 className="font-bold text-lg lg:text-xl text-center mb-3">{podcast.title}</h2>
                   <p className="text-base md:text-lg lg:text-xl "><span className="font-bold">Artist:</span> {podcast.artist}</p>
