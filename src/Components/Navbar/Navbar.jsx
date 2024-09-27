@@ -103,6 +103,34 @@ const Navbar = () => {
                 </>
               ) : (
                 <>
+<<<<<<< HEAD
+                  {/* <li className="flex">
+                    <Link rel="noopener noreferrer" href="/">
+                      Home
+                    </Link>
+                  </li>
+                  <li className="flex">
+                    <Link rel="noopener noreferrer" href="/directory">
+                      Directory
+                    </Link>
+                  </li>
+                  <li className="flex">
+                    <Link rel="noopener noreferrer" href="/add-podcast">
+                      Add Podcast
+                    </Link>
+                  </li>
+                  <li className="flex">
+                    <Link rel="noopener noreferrer" href="/history">
+                      History
+                    </Link>
+                  </li>
+                  <li className="flex">
+                    <Link rel="noopener noreferrer" href="/notifications">
+                    <IoMdNotificationsOutline />
+                    </Link>
+                  </li> */}
+=======
+>>>>>>> c6869e040966dc5077ba1257015b923a3f962a91
                   <li>
                     <Link href="/log-in">Sign In</Link>
                   </li>
