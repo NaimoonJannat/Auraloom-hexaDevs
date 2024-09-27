@@ -8,15 +8,15 @@ import { AuthContext } from "../Provider/AuthProvider/AuthProvider";
 import { FaRegUserCircle } from "react-icons/fa";
 import { IoMdNotificationsOutline } from "react-icons/io";
 
-
 const Navbar = () => {
-  //const { user, logout } = useContext(AuthContext);
-  const user = false;
+  const { user, logout } = useContext(AuthContext);
+
   const signOutUser = () => {
     logout()
       .then(() => {})
       .catch(() => {});
   };
+
   const userLists = (
     <>
       <li>
@@ -36,16 +36,13 @@ const Navbar = () => {
       </li>
     </>
   );
+
   return (
     <div className="text-[#03045E]">
       <div className="navbar bg-[#CAF0F8] font-montserrat">
         <div className="navbar-start">
           <Link href="/" className="btn btn-ghost text-xl">
-            <Image
-              src={logo1}
-              className="w-40 h-10"
-              alt="Picture of the author"
-            />
+            <Image src={logo1} className="w-40 h-10" alt="Website logo" />
           </Link>
         </div>
         <div className="navbar-center"></div>
@@ -60,6 +57,16 @@ const Navbar = () => {
               <li className="flex">
                 <Link rel="noopener noreferrer" href="/directory">
                   Directory
+                </Link>
+              </li>
+              <li className="flex">
+                <Link rel="noopener noreferrer" href="/add-podcast">
+                  Add Podcast
+                </Link>
+              </li>
+              <li className="flex">
+                <Link rel="noopener noreferrer" href="/history">
+                  History
                 </Link>
               </li>
               <li className="flex">
@@ -78,8 +85,11 @@ const Navbar = () => {
                       >
                         <div className="w-10 rounded-full">
                           <Image
-                            alt="Tailwind CSS Navbar component"
-                            src={user?.photoURL ? user?.photoURL : <FaRegUserCircle />}
+                            src={user?.photoURL}
+                            width={40}
+                            height={40} // Specify image dimensions
+                            className="w-full"
+                            alt="User avatar"
                           />
                         </div>
                       </div>
@@ -94,6 +104,7 @@ const Navbar = () => {
                 </>
               ) : (
                 <>
+<<<<<<< HEAD
                   {/* <li className="flex">
                     <Link rel="noopener noreferrer" href="/">
                       Home
@@ -105,14 +116,24 @@ const Navbar = () => {
                     </Link>
                   </li>
                   <li className="flex">
+                    <Link rel="noopener noreferrer" href="/add-podcast">
+                      Add Podcast
+                    </Link>
+                  </li>
+                  <li className="flex">
+                    <Link rel="noopener noreferrer" href="/history">
+                      History
+                    </Link>
+                  </li>
+                  <li className="flex">
                     <Link rel="noopener noreferrer" href="/notifications">
                     <IoMdNotificationsOutline />
                     </Link>
                   </li> */}
+=======
+>>>>>>> eb521dd96cbe0229f9857df0d2bdd4af2481f2eb
                   <li>
-                    <Link href="/log-in" className="">
-                      Sign In
-                    </Link>
+                    <Link href="/log-in">Sign In</Link>
                   </li>
                   <Link href="/sign-up" className="btn bg-white font-bold">
                     Sign Up
@@ -154,9 +175,18 @@ const Navbar = () => {
                 </Link>
               </li>
               <li className="flex">
+                <Link rel="noopener noreferrer" href="/add-podcast">
+                  Add Podcast
+                </Link>
+              </li>
+              <li className="flex">
+                <Link rel="noopener noreferrer" href="/history">
+                  History
+                </Link>
+              </li>
+              <li className="flex">
                 <Link rel="noopener noreferrer" href="/notifications">
-                {/* <IoMdNotificationsOutline /> */}
-                Notifications
+                  <IoMdNotificationsOutline />
                 </Link>
               </li>
               {user ? (
@@ -170,8 +200,11 @@ const Navbar = () => {
                       >
                         <div className="w-10 rounded-full">
                           <Image
-                            alt="Tailwind CSS Navbar component"
-                            src={user?.photoURL ? user?.photoURL : <FaRegUserCircle />}
+                            src={user?.photoURL}
+                            width={40}
+                            height={40} // Specify image dimensions
+                            className="w-full"
+                            alt="User avatar"
                           />
                         </div>
                       </div>
@@ -197,19 +230,24 @@ const Navbar = () => {
                     </Link>
                   </li>
                   <li className="flex">
+                    <Link rel="noopener noreferrer" href="/add-podcast">
+                      Add Podcast
+                    </Link>
+                  </li>
+                  <li className="flex">
+                    <Link rel="noopener noreferrer" href="/history">
+                      History
+                    </Link>
+                  </li>
+                  <li className="flex">
                     <Link rel="noopener noreferrer" href="/notifications">
-                    {/* <IoMdNotificationsOutline/> */}
-                    Notifications
+                      <IoMdNotificationsOutline />
                     </Link>
                   </li>
                   <li>
-                    <Link href="/log-in" className="">
-                      Sign In
-                    </Link>
+                    <Link href="/log-in">Sign In</Link>
                   </li>
-                  <Link href="/sign-up">
-                    Sign Up
-                  </Link>
+                  <Link href="/sign-up">Sign Up</Link>
                 </>
               )}
             </ul>
