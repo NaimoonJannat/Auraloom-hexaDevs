@@ -1,3 +1,4 @@
+export const dynamic = "force-dynamic";
 import Banner1 from "@/Components/Banners/Banner1";
 import Banner2 from "@/Components/Banners/Banner2";
 import CategorySelector from "@/Components/category-selector/CategorySelector";

@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import React from 'react';
 
 const Notification = () => {
@@ -20,7 +21,7 @@ const Notification = () => {
                     </button>
                     <div className="flex space-x-4">
                         <div className="relative h-10 w-10">
-                            <img className="h-full w-full rounded-full object-cover object-center" src="https://images.unsplash.com/photo-1645378999013-95abebf5f3c1?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="" />
+                            <Image className="h-full w-full rounded-full object-cover object-center" src="https://images.unsplash.com/photo-1645378999013-95abebf5f3c1?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="" />
                             <span className="absolute right-0 bottom-0 h-2.5 w-2.5 rounded-full bg-green-400 ring ring-white"></span>
                         </div>
                         <div className="flex-1">
@@ -43,7 +44,7 @@ const Notification = () => {
                     </button>
                     <div className="flex space-x-4">
                         <div className="relative h-10 w-10">
-                            <img className="h-full w-full rounded-full object-cover object-center" src="https://images.unsplash.com/photo-1645378999013-95abebf5f3c1?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="" />
+                            <Image className="h-full w-full rounded-full object-cover object-center" src="https://images.unsplash.com/photo-1645378999013-95abebf5f3c1?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="" />
                             <span className="absolute right-0 bottom-0 h-2.5 w-2.5 rounded-full bg-green-400 ring ring-white"></span>
                         </div>
                         <div className="flex-1">
@@ -66,7 +67,7 @@ const Notification = () => {
                     </button>
                     <div className="flex space-x-4">
                         <div className="relative h-10 w-10">
-                            <img className="h-full w-full rounded-full object-cover object-center" src="https://images.unsplash.com/photo-1645378999013-95abebf5f3c1?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="" />
+                            <Image className="h-full w-full rounded-full object-cover object-center" src="https://images.unsplash.com/photo-1645378999013-95abebf5f3c1?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="" />
                             <span className="absolute right-0 bottom-0 h-2.5 w-2.5 rounded-full bg-green-400 ring ring-white"></span>
                         </div>
                         <div className="flex-1">

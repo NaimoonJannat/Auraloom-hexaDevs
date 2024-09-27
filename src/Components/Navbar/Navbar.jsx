@@ -23,7 +23,7 @@ const Navbar = () => {
         <Link href={"/dashboard"}>Dashboard</Link>
       </li>
       <li>
-        <Link href={"/profile"}>User Profile</Link>
+        <Link href={"/Creator-Profile"}>Profile</Link>
       </li>
       <li>
         <Link href={"/settings"}>Settings</Link>
@@ -104,6 +104,7 @@ const Navbar = () => {
                 </>
               ) : (
                 <>
+<<<<<<< HEAD
                   {/* <li className="flex">
                     <Link rel="noopener noreferrer" href="/">
                       Home
@@ -129,6 +130,8 @@ const Navbar = () => {
                     <IoMdNotificationsOutline />
                     </Link>
                   </li> */}
+=======
+>>>>>>> c6869e040966dc5077ba1257015b923a3f962a91
                   <li>
                     <Link href="/log-in">Sign In</Link>
                   </li>
