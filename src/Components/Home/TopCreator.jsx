@@ -6,7 +6,7 @@ import img2 from '../../../public/kenny-eliason-h0rXrHzhFXU-unsplash.jpg'
 import img3 from '../../../public/convertkit-soon-to-be-kit--CbLJAUI_js-unsplash.jpg'
 
 
-const TopContent = () => {
+const TopCreator = () => {
     return (
         <div>
             <span className="relative flex justify-center mt-20 mb-10 font-bold">
@@ -75,4 +75,4 @@ const TopContent = () => {
     );
 };
 
-export default TopContent;
+export default TopCreator;
