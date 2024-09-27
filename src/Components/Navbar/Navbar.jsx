@@ -63,6 +63,16 @@ const Navbar = () => {
                 </Link>
               </li>
               <li className="flex">
+                <Link rel="noopener noreferrer" href="/add-podcast">
+                  Add Podcast
+                </Link>
+              </li>
+              <li className="flex">
+                <Link rel="noopener noreferrer" href="/history">
+                  History
+                </Link>
+              </li>
+              <li className="flex">
                 <Link rel="noopener noreferrer" href="/notifications">
                   <IoMdNotificationsOutline className="text-2xl"/>
                 </Link>
@@ -102,6 +112,16 @@ const Navbar = () => {
                   <li className="flex">
                     <Link rel="noopener noreferrer" href="/directory">
                       Directory
+                    </Link>
+                  </li>
+                  <li className="flex">
+                    <Link rel="noopener noreferrer" href="/add-podcast">
+                      Add Podcast
+                    </Link>
+                  </li>
+                  <li className="flex">
+                    <Link rel="noopener noreferrer" href="/history">
+                      History
                     </Link>
                   </li>
                   <li className="flex">
@@ -154,6 +174,16 @@ const Navbar = () => {
                 </Link>
               </li>
               <li className="flex">
+                <Link rel="noopener noreferrer" href="/add-podcast">
+                  Add Podcast
+                </Link>
+              </li>
+              <li className="flex">
+                <Link rel="noopener noreferrer" href="/history">
+                  History
+                </Link>
+              </li>
+              <li className="flex">
                 <Link rel="noopener noreferrer" href="/notifications">
                 {/* <IoMdNotificationsOutline /> */}
                 Notifications
@@ -194,6 +224,16 @@ const Navbar = () => {
                   <li className="flex">
                     <Link rel="noopener noreferrer" href="/directory">
                       Directory
+                    </Link>
+                  </li>
+                  <li className="flex">
+                    <Link rel="noopener noreferrer" href="/add-podcast">
+                      Add Podcast
+                    </Link>
+                  </li>
+                  <li className="flex">
+                    <Link rel="noopener noreferrer" href="/history">
+                      History
                     </Link>
                   </li>
                   <li className="flex">
