@@ -6,6 +6,7 @@ import { useRouter } from "next/navigation";
 import Link from "next/link";
 import SocialLogin from "../SocialLogIn/SocialLogIn";
 import { AuthContext } from "../Provider/AuthProvider/AuthProvider";
+import Image from "next/image";
 
 const LogIn = () => {
     const { signInUser } = useContext(AuthContext);
@@ -38,7 +39,7 @@ const LogIn = () => {
                     <div className="flex-1">
                         <div className="text-center">
                             <div className="">
-                                <img className="w-20 lg:w-36 h-12 lg:h-20 mx-auto" src="https://i.ibb.co.com/ssjWYHm/logo.png" alt="" />
+                                <Image className="w-20 lg:w-36 h-12 lg:h-20 mx-auto" src="https://i.ibb.co.com/ssjWYHm/logo.png" alt="" />
                             </div>
                             <p className="mt-3 text-sky-700 dark:text-sky-700">Log In to Your Account</p>
                         </div>
