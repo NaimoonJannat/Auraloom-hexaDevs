@@ -38,7 +38,7 @@ const Navbar = () => {
   );
 
   return (
-    <div>
+    <div className="text-[#03045E]">
       <div className="navbar bg-[#CAF0F8] font-montserrat">
         <div className="navbar-start">
           <Link href="/" className="btn btn-ghost text-xl">
@@ -48,7 +48,7 @@ const Navbar = () => {
         <div className="navbar-center"></div>
         <div className="navbar-end flex gap-4">
           <div className="hidden lg:flex">
-            <ul className="menu menu-horizontal px-1 flex items-center gap-3">
+            <ul className="menu menu-horizontal px-1 flex items-center gap-3 text-lg font-medium">
               <li className="flex">
                 <Link rel="noopener noreferrer" href="/">
                   Home
@@ -61,7 +61,7 @@ const Navbar = () => {
               </li>
               <li className="flex">
                 <Link rel="noopener noreferrer" href="/notifications">
-                  <IoMdNotificationsOutline />
+                  <IoMdNotificationsOutline className="text-2xl"/>
                 </Link>
               </li>
               {user ? (
