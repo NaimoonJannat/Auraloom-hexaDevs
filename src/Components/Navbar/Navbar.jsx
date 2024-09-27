@@ -6,6 +6,8 @@ import logo1 from "./../../../public/logo.png";
 import { useContext } from "react";
 import { AuthContext } from "../Provider/AuthProvider/AuthProvider";
 import { FaRegUserCircle } from "react-icons/fa";
+import { IoMdNotificationsOutline } from "react-icons/io";
+
 
 const Navbar = () => {
   // const { user, logout } = useContext(AuthContext);
@@ -27,7 +29,7 @@ const Navbar = () => {
         <Link href={"/settings"}>Settings</Link>
       </li>
       <li>
-        <Link href={"/buy-package"}>Be a Pro</Link>
+        <Link href={"/pro-mode"}>Be a Pro</Link>
       </li>
       <li>
         <button onClick={signOutUser}>Log Out</button>
@@ -56,8 +58,13 @@ const Navbar = () => {
                 </Link>
               </li>
               <li className="flex">
-                <Link rel="noopener noreferrer" href="/menu">
-                  Menu
+                <Link rel="noopener noreferrer" href="/directory">
+                  Directory
+                </Link>
+              </li>
+              <li className="flex">
+                <Link rel="noopener noreferrer" href="/notifications">
+                  <IoMdNotificationsOutline />
                 </Link>
               </li>
               {user ? (
@@ -93,8 +100,13 @@ const Navbar = () => {
                     </Link>
                   </li>
                   <li className="flex">
-                    <Link rel="noopener noreferrer" href="/menu">
-                      Menu
+                    <Link rel="noopener noreferrer" href="/directory">
+                      Directory
+                    </Link>
+                  </li>
+                  <li className="flex">
+                    <Link rel="noopener noreferrer" href="/notifications">
+                    <IoMdNotificationsOutline />
                     </Link>
                   </li>
                   <li>
@@ -137,8 +149,13 @@ const Navbar = () => {
                 </Link>
               </li>
               <li className="flex">
-                <Link rel="noopener noreferrer" href="/menu">
-                  Menu
+                <Link rel="noopener noreferrer" href="/directory">
+                  Directory
+                </Link>
+              </li>
+              <li className="flex">
+                <Link rel="noopener noreferrer" href="/notifications">
+                <IoMdNotificationsOutline />
                 </Link>
               </li>
               {user ? (
@@ -174,8 +191,13 @@ const Navbar = () => {
                     </Link>
                   </li>
                   <li className="flex">
-                    <Link rel="noopener noreferrer" href="/menu">
-                      Menu
+                    <Link rel="noopener noreferrer" href="/directory">
+                      Directory
+                    </Link>
+                  </li>
+                  <li className="flex">
+                    <Link rel="noopener noreferrer" href="/notifications">
+                    <IoMdNotificationsOutline />
                     </Link>
                   </li>
                   <li>
