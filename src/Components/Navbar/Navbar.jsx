@@ -23,7 +23,7 @@ const Navbar = () => {
         <Link href={"/dashboard"}>Dashboard</Link>
       </li>
       <li>
-        <Link href={"/profile"}>User Profile</Link>
+        <Link href={"/Creator-Profile"}>User Profile</Link>
       </li>
       <li>
         <Link href={"/settings"}>Settings</Link>
@@ -104,34 +104,6 @@ const Navbar = () => {
                 </>
               ) : (
                 <>
-<<<<<<< HEAD
-                  {/* <li className="flex">
-                    <Link rel="noopener noreferrer" href="/">
-                      Home
-                    </Link>
-                  </li>
-                  <li className="flex">
-                    <Link rel="noopener noreferrer" href="/directory">
-                      Directory
-                    </Link>
-                  </li>
-                  <li className="flex">
-                    <Link rel="noopener noreferrer" href="/add-podcast">
-                      Add Podcast
-                    </Link>
-                  </li>
-                  <li className="flex">
-                    <Link rel="noopener noreferrer" href="/history">
-                      History
-                    </Link>
-                  </li>
-                  <li className="flex">
-                    <Link rel="noopener noreferrer" href="/notifications">
-                    <IoMdNotificationsOutline />
-                    </Link>
-                  </li> */}
-=======
->>>>>>> eb521dd96cbe0229f9857df0d2bdd4af2481f2eb
                   <li>
                     <Link href="/log-in">Sign In</Link>
                   </li>
