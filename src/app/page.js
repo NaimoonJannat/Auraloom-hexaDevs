@@ -1,13 +1,15 @@
-import TopContent from "@/Components/Home/TopContent";
+import CategorySelector from "@/Components/category-selector/CategorySelector";
+import TopCreator from "@/Components/Home/TopCreator";
 import TrendingContent from "@/Components/Home/TrendingContent";
-import Navbar from "@/Components/Navbar/Navbar";
+
 
 export default function Home() {
   return (
     <div className="container mx-auto">
-      <Navbar></Navbar>
-      <TrendingContent />
-      <TopContent />
+      <TopCreator></TopCreator>
+            <TrendingContent></TrendingContent>
+            <CategorySelector></CategorySelector>
+
     </div>
   );
 }

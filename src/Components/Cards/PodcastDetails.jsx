@@ -5,7 +5,7 @@ const PodcastDetails = () => {
   const [podcast, setPodcast] = useState({});
 
   useEffect(() => {
-    fetch("singlePodcast.json")
+    fetch("testPodcast.json")
       .then((res) => res.json())
       .then((data) => setPodcast(data));
   }, []);
