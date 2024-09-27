@@ -158,24 +158,34 @@ const page = () => {
                     <IoIosSearch />
                 </label>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-14 mt-16 px-10">
-            {
-<<<<<<< HEAD
-                podcasts.map(podcast=> <div key={podcast._id} className="lg:px-8 lg:py-8 bg-[#CAF0F8] text-lg rounded- shadow-xl">
-                <figure><img className="mx-auto w-full rounded-xl" src={podcast.cover} alt="Shoes" /></figure>
-=======
-                podcasts.map(podcast=> <div key={podcast._id} className="lg:px-8 lg:py-8 bg-[#CAF0F8] text-lg rounded-xl shadow-xl">
-                <figure><Image className="mx-auto w-full rounded-xl" src={podcast.cover} alt="Shoes" /></figure>
->>>>>>> c6869e040966dc5077ba1257015b923a3f962a91
-                <div className="card-body ">
-                  <h2 className="font-bold text-lg lg:text-xl text-center mb-3">{podcast.title}</h2>
-                  <p className="text-base md:text-lg lg:text-xl "><span className="font-bold">Artist:</span> {podcast.artist}</p>
-                  <p className="text-base md:text-lg lg:text-xl "><span className="font-bold">Played:</span> {podcast.plays}</p>
-                  {/* <div className="card-actions justify-end">
-                    <button className="btn btn-primary">Buy Now</button>
-                  </div> */}
-                </div>
-              </div>)
-            }
+        {
+  podcasts.map(podcast => (
+    <div key={podcast._id} className="lg:px-8 lg:py-8 bg-[#CAF0F8] text-lg rounded-xl shadow-xl">
+      <figure>
+        <Image
+          className="mx-auto w-full rounded-xl"
+          src={podcast.cover}
+          alt="Podcast cover"
+          width={600}  // Specify an appropriate width based on your design
+          height={400} // Specify an appropriate height based on the aspect ratio
+        />
+      </figure>
+      <div className="card-body">
+        <h2 className="font-bold text-lg lg:text-xl text-center mb-3">{podcast.title}</h2>
+        <p className="text-base md:text-lg lg:text-xl">
+          <span className="font-bold">Artist:</span> {podcast.artist}
+        </p>
+        <p className="text-base md:text-lg lg:text-xl">
+          <span className="font-bold">Played:</span> {podcast.plays}
+        </p>
+        {/* <div className="card-actions justify-end">
+          <button className="btn btn-primary">Buy Now</button>
+        </div> */}
+      </div>
+    </div>
+  ))
+}
+
         </div>
 
     </div>
