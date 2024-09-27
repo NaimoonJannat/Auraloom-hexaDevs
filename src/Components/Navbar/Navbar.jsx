@@ -104,7 +104,6 @@ const Navbar = () => {
                 </>
               ) : (
                 <>
-<<<<<<< HEAD
                   {/* <li className="flex">
                     <Link rel="noopener noreferrer" href="/">
                       Home
@@ -130,8 +129,6 @@ const Navbar = () => {
                     <IoMdNotificationsOutline />
                     </Link>
                   </li> */}
-=======
->>>>>>> eb521dd96cbe0229f9857df0d2bdd4af2481f2eb
                   <li>
                     <Link href="/log-in">Sign In</Link>
                   </li>
