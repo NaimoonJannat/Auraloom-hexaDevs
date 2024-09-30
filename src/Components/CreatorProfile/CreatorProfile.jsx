@@ -2,11 +2,14 @@ import Image from "next/image";
 import avatar from "./../../../public/avatar.png";
 import cover from "./../../../public/cover.jpg";
 import Link from "next/link";
+import { useContext } from "react";
+import { AuthContext } from "../Provider/AuthProvider/AuthProvider";
 
 const CreatorProfile = () => {
+  // const { user } = useContext(AuthContext);
   const creator = {
-    displayName: "Mahbub Sarwar",
-    title: "musician",
+    displayName: "Naimoon Jannat Prapti",
+    title: "artist",
     views: 10,
     followers: 15,
     contents: 25,
@@ -26,11 +29,14 @@ const CreatorProfile = () => {
           />
           <div className="flex flex-col items-center justify-center p-4 -mt-16">
             <a href="#" className="relative block">
-              <Image
-                alt="profile"
-                src={avatar}
-                className="mx-auto object-cover rounded-full h-24 w-24  border-2 border-white "
-              />
+            <Image
+  alt="profile"
+  src="https://lh3.googleusercontent.com/a/ACg8ocJ57DQTw_tk0TPy1ZuVf7tXXXsCo43Ifyb9YYhzLcouadNqnsc=s96-c"
+  className="mx-auto object-cover rounded-full h-24 w-24 border-2 border-white"
+  width={96} // specify appropriate width
+  height={96} // specify appropriate height
+/>
+
             </a>
 
             <div className="flex flex-col items-center mt-3">

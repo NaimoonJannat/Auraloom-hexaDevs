@@ -10,7 +10,6 @@ import { IoMdNotificationsOutline } from "react-icons/io";
 
 const Navbar = () => {
   const { user, logout } = useContext(AuthContext);
-
   const signOutUser = () => {
     logout()
       .then(() => { })
