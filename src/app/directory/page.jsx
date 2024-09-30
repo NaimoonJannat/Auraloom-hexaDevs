@@ -1,7 +1,9 @@
-"use client"
+"use client";
 
 import SectionTitle from "@/Components/Heading/SectionTitle";
+import Image from "next/image";
 import { useEffect, useState } from "react";
+import { IoIosSearch } from "react-icons/io";
 
 
 const page = () => {
@@ -28,21 +30,23 @@ const page = () => {
 
                 setPodcasts(data);
 
+
+
                 // Filter podcasts by category and store in separate arrays
-                const tech = data.filter(podcast => podcast.category === 'Technology');
-                const lifestyle = data.filter(podcast => podcast.category === 'Lifestyle');
-                const entertainment = data.filter(podcast => podcast.category === 'Entertainment');
-                const food = data.filter(podcast => podcast.category === 'Food');
+                // const tech = data.filter(podcast => podcast.category === 'Technology');
+                // const lifestyle = data.filter(podcast => podcast.category === 'Life');
+                // const entertainment = data.filter(podcast => podcast.category === 'Entertainment');
+                // const food = data.filter(podcast => podcast.category === 'Food');
 
-                console.log("Technology:", tech);  // Debug: Log the filtered tech podcasts
-                console.log("Lifestyle:", lifestyle);  // Debug: Log the filtered lifestyle podcasts
-                console.log("Entertainment:", entertainment);  // Debug: Log the filtered entertainment podcasts
-                console.log("Food:", food);  // Debug: Log the filtered food podcasts
+                // console.log("Technology:", tech);  
+                // console.log("Lifestyle:", lifestyle);  
+                // console.log("Entertainment:", entertainment); 
+                // console.log("Food:", food);  
 
-                setTechPodcasts(tech);
-                setLifestylePodcasts(lifestyle);
-                setEntertainmentPodcasts(entertainment);
-                setFoodPodcasts(food);
+                // setTechPodcasts(tech);
+                // setLifestylePodcasts(lifestyle);
+                // setEntertainmentPodcasts(entertainment);
+                // setFoodPodcasts(food);
 
                 setIsLoading(false);
             } catch (error) {
@@ -72,7 +76,7 @@ const page = () => {
             <div>
       
     {/* Technology Category */}
-    <SectionTitle title={"Technology"}></SectionTitle>
+    {/* <SectionTitle title={"Technology"}></SectionTitle>
       <div className="flex flex-col mt-4 md:mt-14 lg:mt-16 justify-center items-center mb-16">
             <div className="lg:carousel md:carousel carousel-center lg:w-10/12 p-4 space-x-4 rounded-box bg-transparent">
                 {techPodcasts.length ? (
@@ -88,10 +92,10 @@ const page = () => {
                     <div>No podcasts in the Technology category.</div>
                 )}
             </div>
-        </div>
+        </div> */}
 
       {/* Lifestyle Category */}
-      <SectionTitle title={"Lifestyle"}></SectionTitle>
+      {/* <SectionTitle title={"Lifestyle"}></SectionTitle>
       <div className="flex flex-col mt-4 md:mt-14 lg:mt-16 justify-center items-center mb-16">
             <div className="lg:carousel md:carousel carousel-center lg:w-10/12 p-4 space-x-4 rounded-box bg-transparent">
                     {lifestylePodcasts.length ? (
@@ -107,10 +111,10 @@ const page = () => {
                         <div>No podcasts in the Lifestyle category.</div>
                     )}
                 </div>
-            </div>
+            </div> */}
 
       {/* Entertainment Category */}
-      <SectionTitle title={"Entertainment"}></SectionTitle>
+      {/* <SectionTitle title={"Entertainment"}></SectionTitle>
       <div className="flex flex-col mt-4 md:mt-14 lg:mt-16 justify-center items-center mb-16">
             <div className="lg:carousel md:carousel carousel-center lg:w-10/12 p-4 space-x-4 rounded-box bg-transparent">
                     {entertainmentPodcasts.length ? (
@@ -126,10 +130,10 @@ const page = () => {
                         <div>No podcasts in the Entertainment category.</div>
                     )}
                 </div>
-            </div>
+            </div> */}
 
       {/* Food Category */}
-      <SectionTitle title={"Food"}></SectionTitle>
+      {/* <SectionTitle title={"Food"}></SectionTitle>
       <div className="flex flex-col mt-4 md:mt-14 lg:mt-16 justify-center items-center mb-16">
             <div className="lg:carousel md:carousel carousel-center lg:w-10/12 p-4 space-x-4 rounded-box bg-transparent">
                     {foodPodcasts.length ? (
@@ -145,7 +149,44 @@ const page = () => {
                         <div>No podcasts in the Food category.</div>
                     )}
                 </div>
-            </div>
+            </div> */}
+
+
+        <SectionTitle title={"Podcast Directory"}></SectionTitle>
+        <label className="input input-bordered flex w-fit mx-auto  items-center gap-2">
+                    <input type="text" className="w-fit" placeholder="Search" />
+                    <IoIosSearch />
+                </label>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-14 mt-16 px-10">
+        {
+  podcasts.map(podcast => (
+    <div key={podcast._id} className="lg:px-8 lg:py-8 bg-[#CAF0F8] text-lg rounded-xl shadow-xl">
+      <figure>
+        <Image
+          className="mx-auto w-full rounded-xl"
+          src={podcast.cover}
+          alt="Podcast cover"
+          width={600}  // Specify an appropriate width based on your design
+          height={400} // Specify an appropriate height based on the aspect ratio
+        />
+      </figure>
+      <div className="card-body">
+        <h2 className="font-bold text-lg lg:text-xl text-center mb-3">{podcast.title}</h2>
+        <p className="text-base md:text-lg lg:text-xl">
+          <span className="font-bold">Artist:</span> {podcast.artist}
+        </p>
+        <p className="text-base md:text-lg lg:text-xl">
+          <span className="font-bold">Played:</span> {podcast.plays}
+        </p>
+        {/* <div className="card-actions justify-end">
+          <button className="btn btn-primary">Buy Now</button>
+        </div> */}
+      </div>
+    </div>
+  ))
+}
+
+        </div>
 
     </div>
         </div>

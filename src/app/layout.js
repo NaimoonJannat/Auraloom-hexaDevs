@@ -1,10 +1,8 @@
 import localFont from "next/font/local";
 import "./globals.css";
-
-import TopContent from "@/Components/Home/TopContent";
-import TrendingContent from "@/Components/Home/TrendingContent";
-
 import AuthProvider from "@/Components/Provider/AuthProvider/AuthProvider";
+import Navbar from "@/Components/Navbar/Navbar";
+import Footer from "@/Components/Footer/Footer";
 
 
 const geistSans = localFont({
@@ -31,7 +29,9 @@ export default function RootLayout({ children }) {
       >
 
         <AuthProvider>
+        <Navbar></Navbar>
           {children}
+          <Footer></Footer>
         </AuthProvider>
 
       </body>

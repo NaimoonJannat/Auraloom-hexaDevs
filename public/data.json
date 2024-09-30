@@ -1,9 +1,10 @@
 [
   {
-    "title": "Tech Innovations",
-    "artist": "TechTalks",
-    "cover": "",
-    "category": "Technology",
+    "title": "Secrets Episode 59",
+    "artist": "Rishad",
+    "cover": "https://t4.ftcdn.net/jpg/01/01/04/97/360_F_101049774_sEoWobtUla8ygcWQdczPHm1sToF4YDqG.jpg",
+    "audio": "https://drive.google.com/file/d/1xOEu4mvIol8D2jvIMDhWgXmVrmF7H7mf/preview",
+    "category": "Life",
     "plays": 1250,
     "upvotes": 200,
     "downvotes": 10,
@@ -11,10 +12,11 @@
     "description": "Explore the cutting-edge world of technology with Tech Innovations! In this podcast, TechTalks dives deep into the latest trends, gadgets, and breakthroughs shaping our future. Whether you’re a tech enthusiast, an innovator, or just curious about how technology affects our daily lives, this podcast brings expert insights and thought-provoking discussions. From AI advancements to the next big smartphone release, we cover it all. Stay informed and ahead of the curve with each episode, as we take a look at how tech continues to transform industries, from healthcare to entertainment. Don’t miss out—tune in and get inspired!"
   },
   {
-    "title": "Coding Unlocked",
-    "artist": "TechTalks",
-    "cover": "",
-    "category": "Technology",
+    "title": "Story of Life",
+    "artist": "Jisan Soaib",
+    "cover": "https://www.univariety.com/blog/wp-content/uploads/2014/08/motivational-goals.jpg",
+    "audio":"https://drive.google.com/file/d/1cqN6w8LunANFW7VWiXZwCGb3eBeYXkYw/preview",
+    "category": "Motivation",
     "plays": 950,
     "upvotes": 180,
     "downvotes": 15,
@@ -22,10 +24,10 @@
     "description": "Whether you're a seasoned developer or just starting your coding journey, 'Coding Unlocked' is your go-to resource for all things programming. In this podcast, TechTalks unpacks coding concepts, discusses popular programming languages, and shares tips for overcoming coding challenges. Each episode covers essential topics like debugging, best practices in development, and new coding tools, making it a perfect listen for developers of all skill levels. Get hands-on advice from industry experts, learn from real-life coding success stories, and unlock the secrets to becoming a more efficient coder. Tune in to 'Coding Unlocked' and level up your programming skills!"
   },
   {
-    "title": "Future of Work",
+    "title": "Kuasha FM Episode 122",
     "artist": "TechTalks",
-    "cover": "",
-    "category": "Technology",
+    "cover": "https://img.freepik.com/premium-photo/horror-creepy-scary-nature-environment_492154-1549.jpg",
+    "category": "Horror",
     "plays": 780,
     "upvotes": 140,
     "downvotes": 12,
@@ -33,310 +35,582 @@
     "description": "In 'Future of Work,' TechTalks explores how technology is transforming the workplace. From remote work trends to the rise of AI-powered automation, this podcast covers the tools, techniques, and innovations reshaping industries worldwide. Hear from thought leaders in business and tech as they discuss how companies are adapting to new working conditions and what the future holds for employees and entrepreneurs alike. Whether you're an employer looking to stay competitive or a worker navigating the changing job market, 'Future of Work' offers valuable insights and practical tips. Tune in to stay ahead in the evolving world of work!"
   },
   {
-    "title": "Uncharted Realms",
-    "artist": "StoryTime",
-    "cover": "",
-    "category": "Entertainment",
-    "plays": 3200,
-    "upvotes": 450,
-    "downvotes": 35,
-    "comments": [],
-    "description": "Step into 'Uncharted Realms,' where adventure meets imagination! In this thrilling podcast, StoryTime takes you on epic journeys through magical worlds, distant galaxies, and untold stories. Whether you're a fan of fantasy, science fiction, or epic sagas, 'Uncharted Realms' has something for every adventurer at heart. Each episode weaves a tale filled with mystery, heroism, and unforgettable characters. Get ready to immerse yourself in captivating narratives that will transport you far beyond the everyday. Escape into the extraordinary and join us as we uncover the wonders of 'Uncharted Realms.' Perfect for fans of adventure and escapism!"
-  },
-  {
-    "title": "Mystery Chronicles",
-    "artist": "StoryTime",
-    "cover": "",
-    "category": "Entertainment",
-    "plays": 2750,
-    "upvotes": 400,
-    "downvotes": 22,
-    "comments": [],
-    "description": "Dive into 'Mystery Chronicles,' a podcast dedicated to unraveling the greatest unsolved mysteries of all time. StoryTime brings you captivating episodes filled with suspense, intrigue, and deep dives into cases that have puzzled investigators and enthusiasts for decades. From chilling disappearances to mysterious artifacts, each story is meticulously researched to provide listeners with thought-provoking insights and theories. If you love solving puzzles and exploring the unknown, 'Mystery Chronicles' will keep you on the edge of your seat. Tune in and let the mystery unfold before your ears!"
-  },
-  {
-    "title": "Literary Legends",
-    "artist": "StoryTime",
-    "cover": "",
-    "category": "Entertainment",
-    "plays": 1900,
-    "upvotes": 350,
-    "downvotes": 15,
-    "comments": [],
-    "description": "For book lovers and literary enthusiasts alike, 'Literary Legends' by StoryTime is a must-listen. Each episode delves into the lives, works, and legacies of iconic authors who have shaped the literary world. From Shakespeare to Tolstoy, Austen to Orwell, we explore the timeless stories and unforgettable characters that have influenced generations of readers. Whether you’re revisiting an old favorite or discovering a new literary icon, 'Literary Legends' provides insightful commentary and fascinating tidbits about the world’s greatest writers. Perfect for lovers of literature, storytelling, and cultural history—tune in for a journey through the pages of time."
-  },
-  {
-    "title": "Mindful Moments",
-    "artist": "Wellness Hub",
-    "cover": "",
-    "category": "Lifestyle",
-    "plays": 2300,
-    "upvotes": 410,
-    "downvotes": 20,
-    "comments": [],
-    "description": "In today's fast-paced world, taking time for mindfulness and reflection is more important than ever. 'Mindful Moments' by Wellness Hub offers you a sanctuary of calm and tranquility. Each episode is designed to help you pause, breathe, and reset. Whether you're new to meditation or a seasoned practitioner, these guided sessions focus on mindfulness techniques, relaxation exercises, and stress-relief tips to help you find balance in everyday life. Perfect for listening on your morning commute, during a lunch break, or before bedtime—'Mindful Moments' is your pocket guide to inner peace. Take a moment for yourself and tune in."
-  },
-  {
-    "title": "Health Hacks",
-    "artist": "Wellness Hub",
-    "cover": "",
-    "category": "Lifestyle",
-    "plays": 1750,
-    "upvotes": 320,
-    "downvotes": 18,
-    "comments": [],
-    "description": "'Health Hacks' by Wellness Hub is your go-to podcast for simple, effective tips to improve your well-being. Each episode is packed with easy-to-follow advice on nutrition, fitness, mental health, and lifestyle changes. Whether you're looking to boost your energy levels, improve your sleep, or start a new fitness routine, 'Health Hacks' offers practical guidance and expert insights to help you achieve your goals. With actionable tips that fit into even the busiest schedules, this podcast makes healthy living accessible to everyone. Tune in for your weekly dose of wellness inspiration!"
-  },
-  {
-    "title": "Fitness Fundamentals",
-    "artist": "Wellness Hub",
-    "cover": "",
-    "category": "Lifestyle",
-    "plays": 1900,
-    "upvotes": 290,
-    "downvotes": 12,
-    "comments": [],
-    "description": "Looking to kickstart your fitness journey or take your workouts to the next level? 'Fitness Fundamentals' by Wellness Hub is here to help! This podcast breaks down the basics of exercise and nutrition, offering listeners a clear, step-by-step guide to getting in shape and staying healthy. From strength training to cardio, meal planning to recovery, each episode is designed to empower you with the knowledge and motivation you need to reach your fitness goals. Whether you’re just starting out or you're an experienced gym-goer, 'Fitness Fundamentals' has something for everyone. Start listening and take your fitness game to new heights!"
-  },
-  {
-    "title": "Culinary Creations",
-    "artist": "Chef's Choice",
-    "cover": "",
-    "category": "Food",
-    "plays": 2550,
-    "upvotes": 350,
-    "downvotes": 18,
-    "comments": [],
-    "description": "Step into the world of gourmet food with 'Culinary Creations,' the podcast that celebrates the art of cooking. Hosted by Chef's Choice, each episode dives into the secrets behind mouth-watering dishes, creative recipes, and expert cooking techniques. Whether you're a home cook looking to sharpen your skills or a foodie eager to learn more about global cuisines, this podcast has something delicious in store for you. With interviews from top chefs and food enthusiasts, 'Culinary Creations' offers a blend of inspiration and practical tips to help you create masterpieces in your kitchen. Tune in, and start cooking like a pro!"
-  },
-
-
-
-
-  {
-    "title": "Tech Innovations",
-    "artist": "TechTalks",
-    "cover": "",
-    "category": "Technology",
+    "title": "Secrets Episode 59",
+    "artist": "Rishad",
+    "cover": "https://t4.ftcdn.net/jpg/01/01/04/97/360_F_101049774_sEoWobtUla8ygcWQdczPHm1sToF4YDqG.jpg",
+    "audio": "https://drive.google.com/file/d/1xOEu4mvIol8D2jvIMDhWgXmVrmF7H7mf/preview",
+    "category": "Life",
     "plays": 1250,
     "upvotes": 200,
     "downvotes": 10,
-    "comments": [],
+    "comments": [{
+      "id": "c1fb9b3c-8a6d-42f7-a62f-2bb66f992f8e",
+      "username": "John Doe",
+      "email": "john.doe@example.com",
+      "comment": "A very informative podcast indeed!"
+    },
+    {
+      "id": "c210d3c7-5a3c-4b0e-bde6-7c33a646b07b",
+      "username": "Sarah Lee",
+      "email": "sarah.lee@example.com",
+      "comment": "The artist has a great way with words!"
+    },
+    {
+      "id": "4b9ec587-fcd2-41f6-9eae-7b36a85bc999",
+      "username": "Alex Green",
+      "email": "alex.green@example.com",
+      "comment": "A great message"
+    }],
     "description": "Explore the cutting-edge world of technology with Tech Innovations! In this podcast, TechTalks dives deep into the latest trends, gadgets, and breakthroughs shaping our future. Whether you’re a tech enthusiast, an innovator, or just curious about how technology affects our daily lives, this podcast brings expert insights and thought-provoking discussions. From AI advancements to the next big smartphone release, we cover it all. Stay informed and ahead of the curve with each episode, as we take a look at how tech continues to transform industries, from healthcare to entertainment. Don’t miss out—tune in and get inspired!"
   },
   {
-    "title": "Coding Unlocked",
-    "artist": "TechTalks",
-    "cover": "",
-    "category": "Technology",
+    "title": "Story of Life",
+    "artist": "Jisan Soaib",
+    "cover": "https://www.univariety.com/blog/wp-content/uploads/2014/08/motivational-goals.jpg",
+    "audio":"https://drive.google.com/file/d/1cqN6w8LunANFW7VWiXZwCGb3eBeYXkYw/preview",
+    "category": "Motivation",
     "plays": 950,
     "upvotes": 180,
     "downvotes": 15,
-    "comments": [],
+    "comments": [{
+      "id": "c1fb9b3c-8a6d-42f7-a62f-2bb66f992f8e",
+      "username": "John Doe",
+      "email": "john.doe@example.com",
+      "comment": "A very informative podcast indeed!"
+    },
+    {
+      "id": "c210d3c7-5a3c-4b0e-bde6-7c33a646b07b",
+      "username": "Sarah Lee",
+      "email": "sarah.lee@example.com",
+      "comment": "The artist has a great way with words!"
+    },
+    {
+      "id": "4b9ec587-fcd2-41f6-9eae-7b36a85bc999",
+      "username": "Alex Green",
+      "email": "alex.green@example.com",
+      "comment": "A great message"
+    }],
     "description": "Whether you're a seasoned developer or just starting your coding journey, 'Coding Unlocked' is your go-to resource for all things programming. In this podcast, TechTalks unpacks coding concepts, discusses popular programming languages, and shares tips for overcoming coding challenges. Each episode covers essential topics like debugging, best practices in development, and new coding tools, making it a perfect listen for developers of all skill levels. Get hands-on advice from industry experts, learn from real-life coding success stories, and unlock the secrets to becoming a more efficient coder. Tune in to 'Coding Unlocked' and level up your programming skills!"
   },
   {
-    "title": "Future of Work",
+    "title": "Kuasha FM Episode 122",
     "artist": "TechTalks",
-    "cover": "",
-    "category": "Technology",
+    "cover": "https://img.freepik.com/premium-photo/horror-creepy-scary-nature-environment_492154-1549.jpg",
+    "category": "Horror",
     "plays": 780,
     "upvotes": 140,
     "downvotes": 12,
-    "comments": [],
+    "comments": [{
+      "id": "c1fb9b3c-8a6d-42f7-a62f-2bb66f992f8e",
+      "username": "John Doe",
+      "email": "john.doe@example.com",
+      "comment": "A very informative podcast indeed!"
+    },
+    {
+      "id": "c210d3c7-5a3c-4b0e-bde6-7c33a646b07b",
+      "username": "Sarah Lee",
+      "email": "sarah.lee@example.com",
+      "comment": "The artist has a great way with words!"
+    },
+    {
+      "id": "4b9ec587-fcd2-41f6-9eae-7b36a85bc999",
+      "username": "Alex Green",
+      "email": "alex.green@example.com",
+      "comment": "A great message"
+    }],
     "description": "In 'Future of Work,' TechTalks explores how technology is transforming the workplace. From remote work trends to the rise of AI-powered automation, this podcast covers the tools, techniques, and innovations reshaping industries worldwide. Hear from thought leaders in business and tech as they discuss how companies are adapting to new working conditions and what the future holds for employees and entrepreneurs alike. Whether you're an employer looking to stay competitive or a worker navigating the changing job market, 'Future of Work' offers valuable insights and practical tips. Tune in to stay ahead in the evolving world of work!"
   },
   {
-    "title": "Uncharted Realms",
-    "artist": "StoryTime",
-    "cover": "",
-    "category": "Entertainment",
-    "plays": 3200,
-    "upvotes": 450,
-    "downvotes": 35,
-    "comments": [],
-    "description": "Step into 'Uncharted Realms,' where adventure meets imagination! In this thrilling podcast, StoryTime takes you on epic journeys through magical worlds, distant galaxies, and untold stories. Whether you're a fan of fantasy, science fiction, or epic sagas, 'Uncharted Realms' has something for every adventurer at heart. Each episode weaves a tale filled with mystery, heroism, and unforgettable characters. Get ready to immerse yourself in captivating narratives that will transport you far beyond the everyday. Escape into the extraordinary and join us as we uncover the wonders of 'Uncharted Realms.' Perfect for fans of adventure and escapism!"
-  },
-  {
-    "title": "Mystery Chronicles",
-    "artist": "StoryTime",
-    "cover": "",
-    "category": "Entertainment",
-    "plays": 2750,
-    "upvotes": 400,
-    "downvotes": 22,
-    "comments": [],
-    "description": "Dive into 'Mystery Chronicles,' a podcast dedicated to unraveling the greatest unsolved mysteries of all time. StoryTime brings you captivating episodes filled with suspense, intrigue, and deep dives into cases that have puzzled investigators and enthusiasts for decades. From chilling disappearances to mysterious artifacts, each story is meticulously researched to provide listeners with thought-provoking insights and theories. If you love solving puzzles and exploring the unknown, 'Mystery Chronicles' will keep you on the edge of your seat. Tune in and let the mystery unfold before your ears!"
-  },
-  {
-    "title": "Literary Legends",
-    "artist": "StoryTime",
-    "cover": "",
-    "category": "Entertainment",
-    "plays": 1900,
-    "upvotes": 350,
-    "downvotes": 15,
-    "comments": [],
-    "description": "For book lovers and literary enthusiasts alike, 'Literary Legends' by StoryTime is a must-listen. Each episode delves into the lives, works, and legacies of iconic authors who have shaped the literary world. From Shakespeare to Tolstoy, Austen to Orwell, we explore the timeless stories and unforgettable characters that have influenced generations of readers. Whether you’re revisiting an old favorite or discovering a new literary icon, 'Literary Legends' provides insightful commentary and fascinating tidbits about the world’s greatest writers. Perfect for lovers of literature, storytelling, and cultural history—tune in for a journey through the pages of time."
-  },
-  {
-    "title": "Mindful Moments",
-    "artist": "Wellness Hub",
-    "cover": "",
-    "category": "Lifestyle",
-    "plays": 2300,
-    "upvotes": 410,
-    "downvotes": 20,
-    "comments": [],
-    "description": "In today's fast-paced world, taking time for mindfulness and reflection is more important than ever. 'Mindful Moments' by Wellness Hub offers you a sanctuary of calm and tranquility. Each episode is designed to help you pause, breathe, and reset. Whether you're new to meditation or a seasoned practitioner, these guided sessions focus on mindfulness techniques, relaxation exercises, and stress-relief tips to help you find balance in everyday life. Perfect for listening on your morning commute, during a lunch break, or before bedtime—'Mindful Moments' is your pocket guide to inner peace. Take a moment for yourself and tune in."
-  },
-  {
-    "title": "Health Hacks",
-    "artist": "Wellness Hub",
-    "cover": "",
-    "category": "Lifestyle",
-    "plays": 1750,
-    "upvotes": 320,
-    "downvotes": 18,
-    "comments": [],
-    "description": "'Health Hacks' by Wellness Hub is your go-to podcast for simple, effective tips to improve your well-being. Each episode is packed with easy-to-follow advice on nutrition, fitness, mental health, and lifestyle changes. Whether you're looking to boost your energy levels, improve your sleep, or start a new fitness routine, 'Health Hacks' offers practical guidance and expert insights to help you achieve your goals. With actionable tips that fit into even the busiest schedules, this podcast makes healthy living accessible to everyone. Tune in for your weekly dose of wellness inspiration!"
-  },
-  {
-    "title": "Fitness Fundamentals",
-    "artist": "Wellness Hub",
-    "cover": "",
-    "category": "Lifestyle",
-    "plays": 1900,
-    "upvotes": 290,
-    "downvotes": 12,
-    "comments": [],
-    "description": "Looking to kickstart your fitness journey or take your workouts to the next level? 'Fitness Fundamentals' by Wellness Hub is here to help! This podcast breaks down the basics of exercise and nutrition, offering listeners a clear, step-by-step guide to getting in shape and staying healthy. From strength training to cardio, meal planning to recovery, each episode is designed to empower you with the knowledge and motivation you need to reach your fitness goals. Whether you’re just starting out or you're an experienced gym-goer, 'Fitness Fundamentals' has something for everyone. Start listening and take your fitness game to new heights!"
-  },
-  {
-    "title": "Culinary Creations",
-    "artist": "Chef's Choice",
-    "cover": "",
-    "category": "Food",
-    "plays": 2550,
-    "upvotes": 350,
-    "downvotes": 18,
-    "comments": [],
-    "description": "Step into the world of gourmet food with 'Culinary Creations,' the podcast that celebrates the art of cooking. Hosted by Chef's Choice, each episode dives into the secrets behind mouth-watering dishes, creative recipes, and expert cooking techniques. Whether you're a home cook looking to sharpen your skills or a foodie eager to learn more about global cuisines, this podcast has something delicious in store for you. With interviews from top chefs and food enthusiasts, 'Culinary Creations' offers a blend of inspiration and practical tips to help you create masterpieces in your kitchen. Tune in, and start cooking like a pro!"
-  },
-
-
-
-
-
-
-  {
-    "title": "Tech Innovations",
-    "artist": "TechTalks",
-    "cover": "",
+    "title": "TechTalk Episode 1",
+    "artist": "Mark Evans",
+    "cover": "https://t3.ftcdn.net/jpg/01/76/24/11/360_F_176241162_VOSGjYOt7VpOSeQKbAUp6U0vMC29WB7h.jpg",
+    "audio": "https://drive.google.com/file/d/1xxZrT0YleNnqv3XkSbjMOBDePdOeuFsf/preview",
     "category": "Technology",
-    "plays": 1250,
-    "upvotes": 200,
+    "plays": 3200,
+    "upvotes": 300,
+    "downvotes": 15,
+    "comments": [{
+      "id": "c1fb9b3c-8a6d-42f7-a62f-2bb66f992f8e",
+      "username": "John Doe",
+      "email": "john.doe@example.com",
+      "comment": "A very informative podcast indeed!"
+    },
+    {
+      "id": "c210d3c7-5a3c-4b0e-bde6-7c33a646b07b",
+      "username": "Sarah Lee",
+      "email": "sarah.lee@example.com",
+      "comment": "The artist has a great way with words!"
+    },
+    {
+      "id": "4b9ec587-fcd2-41f6-9eae-7b36a85bc999",
+      "username": "Alex Green",
+      "email": "alex.green@example.com",
+      "comment": "A great message"
+    }],
+    "description": "Deep dive into the world of artificial intelligence and how it's transforming our daily lives."
+  },
+  {
+    "title": "Tech Innovations Episode 3",
+    "artist": "Sarah Jones",
+    "cover": "https://t4.ftcdn.net/jpg/02/30/48/59/360_F_230485974_jC7TCVvGh3BQkRdQePnMG3qFMzyIiHWp.jpg",
+    "audio": "https://drive.google.com/file/d/1E3sBlY5qZfm_aqI9T6LNR4s3oBkfY7L-/preview",
+    "category": "Technology",
+    "plays": 5000,
+    "upvotes": 600,
+    "downvotes": 40,
+    "comments": [{
+      "id": "c1fb9b3c-8a6d-42f7-a62f-2bb66f992f8e",
+      "username": "John Doe",
+      "email": "john.doe@example.com",
+      "comment": "A very informative podcast indeed!"
+    },
+    {
+      "id": "c210d3c7-5a3c-4b0e-bde6-7c33a646b07b",
+      "username": "Sarah Lee",
+      "email": "sarah.lee@example.com",
+      "comment": "The artist has a great way with words!"
+    },
+    {
+      "id": "4b9ec587-fcd2-41f6-9eae-7b36a85bc999",
+      "username": "Alex Green",
+      "email": "alex.green@example.com",
+      "comment": "A great message"
+    }],
+    "description": "An overview of tech trends, from blockchain to the rise of 5G connectivity."
+  },
+  {
+    "title": "History Explained Episode 5",
+    "artist": "David Wright",
+    "cover": "https://t4.ftcdn.net/jpg/03/23/67/28/360_F_323672837_xtCJTDxyhhsupXNYAe3iDdjOCFQnd4de.jpg",
+    "audio": "https://drive.google.com/file/d/1F6TzOws_zF9r5zJhp7mkRgt9eJzdYSk8/preview",
+    "category": "History",
+    "plays": 2500,
+    "upvotes": 320,
+    "downvotes": 20,
+    "comments": [{
+      "id": "c1fb9b3c-8a6d-42f7-a62f-2bb66f992f8e",
+      "username": "John Doe",
+      "email": "john.doe@example.com",
+      "comment": "A very informative podcast indeed!"
+    },
+    {
+      "id": "c210d3c7-5a3c-4b0e-bde6-7c33a646b07b",
+      "username": "Sarah Lee",
+      "email": "sarah.lee@example.com",
+      "comment": "The artist has a great way with words!"
+    },
+    {
+      "id": "4b9ec587-fcd2-41f6-9eae-7b36a85bc999",
+      "username": "Alex Green",
+      "email": "alex.green@example.com",
+      "comment": "A great message"
+    }],
+    "description": "Exploring ancient civilizations and their long-lasting impacts on modern society."
+  },
+  {
+    "title": "The Forgotten Wars Episode 12",
+    "artist": "Emily Parker",
+    "cover": "https://t4.ftcdn.net/jpg/02/23/44/90/360_F_223449081_ABNEkGHtMX5WRAfpR9dFTU2gOVN59rYb.jpg",
+    "audio": "https://drive.google.com/file/d/1gXc9B29NVsDS91n9sg3TfAWksY_rSGBe/preview",
+    "category": "History",
+    "plays": 3400,
+    "upvotes": 450,
+    "downvotes": 30,
+    "comments": [{
+      "id": "c1fb9b3c-8a6d-42f7-a62f-2bb66f992f8e",
+      "username": "John Doe",
+      "email": "john.doe@example.com",
+      "comment": "A very informative podcast indeed!"
+    },
+    {
+      "id": "c210d3c7-5a3c-4b0e-bde6-7c33a646b07b",
+      "username": "Sarah Lee",
+      "email": "sarah.lee@example.com",
+      "comment": "The artist has a great way with words!"
+    },
+    {
+      "id": "4b9ec587-fcd2-41f6-9eae-7b36a85bc999",
+      "username": "Alex Green",
+      "email": "alex.green@example.com",
+      "comment": "A great message"
+    }],
+    "description": "Uncovering lesser-known conflicts throughout history and their political significance."
+  },
+  {
+    "title": "Healthy Living Episode 20",
+    "artist": "Sophie Lee",
+    "cover": "https://t4.ftcdn.net/jpg/02/35/48/19/360_F_235481920_Cv8VZnMSZyFEC5aMFL84rsNFV5A9nT6P.jpg",
+    "audio": "https://drive.google.com/file/d/1QZgldUS98TuZczNYfkXSuw2pFcbfjqjM/preview",
+    "category": "Lifestyle",
+    "plays": 4100,
+    "upvotes": 530,
+    "downvotes": 25,
+    "comments": [{
+      "id": "c1fb9b3c-8a6d-42f7-a62f-2bb66f992f8e",
+      "username": "John Doe",
+      "email": "john.doe@example.com",
+      "comment": "A very informative podcast indeed!"
+    },
+    {
+      "id": "c210d3c7-5a3c-4b0e-bde6-7c33a646b07b",
+      "username": "Sarah Lee",
+      "email": "sarah.lee@example.com",
+      "comment": "The artist has a great way with words!"
+    },
+    {
+      "id": "4b9ec587-fcd2-41f6-9eae-7b36a85bc999",
+      "username": "Alex Green",
+      "email": "alex.green@example.com",
+      "comment": "A great message"
+    }],
+    "description": "Discussing lifestyle choices that promote wellness, mental health, and happiness."
+  },
+  {
+    "title": "Minimalist Life Episode 11",
+    "artist": "Rachel Kim",
+    "cover": "https://t3.ftcdn.net/jpg/01/23/44/90/360_F_123449081_UtQoRflcftmxrrTRjv2Qjb9M4kfdrciR.jpg",
+    "audio": "https://drive.google.com/file/d/1FfKdeyb5_XL8N6AlTflFqCjleNcr4RS8/preview",
+    "category": "Lifestyle",
+    "plays": 2200,
+    "upvotes":280,
     "downvotes": 10,
-    "comments": [],
-    "description": "Explore the cutting-edge world of technology with Tech Innovations! In this podcast, TechTalks dives deep into the latest trends, gadgets, and breakthroughs shaping our future. Whether you’re a tech enthusiast, an innovator, or just curious about how technology affects our daily lives, this podcast brings expert insights and thought-provoking discussions. From AI advancements to the next big smartphone release, we cover it all. Stay informed and ahead of the curve with each episode, as we take a look at how tech continues to transform industries, from healthcare to entertainment. Don’t miss out—tune in and get inspired!"
+    "comments": [{
+      "id": "c1fb9b3c-8a6d-42f7-a62f-2bb66f992f8e",
+      "username": "John Doe",
+      "email": "john.doe@example.com",
+      "comment": "A very informative podcast indeed!"
+    },
+    {
+      "id": "c210d3c7-5a3c-4b0e-bde6-7c33a646b07b",
+      "username": "Sarah Lee",
+      "email": "sarah.lee@example.com",
+      "comment": "The artist has a great way with words!"
+    },
+    {
+      "id": "4b9ec587-fcd2-41f6-9eae-7b36a85bc999",
+      "username": "Alex Green",
+      "email": "alex.green@example.com",
+      "comment": "A great message"
+    }],
+    "description": "Exploring the benefits of a minimalist lifestyle and how it can improve mental clarity and productivity."
   },
   {
-    "title": "Coding Unlocked",
-    "artist": "TechTalks",
-    "cover": "",
-    "category": "Technology",
-    "plays": 950,
-    "upvotes": 180,
-    "downvotes": 15,
-    "comments": [],
-    "description": "Whether you're a seasoned developer or just starting your coding journey, 'Coding Unlocked' is your go-to resource for all things programming. In this podcast, TechTalks unpacks coding concepts, discusses popular programming languages, and shares tips for overcoming coding challenges. Each episode covers essential topics like debugging, best practices in development, and new coding tools, making it a perfect listen for developers of all skill levels. Get hands-on advice from industry experts, learn from real-life coding success stories, and unlock the secrets to becoming a more efficient coder. Tune in to 'Coding Unlocked' and level up your programming skills!"
+    "title": "Music Vibes Episode 30",
+    "artist": "Lily Hernandez",
+    "cover": "https://t4.ftcdn.net/jpg/02/98/74/89/360_F_298748993_vXbgBFpHKICIH7IoL8B2eTUtJTeuZfn7.jpg",
+    "audio": "https://drive.google.com/file/d/1BQBCZC7lmMYlCoQAKy8NzO8MRoYXVgBQ/preview",
+    "category": "Music",
+    "plays": 6000,
+    "upvotes": 620,
+    "downvotes": 45,
+    "comments": [{
+      "id": "c1fb9b3c-8a6d-42f7-a62f-2bb66f992f8e",
+      "username": "John Doe",
+      "email": "john.doe@example.com",
+      "comment": "A very informative podcast indeed!"
+    },
+    {
+      "id": "c210d3c7-5a3c-4b0e-bde6-7c33a646b07b",
+      "username": "Sarah Lee",
+      "email": "sarah.lee@example.com",
+      "comment": "The artist has a great way with words!"
+    },
+    {
+      "id": "4b9ec587-fcd2-41f6-9eae-7b36a85bc999",
+      "username": "Alex Green",
+      "email": "alex.green@example.com",
+      "comment": "A great message"
+    }],
+    "description": "Analyzing the latest music trends and exploring the impact of new technology on the music industry."
   },
   {
-    "title": "Future of Work",
-    "artist": "TechTalks",
-    "cover": "",
-    "category": "Technology",
-    "plays": 780,
-    "upvotes": 140,
-    "downvotes": 12,
-    "comments": [],
-    "description": "In 'Future of Work,' TechTalks explores how technology is transforming the workplace. From remote work trends to the rise of AI-powered automation, this podcast covers the tools, techniques, and innovations reshaping industries worldwide. Hear from thought leaders in business and tech as they discuss how companies are adapting to new working conditions and what the future holds for employees and entrepreneurs alike. Whether you're an employer looking to stay competitive or a worker navigating the changing job market, 'Future of Work' offers valuable insights and practical tips. Tune in to stay ahead in the evolving world of work!"
-  },
-  {
-    "title": "Uncharted Realms",
-    "artist": "StoryTime",
-    "cover": "",
-    "category": "Entertainment",
-    "plays": 3200,
-    "upvotes": 450,
-    "downvotes": 35,
-    "comments": [],
-    "description": "Step into 'Uncharted Realms,' where adventure meets imagination! In this thrilling podcast, StoryTime takes you on epic journeys through magical worlds, distant galaxies, and untold stories. Whether you're a fan of fantasy, science fiction, or epic sagas, 'Uncharted Realms' has something for every adventurer at heart. Each episode weaves a tale filled with mystery, heroism, and unforgettable characters. Get ready to immerse yourself in captivating narratives that will transport you far beyond the everyday. Escape into the extraordinary and join us as we uncover the wonders of 'Uncharted Realms.' Perfect for fans of adventure and escapism!"
-  },
-  {
-    "title": "Mystery Chronicles",
-    "artist": "StoryTime",
-    "cover": "",
-    "category": "Entertainment",
-    "plays": 2750,
+    "title": "Melody Makers Episode 15",
+    "artist": "Jake Harper",
+    "cover": "https://t3.ftcdn.net/jpg/01/23/44/11/360_F_123441197_OqWyCxF4f9g7XE2h6a3xQi8gplPsf4fS.jpg",
+    "audio": "https://drive.google.com/file/d/1E2kFAfe_Q7gEK-pt3YmjXBFXuTZQAv6e/preview",
+    "category": "Music",
+    "plays": 3100,
     "upvotes": 400,
-    "downvotes": 22,
-    "comments": [],
-    "description": "Dive into 'Mystery Chronicles,' a podcast dedicated to unraveling the greatest unsolved mysteries of all time. StoryTime brings you captivating episodes filled with suspense, intrigue, and deep dives into cases that have puzzled investigators and enthusiasts for decades. From chilling disappearances to mysterious artifacts, each story is meticulously researched to provide listeners with thought-provoking insights and theories. If you love solving puzzles and exploring the unknown, 'Mystery Chronicles' will keep you on the edge of your seat. Tune in and let the mystery unfold before your ears!"
+    "downvotes": 25,
+    "comments": [{
+      "id": "c1fb9b3c-8a6d-42f7-a62f-2bb66f992f8e",
+      "username": "John Doe",
+      "email": "john.doe@example.com",
+      "comment": "A very informative podcast indeed!"
+    },
+    {
+      "id": "c210d3c7-5a3c-4b0e-bde6-7c33a646b07b",
+      "username": "Sarah Lee",
+      "email": "sarah.lee@example.com",
+      "comment": "The artist has a great way with words!"
+    },
+    {
+      "id": "4b9ec587-fcd2-41f6-9eae-7b36a85bc999",
+      "username": "Alex Green",
+      "email": "alex.green@example.com",
+      "comment": "A great message"
+    }],
+    "description": "Featuring upcoming musicians and the creative process behind composing memorable melodies."
   },
   {
-    "title": "Literary Legends",
-    "artist": "StoryTime",
-    "cover": "",
-    "category": "Entertainment",
-    "plays": 1900,
-    "upvotes": 350,
-    "downvotes": 15,
-    "comments": [],
-    "description": "For book lovers and literary enthusiasts alike, 'Literary Legends' by StoryTime is a must-listen. Each episode delves into the lives, works, and legacies of iconic authors who have shaped the literary world. From Shakespeare to Tolstoy, Austen to Orwell, we explore the timeless stories and unforgettable characters that have influenced generations of readers. Whether you’re revisiting an old favorite or discovering a new literary icon, 'Literary Legends' provides insightful commentary and fascinating tidbits about the world’s greatest writers. Perfect for lovers of literature, storytelling, and cultural history—tune in for a journey through the pages of time."
+    "title": "Cook Smart Episode 5",
+    "artist": "Megan Lynn",
+    "cover": "https://t4.ftcdn.net/jpg/01/95/76/89/360_F_195768986_GgkCMK9oficJHzTjGGFj7zDdwh41RmTp.jpg",
+    "audio": "https://drive.google.com/file/d/1HfbdKpGvfhJ3QquTLGFV9zRH3iXE3WDy/preview",
+    "category": "Cooking",
+    "plays": 1700,
+    "upvotes": 200,
+    "downvotes": 12,
+    "comments": [{
+      "id": "c1fb9b3c-8a6d-42f7-a62f-2bb66f992f8e",
+      "username": "John Doe",
+      "email": "john.doe@example.com",
+      "comment": "A very informative podcast indeed!"
+    },
+    {
+      "id": "c210d3c7-5a3c-4b0e-bde6-7c33a646b07b",
+      "username": "Sarah Lee",
+      "email": "sarah.lee@example.com",
+      "comment": "The artist has a great way with words!"
+    },
+    {
+      "id": "4b9ec587-fcd2-41f6-9eae-7b36a85bc999",
+      "username": "Alex Green",
+      "email": "alex.green@example.com",
+      "comment": "A great message"
+    }],
+    "description": "Learn easy, healthy, and delicious recipes to make at home with minimal ingredients."
   },
   {
-    "title": "Mindful Moments",
-    "artist": "Wellness Hub",
-    "cover": "",
-    "category": "Lifestyle",
-    "plays": 2300,
-    "upvotes": 410,
+    "title": "Cooking for Two Episode 19",
+    "artist": "Amanda Rose",
+    "cover": "https://t3.ftcdn.net/jpg/01/87/64/85/360_F_187648592_d9ScSpht3B2BtFeIADrRKHtKjnbhO9nE.jpg",
+    "audio": "https://drive.google.com/file/d/1GjhrJEvNSNdBmCJwr2rKJ4YHJJiXlRJH/preview",
+    "category": "Cooking",
+    "plays": 2600,
+    "upvotes": 310,
     "downvotes": 20,
-    "comments": [],
-    "description": "In today's fast-paced world, taking time for mindfulness and reflection is more important than ever. 'Mindful Moments' by Wellness Hub offers you a sanctuary of calm and tranquility. Each episode is designed to help you pause, breathe, and reset. Whether you're new to meditation or a seasoned practitioner, these guided sessions focus on mindfulness techniques, relaxation exercises, and stress-relief tips to help you find balance in everyday life. Perfect for listening on your morning commute, during a lunch break, or before bedtime—'Mindful Moments' is your pocket guide to inner peace. Take a moment for yourself and tune in."
+    "comments": [{
+      "id": "c1fb9b3c-8a6d-42f7-a62f-2bb66f992f8e",
+      "username": "John Doe",
+      "email": "john.doe@example.com",
+      "comment": "A very informative podcast indeed!"
+    },
+    {
+      "id": "c210d3c7-5a3c-4b0e-bde6-7c33a646b07b",
+      "username": "Sarah Lee",
+      "email": "sarah.lee@example.com",
+      "comment": "The artist has a great way with words!"
+    },
+    {
+      "id": "4b9ec587-fcd2-41f6-9eae-7b36a85bc999",
+      "username": "Alex Green",
+      "email": "alex.green@example.com",
+      "comment": "A great message"
+    }],
+    "description": "Quick and easy meals designed for two people, perfect for weeknight dinners."
   },
   {
-    "title": "Health Hacks",
-    "artist": "Wellness Hub",
-    "cover": "",
-    "category": "Lifestyle",
-    "plays": 1750,
+    "title": "Fitness 101 Episode 10",
+    "artist": "Jake White",
+    "cover": "https://t4.ftcdn.net/jpg/02/73/10/15/360_F_273101517_P4y4IWbkGuTFeZh21Me7YbeELrXwG7je.jpg",
+    "audio": "https://drive.google.com/file/d/1GjWEcOvwk5qxSxW-QL55NeRMZYOPxKuh/preview",
+    "category": "Fitness",
+    "plays": 1250,
+    "upvotes": 150,
+    "downvotes": 8,
+    "comments": [{
+      "id": "c1fb9b3c-8a6d-42f7-a62f-2bb66f992f8e",
+      "username": "John Doe",
+      "email": "john.doe@example.com",
+      "comment": "A very informative podcast indeed!"
+    },
+    {
+      "id": "c210d3c7-5a3c-4b0e-bde6-7c33a646b07b",
+      "username": "Sarah Lee",
+      "email": "sarah.lee@example.com",
+      "comment": "The artist has a great way with words!"
+    },
+    {
+      "id": "4b9ec587-fcd2-41f6-9eae-7b36a85bc999",
+      "username": "Alex Green",
+      "email": "alex.green@example.com",
+      "comment": "A great message"
+    }],
+    "description": "A comprehensive guide to building a fitness routine that fits your lifestyle and goals."
+  },
+  {
+    "title": "Strength Training Episode 22",
+    "artist": "Ethan Shaw",
+    "cover": "https://t3.ftcdn.net/jpg/01/12/46/09/360_F_112460949_IgbVfIsp8lXNHtdfFmj8qqlyDnTqgndS.jpg",
+    "audio": "https://drive.google.com/file/d/1HlNYTgP3n_FHkQVhPlxMYP_SmX5kNuLo/preview",
+    "category": "Fitness",
+    "plays": 3100,
+    "upvotes": 420,
+    "downvotes": 30,
+    "comments": [{
+      "id": "c1fb9b3c-8a6d-42f7-a62f-2bb66f992f8e",
+      "username": "John Doe",
+      "email": "john.doe@example.com",
+      "comment": "A very informative podcast indeed!"
+    },
+    {
+      "id": "c210d3c7-5a3c-4b0e-bde6-7c33a646b07b",
+      "username": "Sarah Lee",
+      "email": "sarah.lee@example.com",
+      "comment": "The artist has a great way with words!"
+    },
+    {
+      "id": "4b9ec587-fcd2-41f6-9eae-7b36a85bc999",
+      "username": "Alex Green",
+      "email": "alex.green@example.com",
+      "comment": "A great message"
+    }],
+    "description": "Get the best tips for strength training, muscle building, and avoiding injuries."
+  },
+  {
+    "title": "Sci-Fi Adventures Episode 15",
+    "artist": "Evan Parker",
+    "cover": "https://t4.ftcdn.net/jpg/03/04/09/84/360_F_304098471_aWFEqkZC5CeIYZoBQGNcKPfxSkM2gup5.jpg",
+    "audio": "https://drive.google.com/file/d/1YgfK0Nf1IoLgDrGf0YgMFJxs0hGxomLQ/preview",
+    "category": "Fiction",
+    "plays": 3500,
+    "upvotes": 380,
+    "downvotes": 20,
+    "comments": [{
+      "id": "c1fb9b3c-8a6d-42f7-a62f-2bb66f992f8e",
+      "username": "John Doe",
+      "email": "john.doe@example.com",
+      "comment": "A very informative podcast indeed!"
+    },
+    {
+      "id": "c210d3c7-5a3c-4b0e-bde6-7c33a646b07b",
+      "username": "Sarah Lee",
+      "email": "sarah.lee@example.com",
+      "comment": "The artist has a great way with words!"
+    },
+    {
+      "id": "4b9ec587-fcd2-41f6-9eae-7b36a85bc999",
+      "username": "Alex Green",
+      "email": "alex.green@example.com",
+      "comment": "A great message"
+    }],
+    "description": "Explore futuristic worlds, space battles, and advanced technology in this thrilling sci-fi series."
+  },
+  {
+    "title": "Fantasy Tales Episode 32",
+    "artist": "Isabella Scott",
+    "cover": "https://t4.ftcdn.net/jpg/01/76/04/07/360_F_176040785_9pdXjbIF5FcBdhhNFRPLhqevkdf2ohpX.jpg",
+    "audio": "https://drive.google.com/file/d/1SHTVCWkE1NgfnmA5JSZb1DRBghRPOkMF/preview",
+    "category": "Fiction",
+    "plays": 2700,
     "upvotes": 320,
     "downvotes": 18,
-    "comments": [],
-    "description": "'Health Hacks' by Wellness Hub is your go-to podcast for simple, effective tips to improve your well-being. Each episode is packed with easy-to-follow advice on nutrition, fitness, mental health, and lifestyle changes. Whether you're looking to boost your energy levels, improve your sleep, or start a new fitness routine, 'Health Hacks' offers practical guidance and expert insights to help you achieve your goals. With actionable tips that fit into even the busiest schedules, this podcast makes healthy living accessible to everyone. Tune in for your weekly dose of wellness inspiration!"
+    "comments": [{
+      "id": "c1fb9b3c-8a6d-42f7-a62f-2bb66f992f8e",
+      "username": "John Doe",
+      "email": "john.doe@example.com",
+      "comment": "A very informative podcast indeed!"
+    },
+    {
+      "id": "c210d3c7-5a3c-4b0e-bde6-7c33a646b07b",
+      "username": "Sarah Lee",
+      "email": "sarah.lee@example.com",
+      "comment": "The artist has a great way with words!"
+    },
+    {
+      "id": "4b9ec587-fcd2-41f6-9eae-7b36a85bc999",
+      "username": "Alex Green",
+      "email": "alex.green@example.com",
+      "comment": "A great message"
+    }],
+    "description": "Dive into a world of magic, dragons, and mythical beings in this enchanting fantasy series."
   },
   {
-    "title": "Fitness Fundamentals",
-    "artist": "Wellness Hub",
-    "cover": "",
-    "category": "Lifestyle",
-    "plays": 1900,
-    "upvotes": 290,
-    "downvotes": 12,
-    "comments": [],
-    "description": "Looking to kickstart your fitness journey or take your workouts to the next level? 'Fitness Fundamentals' by Wellness Hub is here to help! This podcast breaks down the basics of exercise and nutrition, offering listeners a clear, step-by-step guide to getting in shape and staying healthy. From strength training to cardio, meal planning to recovery, each episode is designed to empower you with the knowledge and motivation you need to reach your fitness goals. Whether you’re just starting out or you're an experienced gym-goer, 'Fitness Fundamentals' has something for everyone. Start listening and take your fitness game to new heights!"
+    "title": "Comedy Club Episode 7",
+    "artist": "John Doe",
+    "cover": "https://t3.ftcdn.net/jpg/01/90/76/54/360_F_190765458_eOph0VRTClCBl8ldUEmvVphkIMrYOuBZ.jpg",
+    "audio": "https://drive.google.com/file/d/1gUBY9gyEJlSbXxoKMubxaKbNFMWibQdL/preview",
+    "category": "Comedy",
+    "plays": 1800,
+    "upvotes": 250,
+    "downvotes": 10,
+    "comments": [{
+      "id": "c1fb9b3c-8a6d-42f7-a62f-2bb66f992f8e",
+      "username": "John Doe",
+      "email": "john.doe@example.com",
+      "comment": "A very informative podcast indeed!"
+    },
+    {
+      "id": "c210d3c7-5a3c-4b0e-bde6-7c33a646b07b",
+      "username": "Sarah Lee",
+      "email": "sarah.lee@example.com",
+      "comment": "The artist has a great way with words!"
+    },
+    {
+      "id": "4b9ec587-fcd2-41f6-9eae-7b36a85bc999",
+      "username": "Alex Green",
+      "email": "alex.green@example.com",
+      "comment": "A great message"
+    }],
+    "description": "Laugh along with hilarious jokes, quirky stories, and comical takes on everyday life."
   },
   {
-    "title": "Culinary Creations",
-    "artist": "Chef's Choice",
-    "cover": "",
-    "category": "Food",
-    "plays": 2550,
-    "upvotes": 350,
-    "downvotes": 18,
-    "comments": [],
-    "description": "Step into the world of gourmet food with 'Culinary Creations,' the podcast that celebrates the art of cooking. Hosted by Chef's Choice, each episode dives into the secrets behind mouth-watering dishes, creative recipes, and expert cooking techniques. Whether you're a home cook looking to sharpen your skills or a foodie eager to learn more about global cuisines, this podcast has something delicious in store for you. With interviews from top chefs and food enthusiasts, 'Culinary Creations' offers a blend of inspiration and practical tips to help you create masterpieces in your kitchen. Tune in, and start cooking like a pro!"
+    "title": "Business Strategy Episode 14",
+    "artist": "Brian Jones",
+    "cover": "https://t4.ftcdn.net/jpg/01/23/47/12/360_F_123471201_Rt6LUoXZzCb8FGx8shhTrhNWbTdk5Xgl.jpg",
+    "audio": "https://drive.google.com/file/d/1DCVFWv59Aye3TOfVCQHqcpnXDnHrmkvG/preview",
+    "category": "Business",
+    "plays": 3500,
+    "upvotes": 500,
+    "downvotes": 30,
+    "comments": [{
+      "id": "c1fb9b3c-8a6d-42f7-a62f-2bb66f992f8e",
+      "username": "John Doe",
+      "email": "john.doe@example.com",
+      "comment": "A very informative podcast indeed!"
+    },
+    {
+      "id": "c210d3c7-5a3c-4b0e-bde6-7c33a646b07b",
+      "username": "Sarah Lee",
+      "email": "sarah.lee@example.com",
+      "comment": "The artist has a great way with words!"
+    },
+    {
+      "id": "4b9ec587-fcd2-41f6-9eae-7b36a85bc999",
+      "username": "Alex Green",
+      "email": "alex.green@example.com",
+      "comment": "A great message"
+    }],
+    "description": "Insightful discussions on business strategies, leadership, and entrepreneurship in today's market."
+  },
+  {
+    "title": "Start-Up Stories Episode 3",
+    "artist": "Sarah Miller",
+    "cover": "https://t4.ftcdn.net/jpg/02/94/58/74/360_F_294587438_kMsIFgOZ11hS7Jpc2ieo4T1OV9bGShCT.jpg",
+    "audio": "https://drive.google.com/file/d/1EZKpYRCYp-FL7hbZKOgLEGL2KtiRJ3nM/preview",
+    "category": "Business",
+    "plays": 2700,
+    "upvotes": 360,
+    "downvotes": 22,
+    "comments": [{
+      "id": "c1fb9b3c-8a6d-42f7-a62f-2bb66f992f8e",
+      "username": "John Doe",
+      "email": "john.doe@example.com",
+      "comment": "A very informative podcast indeed!"
+    },
+    {
+      "id": "c210d3c7-5a3c-4b0e-bde6-7c33a646b07b",
+      "username": "Sarah Lee",
+      "email": "sarah.lee@example.com",
+      "comment": "The artist has a great way with words!"
+    },
+    {
+      "id": "4b9ec587-fcd2-41f6-9eae-7b36a85bc999",
+      "username": "Alex Green",
+      "email": "alex.green@example.com",
+      "comment": "A great message"
+    }],
+    "description": "Real stories from successful entrepreneurs and the challenges they overcame to build their companies."
   }
 ]

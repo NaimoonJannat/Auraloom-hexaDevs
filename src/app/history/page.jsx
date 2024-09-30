@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import React from 'react';
 
 const HistoryPage = () => {
@@ -85,9 +86,17 @@ const HistoryPage = () => {
                     <div className="">
 
                         <div className="flex flex-col items-center gap-4 md:flex-row lg:gap-6 scale-75">
-                            <a href="#" className="group relative block h-56 w-full shrink-0 self-start overflow-hidden rounded-lg bg-gray-100 shadow-lg md:h-24 md:w-24 lg:h-40 lg:w-40">
-                                <img src="https://images.unsplash.com/photo-1593508512255-86ab42a8e620?auto=format&q=75&fit=crop&w=600" loading="lazy" alt="Photo by Minh Pham" className="absolute inset-0 h-full w-full object-cover object-center transition duration-200 group-hover:scale-110" />
-                            </a>
+                        <a href="#" className="group relative block h-56 w-full shrink-0 self-start overflow-hidden rounded-lg bg-gray-100 shadow-lg md:h-24 md:w-24 lg:h-40 lg:w-40">
+  <Image
+    src="https://images.unsplash.com/photo-1593508512255-86ab42a8e620?auto=format&q=75&fit=crop&w=600"
+    loading="lazy"
+    alt="Image description"
+    className="absolute inset-0 h-full w-full object-cover object-center transition duration-200 group-hover:scale-110"
+    width={600}  // specify the width based on the image's size
+    height={400} // specify the height based on the image's aspect ratio
+  />
+</a>
+
 
                             <div className="flex flex-col gap-2">
                                 <span className="text-sm text-gray-400">July 19, 2021</span>
@@ -107,9 +116,17 @@ const HistoryPage = () => {
 
 
                         <div className="flex flex-col items-center gap-4 md:flex-row lg:gap-6 scale-75">
-                            <a href="#" className="group relative block h-56 w-full shrink-0 self-start overflow-hidden rounded-lg bg-gray-100 shadow-lg md:h-24 md:w-24 lg:h-40 lg:w-40">
-                                <img src="https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&q=75&fit=crop&w=600" loading="lazy" alt="Photo by Lorenzo Herrera" className="absolute inset-0 h-full w-full object-cover object-center transition duration-200 group-hover:scale-110" />
-                            </a>
+                        <a href="#" className="group relative block h-56 w-full shrink-0 self-start overflow-hidden rounded-lg bg-gray-100 shadow-lg md:h-24 md:w-24 lg:h-40 lg:w-40">
+  <Image
+    src="https://images.unsplash.com/photo-1593508512255-86ab42a8e620?auto=format&q=75&fit=crop&w=600"
+    loading="lazy"
+    alt="Image description"
+    className="absolute inset-0 h-full w-full object-cover object-center transition duration-200 group-hover:scale-110"
+    width={600}  // specify the width based on the image's size
+    height={400} // specify the height based on the image's aspect ratio
+  />
+</a>
+
 
                             <div className="flex flex-col gap-2">
                                 <span className="text-sm text-gray-400">April 07, 2021</span>
@@ -129,9 +146,16 @@ const HistoryPage = () => {
 
 
                         <div className="flex flex-col items-center gap-4 md:flex-row lg:gap-6 scale-75">
-                            <a href="#" className="group relative block h-56 w-full shrink-0 self-start overflow-hidden rounded-lg bg-gray-100 shadow-lg md:h-24 md:w-24 lg:h-40 lg:w-40">
-                                <img src="https://images.unsplash.com/photo-1542759564-7ccbb6ac450a?auto=format&q=75&fit=crop&w=600" loading="lazy" alt="Photo by Magicle" className="absolute inset-0 h-full w-full object-cover object-center transition duration-200 group-hover:scale-110" />
-                            </a>
+                        <a href="#" className="group relative block h-56 w-full shrink-0 self-start overflow-hidden rounded-lg bg-gray-100 shadow-lg md:h-24 md:w-24 lg:h-40 lg:w-40">
+  <Image
+    src="https://images.unsplash.com/photo-1593508512255-86ab42a8e620?auto=format&q=75&fit=crop&w=600"
+    loading="lazy"
+    alt="Image description"
+    className="absolute inset-0 h-full w-full object-cover object-center transition duration-200 group-hover:scale-110"
+    width={600}  // specify the width based on the image's size
+    height={400} // specify the height based on the image's aspect ratio
+  />
+</a>
 
                             <div className="flex flex-col gap-2">
                                 <span className="text-sm text-gray-400">March 15, 2021</span>
@@ -151,9 +175,17 @@ const HistoryPage = () => {
 
 
                         <div className="flex flex-col items-center gap-4 md:flex-row lg:gap-6 scale-75">
-                            <a href="#" className="group relative block h-56 w-full shrink-0 self-start overflow-hidden rounded-lg bg-gray-100 shadow-lg md:h-24 md:w-24 lg:h-40 lg:w-40">
-                                <img src="https://images.unsplash.com/photo-1610465299996-30f240ac2b1c?auto=format&q=75&fit=crop&w=600" loading="lazy" alt="Photo by Martin Sanchez" className="absolute inset-0 h-full w-full object-cover object-center transition duration-200 group-hover:scale-110" />
-                            </a>
+                        <a href="#" className="group relative block h-56 w-full shrink-0 self-start overflow-hidden rounded-lg bg-gray-100 shadow-lg md:h-24 md:w-24 lg:h-40 lg:w-40">
+  <Image
+    src="https://images.unsplash.com/photo-1593508512255-86ab42a8e620?auto=format&q=75&fit=crop&w=600"
+    loading="lazy"
+    alt="Image description"
+    className="absolute inset-0 h-full w-full object-cover object-center transition duration-200 group-hover:scale-110"
+    width={600}  // specify the width based on the image's size
+    height={400} // specify the height based on the image's aspect ratio
+  />
+</a>
+
 
                             <div className="flex flex-col gap-2">
                                 <span className="text-sm text-gray-400">January 27, 2021</span>

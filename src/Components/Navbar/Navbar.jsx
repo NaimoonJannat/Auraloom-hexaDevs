@@ -8,50 +8,46 @@ import { AuthContext } from "../Provider/AuthProvider/AuthProvider";
 import { FaRegUserCircle } from "react-icons/fa";
 import { IoMdNotificationsOutline } from "react-icons/io";
 
-
 const Navbar = () => {
-  // const { user, logout } = useContext(AuthContext);
-  const user = true;
+  const { user, logout } = useContext(AuthContext);
   const signOutUser = () => {
     logout()
       .then(() => {})
       .catch(() => {});
   };
+
   const userLists = (
     <>
       <li>
         <Link href={"/dashboard"}>Dashboard</Link>
       </li>
       <li>
-        <Link href={"/profile"}>User Profile</Link>
+        <Link href={"/Creator-Profile"}>Profile</Link>
       </li>
       <li>
         <Link href={"/settings"}>Settings</Link>
       </li>
       <li>
-        <Link href={"/buy-package"}>Be a Pro</Link>
+        <Link href={"/pro-mode"}>Be a Pro</Link>
       </li>
       <li>
         <button onClick={signOutUser}>Log Out</button>
       </li>
     </>
   );
+
   return (
-    <div>
+    <div className="text-[#03045E]">
       <div className="navbar bg-[#CAF0F8] font-montserrat">
         <div className="navbar-start">
           <Link href="/" className="btn btn-ghost text-xl">
-            <Image
-              src={logo1}
-              className="w-40 h-10"
-              alt="Picture of the author"
-            />
+            <Image src={logo1} className="w-40 h-10" alt="Website logo" />
           </Link>
         </div>
         <div className="navbar-center"></div>
         <div className="navbar-end flex gap-4">
           <div className="hidden lg:flex">
-            <ul className="menu menu-horizontal px-1 flex items-center gap-3">
+            <ul className="menu menu-horizontal px-1 flex items-center gap-3 text-lg font-medium">
               <li className="flex">
                 <Link rel="noopener noreferrer" href="/">
                   Home
@@ -63,8 +59,18 @@ const Navbar = () => {
                 </Link>
               </li>
               <li className="flex">
+                <Link rel="noopener noreferrer" href="/add-podcast">
+                  Add Podcast
+                </Link>
+              </li>
+              <li className="flex">
+                <Link rel="noopener noreferrer" href="/history">
+                  History
+                </Link>
+              </li>
+              <li className="flex">
                 <Link rel="noopener noreferrer" href="/notifications">
-                  <IoMdNotificationsOutline />
+                  <IoMdNotificationsOutline className="text-2xl"/>
                 </Link>
               </li>
               {user ? (
@@ -78,8 +84,11 @@ const Navbar = () => {
                       >
                         <div className="w-10 rounded-full">
                           <Image
-                            alt="Tailwind CSS Navbar component"
-                            src={user.photoURL ? user.photoURL : <FaRegUserCircle />}
+                            src={user?.photoURL}
+                            width={40}
+                            height={40} // Specify image dimensions
+                            className="w-full"
+                            alt="User avatar"
                           />
                         </div>
                       </div>
@@ -94,25 +103,8 @@ const Navbar = () => {
                 </>
               ) : (
                 <>
-                  <li className="flex">
-                    <Link rel="noopener noreferrer" href="/">
-                      Home
-                    </Link>
-                  </li>
-                  <li className="flex">
-                    <Link rel="noopener noreferrer" href="/directory">
-                      Directory
-                    </Link>
-                  </li>
-                  <li className="flex">
-                    <Link rel="noopener noreferrer" href="/notifications">
-                    <IoMdNotificationsOutline />
-                    </Link>
-                  </li>
                   <li>
-                    <Link href="/log-in" className="">
-                      Sign In
-                    </Link>
+                    <Link href="/log-in">Sign In</Link>
                   </li>
                   <Link href="/sign-up" className="btn bg-white font-bold">
                     Sign Up
@@ -154,8 +146,18 @@ const Navbar = () => {
                 </Link>
               </li>
               <li className="flex">
+                <Link rel="noopener noreferrer" href="/add-podcast">
+                  Add Podcast
+                </Link>
+              </li>
+              <li className="flex">
+                <Link rel="noopener noreferrer" href="/history">
+                  History
+                </Link>
+              </li>
+              <li className="flex">
                 <Link rel="noopener noreferrer" href="/notifications">
-                <IoMdNotificationsOutline />
+                  <IoMdNotificationsOutline />
                 </Link>
               </li>
               {user ? (
@@ -169,8 +171,11 @@ const Navbar = () => {
                       >
                         <div className="w-10 rounded-full">
                           <Image
-                            alt="Tailwind CSS Navbar component"
-                            src={user.photoURL ? user.photoURL : <FaRegUserCircle />}
+                            src={user?.photoURL}
+                            width={40}
+                            height={40} // Specify image dimensions
+                            className="w-full"
+                            alt="User avatar"
                           />
                         </div>
                       </div>
@@ -196,18 +201,24 @@ const Navbar = () => {
                     </Link>
                   </li>
                   <li className="flex">
+                    <Link rel="noopener noreferrer" href="/add-podcast">
+                      Add Podcast
+                    </Link>
+                  </li>
+                  <li className="flex">
+                    <Link rel="noopener noreferrer" href="/history">
+                      History
+                    </Link>
+                  </li>
+                  <li className="flex">
                     <Link rel="noopener noreferrer" href="/notifications">
-                    <IoMdNotificationsOutline />
+                      <IoMdNotificationsOutline />
                     </Link>
                   </li>
                   <li>
-                    <Link href="/log-in" className="">
-                      Sign In
-                    </Link>
+                    <Link href="/log-in">Sign In</Link>
                   </li>
-                  <Link href="/sign-up">
-                    Sign Up
-                  </Link>
+                  <Link href="/sign-up">Sign Up</Link>
                 </>
               )}
             </ul>
