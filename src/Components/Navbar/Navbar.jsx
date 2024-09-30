@@ -12,8 +12,8 @@ const Navbar = () => {
   const { user, logout } = useContext(AuthContext);
   const signOutUser = () => {
     logout()
-      .then(() => {})
-      .catch(() => {});
+      .then(() => { })
+      .catch(() => { });
   };
 
   const userLists = (
@@ -70,7 +70,7 @@ const Navbar = () => {
               </li>
               <li className="flex">
                 <Link rel="noopener noreferrer" href="/notifications">
-                  <IoMdNotificationsOutline className="text-2xl"/>
+                  <IoMdNotificationsOutline className="text-2xl" />
                 </Link>
               </li>
               {user ? (
