@@ -10,7 +10,7 @@ const createPlaylist = () => {
                 <div
                     className="absolute inset-x-0 top-1/2 h-px -translate-y-1/2 bg-transparent bg-gradient-to-r from-transparent via-gray-500 to-transparent opacity-75"
                 ></div>
-                <span className="relative z-10 bg-white text-4xl px-6 text-[#0077b6]  font-montserrat">Create Playlist</span>
+                <span className="relative z-10 text-4xl px-6 text-[#00b4d8]  font-montserrat">Create Playlist</span>
             </span>
 
 
@@ -40,17 +40,12 @@ const createPlaylist = () => {
                             <span
                                 className="absolute start-0 top-2 -translate-y-1/2 text-xs text-gray-700 transition-all peer-placeholder-shown:top-1/2 peer-placeholder-shown:text-sm peer-focus:top-2 peer-focus:text-xs"
                             >
-                                Give your playlist a name
+                                Type a name
                             </span>
                         </label>
 
-                        <div className='flex gap-4'>
-                            <button type="button" className="px-8 py-3 font-semibold rounded-full dark:bg-gray-800 dark:text-gray-100">Create</button>
-                            <button type="button" className="px-8 py-3 font-semibold rounded-full dark:bg-gray-800 dark:text-gray-100">Cancel</button>
-                        </div>
-
-
-
+                        <div className='mx-auto justify-between'>
+                            <button type="button" className="px-8 py-3 font-semibold rounded-full dark:bg-gray-800 dark:text-gray-100 mx-auto">Create</button></div>
 
                     </div>
                 </div>
