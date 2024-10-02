@@ -44,8 +44,11 @@ const AddPodcast = () => {
       const title = form.title.value;
       const description = form.description.value;
       const category = form.category.value;
+      const likes = '[]';
+      const dislikes = '[]';
+      const comments = '[]';
 
-      const newPodcast = { title, description, category, imgUrl, audioUrl };
+      const newPodcast = { title, description, category, imgUrl, audioUrl, likes, dislikes, comments };
 
       // Send data to the backend to save in MongoDB
       const res = await axios.post('http://localhost:5000/podcasts', newPodcast);
