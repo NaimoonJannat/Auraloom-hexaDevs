@@ -24,7 +24,14 @@ const TopCreator = () => {
                     <div className="grid grid-cols-2 gap-x-4 gap-y-8 md:grid-cols-4 lg:gap-x-8 lg:gap-y-12">
                         <div className="flex flex-col items-center">
                             <div className="mb-2 h-24 w-24 overflow-hidden rounded-full bg-gray-100 shadow-lg md:mb-4 md:h-32 md:w-32 border-4 hover:border-[#0077b6]">
-                                <Image className="h-full w-full object-cover object-center" src={img1} alt='' />
+                            <Image
+  className="h-full w-full object-cover object-center"
+  src={img1}
+  alt=""
+  width={800}  // Adjust width as needed
+  height={600} // Adjust height as needed
+/>
+
                             </div>
                             <div>
                                 <div className="text-center font-bold text-[#00b4d8] md:text-lg">Monira Islam</div>
@@ -33,7 +40,14 @@ const TopCreator = () => {
                         </div>
                         <div className="flex flex-col items-center">
                             <div className="mb-2 h-24 w-24 overflow-hidden rounded-full bg-gray-100 shadow-lg md:mb-4 md:h-32 md:w-32 border-4 hover:border-[#0077b6]">
-                                <Image className="h-full w-full object-cover object-center" src={img2} alt='' />
+                            <Image
+  className="h-full w-full object-cover object-center"
+  src={img2}
+  alt=""
+  width={800}  // Adjust width as needed
+  height={600} // Adjust height as needed
+/>
+
                             </div>
                             <div>
                                 <div className="text-center font-bold text-[#00b4d8] md:text-lg">Jannatul Ferdaus</div>
@@ -42,7 +56,14 @@ const TopCreator = () => {
                         </div>
                         <div className="flex flex-col items-center">
                             <div className="mb-2 h-24 w-24 overflow-hidden rounded-full bg-gray-100 shadow-lg md:mb-4 md:h-32 md:w-32 border-4 hover:border-[#0077b6]">
-                                <Image className="h-full w-full object-cover object-center" src={img3} alt='' />
+                            <Image
+  className="h-full w-full object-cover object-center"
+  src={img3}
+  alt=""
+  width={800}  // Adjust width as needed
+  height={600} // Adjust height as needed
+/>
+
                             </div>
                             <div>
                                 <div className="text-center font-bold text-[#00b4d8] md:text-lg">Mahbub Sarwar</div>
@@ -51,7 +72,14 @@ const TopCreator = () => {
                         </div>
                         <div className="flex flex-col items-center">
                             <div className="mb-2 h-24 w-24 overflow-hidden rounded-full bg-gray-100 shadow-lg md:mb-4 md:h-32 md:w-32 border-4 hover:border-[#0077b6]">
-                                <Image className="h-full w-full object-cover object-center" src={img4} alt='' />
+                            <Image
+  className="h-full w-full object-cover object-center"
+  src={img4}
+  alt=""
+  width={800}  // Adjust width as needed
+  height={600} // Adjust height as needed
+/>
+
                             </div>
                             <div>
                                 <div className="text-center font-bold text-[#00b4d8] md:text-lg">Raisa Nuzhat</div>
