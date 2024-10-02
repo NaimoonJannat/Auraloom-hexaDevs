@@ -1,4 +1,5 @@
-import PodcastDirectory from "@/Components/Directory/podcastDirectory";
+import PodcastDirectory from "@/Components/Directory/PodcastDirectory";
+
 
 
 
