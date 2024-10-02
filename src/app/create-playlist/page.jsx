@@ -20,7 +20,7 @@ const createPlaylist = () => {
                     <Image src={img1} alt="" className="w-full h-60 sm:h-96" />
                     <div className="p-6 pb- m-4 mx-auto -mt-16 space-y-6 lg:max-w-2xl sm:px-10 sm:mx-12 lg:rounded-md dark:bg-gray-50">
                         <div className="space-y-2 text-center">
-                            <a rel="noopener noreferrer" href="#" className="inline-block text-2xl font-semibold sm:text-3xl">Let's Start Building Your Playlist</a>
+                            <a rel="noopener noreferrer" href="#" className="inline-block text-2xl font-semibold sm:text-3xl">Let&apos;s Start Building Your Playlist</a>
                             <p className="font-semibold  dark:text-gray-600">
                                 <a rel="noopener noreferrer" href="#" className="text-sm hover:underline text-[#00b4d8]">Sayeed Hossain</a>
                             </p>
