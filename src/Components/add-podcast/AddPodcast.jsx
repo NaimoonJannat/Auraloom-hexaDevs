@@ -1,13 +1,16 @@
 "use client";
 import axios from 'axios';
-import { useState } from 'react';
+import { useContext, useState } from 'react';
 import { CirclesWithBar } from 'react-loader-spinner';
 import Swal from 'sweetalert2';
 import { Typewriter } from 'react-simple-typewriter'
+import { AuthContext } from '../Provider/AuthProvider/AuthProvider';
 const AddPodcast = () => {
   const [img, setImg] = useState(null);
   const [audio, setAudio] = useState(null);
   const [loading, setLoading] = useState(false);
+ 
+  const { user } = useContext(AuthContext);
 
   // Function to upload image/audio to Cloudinary
   const uploadFile = async (type) => {
@@ -44,11 +47,12 @@ const AddPodcast = () => {
       const title = form.title.value;
       const description = form.description.value;
       const category = form.category.value;
+      const creator = user.displayName;
       const likes = '[]';
       const dislikes = '[]';
       const comments = '[]';
 
-      const newPodcast = { title, description, category, imgUrl, audioUrl, likes, dislikes, comments };
+      const newPodcast = { title, creator, description, category, imgUrl, audioUrl, likes, dislikes, comments };
 
       // Send data to the backend to save in MongoDB
       const res = await axios.post('https://auraloom-backend.vercel.app/podcasts', newPodcast);
