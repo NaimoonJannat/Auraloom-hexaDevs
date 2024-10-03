@@ -2,6 +2,7 @@
 
 import SectionTitle from "@/Components/Heading/SectionTitle";
 import Image from "next/image";
+import Link from "next/link";
 import { useEffect, useState } from "react";
 import { IoIosSearch } from "react-icons/io";
 
@@ -17,15 +18,15 @@ const PodcastDirectory = () => {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                console.log("Fetching data...");
-                const response = await fetch('/data.json'); // Adjust the path if needed
+                // console.log("Fetching data...");
+                const response = await fetch('https://auraloom-backend.vercel.app/podcasts'); // Adjust the path if needed
 
                 if (!response.ok) {
                     throw new Error("Failed to fetch data");
                 }
 
                 const data = await response.json();
-                console.log("Data fetched:", data);  // Debug: Log the fetched data to ensure it's coming through
+                // console.log("Data fetched:", data);  // Debug: Log the fetched data to ensure it's coming through
 
                 setPodcasts(data);
 
@@ -157,32 +158,34 @@ const PodcastDirectory = () => {
                 </label>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-14 mt-16 px-10">
         {
-  podcasts.map(podcast => (
-    <div key={podcast._id} className="lg:px-8 lg:py-8 bg-[#CAF0F8] text-lg rounded-xl shadow-xl">
-      <figure>
-        <Image
-          className="mx-auto w-full rounded-xl"
-          src={podcast.cover}
-          alt="Podcast cover"
-          width={600}  // Specify an appropriate width based on your design
-          height={400} // Specify an appropriate height based on the aspect ratio
-        />
-      </figure>
-      <div className="card-body">
-        <h2 className="font-bold text-lg lg:text-xl text-center mb-3">{podcast.title}</h2>
-        <p className="text-base md:text-lg lg:text-xl">
-          <span className="font-bold">Artist:</span> {podcast.artist}
-        </p>
-        <p className="text-base md:text-lg lg:text-xl">
-          <span className="font-bold">Played:</span> {podcast.plays}
-        </p>
-        {/* <div className="card-actions justify-end">
-          <button className="btn btn-primary">Buy Now</button>
-        </div> */}
-      </div>
-    </div>
-  ))
-}
+            podcasts.map(podcast => (
+                <Link key={podcast._id}  href={`/podcast/${podcast._id}`}>
+                <div className="lg:px-8 lg:py-8 bg-[#CAF0F8] text-lg rounded-xl shadow-xl">
+                <figure>
+                    <Image
+                    className="mx-auto w-full rounded-xl"
+                    src={podcast.imgUrl}
+                    alt="Podcast cover"
+                    width={600}  // Specify an appropriate width based on your design
+                    height={400} // Specify an appropriate height based on the aspect ratio
+                    />
+                </figure>
+                <div className="card-body">
+                    <h2 className="font-bold text-lg lg:text-xl text-center mb-3">{podcast.title}</h2>
+                    <p className="text-base md:text-lg lg:text-xl">
+                    <span className="font-bold">Artist:</span> {podcast.creator}
+                    </p>
+                    <p className="text-base md:text-lg lg:text-xl">
+                    <span className="font-bold">Played:</span> {podcast.plays}
+                    </p>
+                    {/* <div className="card-actions justify-end">
+                    <button className="btn btn-primary">Buy Now</button>
+                    </div> */}
+                </div>
+                </div>
+                </Link>
+            ))
+        }           
 
         </div>
 
