@@ -1,14 +1,12 @@
-
-
 {
-  "id": "64829a3e-32d1-4ebc-a2bb-27e4de349e7d",
-  "title": "Tech Innovations",
-  "artist": "TechTalks",
-  "cover": "https://i.ibb.co.com/XFtwyS3/images-1.png",
-  "category": "Technology",
-  "plays": 1250,
-  "upvotes": 200,
-  "downvotes": 10,
+  "_id": "66fdb3132abbd55c7ef75d23",
+  "title": "Kuasha-Episode 04-Purono Banglo",
+  "creator": "Naimoon Jannat",
+  "description": "একটি পুরোনো বাংলোর রহস্যময় কাহিনী নিয়ে এই পর্ব। ভয়ের গল্পের সাথে শিহরণ জাগানো পরিস্থিতির বর্ণনা।",
+  "category": "Horror",
+  "imgUrl": "https://res.cloudinary.com/auraloom/image/upload/v1727878648/pw1j2fuspylt9n8qearg.jpg",
+  "likes": 6,
+  "dislikes": 1,
   "comments": [
     {
       "id": "c1fb9b3c-8a6d-42f7-a62f-2bb66f992f8e",
@@ -29,5 +27,5 @@
       "comment": "A great message"
     }
   ],
-  "description": "Explore the cutting-edge world of technology with Tech Innovations! In this podcast, TechTalks dives deep into the latest trends, gadgets, and breakthroughs shaping our future. Whether you’re a tech enthusiast, an innovator, or just curious about how technology affects our daily lives, this podcast brings expert insights and thought-provoking discussions. From AI advancements to the next big smartphone release, we cover it all. Stay informed and ahead of the curve with each episode, as we take a look at how tech continues to transform industries, from healthcare to entertainment. Don’t miss out—tune in and get inspired!"
+  "audioUrl": "https://res.cloudinary.com/auraloom/video/upload/v1727879224/Kuasha-Episode_04-Purono_Banglo_FusionBD.Com_wooycw.mp3"
 }
