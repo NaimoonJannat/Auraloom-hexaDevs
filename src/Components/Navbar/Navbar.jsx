@@ -41,7 +41,7 @@ const Navbar = () => {
       <div className="navbar bg-[#CAF0F8] font-montserrat">
         <div className="navbar-start">
           <Link href="/" className="btn btn-ghost text-xl">
-            <Image src={logo1} className="w-40 h-10" alt="Website logo" />
+            <Image src={logo1} className="w-40 h-10" alt="Website logo" priority/>
           </Link>
         </div>
         <div className="navbar-center"></div>
