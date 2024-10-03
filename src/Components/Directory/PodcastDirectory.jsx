@@ -18,7 +18,7 @@ const PodcastDirectory = () => {
         const fetchData = async () => {
             try {
                 console.log("Fetching data...");
-                const response = await fetch('/data.json'); // Adjust the path if needed
+                const response = await fetch('https://auraloom-backend.vercel.app/podcasts'); // Adjust the path if needed
 
                 if (!response.ok) {
                     throw new Error("Failed to fetch data");
@@ -162,7 +162,7 @@ const PodcastDirectory = () => {
       <figure>
         <Image
           className="mx-auto w-full rounded-xl"
-          src={podcast.cover}
+          src={podcast.imgUrl}
           alt="Podcast cover"
           width={600}  // Specify an appropriate width based on your design
           height={400} // Specify an appropriate height based on the aspect ratio
@@ -171,7 +171,7 @@ const PodcastDirectory = () => {
       <div className="card-body">
         <h2 className="font-bold text-lg lg:text-xl text-center mb-3">{podcast.title}</h2>
         <p className="text-base md:text-lg lg:text-xl">
-          <span className="font-bold">Artist:</span> {podcast.artist}
+          <span className="font-bold">Artist:</span> {podcast.creator}
         </p>
         <p className="text-base md:text-lg lg:text-xl">
           <span className="font-bold">Played:</span> {podcast.plays}
