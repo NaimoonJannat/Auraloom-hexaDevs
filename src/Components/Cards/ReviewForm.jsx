@@ -1,38 +1,73 @@
-
+import { useState } from 'react';
+import Swal from 'sweetalert2';
 
 const ReviewForm = () => {
+
+    const [name, setName] = useState('');
+    const [email, setEmail] = useState('');
+    const [message, setMessage] = useState('');
+
+    const handleSubmit = (e) => {
+        e.preventDefault(); // Prevent default form submission
+
+        // Imitate sending data to the database
+        // console.log({ name, email, message });
+
+        // Step 3: Show notification and clear form data
+        Swal.fire({
+            title: 'Success!',
+            text: 'You added a review!',
+            icon: 'success',
+            confirmButtonText: 'Close'
+        }).then(() => {
+            // Clear the form data
+            setName('');
+            setEmail('');
+            setMessage('');
+        });
+    }
+
     return (
         <div className="rounded-lg p-8 shadow-lg lg:col-span-3 lg:p-12">
-            <form action="#" className="space-y-4 w-full md:w-1/2 mx-auto">
+            <form onSubmit={handleSubmit} action="#" className="space-y-4 w-full md:w-1/2 mx-auto">
             <div>
                 <label className="sr-only" htmlFor="name">Name</label>
                 <input
-                className="w-full border border-[#CAF0F8] rounded-lg p-3 text-xs md:text-lg"
-                placeholder="Name"
-                type="text"
-                id="name"
+                        className="w-full border border-[#CAF0F8] rounded-lg p-3 text-xs md:text-lg"
+                        placeholder="Name"
+                        type="text"
+                        id="name"
+                        value={name}
+                        onChange={(e) => setName(e.target.value)} // Update name state
+                        required
                 />
             </div>
 
             <div>
-                <label className="sr-only" htmlFor="name">Name</label>
+                <label className="sr-only" htmlFor="name">Email</label>
                 <input
-                className="w-full border border-[#CAF0F8] rounded-lg p-3 text-xs md:text-lg"
-                placeholder="Email address"
-                type="email"
-                id="email"
-                />
+                        className="w-full border border-[#CAF0F8] rounded-lg p-3 text-xs md:text-lg"
+                        placeholder="Email address"
+                        type="email"
+                        id="email"
+                        value={email}
+                        onChange={(e) => setEmail(e.target.value)} // Update email state
+                        required
+                    />
             </div>
 
             <div>
                 <label className="sr-only border-" htmlFor="message">Message</label>
 
                 <textarea
-                className="w-full border border-[#CAF0F8] rounded-lg  p-3 text-xs md:text-lg"
-                placeholder="Message"
-                rows="8"
-                id="message"
-                ></textarea>
+                        className="w-full border border-[#CAF0F8] rounded-lg p-3 text-xs md:text-lg"
+                        placeholder="Message"
+                        rows="8"
+                        id="message"
+                        value={message}
+                        onChange={(e) => setMessage(e.target.value)} // Update message state
+                        required
+                    ></textarea>
             </div>
 
             <div className="mt-4 text-center"> 
