@@ -19,7 +19,7 @@ const PodcastDirectory = () => {
         const fetchData = async () => {
             try {
                 // console.log("Fetching data...");
-                const response = await fetch('http://localhost:5000/podcasts'); // Adjust the path if needed
+                const response = await fetch('https://auraloom-backend.vercel.app/podcasts'); // Adjust the path if needed
 
                 if (!response.ok) {
                     throw new Error("Failed to fetch data");
