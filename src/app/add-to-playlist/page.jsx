@@ -1,3 +1,4 @@
+'use client'
 import AddToPlaylist from '@/Components/AddToPlaylist/AddToPlaylist';
 import React from 'react';
 
