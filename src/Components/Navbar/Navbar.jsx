@@ -3,7 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import logo1 from "./../../../public/logo.png";
-import { useContext } from "react";
+import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../Provider/AuthProvider/AuthProvider";
 import { FaRegUserCircle } from "react-icons/fa";
 import { IoMdNotificationsOutline } from "react-icons/io";
@@ -15,6 +15,24 @@ const Navbar = () => {
       .then(() => { })
       .catch(() => { });
   };
+
+  const [isScrolled, setIsScrolled] = useState(false);
+
+    // Function to handle scroll event
+    const handleScroll = () => {
+        if (window.scrollY > 0) {
+            setIsScrolled(true);
+        } else {
+            setIsScrolled(false);
+        }
+    };
+    
+  useEffect(() => {
+        window.addEventListener('scroll', handleScroll);
+        return () => {
+            window.removeEventListener('scroll', handleScroll);
+        };
+    }, []);
 
   const userLists = (
     <>
@@ -37,8 +55,8 @@ const Navbar = () => {
   );
 
   return (
-    <div className="text-[#03045E]">
-      <div className="navbar bg-[#CAF0F8] font-montserrat">
+    <div className={`z-20 sticky top-0  transition-colors duration-300 ${isScrolled ? 'bg-[#CAF0F8]' : 'bg-[#34d1f1]'} ${isScrolled ? 'text-[#03045E]' : 'text-white'}  hover:bg-[#34d1f1]`}>
+      <div className="navbar  font-montserrat">
         <div className="navbar-start">
           <Link href="/" className="btn btn-ghost text-xl">
             <Image src={logo1} className="w-40 h-10" alt="Website logo" priority/>
@@ -114,7 +132,7 @@ const Navbar = () => {
             </ul>
           </div>
 
-          <div className="dropdown">
+          <div className="dropdown dropdown-left">
             <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -133,7 +151,7 @@ const Navbar = () => {
             </div>
             <ul
               tabIndex={0}
-              className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow"
+              className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 p-2 shadow"
             >
               <li className="flex">
                 <Link rel="noopener noreferrer" href="/">
@@ -157,13 +175,15 @@ const Navbar = () => {
               </li>
               <li className="flex">
                 <Link rel="noopener noreferrer" href="/notifications">
-                  <IoMdNotificationsOutline />
+                  {/* <IoMdNotificationsOutline /> */}
+                  Notifications
                 </Link>
               </li>
               {user ? (
                 <>
                   <div>
                     <div className="dropdown dropdown-end">
+                    {userLists}
                       <div
                         tabIndex={0}
                         role="button"
@@ -179,12 +199,9 @@ const Navbar = () => {
                           />
                         </div>
                       </div>
-                      <ul
-                        tabIndex={0}
-                        className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow"
-                      >
-                        {userLists}
-                      </ul>
+                      
+                       
+                      
                     </div>
                   </div>
                 </>
