@@ -1,9 +1,10 @@
+import Image from "next/image";
 
 const page = async ({ params }) => {
 
     const { id } = params;
         // Fetch the podcast details from the deployed API using the ID
-        const response = await fetch(`http://localhost:5000/podcasts/${id}`, {
+        const response = await fetch(`https://auraloom-backend.vercel.app/podcasts/${id}`, {
             method: 'GET', // Using GET method to fetch data
             headers: {
             'Content-Type': 'application/json',
@@ -21,6 +22,7 @@ const page = async ({ params }) => {
 
     return (
         <div>
+            <Image></Image>
             <h1>{podcast.title}</h1>
             <p>{podcast.description}</p>
         </div>
