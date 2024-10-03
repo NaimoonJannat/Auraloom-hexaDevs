@@ -7,7 +7,7 @@ const Footer = () => {
       <footer className="container mx-auto">
         <div className="footer p-10">
           <aside>
-            <Image className="w-64 mb-4" src={logo} alt="" />
+            <Image className="w-64 mb-4" src={logo} alt="" priority />
             <p>
               Auraloom Pvt Ltd.
               <br />
