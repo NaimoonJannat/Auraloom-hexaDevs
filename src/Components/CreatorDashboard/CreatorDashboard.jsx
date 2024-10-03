@@ -1,40 +1,47 @@
-export default function CreatorDashboard() {
+"use client"
+import React, { useState } from 'react';
+import AddPodcast from '../add-podcast/AddPodcast';
+import MyPodcasts from '../MyPodcast/MyPodcast';
+import Link from 'next/link';
+
+const CreatorDashboard = () => {
+    const [podcasts, setPodcasts] = useState([
+        { id: 1, title: 'Tech Talks', creator: 'Emer', description: 'Tech news and updates', likes: 120 },
+        { id: 2, title: 'Storytime', creator: 'Emer', description: 'Fictional stories', likes: 85 },
+        { id: 3, title: 'Music Vibes', creator: 'Emer', description: 'Best chill music playlists', likes: 98 },
+    ]);
+
     return (
-        <div className="mt-8 bg-white rounded-lg shadow-md p-6">
-            <h2 className="text-xl font-bold">Creator Dashboard</h2>
-
-            <section className="my-4">
-                <h3 className="text-lg font-semibold">Upload New Podcast</h3>
-                <div className="bg-gray-100 p-4 rounded">
-                    <button className="bg-blue-500 text-white p-2 rounded shadow hover:bg-blue-600">
-                        Upload
-                    </button>
-                </div>
-            </section>
-
-            <section className="my-4">
-                <h3 className="text-lg font-semibold">My Podcasts</h3>
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mt-4">
-                    {/* List of podcasts */}
-                    <div className="bg-yellow-100 p-4 rounded shadow">Podcast 1</div>
-                    <div className="bg-yellow-100 p-4 rounded shadow">Podcast 2</div>
-                </div>
-            </section>
-
-            <section className="my-4">
-                <h3 className="text-lg font-semibold">Metrics</h3>
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-                    <div className="bg-red-100 p-4 rounded shadow">
-                        <p>Subscriptions: 1200</p>
-                    </div>
-                    <div className="bg-red-100 p-4 rounded shadow">
-                        <p>Likes: 150</p>
-                    </div>
-                    <div className="bg-red-100 p-4 rounded shadow">
-                        <p>Comments: 45</p>
+        <div className="p-8 bg-gray-100 min-h-screen">
+            {/* <h1 className="text-3xl font-bold text-gray-800 mb-6">Creator Dashboard</h1> */}
+            {/* Hero */}
+            <div
+                className="hero min-h-72"
+                style={{
+                    backgroundImage: "url(https://i.ibb.co.com/mTGcYZK/57a26592612e2081a0db8b71f07af624.jpg)",
+                }}>
+                <div className="hero-overlay bg-opacity-60"></div>
+                <div className="hero-content text-neutral-content text-center">
+                    <div className="max-w-md">
+                        <h1 className="mb-5 text-5xl font-bold">Hello Creator</h1>
+                        <p className="mb-5">
+                            If You Want To Add A New Podcast PLease Click Here....
+                        </p>
+                        <Link href={'/add-podcast'} className="btn bg-blue-500 text-white border-none">Add A New Podcast</Link>
                     </div>
                 </div>
+            </div>
+            {/* Upload New Podcast */}
+            {/* <section className="mb-10">
+                <AddPodcast></AddPodcast>
+            </section> */}
+
+            {/* My Podcasts */}
+            <section>
+                <MyPodcasts podcasts={podcasts} />
             </section>
         </div>
     );
-}
+};
+
+export default CreatorDashboard;
