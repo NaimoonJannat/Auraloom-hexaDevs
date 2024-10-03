@@ -55,7 +55,7 @@ const Navbar = () => {
   );
 
   return (
-    <div className={`z-20 sticky top-0  transition-colors duration-300 ${isScrolled ? 'bg-[#CAF0F8]' : 'bg-[#34d1f1]'} ${isScrolled ? 'text-[#03045E]' : 'text-white'}  hover:bg-[#34d1f1]`}>
+    <div className={`z-20 sticky top-0  transition-colors duration-50 ${isScrolled ? 'bg-[#CAF0F8]' : 'bg-[#34d1f1]'} ${isScrolled ? 'text-[#03045E]' : 'text-white'}  hover:bg-[#34d1f1]`}>
       <div className="navbar  font-montserrat">
         <div className="navbar-start">
           <Link href="/" className="btn btn-ghost text-xl">
