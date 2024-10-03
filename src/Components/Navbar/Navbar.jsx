@@ -65,7 +65,7 @@ const Navbar = () => {
         <div className="navbar-center"></div>
         <div className="navbar-end flex gap-4">
           <div className="hidden lg:flex">
-            <ul className="menu menu-horizontal px-1 flex items-center gap-3 text-lg font-medium">
+            <ul className="menu menu-horizontal px-1 flex items-center gap-3 text-lg font-medium text-[#03045E]">
               <li className="flex">
                 <Link rel="noopener noreferrer" href="/">
                   Home
@@ -125,10 +125,10 @@ const Navbar = () => {
                 </>
               ) : (
                 <>
-                  <li>
+                  <li className="text-[#03045E]">
                     <Link href="/log-in">Sign In</Link>
                   </li>
-                  <Link href="/sign-up" className="btn bg-white font-bold">
+                  <Link href="/sign-up" className="btn bg-white font-bold text-[#03045E]">
                     Sign Up
                   </Link>
                 </>
@@ -155,7 +155,7 @@ const Navbar = () => {
             </div>
             <ul
               tabIndex={0}
-              className="menu menu-sm dropdown-content  bg-base-100 rounded-box z-[1] mt-3 p-2 shadow"
+              className="menu menu-sm dropdown-content  bg-base-100 rounded-box z-[1] mt-3 p-2 shadow text-[#03045E]"
             >
               <li className="flex">
                 <Link rel="noopener noreferrer" href="/">
@@ -186,7 +186,7 @@ const Navbar = () => {
               {user ? (
                 <>
                   <div>
-                    <div className="dropdown dropdown-end">
+                    <div className="dropdown dropdown-end text-[#03045E]">
                     {userLists}
                       <div
                         tabIndex={0}
@@ -211,35 +211,35 @@ const Navbar = () => {
                 </>
               ) : (
                 <>
-                  <li className="flex">
+                  <li className="flex text-[#03045E]">
                     <Link rel="noopener noreferrer" href="/">
                       Home
                     </Link>
                   </li>
-                  <li className="flex">
+                  <li className="flex text-[#03045E]">
                     <Link rel="noopener noreferrer" href="/directory">
                       Directory
                     </Link>
                   </li>
-                  <li className="flex">
+                  <li className="flex text-[#03045E]">
                     <Link rel="noopener noreferrer" href="/add-podcast">
                       Add Podcast
                     </Link>
                   </li>
-                  <li className="flex">
+                  <li className="flex text-[#03045E]">
                     <Link rel="noopener noreferrer" href="/history">
                       History
                     </Link>
                   </li>
-                  <li className="flex">
+                  <li className="flex text-[#03045E]">
                     <Link rel="noopener noreferrer" href="/notifications">
                       <IoMdNotificationsOutline />
                     </Link>
                   </li>
-                  <li>
+                  <li className="text-[#03045E]">
                     <Link href="/log-in">Sign In</Link>
                   </li>
-                  <Link href="/sign-up">Sign Up</Link>
+                  <Link href="/sign-up" className="text-[#03045E]">Sign Up</Link>
                 </>
               )}
             </ul>
