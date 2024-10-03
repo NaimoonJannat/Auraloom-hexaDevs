@@ -6,22 +6,28 @@ import SectionTitle from "@/Components/Heading/SectionTitle";
 import ReviewCard from "@/Components/Cards/ReviewCard";
 import { FaUserCircle } from "react-icons/fa";
 
+
 const PodcastDetail = () => {
 
+    
+    const [podcast, setPodcast] = useState({});
     const [reviews, setReviews] = useState([]);
     
 
     useEffect(() =>{
-        fetch('singlePodcast.json')
+        fetch(`/singlePodcast.json`)
         .then(res => res.json())
-        .then(data => setReviews(data.comments));
+        .then(data => {
+            setPodcast(data);
+            setReviews(data.comments);
+        });
     },[])
 
     // console.log(reviews);
 
     return (
         <div>
-            <PodcastDetails></PodcastDetails>
+            <PodcastDetails podcast={podcast}></PodcastDetails>
             <SectionTitle title={"Leave a review!"}></SectionTitle>
             <ReviewForm></ReviewForm>
 
