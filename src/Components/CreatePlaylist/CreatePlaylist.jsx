@@ -3,17 +3,20 @@ import Image from 'next/image';
 import img1 from '../../../public/pexels-dmitry-demidov-515774-3783471.jpg';
 import { useState, useEffect } from 'react';
 import axios from 'axios';
-import { useRouter } from 'next/router';
+//import { useRouter } from 'next/router';
+import { useRouter } from "next/navigation";
 
 const CreatePlaylist = () => {
     const [playlistName, setPlaylistName] = useState('');
     const [error, setError] = useState(null); // For handling errors
     const [isMounted, setIsMounted] = useState(false); // Ensure component is mounted before using router
+    const router = useRouter(); // Declare useRouter at the top of the component
 
     // Check if the component is mounted on the client-side
     useEffect(() => {
         setIsMounted(true);
     }, []);
+
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -25,8 +28,13 @@ const CreatePlaylist = () => {
         try {
             const response = await axios.post('http://localhost:5000/playlists', newPlaylist);
             console.log('Playlist created:', response.data);
-            // Navigate to add-to-playlist page
-            router.push('/add-to-playlist');
+
+            if (isMounted) {
+                const playlistId = response.data.insertedId;
+                // Navigate to the add-to-playlist page or the specific playlist page
+                router.push(`/playlists/${playlistId}`);
+            }
+
         } catch (error) {
             console.error('Error creating playlist:', error);
             setError('Failed to create playlist. Please try again.');
@@ -45,11 +53,11 @@ const CreatePlaylist = () => {
             </span>
 
             <div className='lg:flex items-start mx-auto font-montserrat'>
-                <div className="mx-auto dark:text-gray-800">
-                    <div className="flex flex-col max-w-3xl mx-auto overflow-hidden rounded scale-90">
-                        <Image src={img1} alt="Image" className="w-full h-60 sm:h-96 object-cover" />
+                <div className="mx-auto dark:text-gray-800 border border-black scale-90 rounded-md">
+                    <div className="flex flex-col max-w-3xl mx-auto overflow-hidden rounded ">
+                        <Image src={img1} alt="Image" className="w-full h-60 sm:h-96 object-cover p-4" />
 
-                        <div className="p-6 pb- m-4 mx-auto -mt-16 space-y-6 lg:max-w-2xl sm:px-10 sm:mx-12 lg:rounded-md dark:bg-gray-50">
+                        <div className="p-6 pb- m-4 mx-auto -mt-16 space-y-6 lg:max-w-2xl sm:px-10 sm:mx-12 lg:rounded-md dark:bg-gray-50 shadow">
                             <div className="space-y-2">
                                 <a href="#" className="inline-block text-2xl font-semibold sm:text-3xl">Start Building Your Playlist</a>
                                 <p className="font-semibold dark:text-gray-600">
@@ -79,7 +87,7 @@ const CreatePlaylist = () => {
                                     </span>
                                 </label>
 
-                                <button type="submit" className="px-8 py-3 font-semibold rounded-full dark:bg-gray-800 dark:text-gray-100 mx-auto">
+                                <button type="submit" className="mt-4 px-8 py-3 font-semibold rounded-full dark:bg-gray-800 dark:text-gray-100 mx-auto">
                                     Create
                                 </button>
                             </form>
