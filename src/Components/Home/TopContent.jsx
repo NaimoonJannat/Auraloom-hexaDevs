@@ -22,7 +22,13 @@ const TopContent = () => {
             <div className='grid gap-4 sm:grid-cols-2 md:gap-6 lg:grid-cols-3 font-montserrat '>
                 <div className="relative mx-auto max-w-md overflow-hidden rounded-lg bg-white shadow scale-90">
                     <div>
-                        <Image className="w-full object-cover" src={img1} alt='' />
+                    <Image
+  className="w-full object-cover"
+  src={img1}
+  alt=""
+  width={800}  // specify an appropriate width for the image
+  height={500} // specify an appropriate height for the image
+/>
                     </div>
 
                     <div className="absolute inset-0 z-10 bg-gradient-to-t from-black"></div>
@@ -38,7 +44,13 @@ const TopContent = () => {
                 </div>
                 <div className="relative mx-auto max-w-md overflow-hidden rounded-lg bg-white shadow scale-90">
                     <div>
-                        <Image className="w-full object-cover" src={img2} alt='' />
+                    <Image
+  className="w-full object-cover"
+  src={img2}
+  alt=""
+  width={800}  // specify an appropriate width for the image
+  height={500} // specify an appropriate height for the image
+/>
                     </div>
 
                     <div className="absolute inset-0 z-10 bg-gradient-to-t from-black"></div>
@@ -54,7 +66,13 @@ const TopContent = () => {
                 </div>
                 <div className="relative mx-auto max-w-md overflow-hidden rounded-lg bg-white shadow scale-90">
                     <div>
-                        <Image className="w-full object-cover" src={img3} alt='' />
+                    <Image
+  className="w-full object-cover"
+  src={img3}
+  alt=""
+  width={800}  // specify an appropriate width for the image
+  height={500} // specify an appropriate height for the image
+/>
                     </div>
 
                     <div className="absolute inset-0 z-10 bg-gradient-to-t from-black"></div>

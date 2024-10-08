@@ -1,0 +1,16 @@
+@keyframes pulse {
+    0% {
+      box-shadow: 0 0 10px 0 rgba(255, 0, 0, 0.7), 0 0 20px 0 rgba(255, 0, 0, 0.4);
+    }
+    50% {
+      box-shadow: 0 0 20px 0 rgba(255, 0, 0, 0.7), 0 0 40px 0 rgba(255, 0, 0, 0.4);
+    }
+    100% {
+      box-shadow: 0 0 10px 0 rgba(255, 0, 0, 0.7), 0 0 20px 0 rgba(255, 0, 0, 0.4);
+    }
+  }
+  
+  .border-pulse {
+    animation: pulse 2s infinite;
+  }
+  
