@@ -10,6 +10,8 @@ import { FaUserCircle } from "react-icons/fa";
 import Image from "next/image";
 import { AiOutlineDislike, AiOutlineLike } from "react-icons/ai";
 import Swal from "sweetalert2";
+import { FcLike } from "react-icons/fc";
+import { FcDislike } from "react-icons/fc";
 
 
 const PodcastDetail = ({ id }) => {
@@ -52,31 +54,34 @@ const PodcastDetail = ({ id }) => {
         <div>
             {/* <PodcastDetails podcast={podcast}></PodcastDetails> */}
             {/* PODCAST DETAIL CARD */}
-            <div className="card bg-[#d4eff4] lg:w-1/2 shadow-xl pt-10 mx-auto mt-10">
-                <figure className="w-2/3 rounded-lg mx-auto">
-                <Image
-                    src={podcast.imgUrl}
-                    layout="responsive"   // Make the image responsive
-                    width={50}           // Use a relative width, will scale according to container
-                    height={50}          // Maintain aspect ratio based on the original image dimensions
-                    className="w-full object-cover"  // object-cover ensures the image is not stretched
-                    alt="Podcast cover"
-                />
-                    
-                </figure>
-                <div className="card-body">
-                    <h2 className="card-title flex font-bold lg:text-2xl md:text-xl text-lg">
-                    {podcast.title}
-                    
-                    </h2>
-                    <p className="lg:text-xl font-semibold md:text-lg text-base">{podcast.creator}</p>
-                    <div className="card-actions justify-end">
-                    <div className="badge badge-outline p-4  lg:text-xl md:text-lg text-base"><AiOutlineLike  className="text-base mr-1 font-semibold"/> {podcast.likes || 0}</div>
-                    <div className="badge badge-outline p-4  lg:text-xl md:text-lg text-base"><AiOutlineDislike  className="text-base mr-1 font-semibold"/> {podcast.dislikes || 0}</div>
+            <div className="relative rounded-lg overflow-hidden shadow-lg w-52 h-52 md:w-64 md:h-64 lg:w-full lg:h-full">
+                    {/* Background Image */}
+                    <div 
+                        className="absolute inset-0 bg-cover bg-center"
+                        style={{ backgroundImage: `url(${podcast.imgUrl})` }}
+                    >
+                        {/* Overlay */}
+                        <div className="bg-black bg-opacity-30 h-full w-full"></div>
+                    </div>
+
+                    {/* Content Wrapper */}
+                    <div className="relative z-10 flex flex-col justify-between h-full p-3 md:p-4 lg:w-1/2 mx-auto my-32">
+                        {/* Episode Info */}
+                        <div className="text-white mb-2 flex flex-col">
+                            <span className="bg-[#01BECA] px-2 mb-6  border border-transparent rounded-badge w-fit">{podcast.category}</span>
+                            <span className="lg:text-6xl font-bold">{podcast.title}</span>
+                            <div>
+                                <span>{podcast.creator}</span>
+                                <span><FcLike /></span>
+                                <span><FcDislike /></span>
+                            </div>
+                        </div>
+
+                        {/* Podcast Title */}
+                        
                     </div>
                 </div>
-                </div>
-
+            
             {/* Review Form */}
             <SectionTitle title={"Leave a review!"}></SectionTitle>
             <ReviewForm></ReviewForm>
