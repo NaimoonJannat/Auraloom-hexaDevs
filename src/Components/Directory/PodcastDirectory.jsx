@@ -56,8 +56,8 @@ const PodcastDirectory = () => {
             <IoIosSearch />
         </label>
 
-        <div className="w-9/12 mx-auto">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-14 mt-16 px-10 text-white">
+        <div className="mx-auto md:w-5/6 lg:w-9/12 ">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-14 mt-16 mx-14 lg:px-10 text-white">
         {
             podcasts.map(podcast => (
                 <Link key={podcast._id} podcast={podcast}  href={`/podcast/${podcast._id}`}>
@@ -68,7 +68,7 @@ const PodcastDirectory = () => {
                 
 
                 {/* DETAILS */}
-                <div className="relative rounded-lg overflow-hidden shadow-lg w-96 h-96">
+                <div className="relative rounded-lg overflow-hidden shadow-lg w-52 h-52 md:w-64 md:h-64 lg:w-96 lg:h-96">
                     {/* Background Image */}
                     <div 
                         className="absolute inset-0 bg-cover bg-center"
@@ -79,16 +79,16 @@ const PodcastDirectory = () => {
                     </div>
 
                     {/* Content Wrapper */}
-                    <div className="relative z-10 flex flex-col justify-between h-full p-4">
+                    <div className="relative z-10 flex flex-col justify-between h-full p-3 md:p-4">
                         {/* Episode Info */}
                         <div className="text-white text-sm mb-2">
-                        <span className="font-semibold">{podcast.date}</span> <span>EPISODE {podcast.episode}</span>
+                            <span> {podcast.category}</span>
                         </div>
 
                         {/* Podcast Title */}
-                        <div className="flex gap-6 items-center mt-auto"> {/* Add mt-auto to push it down */}
-                        <IoPlayCircle className="text-6xl md:text-7xl  text-white" />
-                        <span className="lg:text-2xl md:text-xl text-lg font-bold text-white w-3/4">
+                        <div className="flex gap-2  md:gap-4 lg:gap-6 items-center mt-auto"> {/* Add mt-auto to push it down */}
+                        <IoPlayCircle className="text-3xl md:text-5xl lg:text-6xl   text-white" />
+                        <span className="lg:text-xl md:text-base text-sm font-bold text-white w-10/12 md:w-11/12 lg:w-3/4">
                             {podcast.title}
                         </span>
                         </div>
