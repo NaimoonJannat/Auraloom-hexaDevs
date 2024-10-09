@@ -1,4 +1,6 @@
-"use client"
+"use client";
+
+
 import { useEffect, useState } from "react";
 import PodcastDetails from "@/Components/Cards/PodcastDetails";
 import ReviewForm from "@/Components/Cards/ReviewForm";
@@ -9,21 +11,40 @@ import Image from "next/image";
 import { AiOutlineDislike, AiOutlineLike } from "react-icons/ai";
 import Swal from "sweetalert2";
 
-const PodcastDetail = () => {
+
+const PodcastDetail = ({ id }) => {
+    
+    const [podcast, setPodcast] = useState(null);
 
     
-    const [podcast, setPodcast] = useState({});
+    // const [podcast, setPodcast] = useState({});
     const [reviews, setReviews] = useState([]);
     
 
-    useEffect(() =>{
-        fetch(`/singlePodcast.json`)
-        .then(res => res.json())
-        .then(data => {
-            setPodcast(data);
-            setReviews(data.comments);
-        });
-    },[])
+    useEffect(() => {
+        if (id) {
+            fetch(`http://localhost:5000/podcasts/${id}`)
+                .then((res) => {
+                    if (!res.ok) {
+                        throw new Error('Failed to fetch podcast');
+                    }
+                    return res.json();
+                })
+                .then((data) => {
+                    setPodcast(data);
+                    setReviews(data.comments);
+                })
+                .catch((error) => {
+                    console.error('Error fetching podcast:', error);
+                });
+        }
+    }, [id]);
+
+    // Ensure you handle the case where podcast is not loaded yet
+    if (!podcast) {
+        return <div>Loading...</div>;
+    }
+    
 
     // console.log(podcast);
 
@@ -46,7 +67,7 @@ const PodcastDetail = () => {
                 <div className="card-body">
                     <h2 className="card-title flex font-bold lg:text-2xl md:text-xl text-lg">
                     {podcast.title}
-                    {/* <div className="badge p-3 bg-[#34D1F1] justify-items-end">{podcast.played} times</div> */}
+                    
                     </h2>
                     <p className="lg:text-xl font-semibold md:text-lg text-base">{podcast.creator}</p>
                     <div className="card-actions justify-end">
@@ -55,6 +76,8 @@ const PodcastDetail = () => {
                     </div>
                 </div>
                 </div>
+
+            {/* Review Form */}
             <SectionTitle title={"Leave a review!"}></SectionTitle>
             <ReviewForm></ReviewForm>
 
