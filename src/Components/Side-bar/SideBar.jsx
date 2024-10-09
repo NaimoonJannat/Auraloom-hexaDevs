@@ -6,6 +6,7 @@ import Image from 'next/image';
 import { AuthContext } from '../Provider/AuthProvider/AuthProvider';
 import { Tooltip } from 'react-tooltip'
 import { HomeIcon, MusicNoteIcon, ChartBarIcon, HeartIcon, ClockIcon, BookOpenIcon, MicrophoneIcon } from '@heroicons/react/outline';
+import { PlayIcon } from '@heroicons/react/solid';
 
 
 const Sidebar = () => {
@@ -56,14 +57,83 @@ const Sidebar = () => {
                 </ul>
                 <h2 className="text-lg font-semibold mt-10 mb-2">Your Playlists</h2>
                 <ul>
-                    <li className="mb-2 text-red-400">Phycology</li>
-                    <li className="mb-2 text-blue-400">Education</li>
-                    <li className="mb-2 text-green-400">Art&craft</li>
-                    <li className="mb-2 text-purple-400">Beauty</li>
+                    <li className="flex items-center space-x-2 mb-2 hover:bg-gray-700 p-2 rounded-md">
+                        <PlayIcon className="h-5 w-5 text-red-400" />
+                        <span>Phycology</span>
+                    </li>
+                    <li className="flex items-center space-x-2 mb-2 hover:bg-gray-700 p-2 rounded-md">
+                        <PlayIcon className="h-5 w-5 text-blue-400" />
+                        <span>Education</span>
+                    </li>
+                    <li className="flex items-center space-x-2 mb-2 hover:bg-gray-700 p-2 rounded-md">
+                        <PlayIcon className="h-5 w-5 text-purple-400" />
+                        <span>Beauty</span>
+                    </li>
+                    <li className="flex items-center space-x-2 mb-2 hover:bg-gray-700 p-2 rounded-md">
+                        <PlayIcon className="h-5 w-5 text-green-400" />
+                        <span>Art&craft</span>
+                    </li>
                 </ul>
                 <button className="mt-4 text-orange-500">Create new playlist +</button>
             </div>
+            <div className="mt-7 md:mt-12 lg:mt-20 flex flex-col items-center space-y-4">
+                {user ? (
+                    <>
+                        <div>
+                            {/* Avatar dropdown */}
+                            <div className="dropdown dropdown-end">
+                                <div
+                                    tabIndex={0}
+                                    role="button"
+                                    className="btn btn-ghost btn-circle avatar hover:scale-105 transform transition"
+                                >
+                                    <div className="w-10 h-10 rounded-full border-2 border-sky-500 p-1">
+                                        <Image
+                                            src={user?.photoURL}
+                                            width={40}
+                                            height={40}
+                                            className="rounded-full"
+                                            alt="User avatar"
+                                        />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        {/* Display user's name */}
+                        <div>
+                            <button className="text-white font-semibold text-sm hover:text-blue-400 transition">
+                                {user?.displayName || 'user'}
+                            </button>
+                        </div>
+                    </>
+                ) : (
+                    <div className="flex flex-col items-center space-y-2">
+                        {/* Sign In */}
+                        <Link href="/log-in" className="text-white font-semibold hover:underline">
+                            Sign In
+                        </Link>
+
+                        {/* Sign Up Button */}
+                        <Link href="/sign-up" className="btn bg-white text-gray-900 font-bold hover:bg-orange-500 hover:text-white transition px-6 py-2 rounded-full">
+                            Sign Up
+                        </Link>
+                    </div>
+                )}
+
+                {/* Be a Creator Button */}
+                <Link
+                    href="/creator-dashboard"
+                    className="btn mt-5 w-full bg-sky-700 hover:bg-sky-400 border-none hover:text-white text-black py-3 px-7 rounded-md font-bold transition"
+                >
+                    Be a Creator
+                </Link>
+            </div>
+
         </div>
+
+
+
         // <div className="w-64  flex flex-col items-center p-6 bg-sky-50">
         //     <div className="text-xl flex gap-3 font-bold mb-10"><p >Auraloom</p><FaMusic className="text-2xl text-blue-700" ></FaMusic></div>
         //     {/* <nav>
@@ -78,44 +148,7 @@ const Sidebar = () => {
 
         //     </nav> */}
 
-        //     <div className="mt-auto flex flex-col items-center">
-        //         {user ? (
-        //             <>
-        //                 <div>
-        //                     <div className="dropdown dropdown-end">
-        //                         <div
-        //                             tabIndex={0}
-        //                             role="button"
-        //                             className="btn btn-ghost btn-circle avatar"
-        //                         >
-        //                             <div className="w-10 rounded-full">
-        //                                 <Image
-        //                                     src={user?.photoURL}
-        //                                     width={40}
-        //                                     height={40}
-        //                                     className="w-full"
-        //                                     alt="User avatar"
-        //                                 />
-        //                             </div>
-        //                         </div>
-        //                     </div>
-        //                 </div>
-        //                 <div anchorSelect="#clickable" clickable>
-        //                     <button>{user?.displayName || 'user'}</button>
-        //                 </div>
-        //             </>
-        //         ) : (
-        //             <>
-        //                 <li>
-        //                     <Link href="/log-in">Sign In</Link>
-        //                 </li>
-        //                 <Link href="/sign-up" className="btn bg-white font-bold">
-        //                     Sign Up
-        //                 </Link>
-        //             </>
-        //         )}
-        //         <Link href={'/creator-dashboard'} className='btn mt-5 w-full hover:bg-sky-700 bg-sky-200 text-black hover:text-white py-3 px-7 rounded-md font-bold'>Be a Creator</Link>
-        //     </div>
+
         // </div>
     );
 };
