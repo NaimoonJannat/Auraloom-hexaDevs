@@ -43,7 +43,7 @@ const Navbar = () => {
         <Link href={"/Creator-Profile"}>Profile</Link>
       </li>
       <li>
-        <Link href={"/settings"}>Settings</Link>
+        <Link href={"/Settings"}>Settings</Link>
       </li>
       <li>
         <Link href={"/pro-mode"}>Be a Pro</Link>
