@@ -40,7 +40,6 @@ const AddToPlaylist = () => {
                 </div>
             </section> */}
 
-
             <article className="rounded-xl bg-white p-4 ring ring-indigo-50 sm:p-6 lg:p-8 mt-10">
                 <div className="flex items-start sm:gap-8">
                     <div
@@ -110,7 +109,6 @@ const AddToPlaylist = () => {
             </div>
 
             {/* MODAL */}
-
             <dialog id="my_modal_1" className="modal">
                 <div className="modal-box max-w-4xl">
                     {/* CARD */}

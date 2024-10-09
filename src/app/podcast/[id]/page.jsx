@@ -1,3 +1,4 @@
+
 import Image from "next/image";
 import { AiOutlineLike } from "react-icons/ai";
 import { AiOutlineDislike } from "react-icons/ai";
@@ -5,9 +6,12 @@ import { FaPlay } from "react-icons/fa6";
 import { notFound } from "next/navigation";
 import PodcastDetail from "@/Components/Directory/PodcastDetail";
 
-const page = async () => {
 
-    // const { id } = params;
+const page = ({params}) => {
+    
+
+    const { id } = params;
+
     // FOR DYNAMIC ROUTING FROM DB
         // Fetch the podcast details from the deployed API using the ID
         // const response = await fetch(`http://localhost:5000/podcasts/${id}`, {
@@ -30,7 +34,7 @@ const page = async () => {
 
     return (
         <div>
-            <PodcastDetail></PodcastDetail>
+            <PodcastDetail id={id}></PodcastDetail>
         </div>
         // <div>
         //     <div className="card bg-[#d4eff4] lg:w-1/2 shadow-xl pt-3 mx-auto mt-10">
