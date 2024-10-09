@@ -79,7 +79,7 @@ const AddPodcast = () => {
 
   return (
     <div className='mx-auto my-20 container flex  flex-col justify-center items-center'>
-      <h1 className="mt-2 text-2xl lg:text-4xl font-bold text-[#03045e] capitalize  dark:text-white">
+      <h1 className="mt-2 text-2xl lg:text-4xl font-bold font-montserrat text-[#03045e] capitalize  dark:text-white">
         <Typewriter
           words={['Bring Your Podcast to Life', 'Share Your Passion with the World!']}
           loop={10}
