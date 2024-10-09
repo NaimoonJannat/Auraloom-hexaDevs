@@ -12,6 +12,8 @@ import { AiOutlineDislike, AiOutlineLike } from "react-icons/ai";
 import Swal from "sweetalert2";
 import { FcLike } from "react-icons/fc";
 import { FcDislike } from "react-icons/fc";
+import { FaPlus } from "react-icons/fa6";
+import { FaShare } from "react-icons/fa";
 
 
 const PodcastDetail = ({ id }) => {
@@ -54,7 +56,7 @@ const PodcastDetail = ({ id }) => {
         <div>
             {/* <PodcastDetails podcast={podcast}></PodcastDetails> */}
             {/* PODCAST DETAIL CARD */}
-            <div className="relative rounded-lg overflow-hidden shadow-lg w-52 h-52 md:w-64 md:h-64 lg:w-full lg:h-full">
+            <div className="relative rounded-lg overflow-hidden shadow-lg w-full h-full">
                     {/* Background Image */}
                     <div 
                         className="absolute inset-0 bg-cover bg-center"
@@ -65,17 +67,24 @@ const PodcastDetail = ({ id }) => {
                     </div>
 
                     {/* Content Wrapper */}
-                    <div className="relative z-10 flex flex-col justify-between h-full p-3 md:p-4 lg:w-1/2 mx-auto my-32">
+                    <div className="relative z-10 text-white justify-between h-full p-3 md:p-4 lg:w-1/2 mx-auto my-32">
                         {/* Episode Info */}
-                        <div className="text-white mb-2 flex flex-col">
-                            <span className="bg-[#01BECA] px-2 mb-6  border border-transparent rounded-badge w-fit">{podcast.category}</span>
-                            <span className="lg:text-6xl font-bold">{podcast.title}</span>
-                            <div>
-                                <span>{podcast.creator}</span>
-                                <span><FcLike /></span>
-                                <span><FcDislike /></span>
+                        <div className=" mb-10 flex justify-between items-center">
+                            <span className="bg-[#01BECA] px-2  items-center border border-transparent rounded-badge w-fit">{podcast.category}</span>
+                            <div className="flex gap-10 text-lg font-medium">
+                                <span className="flex items-center gap-2"> <FcLike className="text-3xl" /> {podcast && podcast.likes ? podcast.likes.length : 0} Likes</span>
+                                <span className="flex items-center gap-2"> <FcDislike className="text-3xl" />{podcast && podcast.dislikes ? podcast.dislikes.length : 0} Dislikes</span>
                             </div>
                         </div>
+                        <div className="lg:text-6xl  font-bold mb-10">{podcast.title}</div>
+                        <div className="text-xl font-medium mb-12">{podcast.creator}</div>
+                        <div className="flex gap-4 items-center">
+                            <button className="flex items-center gap-2 border text-base border-b-slate-300 py-3 font-medium px-7 rounded-badge bg-[#01BECA]"><FcLike className="text-2xl"/>Like</button>
+                            <button className="flex items-center gap-2 border text-base border-b-slate-300 py-3 font-medium px-7 rounded-badge bg-[#01BECA]"><FcDislike className="text-2xl"/>Dislike</button>
+                            <button className="flex items-center gap-2 border text-base border-b-slate-300 py-3 font-medium px-7 rounded-badge bg-[#01BECA]"><FaPlus className="text-2xl"/>Add to Playlist</button>
+                            <button className="flex items-center gap-2 border text-base border-b-slate-300 py-3 font-medium px-7 rounded-badge bg-[#01BECA]"><FaShare className="text-2xl"/>Share</button>
+                        </div>
+                        
 
                         {/* Podcast Title */}
                         
