@@ -50,6 +50,8 @@ const MainContent = () => {
                     
                     {/* comment */}
 
+                    
+
                     <div className="min-h-full w-full p-6 bg-white shadow-lg rounded-lg">
                         <h1 className="text-3xl font-bold mb-4 text-blue-950">Your Playlists</h1>
                         <table className="min-w-full bg-white shadow-lg rounded-lg">
