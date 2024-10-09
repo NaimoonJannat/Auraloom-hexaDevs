@@ -58,11 +58,12 @@ const CreatePlaylist = () => {
 
     return (
         <div>
-            <span className="relative flex justify-center my-10 text-xl font-bold">
+            <span className="relative flex justify-center my-10 font-bold">
                 <div
-                    className="absolute inset-x-0 top-1/2 h-px -translate-y-1/2 bg-transparent bg-gradient-to-r from-transparent via-gray-500 to-transparent opacity-75"
+                    className="absolute inset-x-0 top-1/2 h-px -translate-y-1/2 bg-transparent bg-gradient-to-r from-transparent via-gray-500 to-transparent opacity-75 scale-75"
                 ></div>
-                <span className="relative z-10 text-4xl px-6 text-[#00b4d8] font-montserrat">My Playlist</span>
+
+                <span className="relative z-10 bg-white px-6 text-2xl text-[#0077b6]">My Playlist</span>
             </span>
 
             <div className='lg:flex items-start mx-auto font-montserrat'>
@@ -127,7 +128,7 @@ const CreatePlaylist = () => {
                                         <div className="mr-4 flex-1">
                                             <h4 className="text-lg font-medium text-gray-900">{playlist.name}</h4>
                                             <div className="mt-1 text-sm text-gray-400">
-                                                <span>Playlist by</span> • <time>Sayeed Hossain</time>
+                                                <span>Playlist by</span> • <time className='text-xs hover:underline text-[#00b4d8]'>Sayeed Hossain</time>
                                             </div>
                                         </div>
                                     </li>
