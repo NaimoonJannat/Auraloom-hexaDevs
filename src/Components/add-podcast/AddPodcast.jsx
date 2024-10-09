@@ -5,6 +5,7 @@ import { CirclesWithBar } from 'react-loader-spinner';
 import Swal from 'sweetalert2';
 import { Typewriter } from 'react-simple-typewriter'
 import { AuthContext } from '../Provider/AuthProvider/AuthProvider';
+
 const AddPodcast = () => {
   const [img, setImg] = useState(null);
   const [audio, setAudio] = useState(null);

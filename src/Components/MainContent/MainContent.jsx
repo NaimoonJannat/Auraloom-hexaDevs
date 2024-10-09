@@ -44,9 +44,13 @@ const MainContent = () => {
                     <div className="max-w-sm min-h-full w-full h-auto rounded my-auto overflow-hidden shadow-lg flex flex-col justify-between">
                         <Image height={130} width={130} className="w-full" src="https://i.ibb.co.com/4dbXrR1/1a33dd2cba4557349d254e99143962e5.jpg" alt="Sunset in the mountains"></Image>
                         <div className="px-6 py-4">
-                            <Link href={'/create-playlist'} className="font-bold text-xl mb-2 hover:bg-sky-700 text-sky-700 hover:text-white px-6 py-3 hover:rounded-md w-full">Create A New Play List</Link>
+                            <Link href={'/create-playlist'} className="font-bold text-xl mb-2 hover:bg-sky-700 text-sky-700 hover:text-white px-6 py-3 hover:rounded-md w-full">My Play List</Link>
                         </div>
                     </div>
+                    
+                    {/* comment */}
+
+                    
 
                     <div className="min-h-full w-full p-6 bg-white shadow-lg rounded-lg">
                         <h1 className="text-3xl font-bold mb-4 text-blue-950">Your Playlists</h1>

@@ -110,7 +110,6 @@ const AddToPlaylist = () => {
             </div>
 
             {/* MODAL */}
-
             <dialog id="my_modal_1" className="modal">
                 <div className="modal-box max-w-4xl">
                     {/* CARD */}
