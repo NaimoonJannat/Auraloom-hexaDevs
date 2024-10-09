@@ -6,7 +6,7 @@ import Image from "next/image";
 
 const PodcastDetails = ({podcast}) => {
   // const [podcast, setPodcast] = useState({});
-  const { _id, title, creator, likes, dislikes, imgUrl, audioUrl, description } = podcast;
+  const { title, creator, likes, dislikes, imgUrl, audioUrl, description } = podcast;
   // const router = useRouter();
   // const { id } = router.query;
 
