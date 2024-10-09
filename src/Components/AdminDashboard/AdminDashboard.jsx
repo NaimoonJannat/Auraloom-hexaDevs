@@ -123,30 +123,44 @@ const AdminDashboard = () => {
 
   return (
     <div className="flex min-h-screen">
-      {/* Sidebar */}
-      <div className="w-1/5 bg-[#03045E] text-white flex flex-col">
-        <div className="py-6 px-8 text-3xl font-bold">Auraloom</div>
+       {/* Sidebar */}
+       <div className="hidden md:flex w-1/5 bg-[#03045E] text-white flex-col">
+       <div className="py-6 px-8 text-3xl font-bold">Auraloom</div>
+        <div className="py-6 px-8 flex items-center flex-col">
+          <Image
+            src="https://i.pinimg.com/564x/3c/01/76/3c017689a6f12b7821ae4de3967fb35c.jpg"
+            alt="Profile Picture"
+            width={80}
+            height={80}
+            className="rounded-full"
+          />
+          <div className="ml-4">
+            <p className="text-lg font-semibold">Naimoon Jannat Prapti</p>
+            <p className="text-sm text-gray-300">Admin</p>
+          </div>
+        </div>
+        
         <nav className="mt-10">
           {/* Sidebar links */}
-          <a href="/overview" className="flex items-center py-3 px-6 hover:bg-[#00B4D8]">
+          <a href="/overview" className="flex items-center py-3 px-6 text-lg hover:bg-[#00B4D8]">
             <FaChartLine className="mr-3" /> Overview
           </a>
-          <a href="/subscriptions" className="flex items-center py-3 px-6 hover:bg-[#00B4D8]">
+          <a href="/subscriptions" className="flex items-center py-3 text-lg px-6 hover:bg-[#00B4D8]">
             <MdSubscriptions className="mr-3" /> Subscriptions
           </a>
-          <a href="/transactions" className="flex items-center py-3 px-6 hover:bg-[#00B4D8]">
+          <a href="/transactions" className="flex items-center py-3 text-lg px-6 hover:bg-[#00B4D8]">
             <FaMoneyBillWave className="mr-3" /> Transactions
           </a>
-          <a href="/customers" className="flex items-center py-3 px-6 hover:bg-[#00B4D8]">
+          <a href="/customers" className="flex items-center py-3 px-6 text-lg hover:bg-[#00B4D8]">
             <FaUsers className="mr-3" /> Customers
           </a>
-          <a href="/creators" className="flex items-center py-3 px-6 hover:bg-[#00B4D8]">
+          <a href="/creators" className="flex items-center py-3 px-6 text-lg hover:bg-[#00B4D8]">
             <FaPodcast className="mr-3" /> Creators
           </a>
-          <a href="/statistics" className="flex items-center py-3 px-6 hover:bg-[#00B4D8]">
+          <a href="/statistics" className="flex items-center py-3 text-lg px-6 hover:bg-[#00B4D8]">
             <FaChartBar className="mr-3" /> Statistics
           </a>
-          <a href="/settings" className="flex items-center py-3 px-6 hover:bg-[#00B4D8]">
+          <a href="/settings" className="flex items-center py-3 px-6 text-lg hover:bg-[#00B4D8]">
             <FaCog className="mr-3" /> Settings
           </a>
         </nav>
