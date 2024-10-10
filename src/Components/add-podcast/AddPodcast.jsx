@@ -49,9 +49,9 @@ const AddPodcast = () => {
       const description = form.description.value;
       const category = form.category.value;
       const creator = user.displayName;
-      const likes = '[]';
-      const dislikes = '[]';
-      const comments = '[]';
+      const likes = [];
+      const dislikes = [];
+      const comments = [];
 
       const newPodcast = { title, creator, description, category, imgUrl, audioUrl, likes, dislikes, comments };
 
