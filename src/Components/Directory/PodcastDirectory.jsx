@@ -56,7 +56,7 @@ const PodcastDirectory = () => {
             <IoIosSearch />
         </label>
 
-        <div className="mx-auto md:w-5/6 lg:w-8/12 ">
+        <div className="mx-auto md:w-5/6 lg:w-4/5 ">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-14 mt-16 mx-14 lg:px-10 text-white">
         {
             podcasts.map(podcast => (
