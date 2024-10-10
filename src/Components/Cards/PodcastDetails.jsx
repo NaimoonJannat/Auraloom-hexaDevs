@@ -12,7 +12,7 @@ const PodcastDetails = ({podcast}) => {
 
   // useEffect(() => {
   //   if (id) {
-  //     fetch(`http://localhost:5000/podcasts/${id}`)
+  //     fetch(`https://auraloom-backend.vercel.app/podcasts/${id}`)
   //       .then((res) => res.json())
   //       .then((data) => setPodcast(data));
   //   }

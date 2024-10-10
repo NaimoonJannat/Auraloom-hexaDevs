@@ -14,7 +14,7 @@ const page = ({params}) => {
 
     // FOR DYNAMIC ROUTING FROM DB
         // Fetch the podcast details from the deployed API using the ID
-        // const response = await fetch(`http://localhost:5000/podcasts/${id}`, {
+        // const response = await fetch(`https://auraloom-backend.vercel.app/podcasts/${id}`, {
         //     method: 'GET', // Using GET method to fetch data
         //     headers: {
         //     'Content-Type': 'application/json',
