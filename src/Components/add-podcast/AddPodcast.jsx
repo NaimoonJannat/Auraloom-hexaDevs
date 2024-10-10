@@ -5,6 +5,7 @@ import { CirclesWithBar } from 'react-loader-spinner';
 import Swal from 'sweetalert2';
 import { Typewriter } from 'react-simple-typewriter'
 import { AuthContext } from '../Provider/AuthProvider/AuthProvider';
+
 const AddPodcast = () => {
   const [img, setImg] = useState(null);
   const [audio, setAudio] = useState(null);
@@ -48,9 +49,9 @@ const AddPodcast = () => {
       const description = form.description.value;
       const category = form.category.value;
       const creator = user.displayName;
-      const likes = '[]';
-      const dislikes = '[]';
-      const comments = '[]';
+      const likes = [];
+      const dislikes = [];
+      const comments = [];
 
       const newPodcast = { title, creator, description, category, imgUrl, audioUrl, likes, dislikes, comments };
 
@@ -78,7 +79,7 @@ const AddPodcast = () => {
 
   return (
     <div className='mx-auto my-20 container flex  flex-col justify-center items-center'>
-      <h1 className="mt-2 text-2xl lg:text-4xl font-bold text-[#03045e] capitalize  dark:text-white">
+      <h1 className="mt-2 text-2xl lg:text-4xl font-bold font-montserrat text-[#03045e] capitalize  dark:text-white">
         <Typewriter
           words={['Bring Your Podcast to Life', 'Share Your Passion with the World!']}
           loop={10}

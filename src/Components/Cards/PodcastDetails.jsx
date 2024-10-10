@@ -6,13 +6,13 @@ import Image from "next/image";
 
 const PodcastDetails = ({podcast}) => {
   // const [podcast, setPodcast] = useState({});
-  const { _id, title, creator, likes, dislikes, imgUrl, audioUrl, description } = podcast;
+  const { title, creator, likes, dislikes, imgUrl, audioUrl, description } = podcast;
   // const router = useRouter();
   // const { id } = router.query;
 
   // useEffect(() => {
   //   if (id) {
-  //     fetch(`http://localhost:5000/podcasts/${id}`)
+  //     fetch(`https://auraloom-backend.vercel.app/podcasts/${id}`)
   //       .then((res) => res.json())
   //       .then((data) => setPodcast(data));
   //   }

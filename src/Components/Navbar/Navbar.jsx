@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import logo1 from "./../../../public/logo.png";
+import logo1 from "./../../../public/auraloom-logo.png";
 import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../Provider/AuthProvider/AuthProvider";
 import { FaRegUserCircle } from "react-icons/fa";
@@ -43,7 +43,7 @@ const Navbar = () => {
         <Link href={"/Creator-Profile"}>Profile</Link>
       </li>
       <li>
-        <Link href={"/settings"}>Settings</Link>
+        <Link href={"/Settings"}>Settings</Link>
       </li>
       <li>
         <Link href={"/pro-mode"}>Be a Pro</Link>
@@ -59,20 +59,20 @@ const Navbar = () => {
       <div className="navbar  font-montserrat">
         <div className="navbar-start">
           <Link href="/" className="btn btn-ghost text-xl">
-            <Image src={logo1} className="w-40 h-10" alt="Website logo" priority/>
+            <Image src={logo1} className="w-40" alt="Website logo" priority/>
           </Link>
         </div>
         <div className="navbar-center"></div>
         <div className="navbar-end flex gap-4">
           <div className="hidden lg:flex">
-            <ul className="menu menu-horizontal px-1 flex items-center gap-3 text-lg font-medium">
+            <ul className="menu menu-horizontal px-1 flex items-center gap-3 text-lg font-medium text-[#03045E]">
               <li className="flex">
                 <Link rel="noopener noreferrer" href="/">
                   Home
                 </Link>
               </li>
               <li className="flex">
-                <Link rel="noopener noreferrer" href="/directory">
+                <Link rel="noopener noreferrer" href="/podcast">
                   Directory
                 </Link>
               </li>
@@ -125,10 +125,10 @@ const Navbar = () => {
                 </>
               ) : (
                 <>
-                  <li>
+                  <li className="text-[#03045E]">
                     <Link href="/log-in">Sign In</Link>
                   </li>
-                  <Link href="/sign-up" className="btn bg-white font-bold">
+                  <Link href="/sign-up" className="btn bg-white font-bold text-[#03045E]">
                     Sign Up
                   </Link>
                 </>
@@ -155,7 +155,7 @@ const Navbar = () => {
             </div>
             <ul
               tabIndex={0}
-              className="menu menu-sm dropdown-content  bg-base-100 rounded-box z-[1] mt-3 p-2 shadow"
+              className="menu menu-sm dropdown-content  bg-base-100 rounded-box z-[1] mt-3 p-2 shadow text-[#03045E]"
             >
               <li className="flex">
                 <Link rel="noopener noreferrer" href="/">
@@ -163,7 +163,7 @@ const Navbar = () => {
                 </Link>
               </li>
               <li className="flex">
-                <Link rel="noopener noreferrer" href="/directory">
+                <Link rel="noopener noreferrer" href="/podcast">
                   Directory
                 </Link>
               </li>
@@ -186,7 +186,7 @@ const Navbar = () => {
               {user ? (
                 <>
                   <div>
-                    <div className="dropdown dropdown-end">
+                    <div className="dropdown dropdown-end text-[#03045E]">
                     {userLists}
                       <div
                         tabIndex={0}
@@ -211,35 +211,35 @@ const Navbar = () => {
                 </>
               ) : (
                 <>
-                  <li className="flex">
+                  <li className="flex text-[#03045E]">
                     <Link rel="noopener noreferrer" href="/">
                       Home
                     </Link>
                   </li>
-                  <li className="flex">
-                    <Link rel="noopener noreferrer" href="/directory">
+                  <li className="flex text-[#03045E]">
+                    <Link rel="noopener noreferrer" href="/podcast">
                       Directory
                     </Link>
                   </li>
-                  <li className="flex">
+                  <li className="flex text-[#03045E]">
                     <Link rel="noopener noreferrer" href="/add-podcast">
                       Add Podcast
                     </Link>
                   </li>
-                  <li className="flex">
+                  <li className="flex text-[#03045E]">
                     <Link rel="noopener noreferrer" href="/history">
                       History
                     </Link>
                   </li>
-                  <li className="flex">
+                  <li className="flex text-[#03045E]">
                     <Link rel="noopener noreferrer" href="/notifications">
                       <IoMdNotificationsOutline />
                     </Link>
                   </li>
-                  <li>
+                  <li className="text-[#03045E]">
                     <Link href="/log-in">Sign In</Link>
                   </li>
-                  <Link href="/sign-up">Sign Up</Link>
+                  <Link href="/sign-up" className="text-[#03045E]">Sign Up</Link>
                 </>
               )}
             </ul>
