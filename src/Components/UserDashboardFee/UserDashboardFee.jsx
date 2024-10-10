@@ -2,6 +2,7 @@
 import Image from "next/image";
 import { useState, useEffect } from "react";
 import SectionTitle from "../Heading/SectionTitle";
+import DashboardHeading from "../Heading/DashboardHeading";
 
 const UserDashboardFee = () => {
   const [listenLater, setlistenLater] = useState([]);
@@ -109,7 +110,7 @@ const UserDashboardFee = () => {
       {/* listenLater Section */}
       <div>
         <h1>
-          <SectionTitle  className="bg-black" title={"Listen Later"}></SectionTitle>
+          <DashboardHeading  className="bg-black" title={"Listen Later"}></DashboardHeading>
         </h1>
       </div>
       <div className="listenLater-grid grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">

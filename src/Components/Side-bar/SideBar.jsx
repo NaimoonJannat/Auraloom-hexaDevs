@@ -74,9 +74,9 @@ const Sidebar = () => {
                         <span>Art&craft</span>
                     </li>
                 </ul>
-                <button className="mt-4 text-orange-500">Create new playlist +</button>
+                <Link href={"/create-playlist"} className="mt-4 text-orange-500">Create new playlist +</Link>
             </div>
-            <div className="mt-7 md:mt-12 lg:mt-20 flex flex-col items-center space-y-4">
+            <div className="mt-7 md:mt-12 lg:mt-12 flex flex-col items-center space-y-4">
                 {user ? (
                     <>
                         <div>
@@ -124,7 +124,7 @@ const Sidebar = () => {
                 {/* Be a Creator Button */}
                 <Link
                     href="/creator-dashboard"
-                    className="btn mt-5 w-full bg-sky-700 hover:bg-sky-400 border-none hover:text-white text-black py-3 px-7 rounded-md font-bold transition"
+                    className="btn mt-5 w-full bg-white hover:bg-sky-400 border-none hover:text-black text-sky-700 py-3 px-7 rounded-md font-bold transition"
                 >
                     Be a Creator
                 </Link>
