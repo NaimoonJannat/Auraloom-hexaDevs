@@ -285,16 +285,16 @@ const PodcastDetail = ({ id }) => {
                     {/* Content Wrapper */}
                     <div className="relative z-10 text-white justify-between h-full p-3 md:p-4 lg:w-1/2 mx-auto my-32">
                         {/* Episode Info */}
-                        <div className=" mb-10 flex justify-between items-center">
+                        <div className=" mb-10 lg:flex space-y-4 justify-between items-center">
                             <span className="bg-[#01BECA] px-2  items-center border border-transparent rounded-badge w-fit">{podcast.category}</span>
                             <div className="flex gap-10 text-lg font-medium">
                                 <span className="flex items-center gap-2"> <FcLike className="text-3xl" /> {podcast && podcast.likes ? podcast.likes.length : 0} Likes</span>
                                 <span className="flex items-center gap-2"> <FcDislike className="text-3xl" />{podcast && podcast.dislikes ? podcast.dislikes.length : 0} Dislikes</span>
                             </div>
                         </div>
-                        <div className="lg:text-6xl  font-bold mb-10">{podcast.title}</div>
-                        <div className="text-xl font-medium mb-12">{podcast.creator}</div>
-                        <div className="flex gap-4 items-center">
+                        <div className="lg:text-6xl text-3xl  font-bold mb-5 lg:mb-10">{podcast.title}</div>
+                        <div className="lg:text-xl font-medium mb-6 lg:mb-12">{podcast.creator}</div>
+                        <div className="flex gap-4 items-center flex-wrap">
                         <button 
                             onClick={handleLike} 
                             className="flex items-center gap-2 border text-base border-b-slate-300 py-3 font-medium px-7 rounded-badge bg-[#01BECA]"
