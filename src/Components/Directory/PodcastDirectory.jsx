@@ -16,7 +16,7 @@ const PodcastDirectory = () => {
         const fetchData = async () => {
             try {
                 // console.log("Fetching data...");
-                const response = await fetch('http://localhost:5000/podcasts'); 
+                const response = await fetch('https://auraloom-backend.vercel.app/podcasts'); 
 
                 if (!response.ok) {
                     throw new Error("Failed to fetch data");
@@ -56,7 +56,7 @@ const PodcastDirectory = () => {
             <IoIosSearch />
         </label>
 
-        <div className="mx-auto md:w-5/6 lg:w-9/12 ">
+        <div className="mx-auto md:w-5/6 lg:w-8/12 ">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-14 mt-16 mx-14 lg:px-10 text-white">
         {
             podcasts.map(podcast => (
@@ -68,7 +68,7 @@ const PodcastDirectory = () => {
                 
 
                 {/* DETAILS */}
-                <div className="relative rounded-lg overflow-hidden shadow-lg w-52 h-52 md:w-64 md:h-64 lg:w-96 lg:h-96">
+                <div className="relative rounded-lg overflow-hidden shadow-lg w-52 h-52 md:w-64 md:h-64 lg:w-80 lg:h-80">
                     {/* Background Image */}
                     <div 
                         className="absolute inset-0 bg-cover bg-center"
