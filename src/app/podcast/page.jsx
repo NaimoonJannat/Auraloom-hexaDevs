@@ -2,9 +2,12 @@ import PodcastDirectory from "@/Components/Directory/PodcastDirectory";
 
 
 const page = () => {
+
+
+
     return (
         <div>
-           <PodcastDirectory></PodcastDirectory>
+            <PodcastDirectory></PodcastDirectory>
         </div>
     );
 };
