@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import logo1 from "./../../../public/logo.png";
+import logo1 from "./../../../public/auraloom-logo.png";
 import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../Provider/AuthProvider/AuthProvider";
 import { FaRegUserCircle } from "react-icons/fa";
@@ -59,7 +59,7 @@ const Navbar = () => {
       <div className="navbar  font-montserrat">
         <div className="navbar-start">
           <Link href="/" className="btn btn-ghost text-xl">
-            <Image src={logo1} className="w-40 h-10" alt="Website logo" priority/>
+            <Image src={logo1} className="w-40" alt="Website logo" priority/>
           </Link>
         </div>
         <div className="navbar-center"></div>
