@@ -1,7 +1,7 @@
 "use client";
 
 
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
 import PodcastDetails from "@/Components/Cards/PodcastDetails";
 import ReviewForm from "@/Components/Cards/ReviewForm";
 import SectionTitle from "@/Components/Heading/SectionTitle";
@@ -14,20 +14,22 @@ import { FcLike } from "react-icons/fc";
 import { FcDislike } from "react-icons/fc";
 import { FaPlus } from "react-icons/fa6";
 import { FaShare } from "react-icons/fa";
+import { AuthContext } from "../Provider/AuthProvider/AuthProvider";
+import { useRouter } from 'next/router';
 
 
 const PodcastDetail = ({ id }) => {
     
+    const { user } = useContext(AuthContext);
     const [podcast, setPodcast] = useState(null);
-
-    
-    // const [podcast, setPodcast] = useState({});
-    const [reviews, setReviews] = useState([]);
+    const [reviews, setReviews] = useState([]); 
+    const [isLiked, setIsLiked] = useState(false); // New state for tracking like
+    const [isDisliked, setIsDisliked] = useState(false);
     
 
     useEffect(() => {
         if (id) {
-            fetch(`http://localhost:5000/podcasts/${id}`)
+            fetch(`https://auraloom-backend.vercel.app/podcasts/${id}`)
                 .then((res) => {
                     if (!res.ok) {
                         throw new Error('Failed to fetch podcast');
@@ -36,7 +38,18 @@ const PodcastDetail = ({ id }) => {
                 })
                 .then((data) => {
                     setPodcast(data);
-                    setReviews(data.comments);
+                    // Parse comments if it's a string
+                    const commentsArray = typeof data.comments === 'string' 
+                    ? JSON.parse(data.comments) 
+                    : data.comments;
+                    setReviews(commentsArray);
+                    // console.log();
+                    
+                    // Check if the current user has liked or disliked the podcast
+                    if (user) {
+                        setIsLiked(data.likes.includes(user.email));
+                        setIsDisliked(data.dislikes.includes(user.email));
+                    }
                 })
                 .catch((error) => {
                     console.error('Error fetching podcast:', error);
@@ -44,10 +57,166 @@ const PodcastDetail = ({ id }) => {
         }
     }, [id]);
 
-    // Ensure you handle the case where podcast is not loaded yet
+    // Handle the case where podcast is not loaded yet
     if (!podcast) {
         return <div>Loading...</div>;
     }
+
+    // LIKING PODCAST
+    const handleLike = async () => {
+        // Redirect user to login if no user
+        if (!user) {
+            router.push({
+                pathname: '/login',
+                query: { from: router.asPath }
+            });
+            return; // Stop further execution
+        }
+    
+        // Do not let user like if they are the owner of the podcast
+        if (user.email === email) {
+            Swal.fire({
+                title: 'Failure!',
+                text: 'You cannot like your own podcast!',
+                icon: 'error',
+                confirmButtonText: 'Close'
+            });
+            return; // Stop further execution
+        }
+    
+        // Do not let user like if they have already liked this podcast
+        if (isLiked) {
+            Swal.fire({
+                title: 'Failure!',
+                text: 'You already liked this podcast!',
+                icon: 'error',
+                confirmButtonText: 'Close'
+            });
+            return;
+        }
+    
+        // Update likes if the user has not liked this podcast yet
+        try {
+            const response = await fetch(`https://auraloom-backend.vercel.app/podcasts/like/${podcast._id}?email=${user.email}`, {
+                method: "PATCH",
+                headers: {
+                    'content-type': 'application/json'
+                }
+            });
+    
+            const data = await response.json();
+    
+            if (response.ok) {
+                // Update the local state with the new like count
+                setPodcast((podcast) => ({
+                    ...podcast,
+                    likes: [...podcast.likes, user.email] // Add the user's email to the likes array
+                }));
+                setIsLiked(true);
+    
+                Swal.fire({
+                    title: 'Liked!',
+                    text: 'You have successfully liked this podcast!',
+                    icon: 'success',
+                    confirmButtonText: 'Close'
+                });
+            } else {
+                Swal.fire({
+                    title: 'Error!',
+                    text: data.message || 'Failed to like the podcast.',
+                    icon: 'error',
+                    confirmButtonText: 'Close'
+                });
+            }
+        } catch (error) {
+            console.error('Error liking podcast:', error);
+            Swal.fire({
+                title: 'Error!',
+                text: 'Something went wrong!',
+                icon: 'error',
+                confirmButtonText: 'Close'
+            });
+        }
+    };
+
+    // DISLIKING PODCAST
+    const handleDislike = async () => {
+        // Redirect user to login if no user
+        if (!user) {
+            router.push({
+                pathname: '/login',
+                query: { from: router.asPath }
+            });
+            return; // Stop further execution
+        }
+    
+        // Do not let user dislike if they are the owner of the podcast
+        if (user.email === email) {
+            Swal.fire({
+                title: 'Failure!',
+                text: 'You cannot dislike your own podcast!',
+                icon: 'error',
+                confirmButtonText: 'Close'
+            });
+            return; // Stop further execution
+        }
+    
+        // Do not let user dislike if they have already disliked this podcast
+        if (isDisliked) {
+            Swal.fire({
+                title: 'Failure!',
+                text: 'You already disliked this podcast!',
+                icon: 'error',
+                confirmButtonText: 'Close'
+            });
+            return;
+        }
+    
+        // Update dislikes if the user has not disliked this podcast yet
+        try {
+            const response = await fetch(`https://auraloom-backend.vercel.app/podcasts/dislike/${podcast._id}?email=${user.email}`, {
+                method: "PATCH",
+                headers: {
+                    'content-type': 'application/json'
+                }
+            });
+    
+            const data = await response.json();
+    
+            if (response.ok) {
+                // Update the local state with the new dislike count
+                setPodcast((podcast) => ({
+                    ...podcast,
+                    dislikes: [...podcast.dislikes, user.email] // Add the user's email to the dislikes array
+                }));
+                setIsDisliked(true);
+    
+                Swal.fire({
+                    title: 'Disliked!',
+                    text: 'You have successfully liked this podcast!',
+                    icon: 'success',
+                    confirmButtonText: 'Close'
+                });
+            } else {
+                Swal.fire({
+                    title: 'Error!',
+                    text: data.message || 'Failed to dislike the podcast.',
+                    icon: 'error',
+                    confirmButtonText: 'Close'
+                });
+            }
+        } catch (error) {
+            console.error('Error disliking podcast:', error);
+            Swal.fire({
+                title: 'Error!',
+                text: 'Something went wrong!',
+                icon: 'error',
+                confirmButtonText: 'Close'
+            });
+        }
+    };
+    
+
     
 
     // console.log(podcast);
@@ -79,15 +248,23 @@ const PodcastDetail = ({ id }) => {
                         <div className="lg:text-6xl  font-bold mb-10">{podcast.title}</div>
                         <div className="text-xl font-medium mb-12">{podcast.creator}</div>
                         <div className="flex gap-4 items-center">
-                            <button className="flex items-center gap-2 border text-base border-b-slate-300 py-3 font-medium px-7 rounded-badge bg-[#01BECA]"><FcLike className="text-2xl"/>Like</button>
-                            <button className="flex items-center gap-2 border text-base border-b-slate-300 py-3 font-medium px-7 rounded-badge bg-[#01BECA]"><FcDislike className="text-2xl"/>Dislike</button>
+                        <button 
+                            onClick={handleLike} 
+                            className="flex items-center gap-2 border text-base border-b-slate-300 py-3 font-medium px-7 rounded-badge bg-[#01BECA]"
+                        >
+                            <FcLike className="text-2xl"/>
+                            {isLiked ? "Liked" : "Like"}
+                        </button>
+                        <button 
+                            onClick={handleDislike} 
+                            className="flex items-center gap-2 border text-base border-b-slate-300 py-3 font-medium px-7 rounded-badge bg-[#01BECA]"
+                        >
+                            <FcDislike className="text-2xl"/>
+                            {isDisliked ? "Disliked" : "Dislike"}
+                        </button>
                             <button className="flex items-center gap-2 border text-base border-b-slate-300 py-3 font-medium px-7 rounded-badge bg-[#01BECA]"><FaPlus className="text-2xl"/>Add to Playlist</button>
                             <button className="flex items-center gap-2 border text-base border-b-slate-300 py-3 font-medium px-7 rounded-badge bg-[#01BECA]"><FaShare className="text-2xl"/>Share</button>
-                        </div>
-                        
-
-                        {/* Podcast Title */}
-                        
+                        </div>                        
                     </div>
                 </div>
             
@@ -99,32 +276,32 @@ const PodcastDetail = ({ id }) => {
             <div className="flex flex-col mt-4 md:mt-14 lg:mt-16 justify-center items-center mb-16">
                 <div className="lg:carousel md:carousel carousel-center w-2/5 p-4 space-x-4 rounded-box hidden bg-[#0077B6] ">
                 
-                    {
-                        reviews.map(rev=> <div key={rev.id} className="carousel-item md:w-3/5 lg:w-3/6 rounded-box flex flex-col gap-6 text-center p-20 bg-gradient-to-b from-[#90E0EF] to-[#00B4D8]"> 
-                        
-                        <h2 className="md:text-xl lg:text-2xl font-semibold text-[#03045E]">{rev.username}</h2>
-                        <p className="text-[#03045E] md:text-base lg:text-xl leading-relaxed"><span className="text-2xl font-bold "></span>{rev.comment}<span className="text-2xl font-bold"></span></p> 
-                        </div> )
-                        
-                    }
+                {reviews && reviews.length > 0 ? (
+                    reviews.map((rev) => (
+                        <div key={rev._id} className="carousel-item md:w-3/5 lg:w-3/6 rounded-box flex flex-col gap-6 text-center p-20 bg-gradient-to-b from-[#90E0EF] to-[#00B4D8]"> 
+                            <h2 className="md:text-xl lg:text-2xl font-semibold text-[#03045E]">{rev.username}</h2>
+                            <p className="text-[#03045E] md:text-base lg:text-xl leading-relaxed">{rev.review}</p> 
+                        </div>
+                    ))
+                ) : (
+                    <p>No reviews available.</p>
+                )}
                 </div>
                 
                 <div className="h-[140px] carousel carousel-vertical rounded-box md:hidden lg:hidden">
-                    {
-                        reviews.map(rev=> <div key={rev.id} className="carousel-item w-[180px] h-full rounded-box flex flex-col gap-4 text-center align-top p-10 bg-gradient-to-b from-[#90E0EF] to-[#00B4D8]"> 
-                        
-                        <h2 className="text-[#03045E] text-sm font-semibold ">{rev.username}</h2>
-                        <p className="text-[#03045E] text-xs leading-relaxed"><span className="text-2xl font-bold"></span>{rev.comment}<span className="text-2xl font-bold"></span></p> </div> )
-                    }
+                {reviews && reviews.length > 0 ? (
+                    reviews.map((rev) => (
+                        <div key={rev._id} className="carousel-item md:w-3/5 lg:w-3/6 rounded-box flex flex-col gap-6 text-center p-20 bg-gradient-to-b from-[#90E0EF] to-[#00B4D8]"> 
+                            <h2 className="md:text-xl lg:text-2xl font-semibold text-[#03045E]">{rev.username}</h2>
+                            <p className="text-[#03045E] md:text-base lg:text-xl leading-relaxed">{rev.review}</p> 
+                        </div>
+                    ))
+                ) : (
+                    <p>No reviews available.</p>
+                )}
                 </div>               
             </div>
 
-            {/* <div className="mt-10 flex items-center gap-6">
-                {reviews.map(review=> <ReviewCard 
-                    key={review.id} 
-                    review={review}>
-                </ReviewCard>)}
-            </div> */}
         </div>
     );
 };

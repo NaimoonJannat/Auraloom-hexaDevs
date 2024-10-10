@@ -72,7 +72,7 @@ const Navbar = () => {
                 </Link>
               </li>
               <li className="flex">
-                <Link rel="noopener noreferrer" href="/directory">
+                <Link rel="noopener noreferrer" href="/podcast">
                   Directory
                 </Link>
               </li>
@@ -163,7 +163,7 @@ const Navbar = () => {
                 </Link>
               </li>
               <li className="flex">
-                <Link rel="noopener noreferrer" href="/directory">
+                <Link rel="noopener noreferrer" href="/podcast">
                   Directory
                 </Link>
               </li>
@@ -217,7 +217,7 @@ const Navbar = () => {
                     </Link>
                   </li>
                   <li className="flex text-[#03045E]">
-                    <Link rel="noopener noreferrer" href="/directory">
+                    <Link rel="noopener noreferrer" href="/podcast">
                       Directory
                     </Link>
                   </li>
