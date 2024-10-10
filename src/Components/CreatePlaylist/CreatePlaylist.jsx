@@ -8,6 +8,9 @@ import auth from '../Firebase/firebase.config';
 import { onAuthStateChanged } from 'firebase/auth';
 import PlaylistHeading from '../Heading/PlaylistHeading';
 
+import Link from 'next/link';
+
+
 // import { useContext } from 'react';
 // import { AuthContext } from '../Provider/AuthProvider/AuthProvider';
 
@@ -126,6 +129,7 @@ const CreatePlaylist = () => {
                     </div>
                 </div>
 
+
                 {/* AVAILABLE PLAYLISTS */}
                 <div className="w-full max-w-md px-8 py-4 mx-auto mt-8 border border-[#0077b6] rounded-lg">
                     <div className="flex my-4">
@@ -138,16 +142,22 @@ const CreatePlaylist = () => {
                                 <p>No playlists available.</p>
                             ) : (
                                 availablePlaylists.map(playlist => (
-                                    <li key={playlist._id} className="flex gap-4 py-4">
-                                        <div>
-                                            <Image src={img1} className="h-20 w-20 rounded-lg object-cover" alt="Playlist Image 1" />
-                                        </div>
-                                        <div className="mr-4 flex-1">
-                                            <h4 className="text-lg font-medium text-gray-900">{playlist.name}</h4>
-                                            <div className="mt-1 text-xs text-gray-400">
-                                                <span>Playlist by</span> • <time className='text-xs hover:underline text-[#0077b6]'>{playlist.email}</time> {/* Display playlist email */}
+                                    <li key={playlist._id} className="flex gap-4 py-4 ">
+                                        <Link href={`/playlists/${playlist._id}`}>
+                                            <div className="flex gap-4 items-center w-full rounded-md hover:border">
+                                                <div>
+                                                    <Image src={img1} className="h-20 w-20 rounded-lg object-cover" alt="Playlist Image 1" />
+                                                </div>
+                                                <div className="mr-4 flex-1">
+                                                    <h4 className="text-lg font-medium text-gray-900">
+                                                        {playlist.name}
+                                                    </h4>
+                                                    <div className="mt-1 text-xs text-gray-400">
+                                                        <span>Playlist by</span> • <time className='text-xs hover:underline text-[#0077b6]'>{userEmail}</time>
+                                                    </div>
+                                                </div>
                                             </div>
-                                        </div>
+                                        </Link>
                                     </li>
                                 ))
                             )}
