@@ -34,24 +34,25 @@ const Navbar = () => {
     };
   }, []);
 
-  const userLists = [
-    {
-      name: "Home",
-      link: "/",
-    },
-    {
-      name: "Directory",
-      link: "/directory",
-    },
-    {
-      name: "Add Podcast",
-      link: "/add-podcast",
-    },
-    {
-      name: "History",
-      link: "/history",
-    },
-  ];
+  const userLists = (
+    <>
+      <li>
+        <Link href={"/dashboard"}>Dashboard</Link>
+      </li>
+      <li>
+        <Link href={"/profile"}>User Profile</Link>
+      </li>
+      <li>
+        <Link href={"/settings"}>Settings</Link>
+      </li>
+      <li>
+        <Link href={"/pro-mode"}>Be a Pro</Link>
+      </li>
+      <li>
+        <button onClick={signOutUser}>Log Out</button>
+      </li>
+    </>
+  );
 
   return (
     <div
@@ -74,12 +75,12 @@ const Navbar = () => {
         <div className="navbar-end flex gap-4">
           <div className="hidden lg:flex">
             <ul className="menu menu-horizontal px-1 flex items-center gap-3 text-[14px] font-medium text-white">
-              {userLists.map(({ link, name }) => (
+              {/* {userLists.map(({ link, name }) => (
                 <Link key={name} className="mx-3" rel="noopener noreferrer" href={link}>
                   {name}
                 </Link>
-              ))}
-              {/* <li className="flex">
+              ))} */}
+              <li className="flex">
                 <Link rel="noopener noreferrer" href="/">
                   Home
                 </Link>
@@ -103,7 +104,7 @@ const Navbar = () => {
                 <Link rel="noopener noreferrer" href="/notifications">
                   <IoMdNotificationsOutline className="text-2xl" />
                 </Link>
-              </li> */}
+              </li>
                             <li className="flex">
                 <Link rel="noopener noreferrer" href="/notifications">
                   <IoMdNotificationsOutline className="text-2xl" />
