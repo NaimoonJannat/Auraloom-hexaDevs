@@ -7,8 +7,8 @@ import { useRouter } from "next/navigation";
 import auth from '../Firebase/firebase.config';
 import { onAuthStateChanged } from 'firebase/auth';
 
-import { useContext } from 'react';
-import { AuthContext } from '../Provider/AuthProvider/AuthProvider';
+// import { useContext } from 'react';
+// import { AuthContext } from '../Provider/AuthProvider/AuthProvider';
 
 const CreatePlaylist = () => {
     const [playlistName, setPlaylistName] = useState('');
@@ -18,7 +18,7 @@ const CreatePlaylist = () => {
     const [isMounted, setIsMounted] = useState(false); // Ensure component is mounted
     const router = useRouter(); // Declare useRouter at the top of the component
 
-    const { user } = useContext(AuthContext);
+    // const { user } = useContext(AuthContext);
 
     // Check if the component is mounted and user is logged in
     useEffect(() => {
@@ -143,7 +143,7 @@ const CreatePlaylist = () => {
                                         <div className="mr-4 flex-1">
                                             <h4 className="text-lg font-medium text-gray-900">{playlist.name}</h4>
                                             <div className="mt-1 text-xs text-gray-400">
-                                                <span>Playlist by</span> • <time className='text-xs hover:underline text-[#0077b6]'>{user?.displayName}</time> {/* Display playlist email */}
+                                                <span>Playlist by</span> • <time className='text-xs hover:underline text-[#0077b6]'>{playlist.email}</time> {/* Display playlist email */}
                                             </div>
                                         </div>
                                     </li>
