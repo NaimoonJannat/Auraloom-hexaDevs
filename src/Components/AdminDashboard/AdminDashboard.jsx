@@ -122,9 +122,9 @@ const AdminDashboard = () => {
   ];
 
   return (
-    <div className="flex min-h-screen">
-       {/* Sidebar */}
-       <div className="hidden md:flex w-1/5 bg-[#03045E] text-white flex-col">
+    <div className="flex flex-col lg:flex-row min-h-screen">
+        {/* Sidebar */}
+        <div className="w-full lg:w-1/5 bg-[#03045E] text-white flex flex-col">
        <div className="py-6 px-8 text-3xl font-bold">Auraloom</div>
         <div className="py-6 px-8 flex items-center flex-col">
           <Image
@@ -134,7 +134,7 @@ const AdminDashboard = () => {
             height={80}
             className="rounded-full"
           />
-          <div className="ml-4">
+          <div className="ml-4 text-center">
             <p className="text-lg font-semibold">Naimoon Jannat Prapti</p>
             <p className="text-sm text-gray-300">Admin</p>
           </div>
@@ -165,10 +165,9 @@ const AdminDashboard = () => {
           </a>
         </nav>
       </div>
-
       {/* Main Content */}
-      <div className="w-3/4 p-6 bg-gray-50">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-6 mb-6">
+      <div className="w-full md:w-3/4 p-6 bg-gray-50">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-6">
           {/* Total Listens */}
           <div className="bg-white shadow-lg p-6 rounded-lg">
             <FaPodcast className="text-4xl text-blue-500 mb-4" />
@@ -208,40 +207,44 @@ const AdminDashboard = () => {
 
         {/* Other sections */}
         <div className="flex flex-col md:flex-row">
-          <div className="bg-white shadow-lg p-6 rounded-lg mb-6 w-full md:w-1/2">
-            <h2 className="text-2xl font-bold mb-4">Monthly Listens</h2>
-            <div style={{ height: '300px' }}>
-              <Line data={listensData} options={chartOptions} />
-            </div>
-          </div>
+        <div className="bg-white shadow-lg p-4 sm:p-6 rounded-lg mb-6 w-full md:w-1/2">
+  <h2 className="text-lg sm:text-xl font-bold mb-4">Monthly Listens</h2>
+  <div className="h-48 sm:h-64 md:h-72 lg:h-80">
+    <Line data={listensData} options={chartOptions} />
+  </div>
+</div>
 
-          <div className="bg-white shadow-lg p-6 rounded-lg mb-6 w-full md:w-1/2">
-            <h2 className="text-2xl font-bold mb-4">Creators</h2>
-            <table className="w-full table-auto">
-              <thead>
-                <tr>
-                  <th className="px-4 py-2">Photo</th>
-                  <th className="px-4 py-2">Name</th>
-                  <th className="px-4 py-2">Podcasts</th>
-                  <th className="px-4 py-2">Profile</th>
-                </tr>
-              </thead>
-              <tbody>
-                {creatorsData.map((creator, index) => (
-                  <tr key={index}>
-                    <td className="px-4 py-2">
-                      <Image src={creator.photo} alt={creator.name} width={50} height={50} className="rounded-full" />
-                    </td>
-                    <td className="px-4 py-2">{creator.name}</td>
-                    <td className="px-4 py-2">{creator.podcasts}</td>
-                    <td className="px-4 py-2">
-                      <a href={creator.profileLink} className="text-blue-500 hover:underline">View Profile</a>
-                    </td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
+
+<div className="bg-white shadow-lg p-4 sm:p-6 rounded-lg mb-6 w-full md:w-1/2">
+  <h2 className="text-lg sm:text-xl font-bold mb-4">Creators</h2>
+  <div className="overflow-x-auto">
+    <table className="w-full table-auto">
+      <thead>
+        <tr>
+          <th className="px-2 sm:px-4 py-2">Photo</th>
+          <th className="px-2 sm:px-4 py-2">Name</th>
+          <th className="px-2 sm:px-4 py-2">Podcasts</th>
+          <th className="px-2 sm:px-4 py-2">Profile</th>
+        </tr>
+      </thead>
+      <tbody>
+        {creatorsData.map((creator, index) => (
+          <tr key={index}>
+            <td className="px-2 sm:px-4 py-2">
+              <Image src={creator.photo} alt={creator.name} width={50} height={50} className="rounded-full" />
+            </td>
+            <td className="px-2 sm:px-4 py-2">{creator.name}</td>
+            <td className="px-2 sm:px-4 py-2">{creator.podcasts}</td>
+            <td className="px-2 sm:px-4 py-2">
+              <a href={creator.profileLink} className="text-blue-500 hover:underline">View Profile</a>
+            </td>
+          </tr>
+        ))}
+      </tbody>
+    </table>
+  </div>
+</div>
+
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
