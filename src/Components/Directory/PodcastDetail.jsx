@@ -16,6 +16,7 @@ import { FaPlus } from "react-icons/fa6";
 import { FaShare } from "react-icons/fa";
 import { AuthContext } from "../Provider/AuthProvider/AuthProvider";
 import { useRouter } from 'next/router';
+import { useForm } from 'react-hook-form';
 
 
 const PodcastDetail = ({ id }) => {
@@ -25,6 +26,14 @@ const PodcastDetail = ({ id }) => {
     const [reviews, setReviews] = useState([]); 
     const [isLiked, setIsLiked] = useState(false); // New state for tracking like
     const [isDisliked, setIsDisliked] = useState(false);
+
+    const {
+        register,
+        handleSubmit,
+        formState: { errors },
+    } = useForm({
+        mode: 'onBlur',
+    });
     
 
     useEffect(() => {
@@ -217,6 +226,44 @@ const PodcastDetail = ({ id }) => {
     };
     
 
+     // ADD REVIEW
+     const onSubmit = async (data) => {
+        const review = {
+            username: data.name,
+            email: data.email,
+            review: data.message,
+        };
+
+        try {
+            const response = await fetch(`https://auraloom-backend.vercel.app/podcasts/${id}/reviews`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(review),
+            });
+
+            if (!response.ok) {
+                throw new Error('Failed to submit review');
+            }
+
+            Swal.fire({
+                title: 'Success!',
+                text: 'Your review was submitted successfully!',
+                icon: 'success',
+                confirmButtonText: 'Close',
+            });
+            setReviews((reviews) => [...reviews, review]);
+        } catch (error) {
+            Swal.fire({
+                title: 'Error!',
+                text: 'There was a problem submitting your review, please try again!',
+                icon: 'error',
+                confirmButtonText: 'Close',
+            });
+        }
+    };
+
     
 
     // console.log(podcast);
@@ -270,7 +317,7 @@ const PodcastDetail = ({ id }) => {
             
             {/* Review Form */}
             <SectionTitle title={"Leave a review!"}></SectionTitle>
-            <ReviewForm></ReviewForm>
+            <ReviewForm onSubmit={onSubmit}></ReviewForm>
 
             {/* Review Carousel */}
             <div className="flex flex-col mt-4 md:mt-14 lg:mt-16 justify-center items-center mb-16">
