@@ -55,17 +55,17 @@ const Navbar = () => {
   );
 
   return (
-    <div className={`z-20 sticky top-0  transition-colors duration-50 ${isScrolled ? 'bg-[#CAF0F8]' : 'bg-[#34d1f1]'} ${isScrolled ? 'text-[#03045E]' : 'text-white'}  hover:bg-[#34d1f1]`}>
-      <div className="navbar  font-montserrat">
+    <div className={`z-20 sticky top-0  transition-colors duration-50 ${isScrolled ? 'bg-[#3493f1d7]' : 'bg-[#34bff11b]'} ${isScrolled ? 'text-white' : 'text-white'}  hover:bg-[#3493f1d7]`}>
+      <div className="navbar h-20 font-montserrat">
         <div className="navbar-start">
           <Link href="/" className="btn btn-ghost text-xl">
-            <Image src={logo1} className="w-40" alt="Website logo" priority/>
+            <Image src={logo1} className="w-40 -my-5" alt="Website logo" priority/>
           </Link>
         </div>
         <div className="navbar-center"></div>
         <div className="navbar-end flex gap-4">
           <div className="hidden lg:flex">
-            <ul className="menu menu-horizontal px-1 flex items-center gap-3 text-lg font-medium text-[#03045E]">
+            <ul className="menu menu-horizontal px-1 flex items-center gap-3 text-[14px] font-medium text-white">
               <li className="flex">
                 <Link rel="noopener noreferrer" href="/">
                   Home
@@ -125,10 +125,10 @@ const Navbar = () => {
                 </>
               ) : (
                 <>
-                  <li className="text-[#03045E]">
+                  <li className="text-white text-[14px]">
                     <Link href="/log-in">Sign In</Link>
                   </li>
-                  <Link href="/sign-up" className="btn bg-white font-bold text-[#03045E]">
+                  <Link href="/sign-up" className="btn bg-white font-bold text-[14px] rounded-full text-[#03045E]">
                     Sign Up
                   </Link>
                 </>
