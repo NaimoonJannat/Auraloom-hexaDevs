@@ -1,5 +1,5 @@
 import Image from "next/image";
-import logo from "./../../../public/logo.png";
+import logo from "./../../../public/auraloom-logo.png";
 
 const Footer = () => {
   return (
@@ -37,7 +37,7 @@ const Footer = () => {
         </div>
       <div className="footer bg-blue-100 items-center p-4">
         <aside className="grid-flow-col items-center">
-          <p className="px-6">Copyright © {new Date().getFullYear()} - All right reserved</p>
+          <p className="px-6">Copyright © {new Date().getFullYear()} - All right reserved to Team HexaDevs</p>
         </aside>
         <nav className="grid-flow-col px-6 gap-4 md:place-self-center md:justify-self-end">
           <a>
