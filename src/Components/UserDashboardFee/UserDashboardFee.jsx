@@ -8,6 +8,7 @@ import { Typewriter } from "react-simple-typewriter";
 
 const UserDashboardFee = () => {
   const [listenLater, setlistenLater] = useState([]);
+  const [playlists, setPlaylists] = useState([]);
 
   // Fetch playlist data (you can replace this with actual API call)
   useEffect(() => {
@@ -40,8 +41,40 @@ const UserDashboardFee = () => {
       ];
       setlistenLater(data);
     };
+    const fetchPlaylists = async () => {
+      const data = [
+        {
+          id: 1,
+          name: "Chill Vibes",
+          creator: "Naimoon Jannat Prapti",
+          image: "https://i.ibb.co.com/dsZRYK5/7fd5ba33a4a9c6c6f530a825df3f7580.jpg",
+        },
+        {
+          id: 2,
+          name: "Focus Beats",
+          creator: "Naimoon Jannat Prapti",
+          image: "https://i.ibb.co.com/R0Gy2h0/d9d615645ba316e9e8086da6a0c7a111.jpg",
+        },
+        {
+          id: 3,
+          name: "Party Hits",
+          creator: "Naimoon Jannat Prapti",
+          image: "https://i.ibb.co.com/99g5b4g/38324762f7c33de0b27659a2628fba03.jpg",
+        },
+        {
+          id: 4,
+          name: "Road Trip Tunes",
+          creator: "Naimoon Jannat Prapti",
+          image: "https://i.ibb.co.com/MVjTFwx/3851974ace3ea131a4841a9c4b04ce4c.jpg",
+        },
+      ];
+      setPlaylists(data);
+    };
     fetchData();
+    fetchPlaylists();
   }, []);
+
+
 
   return (
     <div className="feed-container mx-auto p-6  text-white">
@@ -75,7 +108,7 @@ const UserDashboardFee = () => {
         <div className="absolute inset-0 z-10 flex flex-col justify-center p-8">
           <div className="text-wrapper h-100vh">
             <Typewriter
-              words={['Whats hot this weekend?', 'Catch the latest hits ','and trending albums.']}
+              words={['Whats hot this weekend?', 'Catch the latest hits ', 'and trending albums.']}
               typeSpeed={80}
               loop={Infinity}
             />
@@ -87,9 +120,8 @@ const UserDashboardFee = () => {
         </div>
       </div>
 
-
       {/* Horizontal Nav */}
-      <div className="horizontal-nav mb-6">
+      {/* <div className="horizontal-nav mt-6">
         <ul className="flex space-x-8 text-lg font-semibold">
           <li className="hover:text-orange-500 cursor-pointer">Playlist</li>
           <li className="hover:text-orange-500 cursor-pointer">Artists</li>
@@ -97,7 +129,7 @@ const UserDashboardFee = () => {
           <li className="hover:text-orange-500 cursor-pointer">Streams</li>
           <li className="hover:text-orange-500 cursor-pointer">Listen Later</li>
         </ul>
-      </div>
+      </div> */}
 
       {/* listenLater Section */}
       <div>
@@ -124,6 +156,40 @@ const UserDashboardFee = () => {
             </div>
           </div>
         ))}
+      </div>
+
+      {/* show individual playlist */}
+      <div className="mt-10">
+        <div>
+          <h1>
+            <DashboardHeading className="bg-black" title={"Your Playlists"}></DashboardHeading>
+          </h1>
+        </div>
+        <div className="playlist-list flex flex-col space-y-4">
+          {playlists.map((playlist) => (
+            <div key={playlist.id} className="playlist-item flex items-center bg-gray-800 p-4 rounded-lg hover:bg-gray-700 transition">
+              <div className="w-24 h-24 relative flex-shrink-0">
+                <Image
+                  src={playlist.image}
+                  alt={playlist.name}
+                  layout="fill"
+                  objectFit="cover"
+                  className="rounded-lg"
+                />
+              </div>
+              <div className="ml-4">
+                <h3 className="text-xl font-semibold">{playlist.name}</h3>
+                <p className="text-gray-400">Created by {playlist.creator}</p>
+              </div>
+              <div className="ml-auto">
+                <button className="bg-orange-500 hover:bg-orange-600 text-white py-2 px-4 rounded-lg flex items-center">
+                  <PlayIcon className="h-5 w-5 mr-2" />
+                  Play
+                </button>
+              </div>
+            </div>
+          ))}
+        </div>
       </div>
     </div>
   );
