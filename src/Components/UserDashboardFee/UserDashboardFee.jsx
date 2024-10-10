@@ -3,6 +3,8 @@ import Image from "next/image";
 import { useState, useEffect } from "react";
 import SectionTitle from "../Heading/SectionTitle";
 import DashboardHeading from "../Heading/DashboardHeading";
+import { PlayIcon } from "@heroicons/react/solid";
+import { Typewriter } from "react-simple-typewriter";
 
 const UserDashboardFee = () => {
   const [listenLater, setlistenLater] = useState([]);
@@ -43,55 +45,45 @@ const UserDashboardFee = () => {
 
   return (
     <div className="feed-container mx-auto p-6  text-white">
-      <div className="search-bar mb-6">
-        <input
-          type="text"
-          placeholder="Search by artists, songs or albums"
-          className="w-full p-3 rounded-lg bg-gray-800 text-white placeholder-gray-400"
-        />
-      </div>
-
-      {/* Playlist of the Day */}
-      <div className="playlist-of-day mb-8 relative">
+      <style>
+        {`
+                .text-wrapper {
+                    position: absolute;
+                    top: 33%;
+                    left: 23%;
+                    transform: translate(-50%, -50%);
+                    text-align: center;
+                    font-size: 32px;
+                    font-weight: bold; 
+                    color: #f97316;
+                }
+                `}
+      </style>
+      {/* Hero Section */}
+      <div className="relative w-full h-[400px] bg-gradient-to-r from-sky-900 to-slate-900 mb-7 rounded-lg overflow-hidden">
         {/* Background Image */}
-        <div className="absolute inset-0 z-0">
-          <Image
-            src="https://i.ibb.co.com/r4PgsvG/pexels-photo-339119.jpg"
-            alt="Background"
-            layout="fill"
-            objectFit="cover"
-            className="opacity-20"
-          />
-        </div>
+        <Image
+          src="https://i.ibb.co.com/hLrMBX3/e597373a4b68e34802a66c40cd3f50bb.jpg"
+          alt="Artist"
+          layout="fill"
+          objectFit="cover"
+          className="opacity-30"
+        />
 
-        {/* Playlist Content */}
-        <div className="relative z-10 flex flex-wrap items-center bg-gray-900 bg-opacity-80 p-6 rounded-lg">
-          {/* Playlist Image */}
-          <div className="relative w-full sm:w-1/2 md:w-1/3 flex flex-col justify-between h-full">
-            <Image
-              src="https://i.ibb.co.com/DVLdRs9/download-8.jpg"
-              alt="Playlist cover"
-              width={400}
-              height={400}
-              className="rounded-lg h-full object-cover"
+        {/* Hero Content */}
+
+        <div className="absolute inset-0 z-10 flex flex-col justify-center p-8">
+          <div className="text-wrapper h-100vh">
+            <Typewriter
+              words={['Whats hot this weekend?', 'Catch the latest hits ','and trending albums.']}
+              typeSpeed={80}
+              loop={Infinity}
             />
           </div>
-
-          {/* Video Section with Floating Title */}
-          <div className="w-full sm:w-1/2 md:w-2/3 p-4 relative flex flex-col justify-between h-full">
-            {/* Video */}
-            <video
-              controls
-              className="w-full rounded-lg mt-12 h-full object-cover"
-              poster="https://i.ibb.co.com/8BFFgf5/7b8d60b0a30ac6d8e4191952699f46f4.jpg"
-            >
-              <source
-                src="/public/Amazon Rainforest in Brazil - Jungle Cruise on the Amazon River.mp4"
-                type="video/mp4"
-              />
-              Your browser does not support the video tag.
-            </video>
-          </div>
+          <li className="flex btn items-center space-x-2 mb-2 hover:bg-orange-500 hover:text-white p-2 font-bold border-none mt-6 w-2/5 px-6 py-3 bg-white text-sky-700 rounded-full text-lg transition">
+            <span>Listen Now</span>
+            <PlayIcon className="h-6 w-6 hover:text-white text-sky-700" />
+          </li>
         </div>
       </div>
 
@@ -110,7 +102,7 @@ const UserDashboardFee = () => {
       {/* listenLater Section */}
       <div>
         <h1>
-          <DashboardHeading  className="bg-black" title={"Listen Later"}></DashboardHeading>
+          <DashboardHeading className="bg-black" title={"Listen Later"}></DashboardHeading>
         </h1>
       </div>
       <div className="listenLater-grid grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
