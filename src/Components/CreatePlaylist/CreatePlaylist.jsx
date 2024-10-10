@@ -25,9 +25,11 @@ const CreatePlaylist = () => {
     useEffect(() => {
         const unsubscribe = onAuthStateChanged(auth, (user) => {
             if (user) {
+                console.log("User logged in:", user.email); // Debugging log
                 setUserEmail(user.email); // Set the user's email
                 fetchPlaylists(user.email); // Fetch playlists for the logged-in user
             } else {
+                console.log("No user logged in"); // Debugging log
                 setUserEmail(null); // User is not logged in
                 setAvailablePlaylists([]); // Clear playlists if user is logged out
             }
@@ -38,19 +40,24 @@ const CreatePlaylist = () => {
         return () => unsubscribe(); // Clean up subscription on unmount
     }, []);
 
+
     const fetchPlaylists = async (email) => {
+        console.log("Fetching playlists for email:", email); // Debugging log
+
         if (!email) return; // Ensure user is logged in before fetching playlists
 
         try {
             const response = await axios.get('http://localhost:5000/playlists', {
                 params: { email } // Sending the user's email to filter playlists
             });
+            console.log("Playlists fetched:", response.data); // Debugging log
             setAvailablePlaylists(response.data);
         } catch (error) {
             console.error('Error fetching playlists:', error);
             setError('Failed to load recent playlists.');
         }
     };
+
 
     const handleSubmit = async (e) => {
         e.preventDefault();
