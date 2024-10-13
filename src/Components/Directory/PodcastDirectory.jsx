@@ -2,6 +2,7 @@
 
 import SectionTitle from "@/Components/Heading/SectionTitle";
 import Link from "next/link";
+import { useRouter, useSearchParams } from "next/navigation";
 import { useEffect, useState } from "react";
 import { IoIosSearch } from "react-icons/io";
 import { IoPlayCircle } from "react-icons/io5";
@@ -9,18 +10,32 @@ import { IoPlayCircle } from "react-icons/io5";
 const PodcastDirectory = () => {
     const [podcasts, setPodcasts] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
+
+    //Pagination
     const [page, setPage] = useState(1); // Current page
     const [totalPages, setTotalPages] = useState(1); // Total number of pages
     const limit = 9; // Number of podcasts per page
 
-    useEffect(() => {
+    //Searching
+    const searchParams = useSearchParams(); // Use Next.js hook to get query params from URL
+    const initialSearchQuery = searchParams.get("search") || ""; // Get the 'search' query from the URL
+    const [searchInput, setSearchInput] = useState(""); // State for the input field (controlled component)
+    const router = useRouter(); // For navigation
+
+     // Fetch podcasts when the page or the search query changes
+     useEffect(() => {
         const fetchData = async () => {
-            // Clear the podcasts before fetching new data to avoid duplicates
-            setPodcasts([]);
             setIsLoading(true);
 
+            // Build the URL for the API request, including search and pagination parameters
+            let url = `http://localhost:5000/podcasts?page=${page}&limit=${limit}`;
+
+            if (initialSearchQuery) {
+                url += `&search=${encodeURIComponent(initialSearchQuery)}`;
+            }
+
             try {
-                const response = await fetch(`http://localhost:5000/podcasts?page=${page}&limit=${limit}`);
+                const response = await fetch(url);
 
                 if (!response.ok) {
                     throw new Error("Failed to fetch data");
@@ -28,24 +43,34 @@ const PodcastDirectory = () => {
 
                 const data = await response.json();
 
-                // Ensure podcasts is defined and an array
                 if (data && data.podcasts) {
                     setPodcasts(data.podcasts);
                     setTotalPages(Math.ceil(data.totalPodcasts / limit)); // Calculate total number of pages
                 } else {
-                    setPodcasts([]); // Default to empty array if data is invalid
+                    setPodcasts([]); // If no data, set to an empty array
                 }
 
                 setIsLoading(false);
             } catch (error) {
-                console.error('Error fetching data:', error);
+                console.error("Error fetching data:", error);
                 setIsLoading(false);
             }
         };
 
         fetchData();
-    }, [page]);
+    }, [page, initialSearchQuery]); // Re-fetch data whenever page or search query changes
 
+    // Handle search submission (only triggered when user hits "Enter" or clicks search icon)
+    const handleSearchSubmit = (e) => {
+        e.preventDefault(); // Prevent form submission from reloading the page
+
+        if (searchInput.trim()) {
+            // Redirect to the current page with the search query as a URL parameter
+            router.push(`/podcast?search=${encodeURIComponent(searchInput)}`);
+        }
+    };
+
+    // Pagination Controls
     const handleNextPage = () => {
         if (page < totalPages) {
             setPage(page + 1);
@@ -75,10 +100,19 @@ const PodcastDirectory = () => {
     return (
         <div>
             <SectionTitle title={"Podcast Directory"}></SectionTitle>
-            <label className="input input-bordered flex w-fit mx-auto items-center gap-2">
-                <input type="text" className="w-fit" placeholder="Search" />
-                <IoIosSearch />
-            </label>
+            {/* Search Bar */}
+            <form className="input input-bordered flex w-fit mx-auto items-center gap-2" onSubmit={handleSearchSubmit}>
+                <input
+                    type="text"
+                    className="w-fit"
+                    placeholder="Search Podcasts..."
+                    value={searchInput} // Bind the input value to state
+                    onChange={(e) => setSearchInput(e.target.value)} // Update search input on typing
+                />
+                <button type="submit">
+                    <IoIosSearch />
+                </button>
+            </form>
 
             <div className="mx-auto md:w-5/6 lg:w-4/5">
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-14 mt-16 mx-14 lg:px-10 text-white">
