@@ -7,18 +7,18 @@ import TopCreator from "@/Components/Home/TopContent";
 import TrendingContent from "@/Components/Home/TopCreator";
 import TrendingTopic from "@/Components/Home/TrendingTopic";
 
-
 export default function Home() {
   return (
-    <div className="container mx-auto">
+    <div>
       <Banner2></Banner2>
-      <TrendingTopic></TrendingTopic>
-      <TopCreator></TopCreator>
-      <Banner1></Banner1>
-            <TrendingContent></TrendingContent>
-            <CategorySelector></CategorySelector>
-            <Newsletter></Newsletter>
-
+      <div className="container mx-auto">
+        <TrendingTopic></TrendingTopic>
+        <TopCreator></TopCreator>
+        <Banner1></Banner1>
+        <TrendingContent></TrendingContent>
+        <CategorySelector></CategorySelector>
+        <Newsletter></Newsletter>
+      </div>
     </div>
   );
 }
