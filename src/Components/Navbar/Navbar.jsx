@@ -136,7 +136,7 @@ const Navbar = () => {
                   History
                 </Link>
               </li>
-                            <li className="flex">
+              <li className="flex">
                 <Link rel="noopener noreferrer" href="/notifications">
                   <IoMdNotificationsOutline className="text-2xl" />
                 </Link>
