@@ -17,6 +17,7 @@ import { FaShare } from "react-icons/fa";
 import { AuthContext } from "../Provider/AuthProvider/AuthProvider";
 import { useRouter } from 'next/router';
 import { useForm } from 'react-hook-form';
+import AudioPlayer from "./AudioPlayer";
 
 
 const PodcastDetail = ({ id }) => {
@@ -294,6 +295,9 @@ const PodcastDetail = ({ id }) => {
                         </div>
                         <div className="lg:text-6xl text-3xl  font-bold mb-5 lg:mb-10">{podcast.title}</div>
                         <div className="lg:text-xl font-medium mb-6 lg:mb-12">{podcast.creator}</div>
+
+                         <AudioPlayer audioUrl={podcast.audioUrl} />      {/* playback control  */}
+                         
                         <div className="flex gap-4 items-center flex-wrap">
                         <button 
                             onClick={handleLike} 
