@@ -1,26 +1,36 @@
 "use client";
 import { useContext, useState } from "react";
-import { useForm } from "react-hook-form";
 import toast, { Toaster } from "react-hot-toast";
 import Link from "next/link";
-import { FaEye, FaEyeSlash } from 'react-icons/fa';
-import Swal from "sweetalert2";
 import { AuthContext } from "../Provider/AuthProvider/AuthProvider";
-import SocialLogin from "../SocialLogIn/SocialLogIn";
 import { useRouter } from "next/navigation";
 
 const Register = () => {
     const { createUser } = useContext(AuthContext);
-    const [showPassword, setShowPassword] = useState(false);
-
-    const {
-        register,
-        handleSubmit,
-        formState: { errors },
-    } = useForm();
-
+    const [formData, setFormData] = useState({
+        name: "",
+        photoURL: "",
+        email: "",
+        password: "",
+    });
     const router = useRouter();
-    const from = "/";
+
+    const handleInputChange = (e) => {
+        setFormData({ ...formData, [e.target.name]: e.target.value });
+    };
+
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        const { name, photoURL, email, password } = formData;
+        try {
+            await createUser(email, password, name, photoURL);
+            // router.push("/dashboard"); 
+            router.push("/");
+        } catch (error) {
+            console.error("Sign-up error:", error);
+        }
+    };
+
 
     const validatePassword = (password) => {
         if (password.length < 6) {
@@ -38,28 +48,6 @@ const Register = () => {
         return true;
     };
 
-    const onSubmit = (data) => {
-        const { email, password } = data;
-
-        const isValidPassword = validatePassword(password);
-        if (!isValidPassword) return;
-
-        createUser(email, password)
-            .then(() => {
-                Swal.fire({
-                    title: 'Success!',
-                    text: 'Your Account Created Successfully',
-                    icon: 'success',
-                    confirmButtonText: 'Cool',
-                });
-
-                router.push(from);
-            })
-            .catch((error) => {
-                toast.error("Registration failed. Please try again.");
-                console.error(error);
-            });
-    };
 
     return (
         <div>
@@ -84,81 +72,69 @@ const Register = () => {
                         </div>
                         <span className='w-1/5 border-b border-[#161D6F]  lg:w-1/4'></span>
                     </div>
-                    <form onSubmit={handleSubmit(onSubmit)} className="grid grid-cols-1 gap-6 mt-8 md:grid-cols-2">
+                    <form onSubmit={handleSubmit} className="grid grid-cols-1 gap-6 mt-8 md:grid-cols-2">
                         <div>
                             <label className="block mb-2 text-sm text-sky-950 dark:text-sky-950">Name</label>
                             <input
                                 type="text"
-                                placeholder="Your name"
+                                name="name"
+                                placeholder="Name"
+                                value={formData.name}
+                                onChange={handleInputChange}
                                 className="block w-full px-5 py-3 mt-2w-full  border rounded-md border-gray-300 focus:outline-[#98DED9]  text-gray-900"
-                                {...register("FullName", { required: true })}
+
                             />
-                            {errors.FullName && (
-                                <span className="text-red-500">This field is required</span>
-                            )}
+
                         </div>
 
                         <div>
                             <label className="block mb-2 text-sm text-sky-950 dark:text-sky-950">Photo URL</label>
                             <input
                                 type="text"
+                                name="photoURL"
                                 placeholder="Photo URL"
+                                value={formData.photoURL}
+                                onChange={handleInputChange}
                                 className="block w-full px-5 py-3 mt-2w-full  border rounded-md border-gray-300 focus:outline-[#98DED9]  text-gray-900"
-                                {...register("photo_url", { required: true })}
+
                             />
-                            {errors.photo_url && (
-                                <span className="text-red-500">This field is required</span>
-                            )}
+
                         </div>
 
                         <div>
                             <label className="block mb-2 text-sm text-sky-950 dark:text-sky-950">Email address</label>
                             <input
                                 type="email"
+                                name="email"
                                 placeholder="Email"
-                               className="block w-full px-5 py-3 mt-2w-full  border rounded-md border-gray-300 focus:outline-[#98DED9]  text-gray-900"
-                                {...register("email", { required: true })}
+                                value={formData.email}
+                                onChange={handleInputChange}
+                                className="block w-full px-5 py-3 mt-2w-full  border rounded-md border-gray-300 focus:outline-[#98DED9]  text-gray-900"
+
                             />
-                            {errors.email && (
-                                <span className="text-red-500">This field is required</span>
-                            )}
+
                         </div>
 
                         <div>
                             <label className="block mb-2 text-sm text-sky-950 dark:text-sky-950">Password</label>
                             <input
-                                type={showPassword ? "text" : "password"}
+                                type="password"
+                                name="password"
                                 placeholder="Password"
-                               className="block w-full px-5 py-3 mt-2w-full  border rounded-md border-gray-300 focus:outline-[#98DED9]  text-gray-900"
-                                {...register("password", { required: true })}
+                                value={formData.password}
+                                onChange={handleInputChange}
+                                className="block w-full px-5 py-3 mt-2w-full  border rounded-md border-gray-300 focus:outline-[#98DED9]  text-gray-900"
+
                             />
-                            <span className="absolute top-96 right-24" onClick={() => setShowPassword(!showPassword)}>
-                                {/* {showPassword ? <FaEyeSlash /> : <FaEye />} */}
-                            </span>
-                            {errors.password && (
-                                <span className="text-red-500">This field is required</span>
-                            )}
+
                         </div>
 
-                        {/* <button className="flex items-center justify-between w-full px-6 py-3 text-sm tracking-wide text-white capitalize transition-colors duration-300 transform bg-blue-500 rounded-lg hover:bg-blue-950 focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-50">
-                                    <span>Sign Up</span>
-                                    <svg xmlns="http://www.w3.org/2000/svg" className="w-5 h-5 rtl:-scale-x-100" viewBox="0 0 20 20" fill="currentColor">
-                                        <path
-                                            fillRule="evenodd"
-                                            d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
-                                            clipRule="evenodd"
-                                        />
-                                    </svg>
-                                    
-                                </button> */}
                         <div className="form-control mt-6 w-full col-span-2">
-                            <button className="btn bg-[#00b4d8] rounded-lg hover:bg-[#0077b6] text-white">Sign Up</button>
+                            <button type="submit" className="btn bg-[#00b4d8] rounded-lg hover:bg-[#0077b6] text-white">Sign Up</button>
                             <Toaster />
                         </div>
                     </form>
                     <div>
-                        <p className="mt-4 text-center text-sky-950 dark:text-sky-950">or sign in with</p>
-                        <SocialLogin />
                         <p className="mt-4 text-center text-sky-950 dark:text-sky-950">
                             Already have an account?{" "}
                             <Link href="/log-in" className="underline text-sky-950 dark:text-sky-950">
