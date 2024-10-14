@@ -293,12 +293,12 @@ const PodcastDetail = ({ id }) => {
                                 <span className="flex items-center gap-2"> <FcDislike className="text-3xl" />{podcast && podcast.dislikes ? podcast.dislikes.length : 0} Dislikes</span>
                             </div>
                         </div>
-                        <div className="lg:text-6xl text-3xl  font-bold mb-5 lg:mb-10">{podcast.title}</div>
+                        <div className="lg:text-3xl text-2xl  font-bold mb-5 lg:mb-10">{podcast.title}</div>
                         <div className="lg:text-xl font-medium mb-6 lg:mb-12">{podcast.creator}</div>
 
                          <AudioPlayer audioUrl={podcast.audioUrl} />      {/* playback control  */}
                          
-                        <div className="flex gap-4 items-center flex-wrap">
+                        <div className="flex gap-4 items-center flex-wrap lg:mt-10 justify-center">
                         <button 
                             onClick={handleLike} 
                             className="flex items-center gap-2 border text-base border-b-slate-300 py-3 font-medium px-7 rounded-badge bg-[#01BECA]"

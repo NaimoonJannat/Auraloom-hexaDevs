@@ -101,7 +101,7 @@ const AudioPlayer = ({ audioUrl }) => {
 
           {speedMenuOpen && (
             <div className="absolute bottom-12 left-0 w-24 bg-white shadow-md rounded-md">
-              <ul className="text-center text-gray-800">
+              <ul className="text-center text-gray-800 text-base z-5">
                 <li className="cursor-pointer p-2 hover:bg-gray-200" onClick={() => handleSpeedChange(0.5)}>0.5x</li>
                 <li className="cursor-pointer p-2 hover:bg-gray-200" onClick={() => handleSpeedChange(1)}>1x</li>
                 <li className="cursor-pointer p-2 hover:bg-gray-200" onClick={() => handleSpeedChange(1.5)}>1.5x</li>
