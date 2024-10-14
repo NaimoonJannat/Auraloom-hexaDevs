@@ -3,6 +3,8 @@ import img1 from '../../../public/pexels-chuck-3587477.jpg'
 import img2 from '../../../public/pexels-karolina-grabowska-4476138.jpg'
 import { FaRegPlayCircle } from 'react-icons/fa';
 
+import Link from 'next/link';
+
 const TrendingTopic = () => {
     return (
         <div>
@@ -10,12 +12,10 @@ const TrendingTopic = () => {
                 <div
                     className="absolute inset-x-0 top-1/2 h-px -translate-y-1/2 bg-transparent bg-gradient-to-r from-transparent via-gray-500 to-transparent opacity-75 scale-75"
                 ></div>
-
                 <span className="relative z-10 bg-white px-6 text-2xl text-[#0077b6] font-montserrat">Trending</span>
             </span>
 
             <div>
-           
 
                 <section className='grid lg:grid-cols-2 md:grid-cols-2 sm:grid-cols-1 gap-4'>
 
@@ -56,6 +56,7 @@ const TrendingTopic = () => {
                         </div>
                     </div>
                 </section>
+
             </div>
         </div>
     );
