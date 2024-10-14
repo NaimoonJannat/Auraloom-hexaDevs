@@ -6,6 +6,10 @@ import axios from 'axios';
 import { useRouter } from "next/navigation";
 import auth from '../Firebase/firebase.config';
 import { onAuthStateChanged } from 'firebase/auth';
+import PlaylistHeading from '../Heading/PlaylistHeading';
+
+import Link from 'next/link';
+
 
 // import { useContext } from 'react';
 // import { AuthContext } from '../Provider/AuthProvider/AuthProvider';
@@ -24,9 +28,11 @@ const CreatePlaylist = () => {
     useEffect(() => {
         const unsubscribe = onAuthStateChanged(auth, (user) => {
             if (user) {
+                console.log("User logged in:", user.email); // Debugging log
                 setUserEmail(user.email); // Set the user's email
                 fetchPlaylists(user.email); // Fetch playlists for the logged-in user
             } else {
+                console.log("No user logged in"); // Debugging log
                 setUserEmail(null); // User is not logged in
                 setAvailablePlaylists([]); // Clear playlists if user is logged out
             }
@@ -37,19 +43,24 @@ const CreatePlaylist = () => {
         return () => unsubscribe(); // Clean up subscription on unmount
     }, []);
 
+
     const fetchPlaylists = async (email) => {
+        console.log("Fetching playlists for email:", email); // Debugging log
+
         if (!email) return; // Ensure user is logged in before fetching playlists
 
         try {
             const response = await axios.get('http://localhost:5000/playlists', {
                 params: { email } // Sending the user's email to filter playlists
             });
+            console.log("Playlists fetched:", response.data); // Debugging log
             setAvailablePlaylists(response.data);
         } catch (error) {
             console.error('Error fetching playlists:', error);
             setError('Failed to load recent playlists.');
         }
     };
+
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -79,10 +90,11 @@ const CreatePlaylist = () => {
 
     return (
         <div>
-            <span className="relative flex justify-center my-10 font-bold">
+            {/* <span className="relative flex justify-center my-10 font-bold">
                 <div className="absolute inset-x-0 top-1/2 h-px -translate-y-1/2 bg-transparent bg-gradient-to-r from-transparent via-gray-500 to-transparent opacity-75 scale-75"></div>
                 <span className="relative z-10 px-6 text-2xl text-[#0077b6] font-montserrat">My Playlist</span>
-            </span>
+            </span> */}
+            <PlaylistHeading title={"My Playlist"}></PlaylistHeading>
 
             <div className='lg:flex items-start mx-auto font-montserrat'>
                 <div className="mx-auto dark:text-gray-800 border border-[#0077b6] scale-90 rounded-md">
@@ -124,6 +136,7 @@ const CreatePlaylist = () => {
                     </div>
                 </div>
 
+
                 {/* AVAILABLE PLAYLISTS */}
                 <div className="w-full max-w-md px-8 py-4 mx-auto mt-8 border border-[#0077b6] rounded-lg">
                     <div className="flex my-4">
@@ -136,16 +149,22 @@ const CreatePlaylist = () => {
                                 <p>No playlists available.</p>
                             ) : (
                                 availablePlaylists.map(playlist => (
-                                    <li key={playlist._id} className="flex gap-4 py-4">
-                                        <div>
-                                            <Image src={img1} className="h-20 w-20 rounded-lg object-cover" alt="Playlist Image 1" />
-                                        </div>
-                                        <div className="mr-4 flex-1">
-                                            <h4 className="text-lg font-medium text-gray-900">{playlist.name}</h4>
-                                            <div className="mt-1 text-xs text-gray-400">
-                                                <span>Playlist by</span> • <time className='text-xs hover:underline text-[#0077b6]'>{playlist.email}</time> {/* Display playlist email */}
+                                    <li key={playlist._id} className="flex gap-4 py-4 ">
+                                        <Link href={`/playlists/${playlist._id}`}>
+                                            <div className="flex gap-4 items-center w-full rounded-md hover:border">
+                                                <div>
+                                                    <Image src={img1} className="h-20 w-20 rounded-lg object-cover" alt="Playlist Image 1" />
+                                                </div>
+                                                <div className="mr-4 flex-1">
+                                                    <h4 className="text-lg font-medium text-gray-900">
+                                                        {playlist.name}
+                                                    </h4>
+                                                    <div className="mt-1 text-xs text-gray-400">
+                                                        <span>Playlist by</span> • <time className='text-xs hover:underline text-[#0077b6]'>{userEmail}</time>
+                                                    </div>
+                                                </div>
                                             </div>
-                                        </div>
+                                        </Link>
                                     </li>
                                 ))
                             )}
