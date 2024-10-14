@@ -6,7 +6,8 @@ import logo1 from "./../../../public/auraloom-logo.png";
 import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../Provider/AuthProvider/AuthProvider";
 import { FaRegUserCircle } from "react-icons/fa";
-import { IoMdNotificationsOutline } from "react-icons/io";
+import { IoMdNotificationsOutline, IoMdSearch } from "react-icons/io";
+import { useRouter } from "next/navigation";
 
 const Navbar = () => {
   const { user, logout } = useContext(AuthContext);
@@ -18,6 +19,12 @@ const Navbar = () => {
 
   const [isScrolled, setIsScrolled] = useState(false);
 
+  // States used for searching
+  const [searchQuery, setSearchQuery] = useState(""); // Search query state
+  const router = useRouter(); // To handle navigation
+
+
+
   // Function to handle scroll event
   const handleScroll = () => {
     if (window.scrollY > 0) {
@@ -26,6 +33,15 @@ const Navbar = () => {
       setIsScrolled(false);
     }
   };
+
+  // Function to handle search and navigate to the directory page
+  const handleSearchSubmit = (e) => {
+    e.preventDefault(); // Prevent default form submission
+
+    if (searchQuery.trim()) {
+        router.push(`/podcast?search=${encodeURIComponent(searchQuery)}`); // Redirect to the directory page with the search query
+    }
+};
 
   useEffect(() => {
     window.addEventListener("scroll", handleScroll);
@@ -70,6 +86,26 @@ const Navbar = () => {
               priority
             />
           </Link>
+          {/* Search Icon */}
+          <div className="relative">
+           {/* Search Input with Icon */}
+           <form onSubmit={handleSearchSubmit} className="relative">
+              <div className="flex items-center border border-gray-300 rounded-full overflow-hidden hover:shadow transition-all duration-300 focus-within:w-64">
+                {/* Search Icon */}
+                <button type="submit" className="p-2">
+                      <IoMdSearch className="text-xl" />
+                  </button>
+                  {/* Search Input */}
+                  <input
+                      type="text"
+                      className="w-0 focus:w-52 px-2 transition-all duration-300 outline-none bg-transparent"
+                      value={searchQuery}
+                      onChange={(e) => setSearchQuery(e.target.value)}
+                      placeholder="Search Podcasts..."
+                  />
+              </div>
+            </form>
+          </div>
         </div>
         <div className="navbar-center"></div>
         <div className="navbar-end flex gap-4">
@@ -100,7 +136,7 @@ const Navbar = () => {
                   History
                 </Link>
               </li>
-                            <li className="flex">
+              <li className="flex">
                 <Link rel="noopener noreferrer" href="/notifications">
                   <IoMdNotificationsOutline className="text-2xl" />
                 </Link>
