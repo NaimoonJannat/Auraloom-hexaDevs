@@ -84,12 +84,12 @@ const TrendingTopic = () => {
                         </div>
 
                     </div>
-                    <div className='flex justify-between items-center'>
-                        <div className='flex gap-4 p-4'>
+                    <div className='flex justify-between items-center py-2'>
+                        <div className='flex gap-4 px-4'>
                             <button className='btn btn-xs border border-white rounded-md'>Life-Style</button>
                             <button className='btn btn-xs border border-white rounded-md'>Health</button>
                         </div>
-                        <div className='flex items-center p-4'>
+                        <div className='flex items-center px-4'>
                             <h2>Hosted by:</h2>
                             <a rel="noopener noreferrer" href="#" className="flex items-center">
                                 {/* <img src="https://source.unsplash.com/50x50/?portrait" alt="avatar" className="object-cover w-10 h-10 mx-4 rounded-full dark:bg-gray-500" /> */}
@@ -129,12 +129,12 @@ const TrendingTopic = () => {
                         </div>
 
                     </div>
-                    <div className='flex justify-between items-center'>
-                        <div className='flex gap-4 p-4'>
+                    <div className='flex justify-between items-center py-2'>
+                        <div className='flex gap-4 px-4'>
                             <button className='btn btn-xs border border-white rounded-md'>Life-Style</button>
                             <button className='btn btn-xs border border-white rounded-md'>Health</button>
                         </div>
-                        <div className='flex items-center p-4'>
+                        <div className='flex items-center px-4'>
                             <h2>Hosted by:</h2>
                             <a rel="noopener noreferrer" href="#" className="flex items-center">
                                 {/* <img src="https://source.unsplash.com/50x50/?portrait" alt="avatar" className="object-cover w-10 h-10 mx-4 rounded-full dark:bg-gray-500" /> */}
