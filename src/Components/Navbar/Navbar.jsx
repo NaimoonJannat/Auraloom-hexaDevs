@@ -40,10 +40,10 @@ const Navbar = () => {
         <Link href={"/dashboard"}>Dashboard</Link>
       </li>
       <li>
-        <Link href={"/profile"}>User Profile</Link>
+        <Link href={"/profile"}>Profile</Link>
       </li>
       <li>
-        <Link href={"/settings"}>Settings</Link>
+        <Link href={"/Settings"}>Settings</Link>
       </li>
       <li>
         <Link href={"/pro-mode"}>Be a Pro</Link>
@@ -98,11 +98,6 @@ const Navbar = () => {
               <li className="flex">
                 <Link rel="noopener noreferrer" href="/history">
                   History
-                </Link>
-              </li>
-              <li className="flex">
-                <Link rel="noopener noreferrer" href="/notifications">
-                  <IoMdNotificationsOutline className="text-2xl" />
                 </Link>
               </li>
                             <li className="flex">
