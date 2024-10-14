@@ -4,12 +4,12 @@ import React from 'react';
 const page = ({ params }) => {
 
     console.log(params)
-    const { id } = params;
+    // const { id } = params;
 
     return (
         <div>
-            {/* <h2>Add To Playlist</h2> */}
-            <AddToPlaylist id={id}></AddToPlaylist>
+            <h2>Add To Playlist</h2>
+            {/* <AddToPlaylist id={id}></AddToPlaylist> */}
         </div>
     );
 };
