@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import auth from '@/Components/Firebase/firebase.config';
 import { GoogleAuthProvider, createUserWithEmailAndPassword, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut, } from 'firebase/auth';
 import PropTypes from 'prop-types'
