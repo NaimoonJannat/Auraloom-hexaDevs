@@ -5,6 +5,11 @@ import Image from 'next/image';
 import { AuthContext } from '../Provider/AuthProvider/AuthProvider';
 import MyPodcasts from '../MyPodcast/MyPodcast';
 import Link from 'next/link';
+import { ChartBarIcon, HeartIcon, MusicNoteIcon, SelectorIcon } from '@heroicons/react/outline';
+import { FcIdea } from 'react-icons/fc';
+import { MdGeneratingTokens } from 'react-icons/md';
+import { CiSettings } from 'react-icons/ci';
+import { FaChartBar, FaMusic } from 'react-icons/fa';
 
 const CreatorDashboard = () => {
     const { user, logout } = useContext(AuthContext);
@@ -55,33 +60,33 @@ const CreatorDashboard = () => {
                 </div>
                 <nav className="mt-10">
                     <ul className="space-y-2">
-                        <li>
-                            <a href="/" className="flex items-center p-2 text-gray-700 hover:bg-gray-100 rounded-md">
-                                <span className="text-sm font-medium">Valuation</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="/" className="flex items-center p-2 text-gray-700 hover:bg-gray-100 rounded-md">
-                                <span className="text-sm font-medium">Invoices</span>
-                            </a>
-                        </li>
-                        <li>
+                        <Link href={"/my-podcast"} className="flex items-center space-x-2 mb-2 hover:bg-blue-400 hover:text-white p-2 rounded-md">
+                            <FaMusic className="h-5 w-5 " />
+                            <span>My Podcast</span>
+                        </Link>
+                        <Link href={"/receivable-growth"} className="flex items-center space-x-2 hover:bg-blue-400 hover:text-white p-2 rounded-md">
+                            <FaChartBar className="h-6 w-6 " />
+                            <span>Analytics</span>
+                        </Link>
+                        {/* <li>
                             <a href="/" className="flex items-center p-2 text-gray-700 hover:bg-gray-100 rounded-md">
                                 <span className="text-sm font-medium">Messages</span>
                             </a>
-                        </li>
+                        </li> */}
+                        <Link href={"/Settings"} className="flex items-center space-x-2 hover:bg-blue-400 hover:text-white p-2 rounded-md">
+                            <CiSettings className="h-6 w-6 " />
+                            <span>Settings</span>
+                        </Link>
+                        <Link href={"/generate-thumbnail"} className="flex items-center space-x-2 hover:bg-blue-400 hover:text-white p-2 rounded-md">
+                            <MdGeneratingTokens className="h-6 w-6 " />
+                            <span>Get Thumbnail</span>
+                        </Link>
+                        <Link href={"/idea-generate"} className="flex items-center space-x-2 hover:bg-blue-400 hover:text-white p-2 rounded-md">
+                            <FcIdea className="h-6 w-6 " />
+                            <span>Idea Generate</span>
+                        </Link>
                         <li>
-                            <a href="/" className="flex items-center p-2 text-gray-700 hover:bg-gray-100 rounded-md">
-                                <span className="text-sm font-medium">Analytics</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="/" className="flex items-center p-2 text-gray-700 hover:bg-gray-100 rounded-md">
-                                <span className="text-sm font-medium">Settings</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="/" className="flex items-center p-2 text-gray-700 hover:bg-gray-100 rounded-md">
+                            <a href="/" className="flex items-center space-x-2 hover:bg-blue-400 hover:text-white p-2 rounded-md">
                                 <span className="text-sm font-medium">Logout</span>
                             </a>
                         </li>
