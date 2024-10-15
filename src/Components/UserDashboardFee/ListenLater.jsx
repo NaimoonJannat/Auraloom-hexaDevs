@@ -2,7 +2,6 @@
 import React, { useEffect, useState } from 'react';
 import DashboardHeading from '../Heading/DashboardHeading';
 import Image from 'next/image';
-import ListenLaterBanner from './ListenLaterBanner';
 
 const ListenLater = () => {
     const [listenLater, setlistenLater] = useState([]);
@@ -45,7 +44,6 @@ const ListenLater = () => {
     return (
         <div className='container mx-auto'>
             {/* <h1>Listen-later Components</h1> */}
-            <ListenLaterBanner></ListenLaterBanner>
             {/* listenLater Section */}
             <div>
                 <h1>
