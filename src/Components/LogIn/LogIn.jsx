@@ -1,6 +1,6 @@
 "use client";
 import { useContext, useState } from "react";
-import { useRouter } from "next/navigation";
+// import { useRouter } from "next/navigation";
 import Link from "next/link";
 import { AuthContext } from "../Provider/AuthProvider/AuthProvider";
 import Image from "next/image";
@@ -12,7 +12,7 @@ const LogIn = () => {
         email: "",
         password: ""
     });
-    const router = useRouter();
+    // const router = useRouter();
 
     const handleInputChange = (e) => {
         setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -92,7 +92,7 @@ const LogIn = () => {
                             </form>
                             
                             <p className="mt-6 text-sm text-center text-sky-700">
-                                Don't have an account yet? <Link href="/sign-up" className="text-blue-500 focus:outline-none focus:underline hover:underline">Sign up</Link>.
+                                Don&pos;t have an account yet? <Link href="/sign-up" className="text-blue-500 focus:outline-none focus:underline hover:underline">Sign up</Link>.
                             </p>
                         </div>
                     </div>
