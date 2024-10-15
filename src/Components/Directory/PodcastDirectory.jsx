@@ -28,7 +28,7 @@ const PodcastDirectory = () => {
             setIsLoading(true);
 
             // Build the URL for the API request, including search and pagination parameters
-            let url = `https://auraloom-backend.vercel.app/podcasts?page=${page}&limit=${limit}`;
+            let url = `http://localhost:5000/podcasts?page=${page}&limit=${limit}`;
 
             if (initialSearchQuery) {
                 url += `&search=${encodeURIComponent(initialSearchQuery)}`;
