@@ -6,7 +6,7 @@ import { AuthContext } from '../Provider/AuthProvider/AuthProvider';
 import MyPodcasts from '../MyPodcast/MyPodcast';
 import Link from 'next/link';
 
-const CreatorDashboardT = () => {
+const CreatorDashboard = () => {
     const { user, logout } = useContext(AuthContext);
     console.log(user);
     const signOutUser = () => {
@@ -139,4 +139,4 @@ const CreatorDashboardT = () => {
     );
 };
 
-export default CreatorDashboardT;
+export default CreatorDashboard;
