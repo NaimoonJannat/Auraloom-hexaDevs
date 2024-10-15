@@ -6,6 +6,7 @@ import DashboardHeading from "../Heading/DashboardHeading";
 import { PlayIcon } from "@heroicons/react/solid";
 import { Typewriter } from "react-simple-typewriter";
 import Link from "next/link";
+import PrivateRoute from "../PrivateRoute/PrivateRoute";
 
 const UserDashboardFee = () => {
   const [listenLater, setlistenLater] = useState([]);
@@ -78,9 +79,10 @@ const UserDashboardFee = () => {
 
 
   return (
-    <div className="feed-container mx-auto p-6  text-white">
-      <style>
-        {`
+    <PrivateRoute>
+      <div className="feed-container mx-auto p-6  text-white">
+        <style>
+          {`
                 .text-wrapper {
                     position: absolute;
                     top: 33%;
@@ -92,37 +94,37 @@ const UserDashboardFee = () => {
                     color: #f97316;
                 }
                 `}
-      </style>
-      {/* Hero Section */}
-      <div className="relative w-full h-[400px] bg-gradient-to-r from-sky-900 to-slate-900 mb-7 rounded-lg overflow-hidden">
-        {/* Background Image */}
-        <Image
-          src="https://i.ibb.co.com/hLrMBX3/e597373a4b68e34802a66c40cd3f50bb.jpg"
-          alt="Artist"
-          layout="fill"
-          objectFit="cover"
-          className="opacity-30"
-        />
+        </style>
+        {/* Hero Section */}
+        <div className="relative w-full h-[400px] bg-gradient-to-r from-sky-900 to-slate-900 mb-7 rounded-lg overflow-hidden">
+          {/* Background Image */}
+          <Image
+            src="https://i.ibb.co.com/hLrMBX3/e597373a4b68e34802a66c40cd3f50bb.jpg"
+            alt="Artist"
+            layout="fill"
+            objectFit="cover"
+            className="opacity-30"
+          />
 
-        {/* Hero Content */}
+          {/* Hero Content */}
 
-        <div className="absolute inset-0 z-10 flex flex-col justify-center p-8">
-          <div className="text-wrapper h-100vh">
-            <Typewriter
-              words={['Whats hot this weekend?', 'Catch the latest hits ', 'and trending albums.']}
-              typeSpeed={80}
-              loop={Infinity}
-            />
+          <div className="absolute inset-0 z-10 flex flex-col justify-center p-8">
+            <div className="text-wrapper h-100vh">
+              <Typewriter
+                words={['Whats hot this weekend?', 'Catch the latest hits ', 'and trending albums.']}
+                typeSpeed={80}
+                loop={Infinity}
+              />
+            </div>
+            <Link href={"/podcast"} className="flex btn items-center space-x-2 mb-2 hover:bg-orange-500 hover:text-white p-2 font-bold border-none mt-6 w-2/5 px-6 py-3 bg-white text-sky-700 rounded-full text-lg transition">
+              <span>Listen Now</span>
+              <PlayIcon className="h-6 w-6 hover:text-white text-sky-700" />
+            </Link>
           </div>
-          <Link href={"/podcast"} className="flex btn items-center space-x-2 mb-2 hover:bg-orange-500 hover:text-white p-2 font-bold border-none mt-6 w-2/5 px-6 py-3 bg-white text-sky-700 rounded-full text-lg transition">
-            <span>Listen Now</span>
-            <PlayIcon className="h-6 w-6 hover:text-white text-sky-700" />
-          </Link>
         </div>
-      </div>
 
-      {/* Horizontal Nav */}
-      {/* <div className="horizontal-nav mt-6">
+        {/* Horizontal Nav */}
+        {/* <div className="horizontal-nav mt-6">
         <ul className="flex space-x-8 text-lg font-semibold">
           <li className="hover:text-orange-500 cursor-pointer">Playlist</li>
           <li className="hover:text-orange-500 cursor-pointer">Artists</li>
@@ -132,67 +134,68 @@ const UserDashboardFee = () => {
         </ul>
       </div> */}
 
-      {/* listenLater Section */}
-      <div>
-        <h1>
-          <DashboardHeading className="bg-black" title={"Listen Later"}></DashboardHeading>
-        </h1>
-      </div>
-      <div className="listenLater-grid grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-
-        {listenLater.map((later) => (
-          <div key={later.id} className="later-card bg-gray-800 p-4 rounded-lg">
-            <div className="relative w-full h-40">
-              <Image
-                src={later.image}
-                alt={later.name}
-                layout="fill"
-                objectFit="cover"
-                className="rounded-lg"
-              />
-            </div>
-            <div className="mt-3">
-              <h3 className="text-xl font-semibold">{later.name}</h3>
-              <p className="text-gray-400">{later.duration}</p>
-            </div>
-          </div>
-        ))}
-      </div>
-
-      {/* show individual playlist */}
-      <div className="mt-10">
+        {/* listenLater Section */}
         <div>
           <h1>
-            <DashboardHeading className="bg-black" title={"Your Playlists"}></DashboardHeading>
+            <DashboardHeading className="bg-black" title={"Listen Later"}></DashboardHeading>
           </h1>
         </div>
-        <div className="playlist-list flex flex-col space-y-4">
-          {playlists.map((playlist) => (
-            <div key={playlist.id} className="playlist-item flex items-center bg-gray-800 p-4 rounded-lg hover:bg-gray-700 transition">
-              <div className="w-24 h-24 relative flex-shrink-0">
+        <div className="listenLater-grid grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+
+          {listenLater.map((later) => (
+            <div key={later.id} className="later-card bg-gray-800 p-4 rounded-lg">
+              <div className="relative w-full h-40">
                 <Image
-                  src={playlist.image}
-                  alt={playlist.name}
+                  src={later.image}
+                  alt={later.name}
                   layout="fill"
                   objectFit="cover"
                   className="rounded-lg"
                 />
               </div>
-              <div className="ml-4">
-                <h3 className="text-xl font-semibold">{playlist.name}</h3>
-                <p className="text-gray-400">Created by {playlist.creator}</p>
-              </div>
-              <div className="ml-auto">
-                <button className="bg-orange-500 hover:bg-orange-600 text-white py-2 px-4 rounded-lg flex items-center">
-                  <PlayIcon className="h-5 w-5 mr-2" />
-                  Play
-                </button>
+              <div className="mt-3">
+                <h3 className="text-xl font-semibold">{later.name}</h3>
+                <p className="text-gray-400">{later.duration}</p>
               </div>
             </div>
           ))}
         </div>
+
+        {/* show individual playlist */}
+        <div className="mt-10">
+          <div>
+            <h1>
+              <DashboardHeading className="bg-black" title={"Your Playlists"}></DashboardHeading>
+            </h1>
+          </div>
+          <div className="playlist-list flex flex-col space-y-4">
+            {playlists.map((playlist) => (
+              <div key={playlist.id} className="playlist-item flex items-center bg-gray-800 p-4 rounded-lg hover:bg-gray-700 transition">
+                <div className="w-24 h-24 relative flex-shrink-0">
+                  <Image
+                    src={playlist.image}
+                    alt={playlist.name}
+                    layout="fill"
+                    objectFit="cover"
+                    className="rounded-lg"
+                  />
+                </div>
+                <div className="ml-4">
+                  <h3 className="text-xl font-semibold">{playlist.name}</h3>
+                  <p className="text-gray-400">Created by {playlist.creator}</p>
+                </div>
+                <div className="ml-auto">
+                  <button className="bg-orange-500 hover:bg-orange-600 text-white py-2 px-4 rounded-lg flex items-center">
+                    <PlayIcon className="h-5 w-5 mr-2" />
+                    Play
+                  </button>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
       </div>
-    </div>
+    </PrivateRoute>
   );
 };
 
