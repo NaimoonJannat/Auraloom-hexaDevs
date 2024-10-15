@@ -114,12 +114,14 @@ const CreatorDashboardT = () => {
                     <div className="col-span-2 p-4 bg-green-100 rounded-lg">
                         <h2 className="text-lg font-semibold">Generate Thumbnail</h2>
                         <p>Lorem ipsum dolor sit amet consectetur</p>
+                        <Link href={'/generate-thumbnail'} className="btn bg-blue-500 text-white border-none mt-4">Add A New Podcast</Link>
                     </div>
 
                     {/* Valuation past 89 days */}
                     <div className="col-span-2 p-4 bg-gray-100 rounded-lg">
                         <h2 className="text-lg font-semibold">Generate Idea</h2>
                         <p>Lorem ipsum dolor sit amet.</p>
+                        <Link href={'/add-podcast'} className="btn bg-blue-500 text-white border-none mt-4">Add A New Podcast</Link>
                     </div>
                 </div>
 
