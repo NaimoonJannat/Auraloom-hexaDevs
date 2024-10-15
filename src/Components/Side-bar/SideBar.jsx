@@ -44,10 +44,10 @@ const Sidebar = () => {
                             <HeartIcon className="h-5 w-5 text-white" />
                             <span>Favourites</span>
                         </li>
-                        <li className="flex items-center space-x-2 mb-2 hover:bg-gray-700 p-2 rounded-md">
+                        <Link href={"/listen-later"} className="flex items-center space-x-2 mb-2 hover:bg-gray-700 p-2 rounded-md">
                             <ClockIcon className="h-5 w-5 text-white" />
                             <span>Listen Later</span>
-                        </li>
+                        </Link>
                         <Link href={"/history"} className="flex items-center space-x-2 mb-2 hover:bg-gray-700 p-2 rounded-md">
                             <BookOpenIcon className="h-5 w-5 text-white" />
                             <span>History</span>
