@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import auth from '@/Components/Firebase/firebase.config';
 import {
     createUserWithEmailAndPassword,
