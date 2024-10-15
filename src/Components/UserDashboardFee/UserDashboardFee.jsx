@@ -1,10 +1,11 @@
 "use client"
 import Image from "next/image";
 import { useState, useEffect } from "react";
-import SectionTitle from "../Heading/SectionTitle";
+// import SectionTitle from "../Heading/SectionTitle";
 import DashboardHeading from "../Heading/DashboardHeading";
 import { PlayIcon } from "@heroicons/react/solid";
 import { Typewriter } from "react-simple-typewriter";
+import Link from "next/link";
 
 const UserDashboardFee = () => {
   const [listenLater, setlistenLater] = useState([]);
@@ -113,10 +114,10 @@ const UserDashboardFee = () => {
               loop={Infinity}
             />
           </div>
-          <li className="flex btn items-center space-x-2 mb-2 hover:bg-orange-500 hover:text-white p-2 font-bold border-none mt-6 w-2/5 px-6 py-3 bg-white text-sky-700 rounded-full text-lg transition">
+          <Link href={"/podcast"} className="flex btn items-center space-x-2 mb-2 hover:bg-orange-500 hover:text-white p-2 font-bold border-none mt-6 w-2/5 px-6 py-3 bg-white text-sky-700 rounded-full text-lg transition">
             <span>Listen Now</span>
             <PlayIcon className="h-6 w-6 hover:text-white text-sky-700" />
-          </li>
+          </Link>
         </div>
       </div>
 
