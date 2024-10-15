@@ -1,10 +1,10 @@
-import CreatorDashboard from '@/Components/CreatorDashboard/CreatorDashboard';
+import CreatorDashboardT from '@/Components/CreatorDashboard/CreatorDashboardT';
 import React from 'react';
 
 const page = () => {
     return (
         <div>
-            <CreatorDashboard></CreatorDashboard>
+            <CreatorDashboardT></CreatorDashboardT>
         </div>
     );
 };
