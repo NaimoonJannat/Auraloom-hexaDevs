@@ -46,14 +46,14 @@ const Sidebar = () => {
                         <ClockIcon className="h-5 w-5 text-white" />
                         <span>Listen Later</span>
                     </li>
-                    <li className="flex items-center space-x-2 mb-2 hover:bg-gray-700 p-2 rounded-md">
+                    <Link href={"/history"} className="flex items-center space-x-2 mb-2 hover:bg-gray-700 p-2 rounded-md">
                         <BookOpenIcon className="h-5 w-5 text-white" />
                         <span>History</span>
-                    </li>
-                    <li className="flex items-center space-x-2 mb-2 hover:bg-gray-700 p-2 rounded-md">
+                    </Link>
+                    <Link href={"/podcast"} className="flex items-center space-x-2 mb-2 hover:bg-gray-700 p-2 rounded-md">
                         <MicrophoneIcon className="h-5 w-5 text-white" />
                         <span>Podcasts</span>
-                    </li>
+                    </Link>
                 </ul>
                 <h2 className="text-lg font-semibold mt-10 mb-2">Your Playlists</h2>
                 <ul>
