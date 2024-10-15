@@ -3,7 +3,7 @@ import { useContext, useState } from "react";
 import toast, { Toaster } from "react-hot-toast";
 import Link from "next/link";
 import { AuthContext } from "../Provider/AuthProvider/AuthProvider";
-import { useRouter } from "next/navigation";
+// import { useRouter } from "next/navigation";
 
 const Register = () => {
     const { createUser } = useContext(AuthContext);
@@ -13,7 +13,7 @@ const Register = () => {
         email: "",
         password: "",
     });
-    const router = useRouter();
+    // const router = useRouter();
 
     const handleInputChange = (e) => {
         setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -25,7 +25,7 @@ const Register = () => {
         try {
             await createUser(email, password, name, photoURL);
             // router.push("/dashboard"); 
-            router.push("/");
+            // router.push("/");
         } catch (error) {
             console.error("Sign-up error:", error);
         }
