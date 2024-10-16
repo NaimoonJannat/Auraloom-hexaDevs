@@ -1,10 +1,10 @@
-import TrendingTopicc from '@/Components/StrimingNow/TrendingTopicc';
+import TrendingPodcasts from '@/Components/StrimingNow/TrendingPodcasts';
 import React from 'react';
 
 const page = () => {
     return (
         <div>
-            <TrendingTopicc></TrendingTopicc>
+            <TrendingPodcasts></TrendingPodcasts>
         </div>
     );
 };
