@@ -11,8 +11,8 @@ import PlaylistHeading from '../Heading/PlaylistHeading';
 import Link from 'next/link';
 
 
-// import { useContext } from 'react';
-// import { AuthContext } from '../Provider/AuthProvider/AuthProvider';
+import { useContext } from 'react';
+import { AuthContext } from '../Provider/AuthProvider/AuthProvider';
 
 const CreatePlaylist = () => {
     const [playlistName, setPlaylistName] = useState('');
@@ -22,7 +22,7 @@ const CreatePlaylist = () => {
     const [isMounted, setIsMounted] = useState(false); // Ensure component is mounted
     const router = useRouter(); // Declare useRouter at the top of the component
 
-    // const { user } = useContext(AuthContext);
+    const { user } = useContext(AuthContext);
 
     // Check if the component is mounted and user is logged in
     useEffect(() => {
@@ -65,35 +65,39 @@ const CreatePlaylist = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
 
+
+
         if (!userEmail) {
             setError('You must be logged in to create a playlist.'); // Show error if user is not logged in
             return;
         }
 
-        const newPlaylist = { name: playlistName, email: userEmail }; // Include email
+        const newPlaylist = {
+            name: playlistName,
+            email: user?.email,
+            UserName: user?.displayName,
+        }; // Include email
+        console.log(newPlaylist)
 
-        try {
-            const response = await axios.post('http://localhost:5000/playlists', newPlaylist);
-            console.log('Playlist created:', response.data);
+        // try {
+        //     const response = await axios.post('http://localhost:5000/playlists', newPlaylist);
+        //     console.log('Playlist created:', response.data);
 
-            const playlistId = response.data.insertedId; // Assuming this is the correct response structure
-            setPlaylistName(''); // Clear input field after successful creation
-            fetchPlaylists(userEmail); // Refresh the playlist list
-            router.push(`/playlists/${playlistId}`); // Navigate to the new playlist
-        } catch (error) {
-            console.error('Error creating playlist:', error);
-            setError('Failed to create playlist. Please try again.');
-        }
+        //     const playlistId = response.data.insertedId; // Assuming this is the correct response structure
+        //     setPlaylistName(''); // Clear input field after successful creation
+        //     fetchPlaylists(userEmail); // Refresh the playlist list
+        //     router.push(`/playlists/${playlistId}`); // Navigate to the new playlist
+        // } catch (error) {
+        //     console.error('Error creating playlist:', error);
+        //     setError('Failed to create playlist. Please try again.');
+        // }
     };
 
     if (!isMounted) return null;
 
     return (
         <div>
-            {/* <span className="relative flex justify-center my-10 font-bold">
-                <div className="absolute inset-x-0 top-1/2 h-px -translate-y-1/2 bg-transparent bg-gradient-to-r from-transparent via-gray-500 to-transparent opacity-75 scale-75"></div>
-                <span className="relative z-10 px-6 text-2xl text-[#0077b6] font-montserrat">My Playlist</span>
-            </span> */}
+
             <PlaylistHeading title={"My Playlist"}></PlaylistHeading>
 
             <div className='lg:flex items-start mx-auto font-montserrat'>

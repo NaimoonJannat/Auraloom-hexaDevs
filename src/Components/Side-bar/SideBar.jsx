@@ -31,23 +31,23 @@ const Sidebar = () => {
                         <MusicNoteIcon className="h-6 w-6 text-white" />
                         <span>Playlists</span>
                     </Link>
-                    <Link href={"/"} className="flex items-center space-x-2 hover:bg-gray-700 p-2 rounded-md">
+                    {/* <Link href={"/"} className="flex items-center space-x-2 hover:bg-gray-700 p-2 rounded-md">
                         <ChartBarIcon className="h-6 w-6 text-white" />
                         <span>Statistics</span>
-                    </Link>
+                    </Link> */}
                 </nav>
 
                 <div className="mt-10">
                     <h2 className="text-lg font-semibold mb-2">Your Music</h2>
                     <ul>
-                        <li className="flex items-center space-x-2 mb-2 hover:bg-gray-700 p-2 rounded-md">
+                        {/* <li className="flex items-center space-x-2 mb-2 hover:bg-gray-700 p-2 rounded-md">
                             <HeartIcon className="h-5 w-5 text-white" />
                             <span>Favourites</span>
-                        </li>
-                        <li className="flex items-center space-x-2 mb-2 hover:bg-gray-700 p-2 rounded-md">
+                        </li> */}
+                        <Link href={"/listen-later"} className="flex items-center space-x-2 mb-2 hover:bg-gray-700 p-2 rounded-md">
                             <ClockIcon className="h-5 w-5 text-white" />
                             <span>Listen Later</span>
-                        </li>
+                        </Link>
                         <Link href={"/history"} className="flex items-center space-x-2 mb-2 hover:bg-gray-700 p-2 rounded-md">
                             <BookOpenIcon className="h-5 w-5 text-white" />
                             <span>History</span>
@@ -57,24 +57,25 @@ const Sidebar = () => {
                             <span>Podcasts</span>
                         </Link>
                     </ul>
-                    <h2 className="text-lg font-semibold mt-10 mb-2">Your Playlists</h2>
+                    {/*  */}
+                    <h2 className="text-lg font-semibold mt-10 mb-2">Explore More</h2>
                     <ul>
-                        <li className="flex items-center space-x-2 mb-2 hover:bg-gray-700 p-2 rounded-md">
+                        <Link href={"/Feature-Loading"} className="flex items-center space-x-2 mb-2 hover:bg-gray-700 p-2 rounded-md">
                             <PlayIcon className="h-5 w-5 text-red-400" />
                             <span>Phycology</span>
-                        </li>
-                        <li className="flex items-center space-x-2 mb-2 hover:bg-gray-700 p-2 rounded-md">
+                        </Link>
+                        <Link href={"/Feature-Loading"} className="flex items-center space-x-2 mb-2 hover:bg-gray-700 p-2 rounded-md">
                             <PlayIcon className="h-5 w-5 text-blue-400" />
                             <span>Education</span>
-                        </li>
-                        <li className="flex items-center space-x-2 mb-2 hover:bg-gray-700 p-2 rounded-md">
+                        </Link>
+                        <Link href={"/Feature-Loading"} className="flex items-center space-x-2 mb-2 hover:bg-gray-700 p-2 rounded-md">
                             <PlayIcon className="h-5 w-5 text-purple-400" />
                             <span>Beauty</span>
-                        </li>
-                        <li className="flex items-center space-x-2 mb-2 hover:bg-gray-700 p-2 rounded-md">
+                        </Link>
+                        <Link href={"/Feature-Loading"} className="flex items-center space-x-2 mb-2 hover:bg-gray-700 p-2 rounded-md">
                             <PlayIcon className="h-5 w-5 text-green-400" />
                             <span>Art&craft</span>
-                        </li>
+                        </Link>
                     </ul>
                     <Link href={"/create-playlist"} className="mt-4 text-orange-500">Create new playlist +</Link>
                 </div>
