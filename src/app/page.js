@@ -1,4 +1,5 @@
 export const dynamic = "force-dynamic";
+import AuraloomAi from "@/Components/AuraloomAi/AuraloomAi";
 import Banner1 from "@/Components/Banners/Banner1";
 import Banner2 from "@/Components/Banners/Banner2";
 import CategorySelector from "@/Components/category-selector/CategorySelector";
@@ -19,6 +20,7 @@ export default function Home() {
         <TrendingTopic></TrendingTopic>
         <TopCreator></TopCreator>
         <Banner1></Banner1>
+        <AuraloomAi></AuraloomAi>
         <TrendingContent></TrendingContent>
         <CategorySelector></CategorySelector>
         <Newsletter></Newsletter>
