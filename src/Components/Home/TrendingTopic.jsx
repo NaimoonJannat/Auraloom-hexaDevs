@@ -15,53 +15,10 @@ const TrendingTopic = () => {
                 <span className="relative z-10 bg-white px-6 text-2xl text-[#0077b6] font-montserrat">Trending</span>
             </span>
 
-            <div>
-                {/* <section className='grid lg:grid-cols-2 md:grid-cols-2 sm:grid-cols-1 gap-4'>
-
-                    <div className="card card-side bg-base-100 shadow-xl flex flex-col md:flex-row border border-white">
-                        <figure className="md:w-1/2">
-                            <Image
-                                src={img2}
-                                alt="Movie"
-                                className="w-full h-96"
-                            />
-                        </figure>
-                        <div className="card-body md:w-1/2">
-                            <h2 className='text-lg font-semibold'>Laugh Therapy</h2>
-                            <h2 className="card-title text-xl text-white">Mental health awareness and self-care practices</h2>
-                            <p className=''>We have a therapist expert as our guest, Krista Gordon is will share her experience.</p>
-                            <div className="card-actions items-center">
-                                <FaRegPlayCircle className='btn btn-circle btn-sm border-white rounded-full mx-auto' />
-
-                            </div>
-                        </div>
-                    </div>
-                    <div className="card card-side bg-base-100 shadow-xl flex flex-col md:flex-row border border-white">
-                        <figure className="md:w-1/2">
-                            <Image
-                                src={img1}
-                                alt="Movie"
-                                className="w-full h-96"
-                            />
-                        </figure>
-                        <div className="card-body md:w-1/2">
-                            <h2 className='text-lg font-semibold'>Science Explorer</h2>
-                            <h2 className="card-title text-xl text-white">Dating and navigating the modern dating scene</h2>
-                            <p className=''>Unable to grasp something clearly or to think logically and decisively about something.</p>
-                            <div className="card-actions items-center">
-                                <FaRegPlayCircle className='btn btn-circle btn-sm border-white rounded-full mx-auto' />
-
-                            </div>
-                        </div>
-                    </div>
-                </section> */}
-            </div>
-
             <div className='grid gap-8 sm:grid-cols-2 sm:gap-12 lg:grid-cols-2 xl:grid-cols-2 xl:gap-16'>
-                <div className='border rounded-xl'>
+                <div className='border rounded-xl hover:border-[#0077b6]'>
                     <div className="flex flex-col items-center gap-4 md:flex-row lg:gap-6 p-4">
                         <a href="#" className="group relative block h-56 w-full shrink-0 self-start overflow-hidden rounded-lg bg-gray-100 shadow-lg md:h-24 md:w-24 lg:h-40 lg:w-40">
-                            {/* <img src="https://images.unsplash.com/photo-1593508512255-86ab42a8e620?auto=format&q=75&fit=crop&w=600" loading="lazy" alt="Photo by Minh Pham" className="absolute inset-0 h-full w-full object-cover object-center transition duration-200 group-hover:scale-110" /> */}
                             <Image
                                 src={img1}
                                 alt="Movie"
@@ -103,10 +60,10 @@ const TrendingTopic = () => {
                         </div>
                     </div>
                 </div>
-                <div className='border rounded-xl'>
+                <div className='border rounded-xl hover:border-[#0077b6]'>
                     <div className="flex flex-col items-center gap-4 md:flex-row lg:gap-6 p-4">
                         <a href="#" className="group relative block h-56 w-full shrink-0 self-start overflow-hidden rounded-lg bg-gray-100 shadow-lg md:h-24 md:w-24 lg:h-40 lg:w-40">
-                            {/* <img src="https://images.unsplash.com/photo-1593508512255-86ab42a8e620?auto=format&q=75&fit=crop&w=600" loading="lazy" alt="Photo by Minh Pham" className="absolute inset-0 h-full w-full object-cover object-center transition duration-200 group-hover:scale-110" /> */}
+
                             <Image
                                 src={img2}
                                 alt="Movie"
