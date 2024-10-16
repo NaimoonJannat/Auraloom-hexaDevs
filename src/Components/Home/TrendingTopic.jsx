@@ -58,10 +58,9 @@ const TrendingTopic = () => {
             </div>
 
             <div className='grid gap-8 sm:grid-cols-2 sm:gap-12 lg:grid-cols-2 xl:grid-cols-2 xl:gap-16'>
-                <div className='border rounded-xl'>
+                <div className='border rounded-xl hover:border-[#0077b6]'>
                     <div className="flex flex-col items-center gap-4 md:flex-row lg:gap-6 p-4">
                         <a href="#" className="group relative block h-56 w-full shrink-0 self-start overflow-hidden rounded-lg bg-gray-100 shadow-lg md:h-24 md:w-24 lg:h-40 lg:w-40">
-                            {/* <img src="https://images.unsplash.com/photo-1593508512255-86ab42a8e620?auto=format&q=75&fit=crop&w=600" loading="lazy" alt="Photo by Minh Pham" className="absolute inset-0 h-full w-full object-cover object-center transition duration-200 group-hover:scale-110" /> */}
                             <Image
                                 src={img1}
                                 alt="Movie"
@@ -103,10 +102,10 @@ const TrendingTopic = () => {
                         </div>
                     </div>
                 </div>
-                <div className='border rounded-xl'>
+                <div className='border rounded-xl hover:border-[#0077b6]'>
                     <div className="flex flex-col items-center gap-4 md:flex-row lg:gap-6 p-4">
                         <a href="#" className="group relative block h-56 w-full shrink-0 self-start overflow-hidden rounded-lg bg-gray-100 shadow-lg md:h-24 md:w-24 lg:h-40 lg:w-40">
-                            {/* <img src="https://images.unsplash.com/photo-1593508512255-86ab42a8e620?auto=format&q=75&fit=crop&w=600" loading="lazy" alt="Photo by Minh Pham" className="absolute inset-0 h-full w-full object-cover object-center transition duration-200 group-hover:scale-110" /> */}
+
                             <Image
                                 src={img2}
                                 alt="Movie"
