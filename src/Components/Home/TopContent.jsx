@@ -19,75 +19,75 @@ const TopContent = () => {
 
             {/* CARD */}
             <div className='mx-auto '>
-            <div className='grid gap-4 sm:grid-cols-2 md:gap-6 lg:grid-cols-3 font-montserrat '>
-                <div className="relative mx-auto max-w-md overflow-hidden rounded-lg bg-white shadow scale-90">
-                    <div>
-                    <Image
-  className="w-full object-cover"
-  src={img1}
-  alt=""
-  width={800}  // specify an appropriate width for the image
-  height={500} // specify an appropriate height for the image
-/>
-                    </div>
-
-                    <div className="absolute inset-0 z-10 bg-gradient-to-t from-black"></div>
-                    <div className="absolute inset-x-0 bottom-0 z-20 p-4">
-                        <div className='flex items-center gap-2'>
-                            <p className="mb-1 text-sm text-white text-opacity-80">Andrea Chase</p>
-                            <CiMicrophoneOn className='text-[#00b4d8] text-lg' />
+                <div className='grid gap-4 sm:grid-cols-2 md:gap-6 lg:grid-cols-3 font-montserrat '>
+                    <div className="relative mx-auto max-w-md overflow-hidden rounded-lg bg-white shadow scale-90">
+                        <div>
+                            <Image
+                                className="w-full object-cover"
+                                src={img1}
+                                alt=""
+                                width={800}  // specify an appropriate width for the image
+                                height={500} // specify an appropriate height for the image
+                            />
                         </div>
 
-                        <h3 className="text-xl font-medium text-white">How to Study Abroad </h3>
-                        <p className="mt-1 text-[#caf0f8] text-opacity-80 text-xs">Choose your favourite study programmes and compare them</p>
-                    </div>
-                </div>
-                <div className="relative mx-auto max-w-md overflow-hidden rounded-lg bg-white shadow scale-90">
-                    <div>
-                    <Image
-  className="w-full object-cover"
-  src={img2}
-  alt=""
-  width={800}  // specify an appropriate width for the image
-  height={500} // specify an appropriate height for the image
-/>
-                    </div>
+                        <div className="absolute inset-0 z-10 bg-gradient-to-t from-black"></div>
+                        <div className="absolute inset-x-0 bottom-0 z-20 p-4">
+                            <div className='flex items-center gap-2'>
+                                <p className="mb-1 text-sm text-white text-opacity-80">Andrea Chase</p>
+                                <CiMicrophoneOn className='text-[#00b4d8] text-lg' />
+                            </div>
 
-                    <div className="absolute inset-0 z-10 bg-gradient-to-t from-black"></div>
-                    <div className="absolute inset-x-0 bottom-0 z-20 p-4">
-                        <div className='flex items-center gap-2'>
-                            <p className="mb-1 text-sm text-white text-opacity-80">Naimoon Jannat</p>
-                            <CiMicrophoneOn className='text-[#00b4d8] text-lg' />
+                            <h3 className="text-xl font-medium text-white">How to Study Abroad </h3>
+                            <p className="mt-1 text-[#caf0f8] text-opacity-80 text-xs">Choose your favourite study programmes and compare them</p>
+                        </div>
+                    </div>
+                    <div className="relative mx-auto max-w-md overflow-hidden rounded-lg bg-white shadow scale-90">
+                        <div>
+                            <Image
+                                className="w-full object-cover"
+                                src={img2}
+                                alt=""
+                                width={800}  // specify an appropriate width for the image
+                                height={500} // specify an appropriate height for the image
+                            />
                         </div>
 
-                        <h3 className="text-xl font-medium text-white">How to Lead a Team</h3>
-                        <p className="mt-1 text-[#caf0f8] text-opacity-80 text-xs">Mentorship and skill sharing are a massively powerful tool for any leader.</p>
-                    </div>
-                </div>
-                <div className="relative mx-auto max-w-md overflow-hidden rounded-lg bg-white shadow scale-90">
-                    <div>
-                    <Image
-  className="w-full object-cover"
-  src={img3}
-  alt=""
-  width={800}  // specify an appropriate width for the image
-  height={500} // specify an appropriate height for the image
-/>
-                    </div>
+                        <div className="absolute inset-0 z-10 bg-gradient-to-t from-black"></div>
+                        <div className="absolute inset-x-0 bottom-0 z-20 p-4">
+                            <div className='flex items-center gap-2'>
+                                <p className="mb-1 text-sm text-white text-opacity-80">Naimoon Jannat</p>
+                                <CiMicrophoneOn className='text-[#00b4d8] text-lg' />
+                            </div>
 
-                    <div className="absolute inset-0 z-10 bg-gradient-to-t from-black"></div>
-                    <div className="absolute inset-x-0 bottom-0 z-20 p-4">
-                        <div className='flex items-center gap-2'>
-                            <p className="mb-1 text-sm text-white text-opacity-80">Sayeed Hossain</p>
-                            <CiMicrophoneOn className='text-[#00b4d8] text-lg' />
+                            <h3 className="text-xl font-medium text-white">How to Lead a Team</h3>
+                            <p className="mt-1 text-[#caf0f8] text-opacity-80 text-xs">Mentorship and skill sharing are a massively powerful tool for any leader.</p>
+                        </div>
+                    </div>
+                    <div className="relative mx-auto max-w-md overflow-hidden rounded-lg bg-white shadow scale-90">
+                        <div>
+                            <Image
+                                className="w-full object-cover"
+                                src={img3}
+                                alt=""
+                                width={800}  // specify an appropriate width for the image
+                                height={500} // specify an appropriate height for the image
+                            />
                         </div>
 
-                        <h3 className="text-xl font-medium text-white">How to Blame Your Team</h3>
-                        <p className="mt-1 text-[#caf0f8] text-opacity-80 text-xs">When your team perceives that you have not met their expectations, trust is compromised.</p>
-                    </div>
-                </div>
+                        <div className="absolute inset-0 z-10 bg-gradient-to-t from-black"></div>
+                        <div className="absolute inset-x-0 bottom-0 z-20 p-4">
+                            <div className='flex items-center gap-2'>
+                                <p className="mb-1 text-sm text-white text-opacity-80">Sayeed Hossain</p>
+                                <CiMicrophoneOn className='text-[#00b4d8] text-lg' />
+                            </div>
 
-            </div>
+                            <h3 className="text-xl font-medium text-white">How to Blame Your Team</h3>
+                            <p className="mt-1 text-[#caf0f8] text-opacity-80 text-xs">When your team perceives that you have not met their expectations, trust is compromised.</p>
+                        </div>
+                    </div>
+
+                </div>
             </div>
         </div>
     );

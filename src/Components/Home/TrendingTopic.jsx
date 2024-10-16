@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import img1 from '../../../public/pexels-chuck-3587477.jpg'
 import img2 from '../../../public/pexels-karolina-grabowska-4476138.jpg'
-//import { FaRegPlayCircle } from 'react-icons/fa';
+import { IoHeadsetOutline } from "react-icons/io5";
 
 import Link from 'next/link';
 
@@ -85,9 +85,9 @@ const TrendingTopic = () => {
 
                     </div>
                     <div className='flex justify-between items-center py-2'>
-                        <div className='flex gap-4 px-4'>
-                            <button className='btn btn-xs border border-white rounded-md'>Life-Style</button>
-                            <button className='btn btn-xs border border-white rounded-md'>Health</button>
+                        <div className='flex gap-4 px-4 items-center'>
+                            <IoHeadsetOutline className='text-xl' />
+                            <button className='btn btn-xs border border-black rounded-md'>Health</button>
                         </div>
                         <div className='flex items-center px-4'>
                             <h2>Hosted by:</h2>
@@ -96,7 +96,7 @@ const TrendingTopic = () => {
                                 <Image
                                     src={img2}
                                     alt="Movie"
-                                    className="object-cover w-10 h-10 mx-4 rounded-full dark:bg-gray-500"
+                                    className="object-cover w-8 h-8 mx-4 rounded-full dark:bg-gray-500"
                                 />
 
                             </a>
@@ -130,9 +130,9 @@ const TrendingTopic = () => {
 
                     </div>
                     <div className='flex justify-between items-center py-2'>
-                        <div className='flex gap-4 px-4'>
-                            <button className='btn btn-xs border border-white rounded-md'>Life-Style</button>
-                            <button className='btn btn-xs border border-white rounded-md'>Health</button>
+                        <div className='flex gap-4 px-4 items-center'>
+                            <IoHeadsetOutline className='text-xl' />
+                            <button className='btn btn-xs border border-black rounded-md'>Life-Style</button>
                         </div>
                         <div className='flex items-center px-4'>
                             <h2>Hosted by:</h2>
@@ -141,7 +141,7 @@ const TrendingTopic = () => {
                                 <Image
                                     src={img1}
                                     alt="Movie"
-                                    className="object-cover w-10 h-10 mx-4 rounded-full dark:bg-gray-500"
+                                    className="object-cover w-8 h-8 mx-4 rounded-full dark:bg-gray-500"
                                 />
 
                             </a>
