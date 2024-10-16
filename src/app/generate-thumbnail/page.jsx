@@ -1,10 +1,10 @@
-import GenerateThumbnail from '@/Components/CreatorDashboard/GenerateThumbnail';
+import ImageGenerator from '@/Components/CreatorDashboard/ImageGenerator';
 import React from 'react';
 
 const page = () => {
     return (
         <div>
-            <GenerateThumbnail></GenerateThumbnail>
+            <ImageGenerator></ImageGenerator>
         </div>
     );
 };
