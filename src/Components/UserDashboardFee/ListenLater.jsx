@@ -2,9 +2,11 @@
 import React, { useEffect, useState } from 'react';
 import DashboardHeading from '../Heading/DashboardHeading';
 import Image from 'next/image';
+import Link from 'next/link';
 
 const ListenLater = () => {
     const [listenLater, setListenLater] = useState([]);
+    const [showAll, setShowAll] = useState(false);
     useEffect(() => {
         const fetchData = async () => {
             try {
@@ -18,7 +20,10 @@ const ListenLater = () => {
 
         fetchData();
     }, []);
-
+    const handleSeeMore = () => {
+        setShowAll(true);
+    };
+    const visibleData = showAll ? listenLater : listenLater.slice(0, 4);
     return (
         <div className='container mx-auto'>
             {/* <h1>Listen-later Components</h1> */}
@@ -30,7 +35,7 @@ const ListenLater = () => {
             </div>
             <div className="listenLater-grid grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
 
-                {listenLater.map((later) => (
+                {visibleData.map((later) => (
                     <div key={later.id} className="later-card bg-gray-800 p-4 rounded-lg">
                         <div className="relative w-full h-40">
                             <Image
@@ -48,7 +53,24 @@ const ListenLater = () => {
                     </div>
                 ))}
             </div>
-        </div>
+            {/* See More Button */}
+            {!showAll && listenLater.length > 4 && (
+                <div className="text-center hidden mt-6 lg:mt-10">
+                    <Link href={'/dashboard'}
+                        onClick={handleSeeMore}
+                        className="bg-orange-500 hover:bg-orange-600 text-white font-bold px-6 py-3 rounded-md">
+                        See More
+                    </Link>
+                </div>
+            )}
+            <div className="text-center mt-6 lg:mt-10">
+                <Link href={'/podcast'}
+                    onClick={handleSeeMore}
+                    className="bg-orange-500 hover:bg-orange-600 text-white font-bold px-6 py-3 rounded-md">
+                    Want to more explore! 👉
+                </Link>
+            </div>
+        </div >
     );
 };
 
