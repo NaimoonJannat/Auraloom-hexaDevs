@@ -7,6 +7,7 @@ import TopCreator from "@/Components/Home/TopContent";
 import TrendingContent from "@/Components/Home/TopCreator";
 import TrendingTopic from "@/Components/Home/TrendingTopic";
 import TrendingPodcasts from "@/Components/StrimingNow/TrendingPodcasts";
+import SupscriptionSlide from "@/Components/Supscription/SupscriptionSlide";
 
 export default function Home() {
   return (
@@ -20,6 +21,7 @@ export default function Home() {
         <TrendingContent></TrendingContent>
         <CategorySelector></CategorySelector>
         <Newsletter></Newsletter>
+        <SupscriptionSlide></SupscriptionSlide>
       </div>
     </div>
   );
