@@ -1,10 +1,12 @@
-import ProMode from '@/Components/ProMode/ProMode';
+// import ProMode from '@/Components/ProMode/ProMode';
+import SubscriptionSlide from '@/Components/Supscription/SupscriptionSlide';
 import React from 'react';
 
 const page = () => {
     return (
         <div>
-            <ProMode />
+            {/* <ProMode /> */}
+            <SubscriptionSlide></SubscriptionSlide>
         </div>
     );
 };
