@@ -24,7 +24,6 @@ export default function Home() {
         <TrendingContent></TrendingContent>
         <CategorySelector></CategorySelector>
         <Newsletter></Newsletter>
-        <SupscriptionSlide></SupscriptionSlide>
         <FrequentlyAskedQuestions></FrequentlyAskedQuestions>
       </div>
     </div>

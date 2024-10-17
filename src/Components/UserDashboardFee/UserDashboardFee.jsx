@@ -107,7 +107,7 @@ const UserDashboardFee = () => {
         <ListenLater></ListenLater>
 
         {/* show individual playlist */}
-        <div className="mt-10">
+        {/* <div className="mt-10">
           <div>
             <h1>
               <DashboardHeading className="bg-black" title={"Your Playlists"}></DashboardHeading>
@@ -138,7 +138,7 @@ const UserDashboardFee = () => {
               </div>
             ))}
           </div>
-        </div>
+        </div> */}
       </div>
     </PrivateRoute>
   );
