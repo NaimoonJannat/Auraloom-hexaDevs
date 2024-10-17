@@ -1,7 +1,10 @@
+"use client"
+import Lottie from 'lottie-react'
 import Image from 'next/image'
 import Link from 'next/link'
 import React from 'react'
 import { FaFileWaveform } from 'react-icons/fa6'
+import animation from "../../../public/json/animation.json";
 
 const AuraloomAi = () => {
     return (
@@ -33,7 +36,7 @@ const AuraloomAi = () => {
                 </div>
 
                 {/* robot image */}
-                <div className="relative flex-1 max-w-xs mx-auto">
+                {/* <div className="relative flex-1 max-w-xs mx-auto">
                     <Image
                         src="https://i.ibb.co/5sGQxX3/home-ai-bg-2x-resize-1x.webp"
                         alt="AI Robot"
@@ -41,6 +44,15 @@ const AuraloomAi = () => {
                         height={600}
                         layout="responsive"
                     />
+                </div> */}
+                <div
+                    data-aos="zoom-in"
+                    data-aos-delay="700"
+                    data-aos-easing="ease-in-out"
+                    data-aos-duration="500"
+                    className="relative flex-1 max-w-xs mx-auto"
+                >
+                    <Lottie animationData={animation} />
                 </div>
 
                 {/* File preference options */}
