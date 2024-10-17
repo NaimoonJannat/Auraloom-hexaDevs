@@ -5,8 +5,6 @@ import { useState, useEffect } from 'react';
 import axios from 'axios';
 import PlaylistHeading from '../Heading/PlaylistHeading';
 import Link from 'next/link';
-
-
 import { useContext } from 'react';
 import { AuthContext } from '../Provider/AuthProvider/AuthProvider';
 
@@ -28,7 +26,7 @@ const CreatePlaylist = () => {
         };
 
         try {
-            const response = await axios.post('http://localhost:5000/playlists', newPlaylist);
+            const response = await axios.post('auraloom-hexa-devs.vercel.app/playlists', newPlaylist);
             console.log('Playlist created:', response.data);
             // Optionally, reset form or show success message
         } catch (error) {
@@ -41,7 +39,7 @@ const CreatePlaylist = () => {
         const fetchPlaylists = async () => {
             if (user?.email) {
                 try {
-                    const response = await axios.get(`http://localhost:5000/playlists/${user.email}`);
+                    const response = await axios.get(`auraloom-hexa-devs.vercel.app/playlists/${user.email}`);
                     setPlaylists(response.data);  // Set fetched playlists to state
                 } catch (error) {
                     console.error('Error fetching playlists:', error);
