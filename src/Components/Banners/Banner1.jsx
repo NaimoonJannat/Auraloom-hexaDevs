@@ -37,8 +37,8 @@ const Banner1 = () => {
                 listeners who want to hear you!{" "}
               </span>
               <span>Join our community today and amplify your voice!! </span>
-              <Link href={"/idea-generate"} className="block mt-5 w-2/6 mx-auto rounded-lg bg-[#0d5080] px-8 py-3 text-center text-sm font-semibold text-white outline-none ring-indigo-300 transition duration-100 hover:bg-black focus-visible:ring active:bg-gray-600 md:text-base">
-                Contact Sales
+              <Link href={"/idea-generate"} className="block mt-5 w-auto mx-auto rounded-lg bg-sky-500 px-8 py-3 text-center text-sm font-semibold text-white outline-none ring-indigo-300 transition duration-100 hover:bg-black focus-visible:ring active:bg-gray-600 md:text-base">
+                Idea Generate With AuraPod AI →
               </Link>
             </p>
           </div>

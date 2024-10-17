@@ -1,9 +1,10 @@
+import IdeaGeneration from '@/Components/CreatorDashboard/IdeaGeneration';
 import React from 'react';
 
 const page = () => {
     return (
         <div>
-            <h1>Idea Generation</h1>
+            <IdeaGeneration></IdeaGeneration>
         </div>
     );
 };

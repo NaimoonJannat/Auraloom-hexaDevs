@@ -41,7 +41,7 @@ const ContactBanner = () => {
                         <div className="relative h-96">
                             <div className="relative w-full h-96">
                                 <Image
-                                    src="https://i.ibb.co/mFHbBSv/pexels-photo-7688087.jpg"
+                                    src="https://i.ibb.co.com/L5Dr3L8/1679176325-en-idei-club-p-lack-of-space-in-office-krasivo-8.jpg"
                                     alt="Image 2"
                                     fill
                                     style={{ objectFit: 'cover' }}
@@ -52,7 +52,7 @@ const ContactBanner = () => {
                         <div className="relative h-96">
                             <div className="relative w-full h-96">
                                 <Image
-                                    src="https://i.ibb.co/5WbDth3/pexels-photo-2608517.jpg"
+                                    src="https://i.ibb.co.com/vQJp43G/1679176273-en-idei-club-p-lack-of-space-in-office-krasivo-6.jpg"
                                     alt="Image 3"
                                     fill
                                     style={{ objectFit: 'cover' }}
@@ -63,7 +63,7 @@ const ContactBanner = () => {
                         <div className="relative h-96">
                             <div className="relative w-full h-96">
                                 <Image
-                                    src="https://i.ibb.co/kMxxzvD/8f772af59b84145047b36d63b3c4414d.jpg"
+                                    src="https://i.ibb.co.com/dtC6Cft/1679176291-en-idei-club-p-lack-of-space-in-office-krasivo-9.png"
                                     alt="Image 4"
                                     fill
                                     style={{ objectFit: 'cover' }}
