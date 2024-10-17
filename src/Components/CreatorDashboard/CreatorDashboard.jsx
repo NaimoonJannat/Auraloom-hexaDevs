@@ -10,7 +10,10 @@ import { FcIdea } from 'react-icons/fc';
 import { MdGeneratingTokens } from 'react-icons/md';
 import { CiSettings } from 'react-icons/ci';
 import { FaChartBar, FaMusic } from 'react-icons/fa';
-
+import { Typewriter } from 'react-simple-typewriter'
+import { motion } from 'framer-motion';
+import Lottie from "lottie-react";
+import creatordashboardanimation from '../../../public/creatordashboard.json'
 const CreatorDashboard = () => {
     const { user, logout } = useContext(AuthContext);
     console.log(user);
@@ -104,10 +107,21 @@ const CreatorDashboard = () => {
                     <div className="hero-overlay bg-opacity-60"></div>
                     <div className="hero-content text-neutral-content text-center">
                         <div className="max-w-md">
-                            <h1 className="mb-5 text-5xl font-bold">Hello Creator</h1>
-                            <p className="mb-5">
-                                If You Want To Add A New Podcast PLease Click Here....
-                            </p>
+                            <h1 className="mb-5 text-5xl font-bold"></h1>
+                            <h1 className="m-10 text-xl lg:text-2xl font-bold font-montserrat text-white capitalize  dark:text-white">
+                                <Typewriter
+                                    words={[
+                                        `Hello ${user?.displayName || 'Guest'}`,
+                                        'Be a creator!'
+                                    ]}
+                                    loop={20}
+                                    cursor
+                                    cursorStyle='_'
+                                    typeSpeed={70}
+                                    deleteSpeed={50}
+                                    delaySpeed={1000}
+                                />
+                            </h1>
                             <Link href={'/add-podcast'} className="btn bg-blue-500 text-white border-none">Add A New Podcast</Link>
                         </div>
                     </div>
@@ -116,18 +130,57 @@ const CreatorDashboard = () => {
                 {/* <h1 className="text-2xl font-semibold mb-8">Overview</h1> */}
                 <div className="grid grid-cols-4 mt-4 gap-4">
                     {/* Valuation is up */}
-                    <div className="col-span-2 p-4 bg-green-100 rounded-lg">
-                        <h2 className="text-lg font-semibold">Generate Thumbnail</h2>
-                        <p>Lorem ipsum dolor sit amet consectetur</p>
-                        <Link href={'/generate-thumbnail'} className="btn bg-blue-500 text-white border-none mt-4">Add A New Podcast</Link>
-                    </div>
+                    {/* <div className="col-span-4 p-4 bg-green-100 rounded-lg">
+                        <h2 className="text-lg font-semibold text-center">Generate Thumbnail</h2>
+                        <p className='text-center'>Create custom thumbnails to make your podcast stand out and attract more listeners.</p>
+                        <Link href={'/generate-thumbnail'} className="btn bg-blue-500 text-white border-none mt-4 flex justify-center items-center">Generate Thumbnail</Link>
+                    </div> */}
+                    <motion.div
+                        className="col-span-4 p-4 bg-green-100 rounded-lg shadow-lg"
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.5, ease: 'easeOut' }}
+                        whileHover={{ scale: 1.05 }}
+                    >
+                        <motion.h2
+                            className="text-lg font-montserrat font-semibold text-[#03045e] text-center"
+                            initial={{ scale: 0.9 }}
+                            animate={{ scale: 1 }}
+                            transition={{ duration: 0.4 }}
+                        >
+                            Generate Thumbnail
+                        </motion.h2>
+
+                        <p className='text-center font-medium text-gray-700 font-montserrat'>
+                            Create custom thumbnails to make your podcast stand out and attract more listeners.
+                        </p>
+
+                        {/* Lottie Animation */}
+                        <div className="flex justify-center items-center mt-4">
+                            <Lottie
+                                animationData={creatordashboardanimation}
+                                loop={true}
+                                className="w-32 h-32"
+                            />
+                        </div>
+
+                        <Link href={'/generate-thumbnail'}>
+                            <motion.button
+                                className="btn bg-blue-500 text-white border-none mt-4 px-4 py-2 rounded-lg flex mx-auto justify-center items-center"
+                                whileHover={{ scale: 1.1, backgroundColor: '#2563eb' }}
+                                whileTap={{ scale: 0.95 }}
+                            >
+                                Generate Thumbnail
+                            </motion.button>
+                        </Link>
+                    </motion.div>
 
                     {/* Valuation past 89 days */}
-                    <div className="col-span-2 p-4 bg-gray-100 rounded-lg">
+                    {/* <div className="col-span-2 p-4 bg-gray-100 rounded-lg">
                         <h2 className="text-lg font-semibold">Generate Idea</h2>
                         <p>Lorem ipsum dolor sit amet.</p>
                         <Link href={'/add-podcast'} className="btn bg-blue-500 text-white border-none mt-4">Add A New Podcast</Link>
-                    </div>
+                    </div> */}
                 </div>
 
                 {/* Receivable Growth */}
