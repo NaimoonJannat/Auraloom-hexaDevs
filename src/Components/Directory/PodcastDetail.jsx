@@ -39,7 +39,7 @@ const PodcastDetail = ({ id }) => {
 
     useEffect(() => {
         if (id) {
-            fetch(`http://localhost:5000/podcasts/${id}`)
+            fetch(`https://auraloom-backend.vercel.app/podcasts/${id}`)
                 .then((res) => {
                     if (!res.ok) {
                         throw new Error('Failed to fetch podcast');
