@@ -1,6 +1,7 @@
 "use client"
 import Image from 'next/image';
 import { useState } from 'react';
+import ThumbnailShow from './ThumbnailShow';
 
 const ImageGenerator = () => {
     const [images, setImages] = useState([])
@@ -99,6 +100,9 @@ const ImageGenerator = () => {
                         </div>
                     ))}
                 </div>
+            </div>
+            <div>
+                <ThumbnailShow></ThumbnailShow>
             </div>
         </div>
     );
