@@ -13,8 +13,8 @@ const Navbar = () => {
   const { user, logout } = useContext(AuthContext);
   const signOutUser = () => {
     logout()
-      .then(() => {})
-      .catch(() => {});
+      .then(() => { })
+      .catch(() => { });
   };
 
   const [isScrolled, setIsScrolled] = useState(false);
@@ -68,9 +68,8 @@ const Navbar = () => {
 
   return (
     <div
-      className={`z-20 sticky top-0 transition-colors duration-50 ${
-        isScrolled ? "bg-[#3493f1d7]" : "bg-[#3493f1d7]"
-      } ${isScrolled ? "text-white" : "text-white"} hover:bg-[#3493f1d7]`}
+      className={`z-20 sticky top-0 transition-colors duration-50 ${isScrolled ? "bg-[#3493f1d7]" : "bg-[#3493f1d7]"
+        } ${isScrolled ? "text-white" : "text-white"} hover:bg-[#3493f1d7]`}
     >
       <div className="navbar h-20 font-montserrat">
         <div className="navbar-start flex items-center gap-4">
@@ -116,13 +115,13 @@ const Navbar = () => {
                 </Link>
               </li>
               <li className="flex">
-                <Link rel="noopener noreferrer" href="/add-podcast">
-                  Add Podcast
+                <Link rel="noopener noreferrer" href="/history">
+                  History
                 </Link>
               </li>
               <li className="flex">
-                <Link rel="noopener noreferrer" href="/history">
-                  History
+                <Link rel="noopener noreferrer" href="/contact-us">
+                  Contact
                 </Link>
               </li>
               <li className="flex">
@@ -205,13 +204,13 @@ const Navbar = () => {
                 </Link>
               </li>
               <li className="flex">
-                <Link rel="noopener noreferrer" href="/add-podcast">
-                  Add Podcast
+                <Link rel="noopener noreferrer" href="/history">
+                  History
                 </Link>
               </li>
               <li className="flex">
-                <Link rel="noopener noreferrer" href="/history">
-                  History
+                <Link rel="noopener noreferrer" href="/contact-us">
+                  Contact
                 </Link>
               </li>
               <li className="flex">
