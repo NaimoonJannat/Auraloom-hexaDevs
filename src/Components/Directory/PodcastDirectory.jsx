@@ -6,30 +6,57 @@ import { useRouter, useSearchParams } from "next/navigation";
 import { useEffect, useState } from "react";
 import { IoIosSearch } from "react-icons/io";
 import { IoPlayCircle } from "react-icons/io5";
+import { CirclesWithBar } from 'react-loader-spinner';
 
 const PodcastDirectory = () => {
     const [podcasts, setPodcasts] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
 
-    //Pagination
+    // Pagination
     const [page, setPage] = useState(1); // Current page
     const [totalPages, setTotalPages] = useState(1); // Total number of pages
     const limit = 9; // Number of podcasts per page
 
-    //Searching
+    // Searching
     const searchParams = useSearchParams(); // Use Next.js hook to get query params from URL
     const initialSearchQuery = searchParams.get("search") || ""; // Get the 'search' query from the URL
     const [searchInput, setSearchInput] = useState(""); // State for the input field (controlled component)
     const router = useRouter(); // For navigation
 
-     // Fetch podcasts when the page or the search query changes
-     useEffect(() => {
+    // Fetch total number of podcasts separately
+    const fetchTotalPodcasts = async (searchQuery) => {
+        try {
+            // Build the URL for the total count API
+            let url = `https://auraloom-backend.vercel.app/podcasts/count`;
+            if (searchQuery) {
+                url += `?search=${encodeURIComponent(searchQuery)}`;
+            }
+
+            const response = await fetch(url);
+
+            if (!response.ok) {
+                throw new Error("Failed to fetch total podcast count");
+            }
+
+            const data = await response.json();
+            return data.totalPodcasts;
+        } catch (error) {
+            console.error("Error fetching total podcast count:", error);
+            return 0;
+        }
+    };
+
+    // Fetch podcasts when the page or the search query changes
+    useEffect(() => {
         const fetchData = async () => {
             setIsLoading(true);
 
-            // Build the URL for the API request, including search and pagination parameters
-            let url = `http://localhost:5000/podcasts?page=${page}&limit=${limit}`;
+            // Fetch the total number of podcasts first
+            const totalPodcasts = await fetchTotalPodcasts(initialSearchQuery);
+            setTotalPages(Math.ceil(totalPodcasts / limit)); // Calculate total number of pages
 
+            // Build the URL for the API request, including search and pagination parameters
+            let url = `https://auraloom-backend.vercel.app/podcasts?page=${page}&limit=${limit}`;
             if (initialSearchQuery) {
                 url += `&search=${encodeURIComponent(initialSearchQuery)}`;
             }
@@ -42,13 +69,7 @@ const PodcastDirectory = () => {
                 }
 
                 const data = await response.json();
-
-                if (data && data.podcasts) {
-                    setPodcasts(data.podcasts);
-                    setTotalPages(Math.ceil(data.totalPodcasts / limit)); // Calculate total number of pages
-                } else {
-                    setPodcasts([]); // If no data, set to an empty array
-                }
+                setPodcasts(data); // Set the podcasts directly as an array
 
                 setIsLoading(false);
             } catch (error) {
@@ -89,8 +110,21 @@ const PodcastDirectory = () => {
 
     // If the data is still loading, show a loading message
     if (isLoading) {
-        return <div>Loading...</div>;
+        return <div className="flex justify-center items-center lg:mt-20">
+            <CirclesWithBar
+                height="100"
+                width="100"
+                color="#4F46E5"
+                outerCircleColor="#4F46E5"
+                innerCircleColor="#4F46E5"
+                barColor="#4F46E5"
+                ariaLabel="circles-with-bar-loading"
+                visible={true}
+                
+                />;
+        </div>
     }
+    
 
     // If there are no podcasts available or the API failed to return valid data
     if (!podcasts || !podcasts.length) {
@@ -116,7 +150,7 @@ const PodcastDirectory = () => {
 
             <div className="mx-auto md:w-5/6 lg:w-4/5">
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-14 mt-16 mx-14 lg:px-10 text-white">
-                    {podcasts.map(podcast => (
+                    {podcasts.map((podcast) => (
                         <Link key={podcast._id} podcast={podcast} href={`/podcast/${podcast._id}`}>
                             <div className="relative rounded-lg overflow-hidden shadow-lg w-52 h-52 md:w-64 md:h-64 lg:w-80 lg:h-80">
                                 {/* Background Image */}
@@ -159,7 +193,9 @@ const PodcastDirectory = () => {
                         <button
                             key={index + 1}
                             onClick={() => handlePageJump(index + 1)}
-                            className={`text-white text-xs  md:text-sm p-2 lg:p-3 rounded-xl font-normal mx-1 ${page === index + 1 ? 'bg-[#2e8cea]' : 'bg-[#79bcff]'}`}
+                            className={`text-white text-xs  md:text-sm p-2 lg:p-3 rounded-xl font-normal mx-1 ${
+                                page === index + 1 ? 'bg-[#2e8cea]' : 'bg-[#79bcff]'
+                            }`}
                         >
                             {index + 1}
                         </button>
