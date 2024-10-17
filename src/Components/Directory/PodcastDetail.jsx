@@ -27,6 +27,7 @@ const PodcastDetail = ({ id }) => {
     const [reviews, setReviews] = useState([]); 
     const [isLiked, setIsLiked] = useState(false); // New state for tracking like
     const [isDisliked, setIsDisliked] = useState(false);
+    const [message, setMessage] = useState('');
 
     const {
         register,
@@ -181,6 +182,7 @@ const PodcastDetail = ({ id }) => {
             });
             return;
         }
+        
     
         // Update dislikes if the user has not disliked this podcast yet
         try {
@@ -264,7 +266,20 @@ const PodcastDetail = ({ id }) => {
             });
         }
     };
-
+ //     // Function to handle sharing a podcast
+    const handleSharePodcast = (podcastTitle) => {
+        if (navigator.share) {
+            navigator.share({
+                title: `Check out this podcast: ${podcastTitle}`,
+                text: `I found this interesting podcast titled "${podcastTitle}". Listen to it now!`,
+                url: window.location.href, // Replace this with the specific podcast URL
+            })
+            .then(() => setMessage('Podcast shared successfully!'))
+            .catch((error) => setMessage(`Error sharing podcast: ${error.message}`));
+        } else {
+            setMessage('Sharing is not supported on this device.');
+        }
+    };
     
 
     // console.log(podcast);
@@ -314,7 +329,14 @@ const PodcastDetail = ({ id }) => {
                             {isDisliked ? "Disliked" : "Dislike"}
                         </button>
                             <button className="flex items-center gap-2 border text-base border-b-slate-300 py-3 font-medium px-7 rounded-badge bg-[#01BECA]"><FaPlus className="text-2xl"/>Add to Playlist</button>
-                            <button className="flex items-center gap-2 border text-base border-b-slate-300 py-3 font-medium px-7 rounded-badge bg-[#01BECA]"><FaShare className="text-2xl"/>Share</button>
+                            <button
+                            onClick={() => handleSharePodcast('Inspiring Podcast')}
+                            className="flex items-center gap-2 border text-base border-b-slate-300 py-3 font-medium px-7 rounded-badge bg-[#01BECA]"
+                        >
+                            <FaShare className="text-2xl"/>
+                            Share;
+                        </button>
+
                         </div>                        
                     </div>
                 </div>
