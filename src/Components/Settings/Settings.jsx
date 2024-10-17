@@ -192,3 +192,172 @@ const Settings = () => {
 };
 
 export default Settings;
+// 'use client';
+// import React, { useState, useContext } from 'react';
+// import { motion } from 'framer-motion';
+// import { getAuth, updateProfile } from 'firebase/auth';
+// import { AuthContext } from "../Provider/AuthProvider/AuthProvider";
+// import Image from "next/image";
+
+// const Settings = () => {
+//     const [userName, setUserName] = useState('');
+//     const [loading, setLoading] = useState(false);
+//     const [message, setMessage] = useState('');
+//     const [photoURL, setPhotoURL] = useState('');
+
+//     const { user } = useContext(AuthContext);
+//     const [followedCreators, setFollowedCreators] = useState([
+//         'Naimoon Jannat Prapti',
+//         'Jannatul Ferdaus Mirza',
+//         'Monira Islam',
+//         'Raisa Nuzhat'
+//     ]);
+
+//     // Function to handle profile update
+//     const handleUpdateProfile = async () => {
+//         if (!userName.trim()) {
+//             setMessage('Please enter a valid name.');
+//             return;
+//         }
+
+//         setLoading(true);
+//         setMessage('');
+
+//         const auth = getAuth();
+//         try {
+//             await updateProfile(auth.currentUser, {
+//                 displayName: userName || user.displayName,
+//                 photoURL: photoURL || user.photoURL,
+//             });
+//             setMessage('Profile updated successfully!');
+//         } catch (error) {
+//             setMessage(`Error updating profile: ${error.message}`);
+//         } finally {
+//             setLoading(false);
+//         }
+//     };
+
+//     // Function to handle unfollowing a creator
+//     const handleUnfollow = (creator) => {
+//         setFollowedCreators(followedCreators.filter((c) => c !== creator));
+//     };
+
+//     // Function to handle sharing a podcast
+//     const handleSharePodcast = (podcastTitle) => {
+//         if (navigator.share) {
+//             navigator.share({
+//                 title: `Check out this podcast: ${podcastTitle}`,
+//                 text: `I found this interesting podcast titled "${podcastTitle}". Listen to it now!`,
+//                 url: window.location.href, // Replace this with the specific podcast URL
+//             })
+//             .then(() => setMessage('Podcast shared successfully!'))
+//             .catch((error) => setMessage(`Error sharing podcast: ${error.message}`));
+//         } else {
+//             setMessage('Sharing is not supported on this device.');
+//         }
+//     };
+
+//     return (
+//         <div className="min-h-screen bg-gray-100 font-montserrat flex">
+//             {/* Sidebar */}
+//             <aside className="bg-white w-1/4 min-h-screen p-6 shadow-lg">
+//                 <h2 className="text-xl font-semibold mb-4">Account</h2>
+//                 <nav className="space-y-4">
+//                     <a href="#personal-info" className="block text-gray-800 hover:text-indigo-600">Personal Info</a>
+//                     <a href="#preferences" className="block text-gray-800 hover:text-indigo-600">Preferences</a>
+//                     <a href="#about-us" className="block text-gray-800 hover:text-indigo-600">About Us</a>
+//                 </nav>
+//             </aside>
+
+//             {/* Main Content */}
+//             <main className="flex-1 p-8 space-y-12">
+//                 <motion.div
+//                     className="bg-white shadow-lg rounded-lg p-6"
+//                     initial={{ opacity: 0, y: 20 }}
+//                     animate={{ opacity: 1, y: 0 }}
+//                     transition={{ duration: 0.8, ease: 'easeOut' }}
+//                 >
+//                     {/* Personal Info Section */}
+//                     <motion.div
+//                         id="personal-info"
+//                         className="mb-10"
+//                         initial={{ opacity: 0 }}
+//                         whileInView={{ opacity: 1, y: 0 }}
+//                         viewport={{ once: true }}
+//                         transition={{ duration: 1, ease: 'easeOut' }}
+//                     >
+//                         <h2 className="text-2xl font-bold mb-4 text-sky-950">Personal Info</h2>
+
+//                         {/* Profile Picture */}
+//                         <div className="mb-6 flex items-center">
+//                             <div className="w-20 h-20 rounded-full bg-gray-200 overflow-hidden">
+//                                 <Image
+//                                     alt="profile"
+//                                     src={photoURL || user?.photoURL || 'https://via.placeholder.com/150'}
+//                                     width={80}
+//                                     height={80}
+//                                     className="w-full h-full object-cover"
+//                                 />
+//                             </div>
+//                             <input
+//                                 type="text"
+//                                 value={photoURL}
+//                                 placeholder="Enter your photo URL"
+//                                 onChange={(e) => setPhotoURL(e.target.value)}
+//                                 className="ml-4 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500"
+//                             />
+//                         </div>
+
+//                         {/* Name Input */}
+//                         <div className="mb-6">
+//                             <label className="block text-sm font-medium text-gray-700">Name</label>
+//                             <input
+//                                 type="text"
+//                                 value={userName}
+//                                 placeholder={user?.displayName || 'Enter your name'}
+//                                 onChange={(e) => setUserName(e.target.value)}
+//                                 className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500"
+//                             />
+//                         </div>
+//                         <button
+//                             onClick={handleUpdateProfile}
+//                             className="w-full bg-[#00b4d8] rounded-lg hover:bg-[#0077b6] text-white py-2 transition duration-300"
+//                             disabled={loading}
+//                         >
+//                             {loading ? 'Saving...' : 'Save Changes'}
+//                         </button>
+//                         {message && (
+//                             <motion.p
+//                                 className="mt-4 text-center text-sm text-gray-600"
+//                                 initial={{ opacity: 0 }}
+//                                 animate={{ opacity: 1 }}
+//                                 transition={{ duration: 0.4, ease: 'easeOut' }}
+//                             >
+//                                 {message}
+//                             </motion.p>
+//                         )}
+//                     </motion.div>
+
+//                     {/* Share Podcast Section */}
+//                     <motion.div
+//                         className="bg-white shadow-lg rounded-lg p-6"
+//                         initial={{ opacity: 0 }}
+//                         whileInView={{ opacity: 1 }}
+//                         viewport={{ once: true }}
+//                         transition={{ duration: 1, ease: 'easeOut' }}
+//                     >
+//                         <h2 className="text-2xl font-bold mb-4 text-sky-950">Share a Podcast</h2>
+//                         <button
+//                             onClick={() => handleSharePodcast('Inspiring Podcast')}
+//                             className="w-full bg-[#00b4d8] rounded-lg hover:bg-[#0077b6] text-white py-2 transition duration-300"
+//                         >
+//                             Share &quot;Inspiring Podcast&quot;
+//                         </button>
+//                     </motion.div>
+//                 </motion.div>
+//             </main>
+//         </div>
+//     );
+// };
+
+// export default Settings;
