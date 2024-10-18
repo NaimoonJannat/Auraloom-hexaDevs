@@ -132,7 +132,7 @@ const Navbar = () => {
               {user ? (
                 <>
                   <div>
-                    <div className="dropdown dropdown-end">
+                    <div className="dropdown dropdown-end text-[#0A0D52]">
                       <div
                         tabIndex={0}
                         role="button"
@@ -150,7 +150,7 @@ const Navbar = () => {
                       </div>
                       <ul
                         tabIndex={0}
-                        className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 p-2 shadow"
+                        className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 p-2 shadow text-[#0A0D52]"
                       >
                         {userLists}
                       </ul>
