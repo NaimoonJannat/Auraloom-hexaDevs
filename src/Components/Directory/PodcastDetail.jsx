@@ -18,6 +18,7 @@ import { AuthContext } from "../Provider/AuthProvider/AuthProvider";
 import { useRouter } from 'next/router';
 import { useForm } from 'react-hook-form';
 import AudioPlayer from "./AudioPlayer";
+import { CirclesWithBar } from "react-loader-spinner";
 
 
 const PodcastDetail = ({ id }) => {
@@ -28,6 +29,7 @@ const PodcastDetail = ({ id }) => {
     const [isLiked, setIsLiked] = useState(false); // New state for tracking like
     const [isDisliked, setIsDisliked] = useState(false);
     const [message, setMessage] = useState('');
+    const [isLoading, setIsLoading] = useState(true);
 
     const {
         register,
@@ -39,6 +41,7 @@ const PodcastDetail = ({ id }) => {
     
 
     useEffect(() => {
+        setIsLoading(true);
         if (id) {
             fetch(`https://auraloom-backend.vercel.app/podcasts/${id}`)
                 .then((res) => {
@@ -61,16 +64,30 @@ const PodcastDetail = ({ id }) => {
                         setIsLiked(data.likes.includes(user.email));
                         setIsDisliked(data.dislikes.includes(user.email));
                     }
+                    setIsLoading(false);
                 })
                 .catch((error) => {
+                    setIsLoading(false);
                     console.error('Error fetching podcast:', error);
                 });
         }
     }, [id]);
 
-    // Handle the case where podcast is not loaded yet
-    if (!podcast) {
-        return <div>Loading...</div>;
+    // If the data is still loading, show a loading message
+    if (isLoading) {
+        return <div className="flex justify-center items-center lg:mt-20">
+            <CirclesWithBar
+                height="100"
+                width="100"
+                color="#4F46E5"
+                outerCircleColor="#4F46E5"
+                innerCircleColor="#4F46E5"
+                barColor="#4F46E5"
+                ariaLabel="circles-with-bar-loading"
+                visible={true}
+                
+                />;
+        </div>
     }
 
     // LIKING PODCAST
