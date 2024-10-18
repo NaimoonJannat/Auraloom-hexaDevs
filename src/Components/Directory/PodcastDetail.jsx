@@ -272,7 +272,7 @@ const PodcastDetail = ({ id }) => {
             navigator.share({
                 title: `Check out this podcast: ${podcastTitle}`,
                 text: `I found this interesting podcast titled "${podcastTitle}". Listen to it now!`,
-                url: window.location.href, // Replace this with the specific podcast URL
+                url: window.location.href, 
             })
             .then(() => setMessage('Podcast shared successfully!'))
             .catch((error) => setMessage(`Error sharing podcast: ${error.message}`));
