@@ -3,7 +3,7 @@ import axios from 'axios';
 import { useContext, useState } from 'react';
 import { CirclesWithBar } from 'react-loader-spinner';
 import Swal from 'sweetalert2';
-import { Typewriter } from 'react-simple-typewriter'
+//import { Typewriter } from 'react-simple-typewriter'
 import { AuthContext } from '../Provider/AuthProvider/AuthProvider';
 
 const AddPodcast = () => {
@@ -78,8 +78,8 @@ const AddPodcast = () => {
   };
 
   return (
-    <div className='mx-auto my-20 container flex  flex-col justify-center items-center'>
-      <h1 className="mt-2 text-2xl lg:text-4xl font-bold font-montserrat text-[#03045e] capitalize  dark:text-white">
+    <div className='mx-auto container flex  flex-col justify-center items-center z-10'>
+      {/* <h1 className="mt-2 text-2xl lg:text-4xl font-bold font-montserrat text-[#03045e] capitalize  dark:text-white">
         <Typewriter
           words={['Bring Your Podcast to Life', 'Share Your Passion with the World!']}
           loop={10}
@@ -89,13 +89,12 @@ const AddPodcast = () => {
           deleteSpeed={50}
           delaySpeed={1000}
         />
-      </h1>
-      <main className="relative z-20 w-full m-8 md:flex md:items-center xl:mt-12">
-        <div className="absolute inset-0 -z-10 md:h-[800px] rounded-2xl" style={{
-          backgroundImage: `url('/soundwave.svg')`,
-          backgroundSize: 'cover',
-          backgroundPosition: 'center',
-        }}></div>
+      </h1> */}
+      <main className="relative z-10 w-full  md:flex md:items-center xl:mt-12">
+        <div className="absolute inset-0 z-11 md:h-[800px] rounded-2xl"
+        >
+          
+        </div>
         <div className="flex-grow h-full my-14 md:w-1/2 flex items-center justify-center p-3 translate-y-10">
           <div className='flex flex-col  p-6 rounded-md sm:p-10 bg-[#90e0ef] bg-opacity-90 text-gray-900'>
 

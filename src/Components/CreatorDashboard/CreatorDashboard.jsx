@@ -13,7 +13,10 @@ import { FaChartBar, FaMusic } from 'react-icons/fa';
 import { Typewriter } from 'react-simple-typewriter'
 import { motion } from 'framer-motion';
 import Lottie from "lottie-react";
-import creatordashboardanimation from '../../../public/creatordashboard.json'
+import creatordashboardanimation from '../../../public/creatordashboard.json';
+import studio from '../../../public/studio.jpg'
+
+import AddPodcast from '../add-podcast/AddPodcast';
 const CreatorDashboard = () => {
     const { user, logout } = useContext(AuthContext);
     console.log(user);
@@ -24,9 +27,9 @@ const CreatorDashboard = () => {
     };
 
     const [podcasts, setPodcasts] = useState([
-        { id: 1, title: 'Tech Talks', creator: 'Emer', description: 'Tech news and updates', likes: 120 },
-        { id: 2, title: 'Storytime', creator: 'Emer', description: 'Fictional stories', likes: 85 },
-        { id: 3, title: 'Music Vibes', creator: 'Emer', description: 'Best chill music playlists', likes: 98 },
+        { id: 1, title: 'Tech Talks', creator: 'Naimoon Jannat Prapti', description: 'Tech news and updates', likes: 3 },
+        { id: 2, title: 'Storytime', creator: 'Naimoon Jannat Prapti', description: 'Fictional stories', likes: 4 },
+        { id: 3, title: 'Music Vibes', creator: 'Naimoon Jannat Prapti', description: 'Best chill music playlists', likes: 1 },
     ]);
     return (
         <div className="min-h-screen bg-gray-50 flex">
@@ -107,8 +110,8 @@ const CreatorDashboard = () => {
                     <div className="hero-overlay bg-opacity-60"></div>
                     <div className="hero-content text-neutral-content text-center">
                         <div className="max-w-md">
-                            <h1 className="mb-5 text-5xl font-bold"></h1>
-                            <h1 className="m-10 text-xl lg:text-2xl font-bold font-montserrat text-white capitalize  dark:text-white">
+                            <h1 className=" text-5xl font-bold"></h1>
+                            <h1 className="m-5 text-xl lg:text-2xl font-bold font-montserrat text-white capitalize  dark:text-white">
                                 <Typewriter
                                     words={[
                                         `Hello ${user?.displayName || 'Guest'}`,
@@ -122,13 +125,16 @@ const CreatorDashboard = () => {
                                     delaySpeed={1000}
                                 />
                             </h1>
-                            <Link href={'/add-podcast'} className="btn bg-blue-500 text-white border-none">Add A New Podcast</Link>
+                            {/* <Link href={'/add-podcast'} className="btn bg-blue-500 text-white border-none">Add A New Podcast</Link> */}
                         </div>
                     </div>
                 </div>
-                {/* Overview */}
-                {/* <h1 className="text-2xl font-semibold mb-8">Overview</h1> */}
-                <div className="grid grid-cols-4 mt-4 gap-4">
+                <div
+                    className="grid grid-cols-1 lg:grid-cols-2  gap-4 items-center bg-cover bg-center rounded-lg"
+                >
+                    <AddPodcast />
+                    
+
                     {/* Valuation is up */}
                     {/* <div className="col-span-4 p-4 bg-green-100 rounded-lg">
                         <h2 className="text-lg font-semibold text-center">Generate Thumbnail</h2>
@@ -136,7 +142,7 @@ const CreatorDashboard = () => {
                         <Link href={'/generate-thumbnail'} className="btn bg-blue-500 text-white border-none mt-4 flex justify-center items-center">Generate Thumbnail</Link>
                     </div> */}
                     <motion.div
-                        className="col-span-4 p-4 bg-green-100 rounded-lg shadow-lg"
+                        className="p-4 row-span-2 bg-green-100 rounded-lg shadow-lg"
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.5, ease: 'easeOut' }}
@@ -174,24 +180,33 @@ const CreatorDashboard = () => {
                             </motion.button>
                         </Link>
                     </motion.div>
-
+                    <div className='row-span-2'>
+                        <MyPodcasts podcasts={podcasts} />
+                    </div>
                     {/* Valuation past 89 days */}
                     {/* <div className="col-span-2 p-4 bg-gray-100 rounded-lg">
                         <h2 className="text-lg font-semibold">Generate Idea</h2>
                         <p>Lorem ipsum dolor sit amet.</p>
                         <Link href={'/add-podcast'} className="btn bg-blue-500 text-white border-none mt-4">Add A New Podcast</Link>
                     </div> */}
+                    <div className="m-4">
+                        <h2 className="text-lg font-semibold mb-4">Receivable Growth</h2>
+                        <ReceivableGrowth /> {/* Render the ReceivableGrowth component */}
+                    </div>
+
+                   
+
                 </div>
+
+
+
+
+
+                {/* Overview */}
+                {/* <h1 className="text-2xl font-semibold mb-8">Overview</h1> */}
 
                 {/* Receivable Growth */}
-                <div className="mt-8">
-                    <h2 className="text-lg font-semibold mb-4">Receivable Growth</h2>
-                    <ReceivableGrowth /> {/* Render the ReceivableGrowth component */}
-                </div>
 
-                <section>
-                    <MyPodcasts podcasts={podcasts} />
-                </section>
             </main>
         </div>
     );
