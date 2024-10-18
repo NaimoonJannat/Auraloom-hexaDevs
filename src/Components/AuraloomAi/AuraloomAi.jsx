@@ -11,14 +11,14 @@ const AuraloomAi = () => {
         <section className="bg-white py-16 px-5 sm:px-10 lg:px-32 text-center">
             {/* Heading */}
             <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4 text-gray-800">
-                Elevate your podcast with Auraloom Ai
+                Elevate your podcast with AuraPod AI
             </h1>
             <p className="text-lg sm:text-xl lg:text-2xl text-gray-600 max-w-2xl mx-auto mb-5">
                 Elevate your podcast to new heights with AuraloomAi is cutting-edge features such as Noise Reduction,
                 Intelligent Leveler, Cut Filler Words, Filtering & AutoEQ, Automated Titles, AI Transcripts,
                 and more.
             </p>
-            <Link href={"/generate-thumbnail"} className=" text-orange-500">Learn More About Auraloom Ai→</Link>
+            <Link href={"/generate-thumbnail"} className=" text-orange-500">Learn More About AuraPod AI→</Link>
             {/* main content */}
             <div className="flex flex-col mt-6 lg:flex-row items-center justify-center lg:space-x-10">
                 {/* textual description and buttons */}
