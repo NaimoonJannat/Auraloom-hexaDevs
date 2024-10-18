@@ -17,13 +17,11 @@ export default function Home() {
       <Banner2></Banner2>
       <div className="container mx-auto">
         <TrendingPodcasts></TrendingPodcasts>
-        {/* <TrendingTopic></TrendingTopic> */}
         <TopCreator></TopCreator>
         <Banner1></Banner1>
         <AuraloomAi></AuraloomAi>
         <TrendingContent></TrendingContent>
         {/* <CategorySelector></CategorySelector> */}
-        {/* <Newsletter></Newsletter> */}
         <FrequentlyAskedQuestions></FrequentlyAskedQuestions>
       </div>
     </div>
