@@ -11,6 +11,7 @@
     "test:watch": "jest --watch"
   },
   "dependencies": {
+    "@emailjs/browser": "^4.4.1",
     "@heroicons/react": "^1.0.6",
     "axios": "^1.7.7",
     "chart.js": "^4.4.4",

@@ -13,7 +13,7 @@ const MyPodcasts = ({ podcasts }) => {
                         <th className="px-4 py-2">Podcast Name</th>
                         <th className="px-4 py-2">Creator</th>
                         <th className="px-4 py-2">Likes</th>
-                        <th className="px-4 py-2">Actions</th>
+                        {/* <th className="px-4 py-2">Actions</th> */}
                     </tr>
                 </thead>
                 <tbody>
@@ -23,9 +23,9 @@ const MyPodcasts = ({ podcasts }) => {
                             <td className="border px-4 py-2">{podcast.title}</td>
                             <td className="border px-4 py-2">{podcast.creator}</td>
                             <td className="border px-4 py-2 text-center">{podcast.likes}</td>
-                            <td className="border px-4 py-2 text-center">
+                            {/* <td className="border px-4 py-2 text-center">
                                 <button className="bg-blue-500 text-white px-3 py-1 rounded-lg">Details</button>
-                            </td>
+                            </td> */}
                         </tr>
                     ))}
                 </tbody>

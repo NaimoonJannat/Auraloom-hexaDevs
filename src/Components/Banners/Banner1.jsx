@@ -2,6 +2,7 @@
 import Lottie from "lottie-react";
 import { useInView } from "react-intersection-observer";
 import bannerAnimation from "/public/banner-2.json";
+import Link from "next/link";
 
 const Banner1 = () => {
   const { ref, inView } = useInView({
@@ -36,6 +37,9 @@ const Banner1 = () => {
                 listeners who want to hear you!{" "}
               </span>
               <span>Join our community today and amplify your voice!! </span>
+              <Link href={"/idea-generate"} className="block mt-5 w-auto mx-auto rounded-lg bg-sky-500 px-8 py-3 text-center text-sm font-semibold text-white outline-none ring-indigo-300 transition duration-100 hover:bg-black focus-visible:ring active:bg-gray-600 md:text-base">
+                Idea Generate With AuraPod AI →
+              </Link>
             </p>
           </div>
         </div>
