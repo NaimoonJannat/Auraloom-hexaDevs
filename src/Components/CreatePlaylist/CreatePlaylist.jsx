@@ -40,7 +40,7 @@ const CreatePlaylist = () => {
             if (user?.email) {
                 try {
                     const response = await axios.get(`https://auraloom-hexa-devs.vercel.app/playlists/${user.email}`);
-                    setPlaylists(response.data);  // Set fetched playlists to state
+                    setPlaylists(response.data);
                 } catch (error) {
                     console.error('Error fetching playlists:', error);
                 }

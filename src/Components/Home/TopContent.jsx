@@ -33,14 +33,14 @@ const TopContent = () => {
                                     alt="Movie"
                                     className="absolute inset-0  object-cover object-center transition duration-200 group-hover:scale-110"
                                 />
-                                <div classNameName="btn relative flex justify-end pt-2">
-                                    <h2 classNameName="bg-slate-100 text-lg scale-75 rounded-full text-black hover:text-white"><IoHeadsetOutline classNameName='text-xl' />Life-Style </h2>
+                                <div className="btn relative flex justify-end pt-2">
+                                    <h2 className="bg-slate-100 text-lg scale-75 rounded-full text-black hover:text-white"><IoHeadsetOutline className='text-xl' />Life-Style </h2>
                                 </div>
 
                             </div>
 
                             <div className="flex flex-1 flex-col p-4 sm:p-6">
-                                <span classNameName="text-sm text-gray-400 mb-1">July 19, 2021</span>
+                                <span className="text-sm text-gray-400 mb-1">July 19, 2021</span>
                                 <h2 className="mb-2 text-lg font-semibold text-gray-800">
                                     <a href="#" className="transition duration-100 hover:text-indigo-500 active:text-indigo-600 text-xl font-bold">New trends in Tech</a>
                                 </h2>
@@ -77,13 +77,13 @@ const TopContent = () => {
                                     alt="Movie"
                                     className="absolute inset-0 h-full w-full object-cover object-center transition duration-200 group-hover:scale-110"
                                 />
-                                <div classNameName=" relative flex justify-end">
-                                    <h2 classNameName="btn bg-slate-100 text-lg scale-75 rounded-full text-black hover:text-white"><IoHeadsetOutline classNameName='text-xl' />Life-Style </h2>
+                                <div className=" relative flex justify-end">
+                                    <h2 className="btn bg-slate-100 text-lg scale-75 rounded-full text-black hover:text-white"><IoHeadsetOutline className='text-xl' />Life-Style </h2>
                                 </div>
                             </a>
 
                             <div className="flex flex-1 flex-col p-4 sm:p-6">
-                                <span classNameName="text-sm text-gray-400 mb-1">July 19, 2021</span>
+                                <span className="text-sm text-gray-400 mb-1">July 19, 2021</span>
                                 <h2 className="mb-2 text-lg font-semibold text-gray-800">
                                     <a href="#" className="transition duration-100 hover:text-indigo-500 active:text-indigo-600 text-xl font-bold">New trends in Tech</a>
                                 </h2>
@@ -121,13 +121,13 @@ const TopContent = () => {
                                     alt="Movie"
                                     className="absolute inset-0 h-full w-full object-cover object-center transition duration-200 group-hover:scale-110"
                                 />
-                                <div classNameName=" relative flex justify-end">
-                                    <h2 classNameName="btn bg-slate-100 text-lg scale-75 rounded-full text-black hover:text-white"><IoHeadsetOutline classNameName='text-xl' />Life-Style </h2>
+                                <div className=" relative flex justify-end">
+                                    <h2 className="btn bg-slate-100 text-lg scale-75 rounded-full text-black hover:text-white"><IoHeadsetOutline className='text-xl' />Life-Style </h2>
                                 </div>
                             </a>
 
                             <div className="flex flex-1 flex-col p-4 sm:p-6">
-                                <span classNameName="text-sm text-gray-400 mb-1">July 19, 2021</span>
+                                <span className="text-sm text-gray-400 mb-1">July 19, 2021</span>
                                 <h2 className="mb-2 text-lg font-semibold text-gray-800">
                                     <a href="#" className="transition duration-100 hover:text-indigo-500 active:text-indigo-600 text-xl font-bold">New trends in Tech</a>
                                 </h2>
