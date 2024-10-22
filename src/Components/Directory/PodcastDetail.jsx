@@ -17,6 +17,8 @@ import { FaShare } from "react-icons/fa";
 import { AuthContext } from "../Provider/AuthProvider/AuthProvider";
 import { useRouter } from 'next/router';
 import { useForm } from 'react-hook-form';
+import AudioPlayer from "./AudioPlayer";
+import { CirclesWithBar } from "react-loader-spinner";
 
 
 const PodcastDetail = ({ id }) => {
@@ -26,6 +28,8 @@ const PodcastDetail = ({ id }) => {
     const [reviews, setReviews] = useState([]); 
     const [isLiked, setIsLiked] = useState(false); // New state for tracking like
     const [isDisliked, setIsDisliked] = useState(false);
+    const [message, setMessage] = useState('');
+    const [isLoading, setIsLoading] = useState(true);
 
     const {
         register,
@@ -37,6 +41,7 @@ const PodcastDetail = ({ id }) => {
     
 
     useEffect(() => {
+        setIsLoading(true);
         if (id) {
             fetch(`https://auraloom-backend.vercel.app/podcasts/${id}`)
                 .then((res) => {
@@ -59,16 +64,30 @@ const PodcastDetail = ({ id }) => {
                         setIsLiked(data.likes.includes(user.email));
                         setIsDisliked(data.dislikes.includes(user.email));
                     }
+                    setIsLoading(false);
                 })
                 .catch((error) => {
+                    setIsLoading(false);
                     console.error('Error fetching podcast:', error);
                 });
         }
     }, [id]);
 
-    // Handle the case where podcast is not loaded yet
-    if (!podcast) {
-        return <div>Loading...</div>;
+    // If the data is still loading, show a loading message
+    if (isLoading) {
+        return <div className="flex justify-center items-center lg:mt-20">
+            <CirclesWithBar
+                height="100"
+                width="100"
+                color="#4F46E5"
+                outerCircleColor="#4F46E5"
+                innerCircleColor="#4F46E5"
+                barColor="#4F46E5"
+                ariaLabel="circles-with-bar-loading"
+                visible={true}
+                
+                />;
+        </div>
     }
 
     // LIKING PODCAST
@@ -180,6 +199,7 @@ const PodcastDetail = ({ id }) => {
             });
             return;
         }
+        
     
         // Update dislikes if the user has not disliked this podcast yet
         try {
@@ -263,7 +283,20 @@ const PodcastDetail = ({ id }) => {
             });
         }
     };
-
+ //     // Function to handle sharing a podcast
+    const handleSharePodcast = (podcastTitle) => {
+        if (navigator.share) {
+            navigator.share({
+                title: `Check out this podcast: ${podcastTitle}`,
+                text: `I found this interesting podcast titled "${podcastTitle}". Listen to it now!`,
+                url: window.location.href, 
+            })
+            .then(() => setMessage('Podcast shared successfully!'))
+            .catch((error) => setMessage(`Error sharing podcast: ${error.message}`));
+        } else {
+            setMessage('Sharing is not supported on this device.');
+        }
+    };
     
 
     // console.log(podcast);
@@ -292,9 +325,12 @@ const PodcastDetail = ({ id }) => {
                                 <span className="flex items-center gap-2"> <FcDislike className="text-3xl" />{podcast && podcast.dislikes ? podcast.dislikes.length : 0} Dislikes</span>
                             </div>
                         </div>
-                        <div className="lg:text-6xl text-3xl  font-bold mb-5 lg:mb-10">{podcast.title}</div>
+                        <div className="lg:text-3xl text-2xl  font-bold mb-5 lg:mb-10">{podcast.title}</div>
                         <div className="lg:text-xl font-medium mb-6 lg:mb-12">{podcast.creator}</div>
-                        <div className="flex gap-4 items-center flex-wrap">
+
+                         <AudioPlayer audioUrl={podcast.audioUrl} />      {/* playback control  */}
+                         
+                        <div className="flex gap-4 items-center flex-wrap lg:mt-10 justify-center">
                         <button 
                             onClick={handleLike} 
                             className="flex items-center gap-2 border text-base border-b-slate-300 py-3 font-medium px-7 rounded-badge bg-[#01BECA]"
@@ -310,7 +346,14 @@ const PodcastDetail = ({ id }) => {
                             {isDisliked ? "Disliked" : "Dislike"}
                         </button>
                             <button className="flex items-center gap-2 border text-base border-b-slate-300 py-3 font-medium px-7 rounded-badge bg-[#01BECA]"><FaPlus className="text-2xl"/>Add to Playlist</button>
-                            <button className="flex items-center gap-2 border text-base border-b-slate-300 py-3 font-medium px-7 rounded-badge bg-[#01BECA]"><FaShare className="text-2xl"/>Share</button>
+                            <button
+                            onClick={() => handleSharePodcast('Inspiring Podcast')}
+                            className="flex items-center gap-2 border text-base border-b-slate-300 py-3 font-medium px-7 rounded-badge bg-[#01BECA]"
+                        >
+                            <FaShare className="text-2xl"/>
+                            Share;
+                        </button>
+
                         </div>                        
                     </div>
                 </div>

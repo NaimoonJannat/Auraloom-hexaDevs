@@ -6,17 +6,20 @@ import logo1 from "./../../../public/auraloom-logo.png";
 import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../Provider/AuthProvider/AuthProvider";
 import { FaRegUserCircle } from "react-icons/fa";
-import { IoMdNotificationsOutline } from "react-icons/io";
+import { IoMdNotificationsOutline, IoMdSearch } from "react-icons/io";
+import { useRouter } from "next/navigation";
 
 const Navbar = () => {
   const { user, logout } = useContext(AuthContext);
   const signOutUser = () => {
     logout()
-      .then(() => {})
-      .catch(() => {});
+      .then(() => { })
+      .catch(() => { });
   };
 
   const [isScrolled, setIsScrolled] = useState(false);
+  const [searchQuery, setSearchQuery] = useState(""); // Search query state
+  const router = useRouter(); // To handle navigation
 
   // Function to handle scroll event
   const handleScroll = () => {
@@ -24,6 +27,15 @@ const Navbar = () => {
       setIsScrolled(true);
     } else {
       setIsScrolled(false);
+    }
+  };
+
+  // Function to handle search and navigate to the directory page
+  const handleSearchSubmit = (e) => {
+    e.preventDefault(); // Prevent default form submission
+
+    if (searchQuery.trim()) {
+      router.push(`/podcast?search=${encodeURIComponent(searchQuery)}`); // Redirect to the directory page with the search query
     }
   };
 
@@ -40,10 +52,10 @@ const Navbar = () => {
         <Link href={"/dashboard"}>Dashboard</Link>
       </li>
       <li>
-        <Link href={"/profile"}>User Profile</Link>
+        <Link href={"/profile"}>Profile</Link>
       </li>
       <li>
-        <Link href={"/settings"}>Settings</Link>
+        <Link href={"/Settings"}>Settings</Link>
       </li>
       <li>
         <Link href={"/pro-mode"}>Be a Pro</Link>
@@ -56,12 +68,11 @@ const Navbar = () => {
 
   return (
     <div
-      className={`z-20 sticky top-0  transition-colors duration-50 ${
-        isScrolled ? "bg-[#3493f1d7]" : "bg-[#3493f1d7]"
-      } ${isScrolled ? "text-white" : "text-white"}  hover:bg-[#3493f1d7]`}
+      className={`z-20 sticky top-0 transition-colors duration-50 ${isScrolled ? "bg-[#3493f1d7]" : "bg-[#3493f1d7]"
+        } ${isScrolled ? "text-white" : "text-white"} hover:bg-[#3493f1d7]`}
     >
       <div className="navbar h-20 font-montserrat">
-        <div className="navbar-start">
+        <div className="navbar-start flex items-center gap-4">
           <Link href="/" className="btn btn-ghost text-xl">
             <Image
               src={logo1}
@@ -70,16 +81,29 @@ const Navbar = () => {
               priority
             />
           </Link>
+          {/* Search Input with Icon - Always Open */}
+          <form
+            onSubmit={handleSearchSubmit}
+            className="flex items-center border border-gray-300 rounded-full overflow-hidden hover:shadow transition-all duration-300"
+          >
+            {/* Search Icon */}
+            <button type="submit" className="p-2">
+              <IoMdSearch className="text-xl" />
+            </button>
+            {/* Search Input */}
+            <input
+              type="text"
+              className="px-2 w-48 outline-none bg-transparent text-white placeholder-slate-200"
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
+              placeholder="Search Podcasts..."
+            />
+          </form>
         </div>
         <div className="navbar-center"></div>
         <div className="navbar-end flex gap-4">
           <div className="hidden lg:flex">
             <ul className="menu menu-horizontal px-1 flex items-center gap-3 text-[14px] font-medium text-white">
-              {/* {userLists.map(({ link, name }) => (
-                <Link key={name} className="mx-3" rel="noopener noreferrer" href={link}>
-                  {name}
-                </Link>
-              ))} */}
               <li className="flex">
                 <Link rel="noopener noreferrer" href="/">
                   Home
@@ -91,21 +115,16 @@ const Navbar = () => {
                 </Link>
               </li>
               <li className="flex">
-                <Link rel="noopener noreferrer" href="/add-podcast">
-                  Add Podcast
-                </Link>
-              </li>
-              <li className="flex">
                 <Link rel="noopener noreferrer" href="/history">
                   History
                 </Link>
               </li>
               <li className="flex">
-                <Link rel="noopener noreferrer" href="/notifications">
-                  <IoMdNotificationsOutline className="text-2xl" />
+                <Link rel="noopener noreferrer" href="/contact-us">
+                  Contact
                 </Link>
               </li>
-                            <li className="flex">
+              <li className="flex">
                 <Link rel="noopener noreferrer" href="/notifications">
                   <IoMdNotificationsOutline className="text-2xl" />
                 </Link>
@@ -113,7 +132,7 @@ const Navbar = () => {
               {user ? (
                 <>
                   <div>
-                    <div className="dropdown dropdown-end">
+                    <div className="dropdown dropdown-end text-[#0A0D52]">
                       <div
                         tabIndex={0}
                         role="button"
@@ -131,7 +150,7 @@ const Navbar = () => {
                       </div>
                       <ul
                         tabIndex={0}
-                        className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 p-2 shadow"
+                        className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 p-2 shadow text-[#0A0D52]"
                       >
                         {userLists}
                       </ul>
@@ -153,7 +172,6 @@ const Navbar = () => {
               )}
             </ul>
           </div>
-
           <div className="dropdown dropdown-left text-[#03045E] bg-base-100">
             <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
               <svg
@@ -173,7 +191,7 @@ const Navbar = () => {
             </div>
             <ul
               tabIndex={0}
-              className="menu menu-sm dropdown-content  bg-base-100 rounded-box z-[1] mt-3 p-2 shadow text-[#03045E]"
+              className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 p-2 shadow text-[#03045E]"
             >
               <li className="flex">
                 <Link rel="noopener noreferrer" href="/">
@@ -186,18 +204,17 @@ const Navbar = () => {
                 </Link>
               </li>
               <li className="flex">
-                <Link rel="noopener noreferrer" href="/add-podcast">
-                  Add Podcast
-                </Link>
-              </li>
-              <li className="flex">
                 <Link rel="noopener noreferrer" href="/history">
                   History
                 </Link>
               </li>
               <li className="flex">
+                <Link rel="noopener noreferrer" href="/contact-us">
+                  Contact
+                </Link>
+              </li>
+              <li className="flex">
                 <Link rel="noopener noreferrer" href="/notifications">
-                  {/* <IoMdNotificationsOutline /> */}
                   Notifications
                 </Link>
               </li>

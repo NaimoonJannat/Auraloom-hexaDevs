@@ -1,4 +1,5 @@
 import PodcastDirectory from "@/Components/Directory/PodcastDirectory";
+import { Suspense } from "react";
 
 
 const page = () => {
@@ -7,7 +8,9 @@ const page = () => {
 
     return (
         <div>
-            <PodcastDirectory></PodcastDirectory>
+            <Suspense fallback={<div>Loading podcasts...</div>}>
+                <PodcastDirectory />
+            </Suspense>
         </div>
     );
 };

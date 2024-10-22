@@ -1,69 +1,86 @@
-"use client"
+"use client";
 import auth from '@/Components/Firebase/firebase.config';
-import { GoogleAuthProvider, createUserWithEmailAndPassword, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut, } from 'firebase/auth';
-import PropTypes from 'prop-types'
-import { createContext, useEffect, useState } from 'react';
-export const AuthContext = createContext(null)
+import {
+    createUserWithEmailAndPassword,
+    signInWithEmailAndPassword,
+    signOut,
+    onAuthStateChanged,
+    updateProfile,
+} from 'firebase/auth';
 
+import { createContext, useEffect, useState } from 'react';
+export const AuthContext = createContext();
 
 const AuthProvider = ({ children }) => {
-
     const [user, setUser] = useState(null);
-    const [loading, setLoading] = useState(true);
-    // console.log(user);
-    const googleProvider = new GoogleAuthProvider();
+    const [loading, setLoading] = useState(true); // Initialize loading state
 
-    // create user
-    const createUser = (email, password) => {
-        setLoading(true);
-        return createUserWithEmailAndPassword(auth, email, password);
+    // Sign up function
+    const createUser = (email, password, name, photoURL) => {
+        setLoading(true); // Start loading
+        return createUserWithEmailAndPassword(auth, email, password)
+            .then((userCredential) => {
+                const user = userCredential.user;
+
+                // Update Firebase user profile with displayName and photoURL
+                return updateProfile(user, {
+                    displayName: name,
+                    photoURL: photoURL,
+                }).then(() => {
+                    setUser({ ...user, displayName: name, photoURL });
+                    setLoading(false); // Stop loading after user is set
+                });
+            })
+            .catch((error) => {
+                console.error("Sign-up error:", error);
+                setLoading(false); // Stop loading on error
+                throw error;
+            });
     };
 
-
-    // sign in user
-    const signInUser = (email, password) => {
-        setLoading(true);
-        return signInWithEmailAndPassword(auth, email, password);
+    // Log in function
+    const loginUser = (email, password) => {
+        setLoading(true); // Start loading
+        return signInWithEmailAndPassword(auth, email, password)
+            .then((userCredential) => {
+                setUser(userCredential.user);
+                setLoading(false); // Stop loading after login
+            })
+            .catch((error) => {
+                console.error("Login error:", error);
+                setLoading(false); // Stop loading on error
+                throw error;
+            });
     };
 
-    // google
-    const googleLogin = () => {
-        setLoading(true);
-        return signInWithPopup(auth, googleProvider);
-    };
-
-
-
-    //logout
+    // Log out function
     const logout = () => {
-        setUser(null);
-        signOut(auth);
+        setLoading(true); // Start loading
+        return signOut(auth)
+            .then(() => {
+                setUser(null);
+                setLoading(false); // Stop loading after logout
+            })
+            .catch((error) => {
+                console.error("Logout error:", error);
+                setLoading(false); // Stop loading on error
+            });
     };
 
-    // observer
     useEffect(() => {
-        onAuthStateChanged(auth, (user) => {
-            if (user) {
-                setUser(user);
-                setLoading(false);
-            }
+        const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
+            setUser(currentUser);
+            setLoading(false); // Stop loading after checking auth state
         });
+
+        return () => unsubscribe();
     }, []);
 
-    const allvalues = {
-        createUser, signInUser, googleLogin, user, loading, logout
-
-    };
     return (
-        <div>
-            <AuthContext.Provider value={allvalues}>
-                {children}
-            </AuthContext.Provider>
-        </div>
+        <AuthContext.Provider value={{ user, loading, createUser, loginUser, logout }}>
+            {children}
+        </AuthContext.Provider>
     );
 };
-AuthProvider.propTypes = {
-    children: PropTypes.object.isRequired,
-}
 
 export default AuthProvider;
