@@ -5,6 +5,7 @@ import { CirclesWithBar } from 'react-loader-spinner';
 import Swal from 'sweetalert2';
 //import { Typewriter } from 'react-simple-typewriter'
 import { AuthContext } from '../Provider/AuthProvider/AuthProvider';
+import Loader from '../Loader/Loader';
 
 const AddPodcast = () => {
   const [img, setImg] = useState(null);
@@ -49,11 +50,12 @@ const AddPodcast = () => {
       const description = form.description.value;
       const category = form.category.value;
       const creator = user.displayName;
+      const email = user.email;
       const likes = [];
       const dislikes = [];
       const comments = [];
 
-      const newPodcast = { title, creator, description, category, imgUrl, audioUrl, likes, dislikes, comments };
+      const newPodcast = { title, creator, email, description, category, imgUrl, audioUrl, likes, dislikes, comments };
       console.log(newPodcast);
       // Send data to the backend to save in MongoDB
       const res = await axios.post('https://auraloom-backend.vercel.app/podcasts', newPodcast);
@@ -179,18 +181,7 @@ const AddPodcast = () => {
               </div>
             </form>
 
-            {loading && (
-              <CirclesWithBar
-                height="100"
-                width="100"
-                color="#4F46E5"
-                outerCircleColor="#4F46E5"
-                innerCircleColor="#4F46E5"
-                barColor="#4F46E5"
-                ariaLabel="circles-with-bar-loading"
-                visible={true}
-              />
-            )}
+            {loading && <Loader></Loader>}
           </div>
         </div>
       </main>
