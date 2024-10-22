@@ -1,94 +1,98 @@
-'use client'
-import { CardElement, PaymentElement, useElements, useStripe } from '@stripe/react-stripe-js';
+'use client';
+import { CardElement, useElements, useStripe } from '@stripe/react-stripe-js';
 import { useContext, useEffect, useState } from 'react';
 import { AuthContext } from '../Provider/AuthProvider/AuthProvider';
 import axios from 'axios';
 import Swal from 'sweetalert2';
 
 const CheckoutPaage = () => {
-
     const stripe = useStripe();
     const elements = useElements();
     const [error, setError] = useState('');
     const { user } = useContext(AuthContext);
     const [transactionId, setTransactionId] = useState('');
-    const [clientSecret, setClientSecret] = useState('')
-    const totalPrice = 25 || 50;
+    const [clientSecret, setClientSecret] = useState('');
+    const totalPrice = 25 || 50;  // Adjust the price accordingly
 
+    const [loading, setLoading] = useState(false);  // For handling button and loading state
 
     useEffect(() => {
+        // Fetch the client secret from the backend
         if (totalPrice > 0) {
-            axios.post('http://localhost:5000/create-payment-intent', { price: totalPrice })
+            axios.post('https://auraloom-hexa-devs.vercel.app/create-payment-intent', { price: totalPrice })
                 .then(res => {
-                    console.log(res.data.clientSecret);
                     setClientSecret(res.data.clientSecret);
                 })
+                .catch(err => {
+                    console.error("Error fetching client secret:", err);
+                    setError("Failed to initiate payment. Please try again.");
+                });
         }
-
-    }, [totalPrice])
+    }, [totalPrice]);
 
     const handleSubmit = async (event) => {
         event.preventDefault();
 
+        // Prevent submission if Stripe or Elements haven't loaded or if no clientSecret
         if (!stripe || !elements || !clientSecret) {
+            setError('Stripe has not loaded properly or client secret is missing.');
             return;
         }
 
+        setLoading(true);  // Start loading state
         const card = elements.getElement(CardElement);
 
-        if (card == null) {
+        if (!card) {
+            setError('Card Element not found.');
+            setLoading(false);
             return;
         }
 
-        // Use your card Element with other Stripe.js APIs
-        const { error, paymentMethod } = await stripe.createPaymentMethod({
+        // Create a payment method
+        const { error: paymentError, paymentMethod } = await stripe.createPaymentMethod({
             type: 'card',
             card,
         });
 
-        if (error) {
-            console.log('payment error', error);
-            setError(error.message);
-        }
-        else {
-            console.log('payment method', paymentMethod)
-            setError('');
+        if (paymentError) {
+            setError(paymentError.message);
+            setLoading(false);
+            return;
         }
 
-
-        // confirm payment
-        const { paymentIntent, error: confirmError } = await stripe.confirmCardPayment(clientSecret, {
+        // Confirm the payment using the clientSecret
+        const { error: confirmError, paymentIntent } = await stripe.confirmCardPayment(clientSecret, {
             payment_method: {
                 card: card,
                 billing_details: {
                     email: user?.email || 'anonymous',
                     name: user?.displayName || 'anonymous'
-                }
-            }
-        })
+                },
+            },
+        });
 
         if (confirmError) {
-            console.log('confirm error')
+            setError(confirmError.message);
+            setLoading(false);
+            return;
         }
-        else {
-            console.log('payment intent', paymentIntent)
-            if (paymentIntent.status === 'succeeded') {
-                console.log('transaction id', paymentIntent.id);
-                setTransactionId(paymentIntent.id);
 
-                // now save the payment in the database
-                const payment = {
-                    email: user.email,
-                    price: totalPrice,
-                    transactionId: paymentIntent.id,
-                    date: new Date(),
-                    status: 'pending'
-                }
+        // Handle successful payment
+        if (paymentIntent.status === 'succeeded') {
+            setTransactionId(paymentIntent.id);
 
-                const res = await axios.post('http://localhost:5000/payments', payment);
-                console.log('payment saved', res.data);
+            // Save the payment to the database
+            const payment = {
+                email: user.email,
+                price: totalPrice,
+                transactionId: paymentIntent.id,
+                date: new Date(),
+                status: 'pending'
+            };
 
-                if (res.data?.paymentResult?.insertedId) {
+            try {
+                const res = await axios.post('https://auraloom-hexa-devs.vercel.app/payments', payment);
+                if (res.data?.insertedId) {
                     Swal.fire({
                         position: "top-end",
                         icon: "success",
@@ -96,12 +100,15 @@ const CheckoutPaage = () => {
                         showConfirmButton: false,
                         timer: 1500
                     });
-                    //navigate('/dashboard/paymentHistory')
                 }
+            } catch (err) {
+                console.error("Error saving payment to database:", err);
+                setError("Payment succeeded, but we couldn't save the payment details. Please contact support.");
             }
+
+            setLoading(false);
         }
     };
-
 
     return (
         <div>
@@ -122,10 +129,14 @@ const CheckoutPaage = () => {
                         },
                     }}
                 />
-                <button className="btn btn-sm w-20 border border-sky-500 my-4" type="submit" disabled={!stripe || !clientSecret}>
-                    Pay
+                <button
+                    className="btn w-full border border-[#0077b6] text-lg font-semibold hover:bg-[#0077b6] my-8"
+                    type="submit"
+                    disabled={!stripe || !clientSecret || loading}
+                >
+                    {loading ? 'Processing...' : 'Pay'}
                 </button>
-                <p className="text-red-600">{error}</p>
+                {error && <p className="text-red-600">{error}</p>}
                 {transactionId && <p className="text-green-600"> Your transaction id: {transactionId}</p>}
             </form>
         </div>
