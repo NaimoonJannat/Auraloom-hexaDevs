@@ -8,7 +8,7 @@ import animation from "../../../public/json/animation.json";
 
 const AuraloomAi = () => {
     return (
-        <section className="bg-white py-16 px-5 sm:px-10 lg:px-32 text-center">
+        <section className="bg-white py-10 px-5 lg:px-32 text-center">
             {/* Heading */}
             <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4 text-gray-800">
                 Elevate your podcast with AuraPod AI

@@ -8,7 +8,7 @@ import img4 from '../../../public/stefan-stefancik-QXevDflbl8A-unsplash.jpg'
 const TopCreator = () => {
     return (
         <div>
-            <div className=" py-6 sm:py-8 lg:py-12">
+            <div className="py-3 md:py-4">
                 <div className="mx-auto max-w-screen-xl px-4 md:px-8">
 
                     <div className="mb-10 md:mb-16">
@@ -37,8 +37,8 @@ const TopCreator = () => {
                             </div>
 
                             <div>
-                                <div className="text-center font-bold text-indigo-500 md:text-lg">John McCulling</div>
-                                <p className="mb-3 text-center text-sm text-gray-500 md:mb-4 md:text-base">Founder / CEO</p>
+                                <div className="text-center font-bold text-indigo-500 md:text-lg">Jhilmil Haque</div>
+                                <p className="mb-3 text-center text-sm text-gray-500 md:mb-4 md:text-base">Web Developer</p>
 
 
                                 <div className="flex justify-center">
@@ -70,8 +70,8 @@ const TopCreator = () => {
                             </div>
 
                             <div>
-                                <div className="text-center font-bold text-indigo-500 md:text-lg">John McCulling</div>
-                                <p className="mb-3 text-center text-sm text-gray-500 md:mb-4 md:text-base">Founder / CEO</p>
+                                <div className="text-center font-bold text-indigo-500 md:text-lg">Rina Khan</div>
+                                <p className="mb-3 text-center text-sm text-gray-500 md:mb-4 md:text-base">Artist</p>
 
 
                                 <div className="flex justify-center">
@@ -103,8 +103,8 @@ const TopCreator = () => {
                             </div>
 
                             <div>
-                                <div className="text-center font-bold text-indigo-500 md:text-lg">John McCulling</div>
-                                <p className="mb-3 text-center text-sm text-gray-500 md:mb-4 md:text-base">Founder / CEO</p>
+                                <div className="text-center font-bold text-indigo-500 md:text-lg">Johan Ahmed</div>
+                                <p className="mb-3 text-center text-sm text-gray-500 md:mb-4 md:text-base">Influencer</p>
 
 
                                 <div className="flex justify-center">
@@ -136,8 +136,8 @@ const TopCreator = () => {
                             </div>
 
                             <div>
-                                <div className="text-center font-bold text-indigo-500 md:text-lg">John McCulling</div>
-                                <p className="mb-3 text-center text-sm text-gray-500 md:mb-4 md:text-base">Founder / CEO</p>
+                                <div className="text-center font-bold text-indigo-500 md:text-lg">Savannah Renu</div>
+                                <p className="mb-3 text-center text-sm text-gray-500 md:mb-4 md:text-base">Entrepreneur</p>
 
 
                                 <div className="flex justify-center">
