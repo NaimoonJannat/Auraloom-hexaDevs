@@ -3,6 +3,7 @@ import React from 'react';
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import Link from 'next/link';
 
 function SampleNextArrow(props) {
     const { className, style, onClick } = props;
@@ -122,9 +123,11 @@ const SubscriptionSlide = () => {
                                 <button className="inline-flex items-center justify-center px-6 py-2 font-medium text-white uppercase transition-colors bg-blue-500 rounded-lg hover:bg-blue-700 focus:outline-none shadow-md">
                                     Free Trial
                                 </button>
-                                <button className="inline-flex items-center justify-center px-6 py-2 font-medium text-white uppercase transition-colors bg-orange-500 rounded-lg hover:bg-orange-700 focus:outline-none shadow-md">
-                                    Checkout
-                                </button>
+                                <Link href='/payment'>
+                                    <button disabled={d.price == '$0.00'} className="inline-flex items-center justify-center px-6 py-2 font-medium text-white uppercase transition-colors bg-orange-500 rounded-lg hover:bg-orange-700 focus:outline-none shadow-md">
+                                        Checkout
+                                    </button>
+                                </Link>
                             </div>
                         </div>
                     ))}
