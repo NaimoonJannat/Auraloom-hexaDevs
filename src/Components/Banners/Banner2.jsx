@@ -9,7 +9,7 @@ const Banner2 = () => {
   return (
     <div>
       <div className="bg-[linear-gradient(45deg,rgba(19,19,24,0.50),rgba(19,19,24,0.50)),url('/banner-bg.jpg')] bg-center bg-cover pb-20 mb-6 lg:mx-0 min-h-[800px] font-montserrat flex items-center text-white -mt-20 ">
-        <div className="container mx-3 lg:mx-auto lg:text-start text-center">
+        <div className="container mx-3 lg:mx-auto lg:text-start text-center mt-20">
           <h3 className="lg:text-6xl text-2xl font-bold">
           Discover, Create, Connect
           </h3>
