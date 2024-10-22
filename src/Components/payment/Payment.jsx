@@ -13,7 +13,7 @@ import CheckoutPaage from './CheckoutPaage';
 
 const stripePromise = loadStripe(process.env.NEXT_PUBLIC_STRIPE_PUBLIC_KEY);
 
-const Payment = ({ priceId, price, description, clientSecret }) => {
+const Payment = () => {
 
 
     return (
@@ -28,11 +28,11 @@ const Payment = ({ priceId, price, description, clientSecret }) => {
                         />
                     </div>
                     <h2 className="text-2xl font-bold text-center mb-8">
-                        Complete Registration Payment
+                        Complete Payment Registration
                     </h2>
 
                     {/* FORM */}
-                    <form >
+                    <div >
                         {/* Personal Details */}
                         <div className="grid grid-cols-2 gap-4">
                             <div className="col-span-2">
@@ -79,24 +79,27 @@ const Payment = ({ priceId, price, description, clientSecret }) => {
                             <Image src={img5} alt="Stripe" className="h-8 w-8" />
                         </div>
 
+                        <div className='mt-10'>
+                            <Elements stripe={stripePromise}>
+                                <CheckoutPaage />
+                            </Elements>
+                        </div>
                         {/* Submit Button */}
-                        <div className="mt-6">
+                        {/* <div className="mt-6">
                             <button
                                 type="submit"
                                 className="w-full bg-green-600 text-white p-3 rounded-md text-lg hover:bg-green-700"
                             >
                                 Next
                             </button>
-                        </div>
-                    </form>
+                        </div> */}
+                    </div>
                     <div className="mt-6 text-center text-sm text-gray-500">
                         <p>Instructions | License | Terms of Use | Privacy</p>
                     </div>
                 </div>
             </div>
-            <Elements stripe={stripePromise} options={{ clientSecret }}>
-                <CheckoutPaage />
-            </Elements>
+
         </div>
     );
 };
