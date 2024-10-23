@@ -33,6 +33,7 @@ const CreatorDashboard = () => {
             const {data} = await fetch(`${import.meta.env.VITE_API_URL}/podcast/${user?.email}`)
             setItem(data)
          }
+         getData()
     }, [])
 
     const [podcasts, setPodcasts] = useState([
