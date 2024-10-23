@@ -15,7 +15,7 @@ const TopContent = () => {
                     className="absolute inset-x-0 top-1/2 h-px -translate-y-1/2 bg-transparent bg-gradient-to-r from-transparent via-gray-500 to-transparent opacity-75 scale-75"
                 ></div>
 
-                <span className="relative z-10 bg-white px-6 text-2xl text-[#0077b6] font-montserrat">Top Content</span>
+                <span className="relative z-10  px-6 text-2xl text-[#0077b6] font-montserrat">Top Content</span>
             </span>
 
             {/* CARD */}
@@ -25,7 +25,7 @@ const TopContent = () => {
 
                     <div className="grid gap-4 sm:grid-cols-2 md:gap-6 lg:grid-cols-3 ">
 
-                        <div className="flex flex-col overflow-hidden rounded-lg border-2 bg-white hover:border-[#0077b6] max-w-96">
+                        <div className="flex flex-col overflow-hidden rounded-lg border-2  hover:border-[#0077b6] max-w-96">
                             <div href="#" className="group relative block h-48 overflow-hidden bg-gray-100 md:h-64">
 
                                 <Image
@@ -64,11 +64,11 @@ const TopContent = () => {
                                         </div>
                                     </div>
 
-                                    <span className="btn bg-white rounded-full border-2 text-sm hover:border-[#0077b6] scale-90"><FaPlay className='text-gray-500' /></span>
+                                    <span className="btn  rounded-full border-2 text-sm hover:border-[#0077b6] scale-90"><FaPlay className='text-gray-500' /></span>
                                 </div>
                             </div>
                         </div>
-                        <div className="flex flex-col overflow-hidden rounded-lg border-2 bg-white hover:border-[#0077b6] max-w-96">
+                        <div className="flex flex-col overflow-hidden rounded-lg border-2  hover:border-[#0077b6] max-w-96">
                             <a href="#" className="group relative block h-48 overflow-hidden bg-gray-100 md:h-64">
                                 {/* <img src="https://images.unsplash.com/photo-1593508512255-86ab42a8e620?auto=format&q=75&fit=crop&w=600" loading="lazy" alt="Photo by Minh Pham" className="absolute inset-0 h-full w-full object-cover object-center transition duration-200 group-hover:scale-110" /> */}
                                 <Image
@@ -108,11 +108,11 @@ const TopContent = () => {
                                         </div>
                                     </div>
 
-                                    <span className="btn bg-white rounded-full border text-sm text-gray-500 scale-90"><FaPlay /></span>
+                                    <span className="btn  rounded-full border text-sm text-gray-500 scale-90"><FaPlay /></span>
                                 </div>
                             </div>
                         </div>
-                        <div className="flex flex-col overflow-hidden rounded-lg  bg-white hover:border-[#0077b6] border-2 max-w-96">
+                        <div className="flex flex-col overflow-hidden rounded-lg   hover:border-[#0077b6] border-2 max-w-96">
                             <a href="#" className="group relative block h-48 overflow-hidden bg-gray-100 md:h-64">
                                 {/* <img src="https://images.unsplash.com/photo-1593508512255-86ab42a8e620?auto=format&q=75&fit=crop&w=600" loading="lazy" alt="Photo by Minh Pham" className="absolute inset-0 h-full w-full object-cover object-center transition duration-200 group-hover:scale-110" /> */}
                                 <Image
@@ -152,7 +152,7 @@ const TopContent = () => {
                                         </div>
                                     </div>
 
-                                    <span className="btn bg-white rounded-full border text-sm text-gray-500 scale-90"><FaPlay /></span>
+                                    <span className="btn  rounded-full border text-sm text-gray-500 scale-90"><FaPlay /></span>
                                 </div>
                             </div>
                         </div>

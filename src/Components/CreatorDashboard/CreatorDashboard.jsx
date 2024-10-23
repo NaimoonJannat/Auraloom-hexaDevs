@@ -34,7 +34,7 @@ const CreatorDashboard = () => {
     return (
         <div className="min-h-screen bg-gray-50 flex">
             {/* Sidebar */}
-            <aside className="w-64 bg-white p-6">
+            <aside className="w-64  p-6">
                 <div>
                     <div>
                         {/* Avatar dropdown */}
@@ -133,7 +133,7 @@ const CreatorDashboard = () => {
                     className="grid grid-cols-1 lg:grid-cols-2  gap-4 items-center bg-cover bg-center rounded-lg"
                 >
                     <AddPodcast />
-                    
+
 
                     {/* Valuation is up */}
                     {/* <div className="col-span-4 p-4 bg-green-100 rounded-lg">
@@ -194,7 +194,7 @@ const CreatorDashboard = () => {
                         <ReceivableGrowth /> {/* Render the ReceivableGrowth component */}
                     </div>
 
-                   
+
 
                 </div>
 

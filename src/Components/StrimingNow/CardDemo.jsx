@@ -54,7 +54,7 @@ const CardDemo = () => {
       {/* Creators Grid */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
         {creators.map((creator, index) => (
-          <div key={index} className="bg-white p-6 rounded-lg shadow-lg text-center">
+          <div key={index} className=" p-6 rounded-lg shadow-lg text-center">
             <div className="relative w-32 h-32 mx-auto mb-4">
               <Image
                 src={creator.imageUrl}

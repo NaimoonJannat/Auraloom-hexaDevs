@@ -3,7 +3,7 @@ import React from 'react';
 
 const MyPodcasts = ({ podcasts }) => {
     return (
-        <div className="bg-white p-6 rounded-lg shadow-md">
+        <div className=" p-6 rounded-lg shadow-md">
             <h2 className="text-xl font-bold text-gray-800 mb-4">My Podcasts</h2>
 
             <table className="min-w-full table-auto">
