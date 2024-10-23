@@ -25,7 +25,7 @@ const TopContent = () => {
 
                     <div className="grid gap-4 sm:grid-cols-2 md:gap-6 lg:grid-cols-3 ">
 
-                        <div className="flex flex-col overflow-hidden rounded-lg border bg-white hover:border-[#0077b6] max-w-96">
+                        <div className="flex flex-col overflow-hidden rounded-lg border-2 bg-white hover:border-[#0077b6] max-w-96">
                             <div href="#" className="group relative block h-48 overflow-hidden bg-gray-100 md:h-64">
 
                                 <Image
@@ -33,16 +33,15 @@ const TopContent = () => {
                                     alt="Movie"
                                     className="absolute inset-0  object-cover object-center transition duration-200 group-hover:scale-110"
                                 />
-                                <div classNameName="btn relative flex justify-end pt-2">
-                                    <h2 classNameName="bg-slate-100 text-lg scale-75 rounded-full text-black hover:text-white"><IoHeadsetOutline classNameName='text-xl' />Life-Style </h2>
+                                <div className=" relative flex justify-end pt-2">
+                                    <h2 className="btn bg-slate-200 text-lg scale-75 rounded-full text-black"><IoHeadsetOutline className='text-xl' />Life-Style </h2>
                                 </div>
-
                             </div>
 
                             <div className="flex flex-1 flex-col p-4 sm:p-6">
-                                <span classNameName="text-sm text-gray-400 mb-1">July 19, 2021</span>
+                                <span className="text-sm text-gray-400 mb-1">July 19, 2021</span>
                                 <h2 className="mb-2 text-lg font-semibold text-gray-800">
-                                    <a href="#" className="transition duration-100 hover:text-indigo-500 active:text-indigo-600 text-xl font-bold">New trends in Tech</a>
+                                    <a href="#" className="transition duration-100 hover:text-[#0077b6] active:text-[#0077b6] text-xl font-bold">New trends in Tech</a>
                                 </h2>
                                 <hr />
 
@@ -59,17 +58,17 @@ const TopContent = () => {
                                         </div>
 
                                         <div>
-                                            <span className="block text-indigo-500 ">Hosted By:</span>
+                                            <span className="block text-[#0077b6] font-semibold">Hosted By:</span>
                                             <span className="block text-sm text-gray-400">Mike Lane</span>
 
                                         </div>
                                     </div>
 
-                                    <span className="btn bg-white rounded-full border text-sm text-gray-500 scale-90"><FaPlay /></span>
+                                    <span className="btn bg-white rounded-full border-2 text-sm hover:border-[#0077b6] scale-90"><FaPlay className='text-gray-500' /></span>
                                 </div>
                             </div>
                         </div>
-                        <div className="flex flex-col overflow-hidden rounded-lg border bg-white hover:border-[#0077b6] max-w-96">
+                        <div className="flex flex-col overflow-hidden rounded-lg border-2 bg-white hover:border-[#0077b6] max-w-96">
                             <a href="#" className="group relative block h-48 overflow-hidden bg-gray-100 md:h-64">
                                 {/* <img src="https://images.unsplash.com/photo-1593508512255-86ab42a8e620?auto=format&q=75&fit=crop&w=600" loading="lazy" alt="Photo by Minh Pham" className="absolute inset-0 h-full w-full object-cover object-center transition duration-200 group-hover:scale-110" /> */}
                                 <Image
@@ -77,13 +76,13 @@ const TopContent = () => {
                                     alt="Movie"
                                     className="absolute inset-0 h-full w-full object-cover object-center transition duration-200 group-hover:scale-110"
                                 />
-                                <div classNameName=" relative flex justify-end">
-                                    <h2 classNameName="btn bg-slate-100 text-lg scale-75 rounded-full text-black hover:text-white"><IoHeadsetOutline classNameName='text-xl' />Life-Style </h2>
+                                <div className=" relative flex justify-end pt-2">
+                                    <h2 className="btn bg-slate-100 text-lg scale-75 rounded-full text-black hover:text-white"><IoHeadsetOutline className='text-xl' />Life-Style </h2>
                                 </div>
                             </a>
 
                             <div className="flex flex-1 flex-col p-4 sm:p-6">
-                                <span classNameName="text-sm text-gray-400 mb-1">July 19, 2021</span>
+                                <span className="text-sm text-gray-400 mb-1">July 19, 2021</span>
                                 <h2 className="mb-2 text-lg font-semibold text-gray-800">
                                     <a href="#" className="transition duration-100 hover:text-indigo-500 active:text-indigo-600 text-xl font-bold">New trends in Tech</a>
                                 </h2>
@@ -113,7 +112,7 @@ const TopContent = () => {
                                 </div>
                             </div>
                         </div>
-                        <div className="flex flex-col overflow-hidden rounded-lg border bg-white hover:border-[#0077b6] max-w-96">
+                        <div className="flex flex-col overflow-hidden rounded-lg  bg-white hover:border-[#0077b6] border-2 max-w-96">
                             <a href="#" className="group relative block h-48 overflow-hidden bg-gray-100 md:h-64">
                                 {/* <img src="https://images.unsplash.com/photo-1593508512255-86ab42a8e620?auto=format&q=75&fit=crop&w=600" loading="lazy" alt="Photo by Minh Pham" className="absolute inset-0 h-full w-full object-cover object-center transition duration-200 group-hover:scale-110" /> */}
                                 <Image
@@ -121,13 +120,13 @@ const TopContent = () => {
                                     alt="Movie"
                                     className="absolute inset-0 h-full w-full object-cover object-center transition duration-200 group-hover:scale-110"
                                 />
-                                <div classNameName=" relative flex justify-end">
-                                    <h2 classNameName="btn bg-slate-100 text-lg scale-75 rounded-full text-black hover:text-white"><IoHeadsetOutline classNameName='text-xl' />Life-Style </h2>
+                                <div className=" relative flex justify-end pt-2">
+                                    <h2 className="btn bg-slate-100 text-lg scale-75 rounded-full text-black hover:text-white"><IoHeadsetOutline className='text-xl' />Life-Style </h2>
                                 </div>
                             </a>
 
                             <div className="flex flex-1 flex-col p-4 sm:p-6">
-                                <span classNameName="text-sm text-gray-400 mb-1">July 19, 2021</span>
+                                <span className="text-sm text-gray-400 mb-1">July 19, 2021</span>
                                 <h2 className="mb-2 text-lg font-semibold text-gray-800">
                                     <a href="#" className="transition duration-100 hover:text-indigo-500 active:text-indigo-600 text-xl font-bold">New trends in Tech</a>
                                 </h2>
