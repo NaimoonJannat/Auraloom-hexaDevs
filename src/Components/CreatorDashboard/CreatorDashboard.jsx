@@ -30,7 +30,7 @@ const CreatorDashboard = () => {
     useEffect(() => {
         const getData =  async() =>
          {
-            const {data} = await fetch(`${import.meta.env.VITE_API_URL}/podcast/${user?.email}`)
+            const {data} = await axios(`${import.meta.env.VITE_API_URL}/podcast/${user?.email}`)
             setItem(data)
          }
          getData()
