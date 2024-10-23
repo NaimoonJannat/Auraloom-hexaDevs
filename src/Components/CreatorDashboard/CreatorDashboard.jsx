@@ -19,12 +19,18 @@ import studio from '../../../public/studio.jpg'
 import AddPodcast from '../add-podcast/AddPodcast';
 const CreatorDashboard = () => {
     const { user, logout } = useContext(AuthContext);
+    const [item,setItem] = useState([])
     console.log(user);
     const signOutUser = () => {
         logout()
             .then(() => { })
             .catch(() => { });
     };
+   
+    useEffect(() => {
+        const getData =  async() =>
+         {}
+    }, [])
 
     const [podcasts, setPodcasts] = useState([
         { id: 1, title: 'Tech Talks', creator: 'Naimoon Jannat Prapti', description: 'Tech news and updates', likes: 3 },
