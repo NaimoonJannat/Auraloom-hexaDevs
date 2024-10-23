@@ -21,7 +21,7 @@ const CreatorProfile = () => {
   return (
     <div>
       <div className="flex justify-center items-center mt-[100px] font-montserrat">
-        <div className="bg-white shadow-lg rounded-2xl w-full lg:w-3/5">
+        <div className=" shadow-lg rounded-2xl w-full lg:w-3/5">
           <Image
             alt="profile"
             src={cover}
@@ -29,13 +29,13 @@ const CreatorProfile = () => {
           />
           <div className="flex flex-col items-center justify-center p-4 -mt-16">
             <a href="#" className="relative block">
-            <Image
-  alt="profile"
-  src="https://lh3.googleusercontent.com/a/ACg8ocJ57DQTw_tk0TPy1ZuVf7tXXXsCo43Ifyb9YYhzLcouadNqnsc=s96-c"
-  className="mx-auto object-cover rounded-full h-24 w-24 border-2 border-white"
-  width={96} // specify appropriate width
-  height={96} // specify appropriate height
-/>
+              <Image
+                alt="profile"
+                src="https://lh3.googleusercontent.com/a/ACg8ocJ57DQTw_tk0TPy1ZuVf7tXXXsCo43Ifyb9YYhzLcouadNqnsc=s96-c"
+                className="mx-auto object-cover rounded-full h-24 w-24 border-2 border-white"
+                width={96} // specify appropriate width
+                height={96} // specify appropriate height
+              />
 
             </a>
 

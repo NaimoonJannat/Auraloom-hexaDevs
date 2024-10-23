@@ -123,9 +123,9 @@ const AdminDashboard = () => {
 
   return (
     <div className="flex flex-col lg:flex-row min-h-screen">
-        {/* Sidebar */}
-        <div className="w-full lg:w-1/5 bg-[#03045E] text-white flex flex-col">
-       <div className="py-6 px-8 text-3xl font-bold">Auraloom</div>
+      {/* Sidebar */}
+      <div className="w-full lg:w-1/5 bg-[#03045E] text-white flex flex-col">
+        <div className="py-6 px-8 text-3xl font-bold">Auraloom</div>
         <div className="py-6 px-8 flex items-center flex-col">
           <Image
             src="https://i.pinimg.com/564x/3c/01/76/3c017689a6f12b7821ae4de3967fb35c.jpg"
@@ -139,7 +139,7 @@ const AdminDashboard = () => {
             <p className="text-sm text-gray-300">Admin</p>
           </div>
         </div>
-        
+
         <nav className="mt-10">
           {/* Sidebar links */}
           <a href="/overview" className="flex items-center py-3 px-6 text-lg hover:bg-[#00B4D8]">
@@ -169,34 +169,34 @@ const AdminDashboard = () => {
       <div className="w-full md:w-3/4 p-6 bg-gray-50">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-6">
           {/* Total Listens */}
-          <div className="bg-white shadow-lg p-6 rounded-lg">
+          <div className=" shadow-lg p-6 rounded-lg">
             <FaPodcast className="text-4xl text-blue-500 mb-4" />
             <h2 className="text-xl font-bold">Total Listens</h2>
             <p className="text-gray-600 text-3xl">
               <CountUp end={15000} duration={2} />
             </p>
           </div>
-          
+
           {/* Total Users */}
-          <div className="bg-white shadow-lg p-6 rounded-lg">
+          <div className=" shadow-lg p-6 rounded-lg">
             <FaUsers className="text-4xl text-green-500 mb-4" />
             <h2 className="text-xl font-bold">Total Users</h2>
             <p className="text-gray-600 text-3xl">
               <CountUp end={1200} duration={2} />
             </p>
           </div>
-          
+
           {/* Revenue */}
-          <div className="bg-white shadow-lg p-6 rounded-lg">
+          <div className=" shadow-lg p-6 rounded-lg">
             <FaDollarSign className="text-4xl text-yellow-500 mb-4" />
             <h2 className="text-xl font-bold">Revenue</h2>
             <p className="text-gray-600 text-3xl">
               $<CountUp end={25000} duration={2} />
             </p>
           </div>
-          
+
           {/* Subscriptions */}
-          <div className="bg-white shadow-lg p-6 rounded-lg">
+          <div className=" shadow-lg p-6 rounded-lg">
             <FaListAlt className="text-4xl text-red-500 mb-4" />
             <h2 className="text-xl font-bold">Subscriptions</h2>
             <p className="text-gray-600 text-3xl">
@@ -207,53 +207,53 @@ const AdminDashboard = () => {
 
         {/* Other sections */}
         <div className="flex flex-col md:flex-row">
-        <div className="bg-white shadow-lg p-4 sm:p-6 rounded-lg mb-6 w-full md:w-1/2">
-  <h2 className="text-lg sm:text-xl font-bold mb-4">Monthly Listens</h2>
-  <div className="h-48 sm:h-64 md:h-72 lg:h-80">
-    <Line data={listensData} options={chartOptions} />
-  </div>
-</div>
+          <div className=" shadow-lg p-4 sm:p-6 rounded-lg mb-6 w-full md:w-1/2">
+            <h2 className="text-lg sm:text-xl font-bold mb-4">Monthly Listens</h2>
+            <div className="h-48 sm:h-64 md:h-72 lg:h-80">
+              <Line data={listensData} options={chartOptions} />
+            </div>
+          </div>
 
 
-<div className="bg-white shadow-lg p-4 sm:p-6 rounded-lg mb-6 w-full md:w-1/2">
-  <h2 className="text-lg sm:text-xl font-bold mb-4">Creators</h2>
-  <div className="overflow-x-auto">
-    <table className="w-full table-auto">
-      <thead>
-        <tr>
-          <th className="px-2 sm:px-4 py-2">Photo</th>
-          <th className="px-2 sm:px-4 py-2">Name</th>
-          <th className="px-2 sm:px-4 py-2">Podcasts</th>
-          <th className="px-2 sm:px-4 py-2">Profile</th>
-        </tr>
-      </thead>
-      <tbody>
-        {creatorsData.map((creator, index) => (
-          <tr key={index}>
-            <td className="px-2 sm:px-4 py-2">
-              <Image src={creator.photo} alt={creator.name} width={50} height={50} className="rounded-full" />
-            </td>
-            <td className="px-2 sm:px-4 py-2">{creator.name}</td>
-            <td className="px-2 sm:px-4 py-2">{creator.podcasts}</td>
-            <td className="px-2 sm:px-4 py-2">
-              <a href={creator.profileLink} className="text-blue-500 hover:underline">View Profile</a>
-            </td>
-          </tr>
-        ))}
-      </tbody>
-    </table>
-  </div>
-</div>
+          <div className=" shadow-lg p-4 sm:p-6 rounded-lg mb-6 w-full md:w-1/2">
+            <h2 className="text-lg sm:text-xl font-bold mb-4">Creators</h2>
+            <div className="overflow-x-auto">
+              <table className="w-full table-auto">
+                <thead>
+                  <tr>
+                    <th className="px-2 sm:px-4 py-2">Photo</th>
+                    <th className="px-2 sm:px-4 py-2">Name</th>
+                    <th className="px-2 sm:px-4 py-2">Podcasts</th>
+                    <th className="px-2 sm:px-4 py-2">Profile</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {creatorsData.map((creator, index) => (
+                    <tr key={index}>
+                      <td className="px-2 sm:px-4 py-2">
+                        <Image src={creator.photo} alt={creator.name} width={50} height={50} className="rounded-full" />
+                      </td>
+                      <td className="px-2 sm:px-4 py-2">{creator.name}</td>
+                      <td className="px-2 sm:px-4 py-2">{creator.podcasts}</td>
+                      <td className="px-2 sm:px-4 py-2">
+                        <a href={creator.profileLink} className="text-blue-500 hover:underline">View Profile</a>
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          </div>
 
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          <div className="bg-white shadow-lg p-6 rounded-lg">
+          <div className=" shadow-lg p-6 rounded-lg">
             <h2 className="text-2xl font-bold mb-4">Podcast Categories</h2>
             <Pie data={pieData} options={chartOptions} />
           </div>
 
-          <div className="bg-white shadow-lg p-6 rounded-lg">
+          <div className=" shadow-lg p-6 rounded-lg">
             <h2 className="text-2xl font-bold mb-4">Subscription Types</h2>
             <Doughnut data={doughnutData} options={chartOptions} />
           </div>

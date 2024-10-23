@@ -10,7 +10,7 @@ const UserProfile = () => {
   return (
     <div>
       <div className="flex justify-center items-center mt-[100px] lg:mt-[200px]">
-        <div className="bg-white shadow-lg rounded-2xl w-full lg:w-3/5">
+        <div className=" shadow-lg rounded-2xl w-full lg:w-3/5">
           <Image
             alt="profile"
             src={cover}

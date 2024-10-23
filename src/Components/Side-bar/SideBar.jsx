@@ -118,7 +118,7 @@ const Sidebar = () => {
                             </Link>
 
                             {/* Sign Up Button */}
-                            <Link href="/sign-up" className="btn bg-white text-gray-900 font-bold hover:bg-orange-500 hover:text-white transition px-6 py-2 rounded-full">
+                            <Link href="/sign-up" className="btn  text-gray-900 font-bold hover:bg-orange-500 hover:text-white transition px-6 py-2 rounded-full">
                                 Sign Up
                             </Link>
                         </div>
@@ -127,7 +127,7 @@ const Sidebar = () => {
                     {/* Be a Creator Button */}
                     <Link
                         href="/creator-dashboard"
-                        className="btn mt-5 w-full bg-white hover:bg-sky-400 border-none hover:text-black text-sky-700 py-3 px-7 rounded-md font-bold transition"
+                        className="btn mt-5 w-full  hover:bg-sky-400 border-none hover:text-black text-sky-700 py-3 px-7 rounded-md font-bold transition"
                     >
                         Be a Creator
                     </Link>

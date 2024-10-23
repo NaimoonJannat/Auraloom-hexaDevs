@@ -71,7 +71,7 @@ const SubscriptionSlide = () => {
                         <div
                             className="absolute inset-x-0 top-1/2 h-px -translate-y-1/2 bg-transparent bg-gradient-to-r from-transparent via-gray-500 to-transparent opacity-75 scale-75"
                         ></div>
-                        <span className="relative z-10 bg-white px-6 text-2xl text-[#0077b6] font-montserrat">Our Pricing Plan</span>
+                        <span className="relative z-10  px-6 text-2xl text-[#0077b6] font-montserrat">Our Pricing Plan</span>
                     </span>
                     <div class="mt-2">
                         <span class="inline-block w-40 h-1 bg-blue-500 rounded-full"></span>
@@ -94,7 +94,7 @@ const SubscriptionSlide = () => {
                     {data.map((d) => (
                         <div
                             key={d.title}
-                            className="flex flex-col w-full max-w-sm p-8 space-y-4 text-center bg-white border-2 border-gray-200 rounded-lg lg:mx-4 dark:border-gray-300 hover:dark:border-gray-500 transition-colors duration-300 hover:bg-sky-50"
+                            className="flex flex-col w-full max-w-sm p-8 space-y-4 text-center  border-2 border-gray-200 rounded-lg lg:mx-4 dark:border-gray-300 hover:dark:border-gray-500 transition-colors duration-300 hover:bg-sky-50"
                         >
                             <div className="flex-shrink-0">
                                 <h2 className="inline-flex items-center justify-center px-2 font-semibold tracking-tight text-black uppercase rounded-lg">
