@@ -130,7 +130,6 @@ const PodcastDirectory = () => {
     if (isLoading) {
         return (
             <div className="min-h-screen ">
-            
             <div className="lg:flex justify-center items-center lg:mt-80 mx-auto hidden ">
                 <CirclesWithBar
                     height="120"
@@ -170,7 +169,7 @@ const PodcastDirectory = () => {
                     
                     />
             </div>
-        </div>
+            </div>
         )
     }
 
