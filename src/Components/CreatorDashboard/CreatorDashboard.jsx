@@ -94,9 +94,8 @@ const CreatorDashboard = () => {
                     </ul>
                 </nav>
             </aside>
-
             {/* Main content */}
-            <main className="flex-1 p-10">
+            <main className="flex-1 p-10 ">
                 <div
                     className="hero min-h-72"
                     style={{

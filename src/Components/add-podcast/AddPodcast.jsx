@@ -81,22 +81,19 @@ const AddPodcast = () => {
   return (
     <div className='mx-auto container flex  flex-col justify-center items-center z-10'>
       <main className="relative z-10 w-full  md:flex md:items-center xl:mt-12">
-        <div className="absolute inset-0 z-11 md:h-[800px] rounded-2xl"
-        >
-          
-        </div>
-        <div className="flex-grow h-full my-14  flex items-center justify-center p-3 translate-y-10">
+        
+        <div className="flex-1 h-full my-14  flex items-center justify-center p-3 translate-y-10">
           <div className='flex flex-col  p-6 rounded-md sm:p-10 bg-[#90e0ef] bg-opacity-90 text-gray-900'>
 
 
             {/*PODCAST FORM */}
             <form
               onSubmit={handleSubmit}
-              className="w-full "
+              className="w-full"
             >
               <h2 className="text-2xl font-bold mb-6 text-center text-[#03045e]">Upload New Podcast</h2>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                <div className="mb-4 col-span-2">
+              <div className="grid grid-cols-1 lg:grid-cols-5 gap-4">
+                <div className="mb-4 col-span-5">
                   <label className="block text-[#03045e] text-sm font-bold mb-2">
                     Title of Podcast
                   </label>
@@ -108,7 +105,7 @@ const AddPodcast = () => {
                     required
                   />
                 </div>
-                <div className="mb-4 col-span-2">
+                <div className="mb-4 col-span-5">
                   <label className="block text-[#03045e] text-sm font-bold mb-2" htmlFor="details">
                     Description (Mini blog or description)
                   </label>
@@ -120,7 +117,7 @@ const AddPodcast = () => {
                   ></textarea>
                 </div>
 
-                <div className="mb-4">
+                <div className="mb-4 col-span-2">
                   <label className="block text-[#03045e] text-sm font-bold mb-2">
                     Wallpaper (Optional)
                   </label>
@@ -133,7 +130,7 @@ const AddPodcast = () => {
                   />
                 </div>
 
-                <div className="mb-4">
+                <div className="mb-4 col-span-2">
                   <label className="block text-[#03045e] text-sm font-bold mb-2" htmlFor="audioFile">
                     Attach the Audio
                   </label>
@@ -148,7 +145,7 @@ const AddPodcast = () => {
 
 
 
-                <div className="mb-4 col-span-2">
+                <div className="mb-4 col-span-5">
                   <label className="block text-[#03045e] text-sm font-bold mb-2">
                     Category
                   </label>
