@@ -10,7 +10,7 @@ const MyPodcasts = () => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    if (!user?.email) return; // Only fetch if user email is available
+    if (!user?.email) return;
 
     const getData = async () => {
       try {
@@ -22,7 +22,7 @@ const MyPodcasts = () => {
       } catch (error) {
         console.error("Error fetching podcasts:", error);
       } finally {
-        setLoading(false); // Stop loading after fetching data
+        setLoading(false); 
       }
     };
     
