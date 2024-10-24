@@ -23,12 +23,8 @@ const AddPodcast = () => {
       let resourceType = type === 'image' ? 'image' : 'raw';
       let api = `https://api.cloudinary.com/v1_1/auraloom/${resourceType}/upload`;
 
-      const res = await axios.post(api, data, {
-        timeout: 60000 // Set timeout to 60 seconds (60000 milliseconds)
-      });
-
+      const res = await axios.post(api, data);
       const { secure_url } = res.data;
-      // console.log(secure_url);
       return secure_url;
     } catch (error) {
       console.log(error);
@@ -38,9 +34,9 @@ const AddPodcast = () => {
   // Function to handle form submission
   const handleSubmit = async (e) => {
     e.preventDefault();
-    
+    setLoading(true);
+
     try {
-      setLoading(true);
       // Upload image to Cloudinary
       const imgUrl = img ? await uploadFile('image') : null;
 
@@ -59,7 +55,7 @@ const AddPodcast = () => {
       const comments = [];
 
       const newPodcast = { title, creator, email, description, category, imgUrl, audioUrl, likes, dislikes, comments };
-      // console.log(newPodcast);
+      console.log(newPodcast);
       // Send data to the backend to save in MongoDB
       const res = await axios.post('https://auraloom-backend.vercel.app/podcasts', newPodcast);
 
@@ -106,6 +102,7 @@ const AddPodcast = () => {
                     name="title"
                     className="shadow appearance-none border rounded w-full py-2 px-3  text-gray-700 dark:text-gray-200 bg-white dark:bg-gray-800 leading-tight focus:outline-none focus:ring-2 focus:ring-indigo-500"
                     placeholder="Enter Podcast Title"
+                    //
                     required
                   />
                 </div>
@@ -115,7 +112,7 @@ const AddPodcast = () => {
                   </label>
                   <textarea
                     name="description"
-                    className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 dark:text-gray-200 bg-white dark:bg-gray-800 leading-tight focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                    className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700  dark:text-gray-200 bg-white dark:bg-gray-800 leading-tight focus:outline-none focus:ring-2 focus:ring-indigo-500"
                     placeholder="Enter podcast details"
                     rows="4"
                   ></textarea>
@@ -130,7 +127,8 @@ const AddPodcast = () => {
                     name="wallpaper"
                     accept="image/*"
                     onChange={(e) => setImg(e.target.files[0])}
-                    className="block w-full text-sm text-gray-500 p-4 rounded dark:text-gray-200 bg-white dark:bg-gray-800 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-indigo-50 file:text-indigo-600 hover:file:bg-indigo-100"
+                    //
+                    className="block w-full text-sm text-gray-500 p-4  rounded dark:text-gray-200 bg-white dark:bg-gray-800 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-indigo-50 file:text-indigo-600 hover:file:bg-indigo-100"
                   />
                 </div>
 
@@ -143,7 +141,7 @@ const AddPodcast = () => {
                     name="audio"
                     accept="audio/*"
                     onChange={(e) => setAudio(e.target.files[0])}
-                    className="block w-full text-sm p-4 text-gray-500 rounded dark:text-gray-200 bg-white dark:bg-gray-800 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-indigo-50 file:text-indigo-600 hover:file:bg-indigo-100"
+                    className="block w-full text-sm p-4 text-gray-500  rounded dark:text-gray-200 bg-white dark:bg-gray-800  file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-indigo-50 file:text-indigo-600 hover:file:bg-indigo-100"
                   />
                 </div>
 
@@ -156,7 +154,7 @@ const AddPodcast = () => {
                   <input
                     type="text"
                     name="category"
-                    className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 dark:text-gray-200 bg-white dark:bg-gray-800 leading-tight focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                    className="shadow appearance-none border rounded w-full py-2 px-3 dark:text-gray-200 bg-white dark:bg-gray-800   leading-tight focus:outline-none focus:ring-2 focus:ring-indigo-500"
                     placeholder="Enter podcast category"
                   />
                 </div>
@@ -170,7 +168,7 @@ const AddPodcast = () => {
               </div>
             </form>
 
-            {loading && <Loader />}
+            {loading && <Loader></Loader>}
           </div>
         </div>
       </main>
