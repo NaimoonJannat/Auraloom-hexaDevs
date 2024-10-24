@@ -81,17 +81,6 @@ const AddPodcast = () => {
 
   return (
     <div className='mx-auto container flex  flex-col justify-center items-center z-10'>
-      {/* <h1 className="mt-2 text-2xl lg:text-4xl font-bold font-montserrat text-[#03045e] capitalize  dark:text-white">
-        <Typewriter
-          words={['Bring Your Podcast to Life', 'Share Your Passion with the World!']}
-          loop={10}
-          cursor
-          cursorStyle='_'
-          typeSpeed={70}
-          deleteSpeed={50}
-          delaySpeed={1000}
-        />
-      </h1> */}
       <main className="relative z-10 w-full  md:flex md:items-center xl:mt-12">
         <div className="absolute inset-0 z-11 md:h-[800px] rounded-2xl"
         >

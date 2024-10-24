@@ -17,7 +17,6 @@ const MyPodcasts = () => {
     return (
         <div className="p-6 rounded-lg shadow-md">
             <h3 className='text-[#03045e] font-montserrat font-medium text-center lg:text-3xl text-xl'>My Added Podcasts</h3>
-            {/* Check if there are any podcasts, if not show message */}
             {item.length === 0 ? (
                 <p className="text-center text-gray-600">No podcasts found. You haven&apos;t added any podcasts yet.</p>
             ) : (
