@@ -128,12 +128,6 @@ const CreatorDashboard = () => {
                     className="grid grid-cols-1 gap-4 items-center bg-cover bg-center rounded-lg"
                 >
                     <div className='w-full col-span-1'><AddPodcast /></div>
-                    {/* Valuation is up */}
-                    {/* <div className="col-span-4 p-4 bg-green-100 rounded-lg">
-                        <h2 className="text-lg font-semibold text-center">Generate Thumbnail</h2>
-                        <p className='text-center'>Create custom thumbnails to make your podcast stand out and attract more listeners.</p>
-                        <Link href={'/generate-thumbnail'} className="btn bg-blue-500 text-white border-none mt-4 flex justify-center items-center">Generate Thumbnail</Link>
-                    </div> */}
                     <motion.div
                         className="p-4 bg-green-100 rounded-lg shadow-lg"
                         initial={{ opacity: 0, y: 20 }}
@@ -162,7 +156,6 @@ const CreatorDashboard = () => {
                                 className="w-32 h-32"
                             />
                         </div>
-
                         <Link href={'/generate-thumbnail'}>
                             <motion.button
                                 className="btn bg-blue-500 text-white border-none mt-4 px-4 py-2 rounded-lg flex mx-auto justify-center items-center"
@@ -179,12 +172,8 @@ const CreatorDashboard = () => {
                      transition={{ duration: 0.5, ease: 'easeOut' }}
                      whileHover={{ scale: 1.05 }}
                     >
-                        <MyPodcasts/>
+                    <MyPodcasts/>
                     </motion.div>
-                    {/* <div className="m-4">
-                        <h2 className="text-lg font-semibold mb-4">Receivable Growth</h2>
-                        <ReceivableGrowth /> 
-                    </div> */}
                 </div>
             </main>
         </div>
