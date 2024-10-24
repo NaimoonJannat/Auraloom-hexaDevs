@@ -199,7 +199,7 @@ const PodcastDirectory = () => {
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-14 mt-16 mx-14 lg:px-10 text-white">
                     {podcasts.map((podcast) => (
                         <Link key={podcast._id} href={`/podcast/${podcast._id}`}>
-                            <div className="relative rounded-lg overflow-hidden shadow-lg w-52 h-52 md:w-72 md:h-72 lg:w-96 lg:h-96">
+                            <div className="relative rounded-lg overflow-hidden shadow-lg w-full aspect-square">
                                 <div
                                     className="absolute inset-0 bg-cover bg-center"
                                     style={{ backgroundImage: `url(${podcast.imgUrl})` }}
