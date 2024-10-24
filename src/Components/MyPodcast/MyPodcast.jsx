@@ -11,9 +11,11 @@ const MyPodcasts = () => {
          {
             const {data} = await axios(`https://auraloom-backend.vercel.app/podcasts/${user?.email}`)
             setItem(data)
+            
          }
          getData()
-    }, [])
+    }, [user])
+    console.log(item)
     return (
         <div className="p-6 rounded-lg shadow-md">
             <h3 className='text-[#03045e] font-montserrat font-medium text-center lg:text-3xl text-xl'>My Added Podcasts</h3>
