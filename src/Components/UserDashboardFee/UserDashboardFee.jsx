@@ -50,8 +50,8 @@ const UserDashboardFee = () => {
 
   return (
     <PrivateRoute>
-      <div className="feed-container mx-auto p-6  text-white">
-        <style>
+      <div className="feed-container mx-auto p-6 ml-64 text-white">
+      <style>
           {`
                 .text-wrapper {
                     position: absolute;

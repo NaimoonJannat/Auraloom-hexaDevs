@@ -3,7 +3,7 @@ import logo from "./../../../public/auraloom-logo.png";
 
 const Footer = () => {
   return (
-    <div className="bg-blue-100 font-montserrat mt-12">
+    <div className="bg-blue-100 font-montserrat">
       <footer className="container mx-auto">
         <div className="footer p-10">
           <aside>
