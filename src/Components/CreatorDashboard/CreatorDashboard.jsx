@@ -15,26 +15,19 @@ import { motion } from 'framer-motion';
 import Lottie from "lottie-react";
 import creatordashboardanimation from '../../../public/creatordashboard.json';
 import studio from '../../../public/studio.jpg'
-
 import AddPodcast from '../add-podcast/AddPodcast';
-
 const CreatorDashboard = () => {
     const { user, logout } = useContext(AuthContext);
-
     console.log(user);
     const signOutUser = () => {
         logout()
             .then(() => { })
             .catch(() => { });
     };
-
-
-
-
     return (
-        <div className="min-h-screen  flex">
+        <div className="min-h-screen flex">
             {/* Sidebar */}
-            <aside className="w-64  p-6 h-screen sticky top-0  overflow-y-auto shadow-lg">
+            <aside className="w-64 min-h-screen  shadow-lg">
                 <div>
                     <div>
                         {/* Avatar dropdown */}
@@ -120,7 +113,6 @@ const CreatorDashboard = () => {
                                     delaySpeed={1000}
                                 />
                             </h1>
-
                         </div>
                     </div>
                 </div>
@@ -150,12 +142,9 @@ const CreatorDashboard = () => {
                         >
                             Generate Thumbnail
                         </motion.h2>
-
                         <p className='text-center font-medium text-gray-700 font-montserrat'>
                             Create custom thumbnails to make your podcast stand out and attract more listeners.
                         </p>
-
-                        {/* Lottie Animation */}
                         <div className="flex justify-center items-center mt-4">
                             <Lottie
                                 animationData={creatordashboardanimation}
