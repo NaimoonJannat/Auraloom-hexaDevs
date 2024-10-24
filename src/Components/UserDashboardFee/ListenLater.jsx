@@ -49,7 +49,7 @@ const ListenLater = () => {
                                     alt={later.title}
                                     fill
                                     sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                                    className="rounded-lg"
+                                    className="rounded-lg z-10"
                                 />
                             </div>
                             <div className="mt-3">
