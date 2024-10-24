@@ -17,7 +17,7 @@ const TopCreator = () => {
                                 className="absolute inset-x-0 top-1/2 h-px -translate-y-1/2 bg-transparent bg-gradient-to-r from-transparent via-gray-500 to-transparent opacity-75 scale-75"
                             ></div>
 
-                            <span className="relative z-10 bg-white px-6 text-2xl text-[#0077b6] font-montserrat">Top Creators</span>
+                            <span className="relative z-10  px-6 text-2xl text-[#0077b6] font-montserrat">Top Creators</span>
                         </span>
 
                         <p className="mx-auto max-w-screen-md text-center text-gray-500 md:text-lg">This is a section of some simple filler text, also known as placeholder text. It shares some characteristics of a real written text but is random or otherwise generated.</p>

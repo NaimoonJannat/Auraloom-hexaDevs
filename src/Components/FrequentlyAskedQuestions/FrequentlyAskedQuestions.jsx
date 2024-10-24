@@ -10,7 +10,7 @@ const FrequentlyAskedQuestions = () => {
 
     return (
         <div className='px-2 md:px-12 lg:px-40 mx-auto mt-5 md:mt-10 lg:mt-16'>
-            <section className="bg-white">
+            <section className="">
                 <div className="container  py-12 mx-auto">
                     <h1 className="text-2xl font-semibold text-black lg:text-4xl">Frequently Asked Questions</h1>
                     <p className="mt-2 text-lg text-gray-600">Learn about starting a podcast, podcast hosting options and costs, how to promote your podcast, and more.</p>
@@ -27,7 +27,7 @@ const FrequentlyAskedQuestions = () => {
                             { question: "What are some good methods to promote a podcast?", answer: "Utilizing social media, creating a website, and networking with other podcasters are effective methods." },
                             { question: "How do I monetize my podcast?", answer: "You can monetize your podcast through sponsorships, listener donations, or premium content." },
                         ].map(({ question, answer }, index) => (
-                            <div key={index} className="p-4 text-sky-500 border-2 border-slate-300 bg-white rounded-lg hover:bg-gray-100 transition duration-200">
+                            <div key={index} className="p-4 text-sky-500 border-2 border-slate-300  rounded-lg hover:bg-gray-100 transition duration-200">
                                 <button
                                     className="flex items-center justify-between w-full focus:outline-none"
                                     onClick={() => toggleAnswer(index)}

@@ -3,7 +3,6 @@ import axios from 'axios';
 import { useContext, useState } from 'react';
 import { CirclesWithBar } from 'react-loader-spinner';
 import Swal from 'sweetalert2';
-//import { Typewriter } from 'react-simple-typewriter'
 import { AuthContext } from '../Provider/AuthProvider/AuthProvider';
 import Loader from '../Loader/Loader';
 
@@ -81,34 +80,20 @@ const AddPodcast = () => {
 
   return (
     <div className='mx-auto container flex  flex-col justify-center items-center z-10'>
-      {/* <h1 className="mt-2 text-2xl lg:text-4xl font-bold font-montserrat text-[#03045e] capitalize  dark:text-white">
-        <Typewriter
-          words={['Bring Your Podcast to Life', 'Share Your Passion with the World!']}
-          loop={10}
-          cursor
-          cursorStyle='_'
-          typeSpeed={70}
-          deleteSpeed={50}
-          delaySpeed={1000}
-        />
-      </h1> */}
       <main className="relative z-10 w-full  md:flex md:items-center xl:mt-12">
-        <div className="absolute inset-0 z-11 md:h-[800px] rounded-2xl"
-        >
-          
-        </div>
-        <div className="flex-grow h-full my-14 md:w-1/2 flex items-center justify-center p-3 translate-y-10">
-          <div className='flex flex-col  p-6 rounded-md sm:p-10 bg-[#90e0ef] bg-opacity-90 text-gray-900'>
+        
+        <div className="flex-1 h-full my-14  flex items-center justify-center p-3 translate-y-10">
+          <div className='flex flex-col  p-6 rounded-md sm:p-10 bg-[#caf0f8] bg-opacity-90 text-gray-900'>
 
 
             {/*PODCAST FORM */}
             <form
               onSubmit={handleSubmit}
-              className="w-full max-w-md"
+              className="w-full"
             >
               <h2 className="text-2xl font-bold mb-6 text-center text-[#03045e]">Upload New Podcast</h2>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                <div className="mb-4 col-span-2">
+              <div className="grid grid-cols-1 lg:grid-cols-9 gap-4">
+                <div className="mb-4 col-span-9">
                   <label className="block text-[#03045e] text-sm font-bold mb-2">
                     Title of Podcast
                   </label>
@@ -120,7 +105,7 @@ const AddPodcast = () => {
                     required
                   />
                 </div>
-                <div className="mb-4 col-span-2">
+                <div className="mb-4 col-span-5">
                   <label className="block text-[#03045e] text-sm font-bold mb-2" htmlFor="details">
                     Description (Mini blog or description)
                   </label>
@@ -132,7 +117,7 @@ const AddPodcast = () => {
                   ></textarea>
                 </div>
 
-                <div className="mb-4">
+                <div className="mb-4 col-span-2">
                   <label className="block text-[#03045e] text-sm font-bold mb-2">
                     Wallpaper (Optional)
                   </label>
@@ -145,7 +130,7 @@ const AddPodcast = () => {
                   />
                 </div>
 
-                <div className="mb-4">
+                <div className="mb-4 col-span-2">
                   <label className="block text-[#03045e] text-sm font-bold mb-2" htmlFor="audioFile">
                     Attach the Audio
                   </label>
@@ -160,7 +145,7 @@ const AddPodcast = () => {
 
 
 
-                <div className="mb-4 col-span-2">
+                <div className="mb-4 col-span-9">
                   <label className="block text-[#03045e] text-sm font-bold mb-2">
                     Category
                   </label>

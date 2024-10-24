@@ -17,7 +17,7 @@ const ContactBanner = () => {
     };
 
     return (
-        <section className="bg-white text-slate-900">
+        <section className=" text-slate-900">
             <div className="container px-6 py-12 mx-auto">
                 <div className="text-center">
                     <h1 className="mt-2 text-3xl font-semibold text-gray-800 md:text-3xl">Contact Our Friendly Team</h1>
