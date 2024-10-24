@@ -73,6 +73,14 @@ const PodcastDetail = ({ id }) => {
         }
     }, [id]);
 
+    // Initial effect to set the like and dislike states based on the user's email
+        useEffect(() => {
+            if (podcast && user) {
+                setIsLiked(podcast.likes.includes(user.email));
+                setIsDisliked(podcast.dislikes.includes(user.email));
+            }
+        }, [podcast, user]);
+
     // If the data is still loading, show a loading message
     if (isLoading) {
         return (
@@ -120,185 +128,124 @@ const PodcastDetail = ({ id }) => {
         )
     }
 
-    // LIKING PODCAST
-    const handleLike = async () => {
-        // Redirect user to login if no user
-        if (!user) {
-            router.push({
-                pathname: '/login',
-                query: { from: router.asPath }
-            });
-            return; // Stop further execution
-        }
     
-        // Do not let user like if they are the owner of the podcast
-        if (user.email === email) {
-            Swal.fire({
-                title: 'Failure!',
-                text: 'You cannot like your own podcast!',
-                icon: 'error',
-                confirmButtonText: 'Close',
-                confirmButtonColor: '#01BECA',
-                color: '#0077B6',
-                background: '#1D232A',
-            });
-            return; // Stop further execution
-        }
     
-        // Do not let user like if they have already liked this podcast
-        if (isLiked) {
-            Swal.fire({
-                title: 'Error!',
-                text: 'You already liked the podcast.',
-                icon: 'error',
-                confirmButtonText: 'Close',
-                confirmButtonColor: '#01BECA',
-                color: '#0077B6',
-                background: '#1D232A',
-            });
-            return;
-        }
-    
-        // Update likes if the user has not liked this podcast yet
-        try {
-            const response = await fetch(`https://auraloom-backend.vercel.app/podcasts/like/${podcast._id}?email=${user.email}`, {
-                method: "PATCH",
-                headers: {
-                    'content-type': 'application/json'
-                }
-            });
-    
-            const data = await response.json();
-    
-            if (response.ok) {
-                // Update the local state with the new like count
-                setPodcast((podcast) => ({
-                    ...podcast,
-                    likes: [...podcast.likes, user.email] // Add the user's email to the likes array
-                }));
-                setIsLiked(true);
-    
-                // Swal.fire({
-                //     title: 'Liked!',
-                //     text: 'You have successfully liked this podcast!',
-                //     icon: 'success',
-                //     confirmButtonText: 'Close'
-                // });
-            } else {
-                Swal.fire({
-                    title: 'Error!',
-                    color: '#0077B6',
-                    text: data.message || 'Failed to like the podcast.',
-                    icon: 'error',
-                    confirmButtonText: 'Close',
-                    confirmButtonColor: '#01BECA',
-                    background: '#1D232A',
-                });
-            }
-        } catch (error) {
-            console.error('Error liking podcast:', error);
-            Swal.fire({
-                title: 'Error!',
-                text: 'Something went wrong!',
-                icon: 'error',
-                confirmButtonText: 'Close',
-                confirmButtonColor: '#01BECA',
-                color: '#0077B6',
-                background: '#1D232A',
-            });
-        }
-    };
+// LIKING PODCAST
+const handleLike = async () => {
+    if (!user) {
+        router.push({
+            pathname: '/login',
+            query: { from: router.asPath }
+        });
+        return;
+    }
 
-    // DISLIKING PODCAST
-    const handleDislike = async () => {
-        // Redirect user to login if no user
-        if (!user) {
-            router.push({
-                pathname: '/login',
-                query: { from: router.asPath }
-            });
-            return; // Stop further execution
-        }
-    
-        // Do not let user dislike if they are the owner of the podcast
-        if (user.email === email) {
-            Swal.fire({
-                title: 'Failure!',
-                text: 'You cannot dislike your own podcast!',
-                icon: 'error',
-                confirmButtonText: 'Close',
-                confirmButtonColor: '#01BECA',
-                color: '#0077B6',
-                background: '#1D232A',
-            });
-            return; // Stop further execution
-        }
-    
-        // Do not let user dislike if they have already disliked this podcast
-        if (isDisliked) {
-            Swal.fire({
-                title: 'Failure!',
-                text: 'You already disliked this podcast!',
-                icon: 'error',
-                confirmButtonText: 'Close',
-                confirmButtonColor: '#01BECA',
-                color: '#0077B6',
-                background: '#1D232A',
-            });
-            return;
-        }
-        
-    
-        // Update dislikes if the user has not disliked this podcast yet
-        try {
-            const response = await fetch(`https://auraloom-backend.vercel.app/podcasts/dislike/${podcast._id}?email=${user.email}`, {
-                method: "PATCH",
-                headers: {
-                    'content-type': 'application/json'
-                }
-            });
-    
-            const data = await response.json();
-    
-            if (response.ok) {
-                // Update the local state with the new dislike count
-                setPodcast((podcast) => ({
-                    ...podcast,
-                    dislikes: [...podcast.dislikes, user.email] // Add the user's email to the dislikes array
-                }));
-                setIsDisliked(true);
-    
-                // Swal.fire({
-                //     title: 'Disliked!',
-                //     text: 'You have successfully liked this podcast!',
-                //     icon: 'success',
-                //     confirmButtonText: 'Close'
-                // });
-            } else {
-                Swal.fire({
-                    title: 'Error!',
-                    text: data.message || 'Failed to dislike the podcast.',
-                    icon: 'error',
-                    confirmButtonText: 'Close',
-                    confirmButtonColor: '#01BECA',
-                    color: '#0077B6',
-                    background: '#1D232A',
-                });
+    if (user.email === podcast.creatorEmail) {
+        Swal.fire({
+            title: 'Failure!',
+            text: 'You cannot like your own podcast!',
+            icon: 'error',
+            confirmButtonText: 'Close',
+            confirmButtonColor: '#01BECA',
+            color: '#0077B6',
+            background: '#1D232A',
+        });
+        return;
+    }
+
+    try {
+        const response = await fetch(`http://localhost:5000/podcasts/like/${podcast._id}?email=${user.email}`, {
+            method: "PATCH",
+            headers: {
+                'content-type': 'application/json'
             }
-        } catch (error) {
-            console.error('Error disliking podcast:', error);
-            Swal.fire({
-                title: 'Error!',
-                text: 'Something went wrong!',
-                icon: 'error',
-                confirmButtonText: 'Close',
-                confirmButtonColor: '#01BECA',
-                color: '#0077B6',
-                background: '#1D232A',
-            });
+        });
+
+        if (!response.ok) {
+            const errorData = await response.json();
+            throw new Error(errorData.message || 'Failed to like the podcast.');
         }
-    };
-    
+
+        const updatedPodcast = await response.json();
+        setPodcast(updatedPodcast);
+
+        // Update state based on the updated podcast data
+        setIsLiked(updatedPodcast.likes.includes(user.email));
+        setIsDisliked(updatedPodcast.dislikes.includes(user.email));
+
+    } catch (error) {
+        console.error('Error liking podcast:', error);
+        Swal.fire({
+            title: 'Error!',
+            text: error.message,
+            icon: 'error',
+            confirmButtonText: 'Close',
+            confirmButtonColor: '#01BECA',
+            color: '#0077B6',
+            background: '#1D232A',
+        });
+    }
+};
+
+// DISLIKING PODCAST
+const handleDislike = async () => {
+    if (!user) {
+        router.push({
+            pathname: '/login',
+            query: { from: router.asPath }
+        });
+        return;
+    }
+
+    if (user.email === podcast.creatorEmail) {
+        Swal.fire({
+            title: 'Failure!',
+            text: 'You cannot dislike your own podcast!',
+            icon: 'error',
+            confirmButtonText: 'Close',
+            confirmButtonColor: '#01BECA',
+            color: '#0077B6',
+            background: '#1D232A',
+        });
+        return;
+    }
+
+    try {
+        const response = await fetch(`http://localhost:5000/podcasts/dislike/${podcast._id}?email=${user.email}`, {
+            method: "PATCH",
+            headers: {
+                'content-type': 'application/json'
+            }
+        });
+
+        if (!response.ok) {
+            const errorData = await response.json();
+            throw new Error(errorData.message || 'Failed to dislike the podcast.');
+        }
+
+        const updatedPodcast = await response.json();
+        setPodcast(updatedPodcast);
+
+        // Update state based on the updated podcast data
+        setIsLiked(updatedPodcast.likes.includes(user.email));
+        setIsDisliked(updatedPodcast.dislikes.includes(user.email));
+
+    } catch (error) {
+        console.error('Error disliking podcast:', error);
+        Swal.fire({
+            title: 'Error!',
+            text: error.message,
+            icon: 'error',
+            confirmButtonText: 'Close',
+            confirmButtonColor: '#01BECA',
+            color: '#0077B6',
+            background: '#1D232A',
+        });
+    }
+};
+
+
+
 
      // ADD REVIEW
      const onSubmit = async (data) => {
