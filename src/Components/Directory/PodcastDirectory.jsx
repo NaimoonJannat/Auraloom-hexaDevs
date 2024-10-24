@@ -44,7 +44,7 @@ const PodcastDirectory = () => {
             }
 
             // Build the URL for fetching paginated podcasts
-            let url = `http://localhost:5000/podcasts-pagination?page=${page}&limit=${limit}`;
+            let url = `https://auraloom-backend.vercel.app/podcasts-pagination?page=${page}&limit=${limit}`;
             if (searchQuery) {
                 url += `&search=${encodeURIComponent(searchQuery)}`;
             }
@@ -70,7 +70,7 @@ const PodcastDirectory = () => {
     // Fetch the total number of podcasts based on the search query
     const fetchTotalPodcasts = async (query) => {
         try {
-            let url = 'http://localhost:5000/podcasts-pagination/count';
+            let url = 'https://auraloom-backend.vercel.app/podcasts-pagination/count';
             if (query) {
                 url += `?search=${encodeURIComponent(query)}`;
             }
