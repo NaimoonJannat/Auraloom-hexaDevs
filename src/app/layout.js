@@ -32,11 +32,11 @@ const RootLayout = ({ children }) => {
       >
         <AuthProvider>
 
-        <Suspense> <Navbar /> </Suspense>
+        {/* <Suspense> <Navbar /> </Suspense> */}
           <ClientLayout>
             {children}
           </ClientLayout>
-          <Footer />
+          {/* <Footer /> */}
         </AuthProvider>
       </body>
     </html>
