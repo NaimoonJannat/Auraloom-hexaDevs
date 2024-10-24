@@ -116,7 +116,7 @@ const Navbar = () => {
           {/* Search Input with Icon - Always Open */}
           <form
             onSubmit={handleSearchSubmit}
-            className="flex items-center border border-gray-300 rounded-full overflow-hidden hover:shadow transition-all duration-300"
+            className="hidden lg:flex items-center border border-gray-300 rounded-full overflow-hidden hover:shadow transition-all duration-300"
           >
             <button type="submit" className="p-2 px-4">
               <IoMdSearch className="text-xl" />
