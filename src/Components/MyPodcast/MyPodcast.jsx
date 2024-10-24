@@ -3,6 +3,7 @@ import React, { useContext, useEffect, useState } from "react";
 import axios from "axios";
 import { motion } from "framer-motion";
 import { AuthContext } from "../Provider/AuthProvider/AuthProvider";
+import Swal from 'sweetalert2'
 
 const MyPodcasts = () => {
   const { user } = useContext(AuthContext);
@@ -25,9 +26,38 @@ const MyPodcasts = () => {
         setLoading(false); // Stop loading after fetching data
       }
     };
-    
+
     getData();
   }, [user]);
+
+  const handleDelete = (id) => {
+    Swal.fire({
+      title: "Are you sure?",
+      text: "You won't be able to revert this!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, delete it!",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        fetch(`http://localhost:5000/podcasts/${id}`, {
+          method: "DELETE",
+        })
+          .then((res) => res.json())
+          .then((data) => {
+            if (data.deletedCount > 0) {
+              Swal.fire({
+                title: "Deleted!",
+                text: "Your file has been deleted.",
+                icon: "success",
+              });
+              // setItem(items.filter((i) => i._id !== id));
+            }
+          });
+      }
+    });
+  };
 
   return (
     <div className="p-6 rounded-lg shadow-md">
@@ -79,7 +109,10 @@ const MyPodcasts = () => {
                   <button className="bg-blue-500 text-white px-3 py-1 rounded-lg mr-2">
                     Update
                   </button>
-                  <button onClick={()=>handleDelete(_id)} className="bg-red-500 text-white px-3 py-1 rounded-lg">
+                  <button
+                    onClick={() => handleDelete(podcast._id)}
+                    className="bg-red-500 text-white px-3 py-1 rounded-lg"
+                  >
                     Delete
                   </button>
                 </td>
