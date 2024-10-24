@@ -32,14 +32,11 @@ const RootLayout = ({ children }) => {
       >
         <AuthProvider>
 
-        <Suspense fallback={<div>Loading podcasts...</div>}>
-            <Navbar />
-        </Suspense>
-
+        <Suspense> <Navbar /> </Suspense>
           <ClientLayout>
             {children}
           </ClientLayout>
- <Footer />
+          <Footer />
         </AuthProvider>
       </body>
     </html>
