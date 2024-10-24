@@ -322,8 +322,8 @@ const handleDislike = async () => {
                         <div className=" mb-10 lg:flex space-y-4 justify-between items-center">
                             <span className="bg-[#01BECA] px-2  items-center border border-transparent rounded-badge w-fit text-sm">{podcast.category}</span>
                             <div className="flex gap-10 text-lg font-medium">
-                                <span className="flex items-center gap-2 text-sm"> <FcLike className="text-2xl lg:text-3xl" /> {podcast && podcast.likes ? podcast.likes.length : 0} Likes</span>
-                                <span className="flex items-center gap-2 text-sm"> <FcDislike className="text-2xl lg:text-3xl" />{podcast && podcast.dislikes ? podcast.dislikes.length : 0} Dislikes</span>
+                                <span className="flex items-center gap-2 text-sm md:text-base"> <FcLike className="text-2xl lg:text-3xl" /> {podcast && podcast.likes ? podcast.likes.length : 0} Likes</span>
+                                <span className="flex items-center gap-2 text-sm md:text-base"> <FcDislike className="text-2xl lg:text-3xl" />{podcast && podcast.dislikes ? podcast.dislikes.length : 0} Dislikes</span>
                             </div>
                         </div>
                         <div className="lg:text-3xl text-lg  font-bold mb-5 lg:mb-10">{podcast.title}</div>
@@ -331,7 +331,7 @@ const handleDislike = async () => {
 
                          <AudioPlayer audioUrl={podcast.audioUrl} />      {/* playback control  */}
                          
-                        <div className="flex gap-4 items-center flex-wrap lg:mt-10 justify-center mt-4 md:mt-0">
+                        <div className="flex gap-4 items-center flex-wrap lg:mt-10 justify-center mt-4 md:mt-6">
                         <button 
                             onClick={handleLike} 
                             className="flex items-center gap-2 border text-sm md:text-base border-b-slate-300 py-1 md:py-2 lg:py-3 font-medium px-5 md:px-6 lg:px-7 rounded-badge bg-[#01BECA]"
