@@ -118,7 +118,7 @@ const MyPodcasts = () => {
       try {
         setLoading(true);
         const { data } = await axios(
-          `http://localhost:5000/podcasts-email/${user?.email}`
+          `https://auraloom-backend.vercel.app/podcasts-email/${user?.email}`
         );
         setItem(data);
       } catch (error) {
@@ -142,7 +142,7 @@ const MyPodcasts = () => {
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`http://localhost:5000/podcasts/${id}`, {
+        fetch(`https://auraloom-backend.vercel.app/podcasts/${id}`, {
           method: "DELETE",
         })
           .then((res) => res.json())
