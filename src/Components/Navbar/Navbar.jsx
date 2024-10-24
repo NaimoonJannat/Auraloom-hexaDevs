@@ -10,7 +10,6 @@ import { useRouter, useSearchParams } from "next/navigation";
 
 const Navbar = () => {
   const { user, logout } = useContext(AuthContext);
-  const [theme, setTheme] = useState(localStorage.getItem("theme") || "light");
   const [isScrolled, setIsScrolled] = useState(false);
   const [searchInput, setSearchInput] = useState(""); // To capture the input in the search bar
   const router = useRouter();
