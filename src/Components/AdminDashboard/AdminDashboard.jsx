@@ -1,5 +1,5 @@
 'use client';
-import React from "react";
+import React, { useEffect, useState } from "react";
 import CountUp from 'react-countup';
 import {
   FaChartBar,
@@ -26,6 +26,8 @@ import {
   Legend,
 } from 'chart.js';
 import Image from "next/image";
+import axios from "axios";
+import Swal from "sweetalert2";
 
 // Register components from Chart.js
 ChartJS.register(
@@ -43,11 +45,11 @@ const AdminDashboard = () => {
   const [items, setItem] = useState([])
   console.log(items)
   useEffect(() => {
-      const getData = async () => {
-          const { data } = await axios(`https://auraloom-backend.vercel.app/users`)
-          setItem(data)
-      }
-      getData()
+    const getData = async () => {
+      const { data } = await axios(`https://auraloom-backend.vercel.app/users`)
+      setItem(data)
+    }
+    getData()
   }, [])
   const listensData = {
     labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul'],
@@ -109,26 +111,33 @@ const AdminDashboard = () => {
     },
   };
 
-  const creatorsData = [
-    {
-      photo: 'https://wallpapers.com/images/featured/cool-profile-picture-87h46gcobjl5e4xu.jpg',
-      name: 'Mahbub Sarwar Shafi',
-      podcasts: 15,
-      profileLink: '/creators/shafi',
-    },
-    {
-      photo: 'https://i.pinimg.com/236x/db/1f/9a/db1f9a3eaca4758faae5f83947fa807c.jpg',
-      name: 'Jannatul Ferdous Mirza',
-      podcasts: 10,
-      profileLink: '/creators/mirza',
-    },
-    {
-      photo: 'https://i.pinimg.com/736x/51/ec/d0/51ecd0532e8d08227b15fa65a55cf522.jpg',
-      name: 'Sayeed Hossain Sagor',
-      podcasts: 20,
-      profileLink: '/creators/sagor',
-    },
-  ];
+  //deleting user
+  const handleDelete = _id => {
+    Swal.fire({
+      title: "Are you sure?",
+      text: "You won't be able to revert this!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, delete!"
+    }).then(async (result) => {
+      if (result.isConfirmed) {
+        try {
+          const { data } = await axios.delete(`https://auraloom-backend.vercel.app/users/${_id}`);
+          if (data.deletedCount > 0) {
+            Swal.fire({
+              title: "Deleted!",
+              text: "User has been deleted.",
+              icon: "success"
+            });
+          }
+        } catch (err) {
+          console.log(err.message);
+        }
+      }
+    });
+  };
 
   return (
     <div className="flex flex-col lg:flex-row min-h-screen">
@@ -215,8 +224,8 @@ const AdminDashboard = () => {
         </div>
 
         {/* Other sections */}
-        <div className="flex flex-col md:flex-row">
-          <div className=" shadow-lg p-4 sm:p-6 rounded-lg mb-6 w-full md:w-1/2">
+        <div className="flex flex-col ">
+          <div className=" shadow-lg p-4 sm:p-6 rounded-lg mb-6 w-full ">
             <h2 className="text-lg sm:text-xl font-bold mb-4">Monthly Listens</h2>
             <div className="h-48 sm:h-64 md:h-72 lg:h-80">
               <Line data={listensData} options={chartOptions} />
@@ -224,8 +233,8 @@ const AdminDashboard = () => {
           </div>
 
 
-          <div className=" shadow-lg p-4 sm:p-6 rounded-lg mb-6 w-full md:w-1/2">
-            <h2 className="text-lg sm:text-xl font-bold mb-4">Creators</h2>
+          <div className=" shadow-lg p-4 sm:p-6 rounded-lg mb-6 w-full">
+            <h2 className="text-lg sm:text-xl font-bold mb-4">All Users</h2>
             <div className="overflow-x-auto">
               <table className="w-full table-auto">
                 <thead>
@@ -237,15 +246,17 @@ const AdminDashboard = () => {
                   </tr>
                 </thead>
                 <tbody>
-                  {item.map((item, index) => (
+                  {items.map((item, index) => (
                     <tr key={index}>
                       <td className="px-2 sm:px-4 py-2">
-                        <Image src={creator.photo} alt={creator.name} width={50} height={50} className="rounded-full" />
+                        <Image src={item.photoURL} alt={item.photo} width={50} height={50} className="rounded-full object-cover" />
                       </td>
-                      <td className="px-2 sm:px-4 py-2">{creator.name}</td>
-                      <td className="px-2 sm:px-4 py-2">{creator.podcasts}</td>
-                      <td className="px-2 sm:px-4 py-2">
-                        <a href={creator.profileLink} className="text-blue-500 hover:underline">View Profile</a>
+                      <td className="px-2 sm:px-4 py-2">{item.name}</td>
+                      <td className="px-2 sm:px-4 py-2">{item.email}</td>
+                      <td className=" px-4 py-2 text-center">
+                        <button onClick={() => handleDelete(item._id)} className="bg-red-500 text-white px-3 py-1 rounded-lg">
+                          Delete User
+                        </button>
                       </td>
                     </tr>
                   ))}
