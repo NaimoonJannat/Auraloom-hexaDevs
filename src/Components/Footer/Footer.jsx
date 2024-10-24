@@ -3,7 +3,7 @@ import logo from "./../../../public/auraloom-logo.png";
 
 const Footer = () => {
   return (
-    <div className="bg-blue-100 font-montserrat">
+    <div className="bg-[#3493f1d7] font-montserrat">
       <footer className="container mx-auto">
         <div className="footer p-10">
           <aside>
@@ -35,7 +35,7 @@ const Footer = () => {
             <a className="link link-hover">Premium Family</a>
           </nav>
         </div>
-      <div className="footer bg-blue-100 items-center p-4">
+      <div className="footer  items-center p-4">
         <aside className="grid-flow-col items-center">
           <p className="px-6">Copyright © {new Date().getFullYear()} - All right reserved to Team HexaDevs</p>
         </aside>
