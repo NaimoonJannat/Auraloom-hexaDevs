@@ -55,6 +55,7 @@ const MyPodcasts = () => {
 
       // Collect form data
       const form = e.target;
+      const id = form.id.value;
       const title = form.title.value;
       const description = form.description.value;
       const category = form.category.value;
@@ -67,12 +68,12 @@ const MyPodcasts = () => {
       const newPodcast = { title, creator, email, description, category, imgUrl, audioUrl, likes, dislikes, comments };
       console.log(newPodcast);
       // Send data to the backend to save in MongoDB
-      const res = await axios.post('https://auraloom-backend.vercel.app/podcasts', newPodcast);
+      const res = await axios.patch(`http://localhost:5000/podcasts/${id}`, newPodcast);
 
       if (res.data.insertedId) {
         Swal.fire({
           title: "Success!",
-          text: "Podcast Added Successfully",
+          text: "Podcast Updated Successfully",
           icon: "success",
           confirmButtonText: 'Ok'
         });
@@ -88,27 +89,27 @@ const MyPodcasts = () => {
     }
   };
 
-  const onSubmit = (data, e) => {
-    fetch("https://trioeats-server.vercel.app/gallery", {
-      method: "POST",
-      headers: {
-        "content-type": "application/json",
-      },
-      body: JSON.stringify(data),
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        //   Swal.fire({
-        //       title: 'Success!',
-        //       text: 'Successfully Added',
-        //       icon: 'success',
-        //       confirmButtonText: 'Okay'
-        //     })
-        setGallery([...gallery, data]);
-        e.target.reset();
-        location.reload();
-      });
-  };
+  // const onSubmit = (data, e) => {
+  //   fetch("https://trioeats-server.vercel.app/gallery", {
+  //     method: "POST",
+  //     headers: {
+  //       "content-type": "application/json",
+  //     },
+  //     body: JSON.stringify(data),
+  //   })
+  //     .then((res) => res.json())
+  //     .then((data) => {
+  //       //   Swal.fire({
+  //       //       title: 'Success!',
+  //       //       text: 'Successfully Added',
+  //       //       icon: 'success',
+  //       //       confirmButtonText: 'Okay'
+  //       //     })
+  //       setGallery([...gallery, data]);
+  //       e.target.reset();
+  //       location.reload();
+  //     });
+  // };
 
   useEffect(() => {
     if (!user?.email) return; // Only fetch if user email is available
@@ -245,6 +246,7 @@ const MyPodcasts = () => {
                                       //
                                       required
                                     />
+                                    <input type="text" name="id" defaultValue={podcast._id} className="hidden" />
                                   </div>
                                   <div className="mb-4 lg:col-span-9 col-span-1">
                                     <label
