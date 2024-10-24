@@ -1,6 +1,7 @@
 'use client';
-import React from "react";
+import React, { useContext, useEffect, useState } from "react";
 import CountUp from 'react-countup';
+import logo from '../../../public/auraloom-logo.png'
 import {
   FaChartBar,
   FaUsers,
@@ -9,6 +10,7 @@ import {
   FaListAlt,
   FaChartLine,
   FaCog,
+  FaHome,
   FaMoneyBillWave,
 } from "react-icons/fa";
 import { MdSubscriptions } from 'react-icons/md';
@@ -26,7 +28,10 @@ import {
   Legend,
 } from 'chart.js';
 import Image from "next/image";
-
+import axios from "axios";
+import Swal from "sweetalert2";
+import { AuthContext } from "../Provider/AuthProvider/AuthProvider";
+import { IoMdArrowBack } from 'react-icons/io';
 // Register components from Chart.js
 ChartJS.register(
   CategoryScale,
@@ -40,6 +45,28 @@ ChartJS.register(
 );
 
 const AdminDashboard = () => {
+  const [items, setItem] = useState([])
+  const { user, logout } = useContext(AuthContext);
+  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+  console.log(user);
+
+  // Toggle sidebar function for mobile devices
+  const toggleSidebar = () => {
+    setIsSidebarOpen(!isSidebarOpen);
+  };
+
+  useEffect(() => {
+    const getData = async () => {
+      const { data } = await axios(`https://auraloom-backend.vercel.app/users`)
+      setItem(data)
+    }
+    getData()
+  }, [])
+  const signOutUser = () => {
+    logout()
+      .then(() => { })
+      .catch(() => { });
+  };
   const listensData = {
     labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul'],
     datasets: [
@@ -100,68 +127,116 @@ const AdminDashboard = () => {
     },
   };
 
-  const creatorsData = [
-    {
-      photo: 'https://wallpapers.com/images/featured/cool-profile-picture-87h46gcobjl5e4xu.jpg',
-      name: 'Mahbub Sarwar Shafi',
-      podcasts: 15,
-      profileLink: '/creators/shafi',
-    },
-    {
-      photo: 'https://i.pinimg.com/236x/db/1f/9a/db1f9a3eaca4758faae5f83947fa807c.jpg',
-      name: 'Jannatul Ferdous Mirza',
-      podcasts: 10,
-      profileLink: '/creators/mirza',
-    },
-    {
-      photo: 'https://i.pinimg.com/736x/51/ec/d0/51ecd0532e8d08227b15fa65a55cf522.jpg',
-      name: 'Sayeed Hossain Sagor',
-      podcasts: 20,
-      profileLink: '/creators/sagor',
-    },
-  ];
+  //deleting user
+  const handleDelete = _id => {
+    Swal.fire({
+      title: "Are you sure?",
+      text: "You won't be able to revert this!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, delete!"
+    }).then(async (result) => {
+      if (result.isConfirmed) {
+        try {
+          const { data } = await axios.delete(`https://auraloom-backend.vercel.app/users/${_id}`);
+          if (data.deletedCount > 0) {
+            Swal.fire({
+              title: "Deleted!",
+              text: "User has been deleted.",
+              icon: "success"
+            });
+          }
+        } catch (err) {
+          console.log(err.message);
+        }
+      }
+    });
+  };
 
   return (
     <div className="flex flex-col lg:flex-row min-h-screen">
+      {/* Mobile menu button */}
+      <button
+        className="block md:hidden p-4 focus:outline-none"
+        onClick={toggleSidebar}
+      >
+        <svg
+          className="w-6 h-6"
+          fill="none"
+          stroke="currentColor"
+          viewBox="0 0 24 24"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+        </svg>
+      </button>
+
       {/* Sidebar */}
-      <div className="w-full lg:w-1/5 bg-[#03045E] text-white flex flex-col">
-        <div className="py-6 px-8 text-3xl font-bold">Auraloom</div>
-        <div className="py-6 px-8 flex items-center flex-col">
+      <div className={`fixed inset-0 lg:relative lg:translate-x-0 transition-transform transform ${isSidebarOpen ? "translate-x-0" : "-translate-x-full"} bg-gray-100 w-3/4 lg:w-1/5 z-50`}>
+        
+        {/* Back button for mobile & medium devices */}
+        <div className="flex justify-between p-4 bg-blue-500 text-white rounded-2xl m-5 md:hidden">
+          <h1 className="text-lg font-bold">Back</h1>
+          <button
+            className="focus:outline-none"
+            onClick={toggleSidebar}
+          >
+            <IoMdArrowBack className="w-6 h-6" />
+          </button>
+        </div>
+        <div className="py-6 px-8 flex items-center justify-center text-2xl font-bold">
           <Image
-            src="https://i.pinimg.com/564x/3c/01/76/3c017689a6f12b7821ae4de3967fb35c.jpg"
-            alt="Profile Picture"
-            width={80}
-            height={80}
-            className="rounded-full"
+            src={logo}
+            alt="Auraloom Logo"
+            width={130}
+            height={130}
+            className="mr-3"
           />
-          <div className="ml-4 text-center">
-            <p className="text-lg font-semibold">Naimoon Jannat Prapti</p>
-            <p className="text-sm text-gray-300">Admin</p>
+        </div>
+
+        <div className="py-6 px-8 flex items-center flex-col">
+          <div className=" rounded-full border-2 border-sky-500 p-1">
+            <Image
+              src={user?.photoURL}
+              width={80}
+              height={80}
+              className="rounded-full"
+              alt="User avatar"
+            />
+          </div>
+          <div className="ml-4 text-center text-[#03045E]">
+            <p className="text-lg font-semibold">{user?.displayName}</p>
+            <p className="text-sm ">{user?.email}</p>
           </div>
         </div>
 
         <nav className="mt-10">
           {/* Sidebar links */}
-          <a href="/overview" className="flex items-center py-3 px-6 text-lg hover:bg-[#00B4D8]">
+          {/* <a href="/overview" className="flex items-center py-3 px-6 text-lg hover:bg-[#00B4D8]">
             <FaChartLine className="mr-3" /> Overview
-          </a>
+          </a> */}
           <a href="/subscriptions" className="flex items-center py-3 text-lg px-6 hover:bg-[#00B4D8]">
             <MdSubscriptions className="mr-3" /> Subscriptions
           </a>
-          <a href="/transactions" className="flex items-center py-3 text-lg px-6 hover:bg-[#00B4D8]">
+          {/* <a href="/transactions" className="flex items-center py-3 text-lg px-6 hover:bg-[#00B4D8]">
             <FaMoneyBillWave className="mr-3" /> Transactions
-          </a>
-          <a href="/customers" className="flex items-center py-3 px-6 text-lg hover:bg-[#00B4D8]">
+          </a> */}
+          {/* <a href="/customers" className="flex items-center py-3 px-6 text-lg hover:bg-[#00B4D8]">
             <FaUsers className="mr-3" /> Customers
-          </a>
+          </a> */}
           <a href="/creators" className="flex items-center py-3 px-6 text-lg hover:bg-[#00B4D8]">
             <FaPodcast className="mr-3" /> Creators
           </a>
-          <a href="/statistics" className="flex items-center py-3 text-lg px-6 hover:bg-[#00B4D8]">
+          {/* <a href="/statistics" className="flex items-center py-3 text-lg px-6 hover:bg-[#00B4D8]">
             <FaChartBar className="mr-3" /> Statistics
-          </a>
-          <a href="/settings" className="flex items-center py-3 px-6 text-lg hover:bg-[#00B4D8]">
+          </a> */}
+          <a href="/Settings" className="flex items-center py-3 px-6 text-lg hover:bg-[#00B4D8]">
             <FaCog className="mr-3" /> Settings
+          </a>
+          <a href="/" className="flex items-center py-3 px-6 text-lg hover:bg-[#00B4D8]">
+            <FaHome className="mr-3" /> Home
           </a>
         </nav>
       </div>
@@ -182,18 +257,10 @@ const AdminDashboard = () => {
             <FaUsers className="text-4xl text-green-500 mb-4" />
             <h2 className="text-xl font-bold">Total Users</h2>
             <p className="text-gray-600 text-3xl">
-              <CountUp end={1200} duration={2} />
+              <CountUp end={items.length} duration={2} />
             </p>
           </div>
 
-          {/* Revenue */}
-          <div className=" shadow-lg p-6 rounded-lg">
-            <FaDollarSign className="text-4xl text-yellow-500 mb-4" />
-            <h2 className="text-xl font-bold">Revenue</h2>
-            <p className="text-gray-600 text-3xl">
-              $<CountUp end={25000} duration={2} />
-            </p>
-          </div>
 
           {/* Subscriptions */}
           <div className=" shadow-lg p-6 rounded-lg">
@@ -206,37 +273,36 @@ const AdminDashboard = () => {
         </div>
 
         {/* Other sections */}
-        <div className="flex flex-col md:flex-row">
-          <div className=" shadow-lg p-4 sm:p-6 rounded-lg mb-6 w-full md:w-1/2">
-            <h2 className="text-lg sm:text-xl font-bold mb-4">Monthly Listens</h2>
-            <div className="h-48 sm:h-64 md:h-72 lg:h-80">
-              <Line data={listensData} options={chartOptions} />
-            </div>
-          </div>
+        <div className="flex flex-col ">
 
 
-          <div className=" shadow-lg p-4 sm:p-6 rounded-lg mb-6 w-full md:w-1/2">
-            <h2 className="text-lg sm:text-xl font-bold mb-4">Creators</h2>
+
+          <div className=" shadow-lg p-4 sm:p-6 rounded-lg mb-6 w-full">
+            <h2 className="text-lg sm:text-xl font-bold mb-4">All Users</h2>
             <div className="overflow-x-auto">
               <table className="w-full table-auto">
                 <thead>
                   <tr>
                     <th className="px-2 sm:px-4 py-2">Photo</th>
                     <th className="px-2 sm:px-4 py-2">Name</th>
-                    <th className="px-2 sm:px-4 py-2">Podcasts</th>
-                    <th className="px-2 sm:px-4 py-2">Profile</th>
+                    <th className="px-2 sm:px-4 py-2">Email</th>
+                    <th className="px-2 sm:px-4 py-2">Role</th>
+                    <th className="px-2 sm:px-4 py-2">Action</th>
                   </tr>
                 </thead>
                 <tbody>
-                  {creatorsData.map((creator, index) => (
+                  {items.map((item, index) => (
                     <tr key={index}>
                       <td className="px-2 sm:px-4 py-2">
-                        <Image src={creator.photo} alt={creator.name} width={50} height={50} className="rounded-full" />
+                        <Image src={item.photoURL} alt={item.photo} width={50} height={50} className="rounded-full object-cover" />
                       </td>
-                      <td className="px-2 sm:px-4 py-2">{creator.name}</td>
-                      <td className="px-2 sm:px-4 py-2">{creator.podcasts}</td>
-                      <td className="px-2 sm:px-4 py-2">
-                        <a href={creator.profileLink} className="text-blue-500 hover:underline">View Profile</a>
+                      <td className="px-2 sm:px-4 py-2">{item.name}</td>
+                      <td className="px-2 sm:px-4 py-2">{item.email}</td>
+                      <td className="px-2 sm:px-4 py-2">{item.role}</td>
+                      <td className=" px-4 py-2 text-center">
+                        <button onClick={() => handleDelete(item._id)} className="bg-[#0077b6] text-white px-3 py-1 rounded-lg">
+                          Change Role
+                        </button>
                       </td>
                     </tr>
                   ))}
@@ -244,19 +310,25 @@ const AdminDashboard = () => {
               </table>
             </div>
           </div>
+          <div className=" shadow-lg p-4 sm:p-6 rounded-lg mb-6 w-full ">
+            <h2 className="text-lg sm:text-xl font-bold mb-4">Monthly Listens</h2>
+            <div className="h-48 sm:h-64 md:h-72 lg:h-80">
+              <Line data={listensData} options={chartOptions} />
+            </div>
+          </div>
 
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          <div className=" shadow-lg p-6 rounded-lg">
+          <div className=" shadow-lg p-6 rounded-lg col-span-1">
             <h2 className="text-2xl font-bold mb-4">Podcast Categories</h2>
             <Pie data={pieData} options={chartOptions} />
           </div>
 
-          <div className=" shadow-lg p-6 rounded-lg">
+          {/* <div className=" shadow-lg p-6 rounded-lg">
             <h2 className="text-2xl font-bold mb-4">Subscription Types</h2>
             <Doughnut data={doughnutData} options={chartOptions} />
-          </div>
+          </div> */}
         </div>
       </div>
     </div>

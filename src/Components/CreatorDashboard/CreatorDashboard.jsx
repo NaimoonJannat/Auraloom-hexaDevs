@@ -50,7 +50,7 @@ const CreatorDashboard = () => {
                 </svg>
             </button>
             {/* Sidebar */}
-            <aside className={`w-64 min-h-screen p-6  shadow-lg z-10 md:relative md:translate-x-0 fixed transform transition-transform ${isSidebarOpen ? "translate-x-0" : "-translate-x-full"} md:flex md:flex-col`}>
+            <aside className={`w-64 min-h-screen p-6  shadow-lg z-10 md:relative md:translate-x-0 fixed transform transition-transform ${isSidebarOpen ? "translate-x-0" : "-translate-x-full"} bg-gray-100 md:flex md:flex-col`}>
                 <div>
                     {/* Back button for mobile & medium devices */}
                     <div className="flex justify-between p-4 bg-blue-500 text-white rounded-2xl m-5 md:hidden">
