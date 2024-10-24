@@ -40,6 +40,15 @@ ChartJS.register(
 );
 
 const AdminDashboard = () => {
+  const [items, setItem] = useState([])
+  console.log(items)
+  useEffect(() => {
+      const getData = async () => {
+          const { data } = await axios(`https://auraloom-backend.vercel.app/users`)
+          setItem(data)
+      }
+      getData()
+  }, [])
   const listensData = {
     labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul'],
     datasets: [
@@ -223,12 +232,12 @@ const AdminDashboard = () => {
                   <tr>
                     <th className="px-2 sm:px-4 py-2">Photo</th>
                     <th className="px-2 sm:px-4 py-2">Name</th>
-                    <th className="px-2 sm:px-4 py-2">Podcasts</th>
-                    <th className="px-2 sm:px-4 py-2">Profile</th>
+                    <th className="px-2 sm:px-4 py-2">Email</th>
+                    <th className="px-2 sm:px-4 py-2">Action</th>
                   </tr>
                 </thead>
                 <tbody>
-                  {creatorsData.map((creator, index) => (
+                  {item.map((item, index) => (
                     <tr key={index}>
                       <td className="px-2 sm:px-4 py-2">
                         <Image src={creator.photo} alt={creator.name} width={50} height={50} className="rounded-full" />
