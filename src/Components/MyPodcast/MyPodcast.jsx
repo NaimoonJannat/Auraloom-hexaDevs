@@ -10,19 +10,19 @@ const MyPodcasts = () => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    if (!user?.email) return; // Only fetch if user email is available
+    if (!user?.email) return;
 
     const getData = async () => {
       try {
         setLoading(true);
         const { data } = await axios(
-          `https://auraloom-backend.vercel.app/podcasts/${user?.email}`
+          `https://auraloom-backend.vercel.app/creator-podcasts/${user?.email}`
         );
         setItem(data);
       } catch (error) {
         console.error("Error fetching podcasts:", error);
       } finally {
-        setLoading(false); // Stop loading after fetching data
+        setLoading(false); 
       }
     };
     
