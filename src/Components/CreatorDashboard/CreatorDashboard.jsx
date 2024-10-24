@@ -110,7 +110,8 @@ const CreatorDashboard = () => {
                                 <Typewriter
                                     words={[
                                         `Hello ${user?.displayName || 'Guest'}`,
-                                        'Be a creator!'
+                                        'your story starts here!',
+                                        'Share your voice with the world'
                                     ]}
                                     loop={20}
                                     cursor
