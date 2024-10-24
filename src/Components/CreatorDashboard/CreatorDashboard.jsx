@@ -16,6 +16,7 @@ import Lottie from "lottie-react";
 import creatordashboardanimation from '../../../public/creatordashboard.json';
 import studio from '../../../public/studio.jpg'
 import AddPodcast from '../add-podcast/AddPodcast';
+import { IoMdArrowBack } from 'react-icons/io';
 const CreatorDashboard = () => {
     const { user, logout } = useContext(AuthContext);
     const [isSidebarOpen, setIsSidebarOpen] = useState(false);
@@ -25,16 +26,17 @@ const CreatorDashboard = () => {
             .then(() => { })
             .catch(() => { });
     };
-      // Toggle sidebar function for mobile devices
-      const toggleSidebar = () => {
+    // Toggle sidebar function for mobile devices
+    const toggleSidebar = () => {
         setIsSidebarOpen(!isSidebarOpen);
     };
 
+
     return (
         <div className="min-h-screen flex">
-                 {/* Mobile menu button */}
-                 <button 
-                className="block md:hidden p-4 focus:outline-none" 
+            {/* Mobile menu button */}
+            <button
+                className="block md:hidden p-4 focus:outline-none"
                 onClick={toggleSidebar}
             >
                 <svg
@@ -48,8 +50,18 @@ const CreatorDashboard = () => {
                 </svg>
             </button>
             {/* Sidebar */}
-            <aside  className={`w-64 min-h-screen p-6 bg-white shadow-lg z-10 md:relative md:translate-x-0 fixed transform transition-transform ${isSidebarOpen ? "translate-x-0" : "-translate-x-full"} md:flex md:flex-col`}>
+            <aside className={`w-64 min-h-screen p-6 bg-white shadow-lg z-10 md:relative md:translate-x-0 fixed transform transition-transform ${isSidebarOpen ? "translate-x-0" : "-translate-x-full"} md:flex md:flex-col`}>
                 <div>
+                    {/* Back button for mobile & medium devices */}
+                    <div className="flex justify-between p-4 bg-blue-500 text-white rounded-2xl m-5 md:hidden">
+                        <h1 className="text-lg font-bold">Back</h1>
+                        <button
+                            className="focus:outline-none"
+                            onClick={toggleSidebar}
+                        >
+                            <IoMdArrowBack className="w-6 h-6" />
+                        </button>
+                    </div>
                     <div>
                         {/* Avatar dropdown */}
                         <div className="dropdown dropdown-end">
