@@ -215,7 +215,9 @@ const AdminDashboard = () => {
           </div>
         </div>
 
-       
+        {/* Other sections */}
+        <div className="flex flex-col ">
+         
 
 
           <div className=" shadow-lg p-4 sm:p-6 rounded-lg mb-6 w-full">
@@ -251,16 +253,14 @@ const AdminDashboard = () => {
               </table>
             </div>
           </div>
-
-        </div>
-         {/* Other sections */}
-         <div className="flex flex-col ">
           <div className=" shadow-lg p-4 sm:p-6 rounded-lg mb-6 w-full ">
             <h2 className="text-lg sm:text-xl font-bold mb-4">Monthly Listens</h2>
             <div className="h-48 sm:h-64 md:h-72 lg:h-80">
               <Line data={listensData} options={chartOptions} />
             </div>
           </div>
+
+        </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <div className=" shadow-lg p-6 rounded-lg">
