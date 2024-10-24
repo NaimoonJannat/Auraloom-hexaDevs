@@ -1,12 +1,9 @@
 "use client"
 import React, { useContext } from 'react';
 import Link from "next/link";
-import { FaMusic } from 'react-icons/fa';
 import Image from 'next/image';
 import { AuthContext } from '../Provider/AuthProvider/AuthProvider';
-import { Tooltip } from 'react-tooltip'
-import { HomeIcon, MusicNoteIcon, ChartBarIcon, HeartIcon, ClockIcon, BookOpenIcon, MicrophoneIcon } from '@heroicons/react/outline';
-import { PlayIcon } from '@heroicons/react/solid';
+import { HomeIcon, MusicNoteIcon, ClockIcon, BookOpenIcon, MicrophoneIcon } from '@heroicons/react/outline';
 import PrivateRoute from '../PrivateRoute/PrivateRoute';
 
 
@@ -20,7 +17,7 @@ const Sidebar = () => {
     };
     return (
         <PrivateRoute>
-            <div className="w-64 bg-gray-800 p-5 text-white">
+            <div className="w-64 fixed h-screen bg-gray-800 p-5 text-white">
                 <h1 className="text-2xl font-bold mb-10">AURALOOM</h1>
                 <nav className="space-y-1">
                     <Link href={"/"} className="flex items-center space-x-2 hover:bg-gray-700 p-2 rounded-md">
