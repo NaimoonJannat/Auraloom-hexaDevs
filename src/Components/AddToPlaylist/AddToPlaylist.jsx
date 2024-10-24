@@ -10,10 +10,10 @@ const AddToPlaylist = () => {
                 <div class="grid gap-6 text-center md:grid-cols-3">
                     <div>
                         <div
-                            class="block rounded-lg bg-white shadow-lg dark:bg-neutral-700 dark:shadow-black/30">
+                            class="block rounded-lg  shadow-lg dark:bg-neutral-700 dark:shadow-black/30">
                             <div class="h-28 overflow-hidden rounded-t-lg bg-[#6d5b98]"></div>
                             <div
-                                class="mx-auto -mt-12 w-24 overflow-hidden rounded-full border-2 border-white bg-white dark:border-neutral-800 dark:bg-neutral-800">
+                                class="mx-auto -mt-12 w-24 overflow-hidden rounded-full border-2 border-white  dark:border-neutral-800 dark:bg-neutral-800">
                                 <img
                                     src="https://tecdn.b-cdn.net/img/Photos/Avatars/img%20(9).webp" />
                             </div>
@@ -40,7 +40,7 @@ const AddToPlaylist = () => {
                 </div>
             </section> */}
 
-            <article className="rounded-xl bg-white p-4 ring ring-indigo-50 sm:p-6 lg:p-8 mt-10">
+            <article className="rounded-xl  p-4 ring ring-indigo-50 sm:p-6 lg:p-8 mt-10">
                 <div className="flex items-start sm:gap-8">
                     <div
                         className="hidden sm:grid sm:size-20 sm:shrink-0 sm:place-content-center sm:rounded-full sm:border-2 sm:border-indigo-500"
@@ -112,7 +112,7 @@ const AddToPlaylist = () => {
             <dialog id="my_modal_1" className="modal">
                 <div className="modal-box max-w-4xl">
                     {/* CARD */}
-                    <div className="bg-white ">
+                    <div className=" ">
                         <div className="mx-auto max-w-screen-xl px-4 md:px-8">
 
                             <div className="">

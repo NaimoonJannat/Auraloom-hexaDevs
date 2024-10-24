@@ -8,7 +8,7 @@ import animation from "../../../public/json/animation.json";
 
 const AuraloomAi = () => {
     return (
-        <section className="bg-white py-10 px-5 lg:px-32 text-center">
+        <section className=" py-10 px-5 lg:px-32 text-center">
             {/* Heading */}
             <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4 text-gray-800">
                 Elevate your podcast with AuraPod AI
@@ -59,11 +59,11 @@ const AuraloomAi = () => {
                 <div className="flex-1 bg-green-100 p-6 rounded-lg shadow-lg">
                     <h3 className="font-bold text-lg text-gray-700 mb-2">Preview and Select Your Preferred File</h3>
                     <div className="space-y-3">
-                        <div className="bg-white p-4 rounded-lg flex justify-between items-center">
+                        <div className=" p-4 rounded-lg flex justify-between items-center">
                             <span className="text-sky-500 font-bold">AI Optimized</span>
                             <span className="text-black"><FaFileWaveform className='bg-none text-2xl'></FaFileWaveform></span>
                         </div>
-                        <div className="bg-white p-4 rounded-lg flex justify-between items-center">
+                        <div className=" p-4 rounded-lg flex justify-between items-center">
                             <span className="text-gray-500 font-bold">Original</span>
                             <span className="text-gray-500"><FaFileWaveform className='bg-none text-2xl'></FaFileWaveform></span>
                         </div>

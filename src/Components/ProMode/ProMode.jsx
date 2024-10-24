@@ -7,13 +7,13 @@ const ProMode = () => {
                 <div
                     className="absolute inset-x-0 top-1/2 h-px -translate-y-1/2 bg-transparent bg-gradient-to-r from-transparent via-gray-500 to-transparent opacity-75"
                 ></div>
-                <span className="relative z-10 bg-white text-2xl px-6 text-[#0077b6]">Buy Subscription</span>
+                <span className="relative z-10  text-2xl px-6 text-[#0077b6]">Buy Subscription</span>
             </span>
             <h2 className='text-center text-4xl font-bold text-[#03045e]'>Choose Your Best Plan</h2>
 
 
 
-            <div className="bg-white ">
+            <div className=" ">
                 <div className="mx-auto max-w-screen-xl px-4 md:px-8">
                     {/* <h2 className="mb-4 text-center text-2xl font-bold text-gray-800 md:mb-8 lg:text-3xl xl:mb-12">Our plans for you</h2> */}
 

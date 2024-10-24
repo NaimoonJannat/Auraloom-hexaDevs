@@ -10,11 +10,11 @@ const Notifications = () => {
                     className="absolute inset-x-0 top-1/2 h-px -translate-y-1/2 bg-transparent bg-gradient-to-r from-transparent via-gray-500 to-transparent opacity-75 scale-75"
                 ></div>
 
-                <span className="relative z-10 bg-white px-6 text-2xl text-[#0077b6]">Notifications</span>
+                <span className="relative z-10  px-6 text-2xl text-[#0077b6]">Notifications</span>
             </span>
 
             <div className="space-y-5 mx-8">
-                <div className="relative mx-auto max-w-full border-b border-b-[#00b4d8] bg-white p-4 text-sm hover:bg-[#caf0f8] hover:rounded-md hover:border-[#03045e] scale-75">
+                <div className="relative mx-auto max-w-full border-b border-b-[#00b4d8]  p-4 text-sm hover:bg-[#caf0f8] hover:rounded-md hover:border-[#03045e] scale-75">
                     <button className="top-4 absolute right-4 ml-auto text-secondary-500 hover:text-secondary-900">
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" className="h-5 w-5">
                             <path d="M6.28 5.22a.75.75 0 00-1.06 1.06L8.94 10l-3.72 3.72a.75.75 0 101.06 1.06L10 11.06l3.72 3.72a.75.75 0 101.06-1.06L11.06 10l3.72-3.72a.75.75 0 00-1.06-1.06L10 8.94 6.28 5.22z" />
@@ -44,7 +44,7 @@ const Notifications = () => {
                 </div>
             </div>
             <div className="space-y-5 mx-8">
-                <div className="relative mx-auto max-w-full border-b border-b-[#00b4d8] bg-white p-4 text-sm hover:bg-[#caf0f8] hover:rounded-md hover:border-[#03045e] scale-75">
+                <div className="relative mx-auto max-w-full border-b border-b-[#00b4d8]  p-4 text-sm hover:bg-[#caf0f8] hover:rounded-md hover:border-[#03045e] scale-75">
                     <button className="ttop-4 absolute right-4 ml-auto text-secondary-500 hover:text-secondary-900">
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" className="h-5 w-5">
                             <path d="M6.28 5.22a.75.75 0 00-1.06 1.06L8.94 10l-3.72 3.72a.75.75 0 101.06 1.06L10 11.06l3.72 3.72a.75.75 0 101.06-1.06L11.06 10l3.72-3.72a.75.75 0 00-1.06-1.06L10 8.94 6.28 5.22z" />
@@ -74,7 +74,7 @@ const Notifications = () => {
                 </div>
             </div>
             <div className="space-y-5 mx-8">
-                <div className="relative mx-auto max-w-full border-b border-b-[#00b4d8] bg-white p-4 text-sm hover:bg-[#caf0f8] hover:rounded-md hover:border-[#03045e] scale-75">
+                <div className="relative mx-auto max-w-full border-b border-b-[#00b4d8]  p-4 text-sm hover:bg-[#caf0f8] hover:rounded-md hover:border-[#03045e] scale-75">
                     <button className="ttop-4 absolute right-4 ml-auto text-secondary-500 hover:text-secondary-900">
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" className="h-5 w-5">
                             <path d="M6.28 5.22a.75.75 0 00-1.06 1.06L8.94 10l-3.72 3.72a.75.75 0 101.06 1.06L10 11.06l3.72 3.72a.75.75 0 101.06-1.06L11.06 10l3.72-3.72a.75.75 0 00-1.06-1.06L10 8.94 6.28 5.22z" />

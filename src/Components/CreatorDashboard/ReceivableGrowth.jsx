@@ -46,7 +46,7 @@ const ReceivableGrowth = () => {
     };
 
     return (
-        <div className="p-4 bg-white rounded-lg shadow-sm">
+        <div className="p-4  rounded-lg shadow-sm">
             <Bar data={data} options={options} />
         </div>
     );

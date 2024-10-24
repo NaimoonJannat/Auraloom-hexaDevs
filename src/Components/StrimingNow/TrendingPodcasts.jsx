@@ -184,7 +184,7 @@ const TrendingPodcasts = () => {
                     <div
                         className="absolute inset-x-0 top-1/2 h-px -translate-y-1/2 bg-transparent bg-gradient-to-r from-transparent via-gray-500 to-transparent opacity-75 scale-75"
                     ></div>
-                    <span className="relative z-10 bg-white px-6 text-2xl text-[#0077b6] font-montserrat">Trending Podcasts</span>
+                    <span className="relative z-10  px-6 text-2xl text-[#0077b6] font-montserrat">Trending Podcasts</span>
                 </span>
                 <p className="mt-4 text-center mb-8 dark:text-sky-950">
                     Discover top podcasts from various categories, hosted by industry experts.

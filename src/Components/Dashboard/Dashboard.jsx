@@ -53,7 +53,7 @@ export default function Dashboard({ isCreator }) {
             </div>
             <div className="container mx-auto p-4">
 
-                <div className="bg-white rounded-lg shadow-md p-6">
+                <div className=" rounded-lg shadow-md p-6">
                     <h1 className="text-xl font-bold">Dashboard</h1>
 
                     <section className="my-4">

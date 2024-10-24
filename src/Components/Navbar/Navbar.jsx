@@ -11,6 +11,24 @@ import { useRouter } from "next/navigation";
 
 const Navbar = () => {
   const { user, logout } = useContext(AuthContext);
+
+  const [theme, setTheme] = useState(
+    localStorage.getItem("theme") ? localStorage.getItem("theme") : "light"
+  );
+  const handleToggle = (e) =>{
+    if (e.target.checked){
+      setTheme("dark");
+    } else {
+      setTheme("light");
+    }
+};
+
+  useEffect(()=>{
+    localStorage.setItem("theme",theme);
+    const localTheme = localStorage.getItem("theme");
+    document.querySelector("html").setAttribute("data-theme", localTheme);
+  }, [theme]); 
+
   const signOutUser = () => {
     logout()
       .then(() => { })
@@ -129,6 +147,11 @@ const Navbar = () => {
                   <IoMdNotificationsOutline className="text-2xl" />
                 </Link>
               </li>
+              <li className="flex">
+              <label className="swap swap-rotate mr-1 lg:mr-2">
+              <input type="checkbox" onChange={handleToggle} checked={theme==='light' ? false : true} className="toggle" defaultChecked />
+                        </label>
+              </li>
               {user ? (
                 <>
                   <div>
@@ -164,7 +187,7 @@ const Navbar = () => {
                   </li>
                   <Link
                     href="/sign-up"
-                    className="btn bg-white font-bold text-[14px] rounded-full text-[#03045E]"
+                    className="btn  font-bold text-[14px] rounded-full text-[#03045E]"
                   >
                     Sign Up
                   </Link>

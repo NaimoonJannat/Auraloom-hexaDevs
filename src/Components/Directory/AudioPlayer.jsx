@@ -79,7 +79,7 @@ const AudioPlayer = ({ audioUrl }) => {
   return (
     <div className="audio-player-container w-full p-6 bg-gradient-to-r from-[#01BECA] to-[#006994] rounded-lg shadow-lg flex flex-col items-center">
       <div ref={waveformRef} className="w-full mb-4"></div> {/* Waveform container */}
-      
+
       {/* Control Buttons */}
       <div className="controls flex justify-center items-center space-x-6 text-3xl text-white">
         <FaStepBackward className="cursor-pointer hover:text-yellow-400" title="Rewind 10s" onClick={handleSkipBackward} />
@@ -100,8 +100,8 @@ const AudioPlayer = ({ audioUrl }) => {
           />
 
           {speedMenuOpen && (
-            <div className="absolute bottom-12 left-0 w-24 bg-white shadow-md rounded-md">
-              <ul className="text-center text-gray-800 text-base z-5">
+            <div className="absolute bottom-12 left-0 w-24 z-50 shadow-md rounded-md bg-white"> {/* Increased z-index and added bg-white */}
+              <ul className="text-center text-gray-800 text-base">
                 <li className="cursor-pointer p-2 hover:bg-gray-200" onClick={() => handleSpeedChange(0.5)}>0.5x</li>
                 <li className="cursor-pointer p-2 hover:bg-gray-200" onClick={() => handleSpeedChange(1)}>1x</li>
                 <li className="cursor-pointer p-2 hover:bg-gray-200" onClick={() => handleSpeedChange(1.5)}>1.5x</li>
