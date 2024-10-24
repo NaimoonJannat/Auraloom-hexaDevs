@@ -137,7 +137,10 @@ const PodcastDetail = ({ id }) => {
                 title: 'Failure!',
                 text: 'You cannot like your own podcast!',
                 icon: 'error',
-                confirmButtonText: 'Close'
+                confirmButtonText: 'Close',
+                confirmButtonColor: '#01BECA',
+                color: '#0077B6',
+                background: '#1D232A',
             });
             return; // Stop further execution
         }
@@ -145,10 +148,13 @@ const PodcastDetail = ({ id }) => {
         // Do not let user like if they have already liked this podcast
         if (isLiked) {
             Swal.fire({
-                title: 'Failure!',
-                text: 'You already liked this podcast!',
+                title: 'Error!',
+                text: 'You already liked the podcast.',
                 icon: 'error',
-                confirmButtonText: 'Close'
+                confirmButtonText: 'Close',
+                confirmButtonColor: '#01BECA',
+                color: '#0077B6',
+                background: '#1D232A',
             });
             return;
         }
@@ -172,18 +178,21 @@ const PodcastDetail = ({ id }) => {
                 }));
                 setIsLiked(true);
     
-                Swal.fire({
-                    title: 'Liked!',
-                    text: 'You have successfully liked this podcast!',
-                    icon: 'success',
-                    confirmButtonText: 'Close'
-                });
+                // Swal.fire({
+                //     title: 'Liked!',
+                //     text: 'You have successfully liked this podcast!',
+                //     icon: 'success',
+                //     confirmButtonText: 'Close'
+                // });
             } else {
                 Swal.fire({
                     title: 'Error!',
+                    color: '#0077B6',
                     text: data.message || 'Failed to like the podcast.',
                     icon: 'error',
-                    confirmButtonText: 'Close'
+                    confirmButtonText: 'Close',
+                    confirmButtonColor: '#01BECA',
+                    background: '#1D232A',
                 });
             }
         } catch (error) {
@@ -192,7 +201,10 @@ const PodcastDetail = ({ id }) => {
                 title: 'Error!',
                 text: 'Something went wrong!',
                 icon: 'error',
-                confirmButtonText: 'Close'
+                confirmButtonText: 'Close',
+                confirmButtonColor: '#01BECA',
+                color: '#0077B6',
+                background: '#1D232A',
             });
         }
     };
@@ -214,7 +226,10 @@ const PodcastDetail = ({ id }) => {
                 title: 'Failure!',
                 text: 'You cannot dislike your own podcast!',
                 icon: 'error',
-                confirmButtonText: 'Close'
+                confirmButtonText: 'Close',
+                confirmButtonColor: '#01BECA',
+                color: '#0077B6',
+                background: '#1D232A',
             });
             return; // Stop further execution
         }
@@ -225,7 +240,10 @@ const PodcastDetail = ({ id }) => {
                 title: 'Failure!',
                 text: 'You already disliked this podcast!',
                 icon: 'error',
-                confirmButtonText: 'Close'
+                confirmButtonText: 'Close',
+                confirmButtonColor: '#01BECA',
+                color: '#0077B6',
+                background: '#1D232A',
             });
             return;
         }
@@ -250,18 +268,21 @@ const PodcastDetail = ({ id }) => {
                 }));
                 setIsDisliked(true);
     
-                Swal.fire({
-                    title: 'Disliked!',
-                    text: 'You have successfully liked this podcast!',
-                    icon: 'success',
-                    confirmButtonText: 'Close'
-                });
+                // Swal.fire({
+                //     title: 'Disliked!',
+                //     text: 'You have successfully liked this podcast!',
+                //     icon: 'success',
+                //     confirmButtonText: 'Close'
+                // });
             } else {
                 Swal.fire({
                     title: 'Error!',
                     text: data.message || 'Failed to dislike the podcast.',
                     icon: 'error',
-                    confirmButtonText: 'Close'
+                    confirmButtonText: 'Close',
+                    confirmButtonColor: '#01BECA',
+                    color: '#0077B6',
+                    background: '#1D232A',
                 });
             }
         } catch (error) {
@@ -270,7 +291,10 @@ const PodcastDetail = ({ id }) => {
                 title: 'Error!',
                 text: 'Something went wrong!',
                 icon: 'error',
-                confirmButtonText: 'Close'
+                confirmButtonText: 'Close',
+                confirmButtonColor: '#01BECA',
+                color: '#0077B6',
+                background: '#1D232A',
             });
         }
     };
