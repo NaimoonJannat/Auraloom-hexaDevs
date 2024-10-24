@@ -23,8 +23,12 @@ const AddPodcast = () => {
       let resourceType = type === 'image' ? 'image' : 'raw';
       let api = `https://api.cloudinary.com/v1_1/auraloom/${resourceType}/upload`;
 
-      const res = await axios.post(api, data);
+      const res = await axios.post(api, data, {
+        timeout: 60000 // Set timeout to 60 seconds (60000 milliseconds)
+      });
+
       const { secure_url } = res.data;
+      // console.log(secure_url);
       return secure_url;
     } catch (error) {
       console.log(error);
@@ -34,9 +38,9 @@ const AddPodcast = () => {
   // Function to handle form submission
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setLoading(true);
-
+    
     try {
+      setLoading(true);
       // Upload image to Cloudinary
       const imgUrl = img ? await uploadFile('image') : null;
 
@@ -55,7 +59,7 @@ const AddPodcast = () => {
       const comments = [];
 
       const newPodcast = { title, creator, email, description, category, imgUrl, audioUrl, likes, dislikes, comments };
-      console.log(newPodcast);
+      // console.log(newPodcast);
       // Send data to the backend to save in MongoDB
       const res = await axios.post('https://auraloom-backend.vercel.app/podcasts', newPodcast);
 
@@ -81,10 +85,15 @@ const AddPodcast = () => {
   return (
     <div className='mx-auto container flex  flex-col justify-center items-center z-10'>
       <main className="relative z-10 w-full  md:flex md:items-center xl:mt-12">
+
+        <div className="absolute inset-0 z-11 md:h-[800px] rounded-2xl">
+        </div>
+        <div className="flex-grow h-full my-14 md:w-1/2 flex items-center justify-center p-3 translate-y-10">
+          <div className='flex flex-col  p-6 rounded-md sm:p-10 bg-[#90e0ef] bg-opacity-90 text-gray-900'>
+
         
         <div className="flex-1 h-full my-14  flex items-center justify-center p-3 translate-y-10">
           <div className='flex flex-col  p-6 rounded-md sm:p-10 bg-[#caf0f8] bg-opacity-90 text-gray-900'>
-
 
             {/*PODCAST FORM */}
             <form
@@ -143,9 +152,8 @@ const AddPodcast = () => {
                   />
                 </div>
 
+                <div className="mb-4 col-span-2">
 
-
-                <div className="mb-4 lg:col-span-9 col-span-1">
                   <label className="block text-[#03045e] text-sm font-bold mb-2">
                     Category
                   </label>
@@ -166,7 +174,7 @@ const AddPodcast = () => {
               </div>
             </form>
 
-            {loading && <Loader></Loader>}
+            {loading && <Loader />}
           </div>
         </div>
       </main>

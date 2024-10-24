@@ -17,14 +17,31 @@ const Navbar = () => {
   const searchParams = useSearchParams();
   const currentSearchQuery = searchParams.get("search") || "";
 
-  const handleToggle = (e) => {
-    setTheme(e.target.checked ? "dark" : "light");
-  };
+  const [theme, setTheme] = useState("light");
 
   useEffect(() => {
-    localStorage.setItem("theme", theme);
-    document.querySelector("html").setAttribute("data-theme", theme);
+    const storedTheme = localStorage.getItem("theme");
+    if (storedTheme) {
+      setTheme(storedTheme);
+    }
+  }, []);
+  
+  const handleToggle = (e) => {
+    if (e.target.checked) {
+      setTheme("dark");
+    } else {
+      setTheme("light");
+    }
+    localStorage.setItem("theme", e.target.checked ? "dark" : "light");
+    document.querySelector("html").setAttribute("data-theme", e.target.checked ? "dark" : "light");
+  };
+  
+  useEffect(() => {
+    const localTheme = localStorage.getItem("theme");
+    document.querySelector("html").setAttribute("data-theme", localTheme);
   }, [theme]);
+  
+
 
   const signOutUser = () => {
     logout()
