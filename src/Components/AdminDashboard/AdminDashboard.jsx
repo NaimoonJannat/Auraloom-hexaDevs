@@ -1,5 +1,5 @@
 'use client';
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import CountUp from 'react-countup';
 import {
   FaChartBar,
@@ -28,6 +28,7 @@ import {
 import Image from "next/image";
 import axios from "axios";
 import Swal from "sweetalert2";
+import { AuthContext } from "../Provider/AuthProvider/AuthProvider";
 
 // Register components from Chart.js
 ChartJS.register(
@@ -43,6 +44,7 @@ ChartJS.register(
 
 const AdminDashboard = () => {
   const [items, setItem] = useState([])
+  const { user } = useContext(AuthContext);
   console.log(items)
   useEffect(() => {
     const getData = async () => {
@@ -145,16 +147,19 @@ const AdminDashboard = () => {
       <div className="w-full lg:w-1/5 bg-[#03045E] text-white flex flex-col">
         <div className="py-6 px-8 text-3xl font-bold">Auraloom</div>
         <div className="py-6 px-8 flex items-center flex-col">
-          <Image
-            src="https://i.pinimg.com/564x/3c/01/76/3c017689a6f12b7821ae4de3967fb35c.jpg"
-            alt="Profile Picture"
-            width={80}
-            height={80}
-            className="rounded-full"
-          />
+          <div className=" rounded-full border-2 border-sky-500 p-1">
+            <Image
+              src={user?.photoURL}
+              width={80}
+              height={80}
+              className="rounded-full"
+              alt="User avatar"
+            />
+          </div>
           <div className="ml-4 text-center">
-            <p className="text-lg font-semibold">Naimoon Jannat Prapti</p>
+            <p className="text-lg font-semibold">{user?.displayName}</p>
             <p className="text-sm text-gray-300">Admin</p>
+            <p className="text-sm text-gray-300">{user?.email}</p>
           </div>
         </div>
 
@@ -217,7 +222,7 @@ const AdminDashboard = () => {
 
         {/* Other sections */}
         <div className="flex flex-col ">
-         
+
 
 
           <div className=" shadow-lg p-4 sm:p-6 rounded-lg mb-6 w-full">
