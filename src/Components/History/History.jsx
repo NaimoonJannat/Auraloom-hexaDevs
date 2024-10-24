@@ -85,7 +85,10 @@ const History = () => {
 
             {/* CARD */}
             <div className=" ">
+
                 <div className="mx-auto max-w-screen-xl px-4 my-4 md:px-8">
+
+               
 
                     <div>
 
