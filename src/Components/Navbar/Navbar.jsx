@@ -118,12 +118,12 @@ const Navbar = () => {
             onSubmit={handleSearchSubmit}
             className="flex items-center border border-gray-300 rounded-full overflow-hidden hover:shadow transition-all duration-300"
           >
-            <button type="submit" className="p-2">
+            <button type="submit" className="p-2 px-4">
               <IoMdSearch className="text-xl" />
             </button>
             <input
               type="text"
-              className="px-2 w-48 outline-none bg-transparent text-white placeholder-slate-200"
+              className=" w-48 outline-none bg-transparent text-sm text-white placeholder-slate-200"
               value={searchInput}
               onChange={(e) => setSearchInput(e.target.value)}
               placeholder="Search Podcasts..."
@@ -133,7 +133,7 @@ const Navbar = () => {
         <div className="navbar-center"></div>
         <div className="navbar-end flex gap-4">
           <div className="hidden lg:flex">
-            <ul className="menu menu-horizontal px-1 flex items-center gap-3 text-[14px] font-medium text-white">
+            <ul className="menu menu-horizontal px-1 flex items-center gap-2 text-[14px] font-medium text-white">
               <li className="flex">
                 <Link rel="noopener noreferrer" href="/">
                   Home
@@ -199,7 +199,7 @@ const Navbar = () => {
                   </li>
                   <Link
                     href="/sign-up"
-                    className="btn font-bold text-[14px] rounded-full text-[#03045E]"
+                    className="btn font-bold text-[14px] rounded-full "
                   >
                     Sign Up
                   </Link>
@@ -284,7 +284,7 @@ const Navbar = () => {
                       Sign In
                     </Link>
                   </li>
-                  <li className="flex text-[#03045E]">
+                  <li className="flex ">
                     <Link rel="noopener noreferrer" href="/sign-up">
                       Sign Up
                     </Link>
