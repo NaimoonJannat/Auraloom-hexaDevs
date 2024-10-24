@@ -8,12 +8,12 @@ import animation from "../../../public/json/animation.json";
 
 const AuraloomAi = () => {
     return (
-        <section className=" py-10 px-5 lg:px-32 text-center">
+        <section className="mt-10 md:mt-16 lg:mt-20 py-10 px-5 lg:px-32 text-center">
             {/* Heading */}
-            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4 text-gray-800">
+            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4 ">
                 Elevate your podcast with AuraPod AI
             </h1>
-            <p className="text-lg sm:text-xl lg:text-2xl text-gray-600 max-w-2xl mx-auto mb-5">
+            <p className="text-lg sm:text-xl lg:text-2xl max-w-2xl mx-auto mb-5">
                 Elevate your podcast to new heights with AuraloomAi is cutting-edge features such as Noise Reduction,
                 Intelligent Leveler, Cut Filler Words, Filtering & AutoEQ, Automated Titles, AI Transcripts,
                 and more.
@@ -56,7 +56,7 @@ const AuraloomAi = () => {
                 </div>
 
                 {/* File preference options */}
-                <div className="flex-1 bg-green-100 p-6 rounded-lg shadow-lg">
+                <div className="flex-1 bg-sky-50 p-6 rounded-lg shadow-lg">
                     <h3 className="font-bold text-lg text-gray-700 mb-2">Preview and Select Your Preferred File</h3>
                     <div className="space-y-3">
                         <div className=" p-4 rounded-lg flex justify-between items-center">
