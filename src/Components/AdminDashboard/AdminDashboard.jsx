@@ -215,14 +215,7 @@ const AdminDashboard = () => {
           </div>
         </div>
 
-        {/* Other sections */}
-        <div className="flex flex-col ">
-          <div className=" shadow-lg p-4 sm:p-6 rounded-lg mb-6 w-full ">
-            <h2 className="text-lg sm:text-xl font-bold mb-4">Monthly Listens</h2>
-            <div className="h-48 sm:h-64 md:h-72 lg:h-80">
-              <Line data={listensData} options={chartOptions} />
-            </div>
-          </div>
+       
 
 
           <div className=" shadow-lg p-4 sm:p-6 rounded-lg mb-6 w-full">
@@ -234,6 +227,7 @@ const AdminDashboard = () => {
                     <th className="px-2 sm:px-4 py-2">Photo</th>
                     <th className="px-2 sm:px-4 py-2">Name</th>
                     <th className="px-2 sm:px-4 py-2">Email</th>
+                    <th className="px-2 sm:px-4 py-2">Role</th>
                     <th className="px-2 sm:px-4 py-2">Action</th>
                   </tr>
                 </thead>
@@ -245,9 +239,10 @@ const AdminDashboard = () => {
                       </td>
                       <td className="px-2 sm:px-4 py-2">{item.name}</td>
                       <td className="px-2 sm:px-4 py-2">{item.email}</td>
+                      <td className="px-2 sm:px-4 py-2">{item.role}</td>
                       <td className=" px-4 py-2 text-center">
-                        <button onClick={() => handleDelete(item._id)} className="bg-red-500 text-white px-3 py-1 rounded-lg">
-                          Delete User
+                        <button onClick={() => handleDelete(item._id)} className="bg-[#0077b6] text-white px-3 py-1 rounded-lg">
+                          Change Role
                         </button>
                       </td>
                     </tr>
@@ -258,6 +253,14 @@ const AdminDashboard = () => {
           </div>
 
         </div>
+         {/* Other sections */}
+         <div className="flex flex-col ">
+          <div className=" shadow-lg p-4 sm:p-6 rounded-lg mb-6 w-full ">
+            <h2 className="text-lg sm:text-xl font-bold mb-4">Monthly Listens</h2>
+            <div className="h-48 sm:h-64 md:h-72 lg:h-80">
+              <Line data={listensData} options={chartOptions} />
+            </div>
+          </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <div className=" shadow-lg p-6 rounded-lg">
