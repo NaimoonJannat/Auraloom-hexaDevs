@@ -183,7 +183,7 @@ const AdminDashboard = () => {
           <a href="/statistics" className="flex items-center py-3 text-lg px-6 hover:bg-[#00B4D8]">
             <FaChartBar className="mr-3" /> Statistics
           </a>
-          <a href="/settings" className="flex items-center py-3 px-6 text-lg hover:bg-[#00B4D8]">
+          <a href="/Settings" className="flex items-center py-3 px-6 text-lg hover:bg-[#00B4D8]">
             <FaCog className="mr-3" /> Settings
           </a>
         </nav>
