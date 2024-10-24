@@ -224,12 +224,12 @@ const MyPodcasts = () => {
                       </form>
                       <div className="mx-auto container flex  flex-col justify-center items-center z-10">
                         <main className="relative z-10 w-full  md:flex md:items-center -mt-[20px]">
-                          <div className="flex-1 h-full flex items-center justify-center translate-y-10">
-                            <div className="flex flex-col rounded-md sm:p-10 bg-[#caf0f8] bg-opacity-90 text-gray-900">
+                          <div className="flex-1 h-full w-full flex items-center justify-center translate-y-10">
+                            <div className="flex flex-col rounded-md lg:p-0 sm:p-10 bg-[#caf0f8] bg-opacity-90 text-gray-900">
                               {/*PODCAST FORM */}
                               <form onSubmit={handlingSubmit} className="w-full">
                                 <h2 className="text-2xl font-bold mb-6 text-center text-[#03045e]">
-                                  Upload New Podcast
+                                  Update Existing Podcast
                                 </h2>
                                 <div className="grid grid-cols-1 lg:grid-cols-9 gap-4">
                                   <div className="mb-4 lg:col-span-9 col-span-1">
@@ -239,8 +239,9 @@ const MyPodcasts = () => {
                                     <input
                                       type="text"
                                       name="title"
+                                      defaultValue={podcast.title}
                                       className="shadow appearance-none border rounded w-full py-2 px-3  text-gray-700 dark:text-gray-200 bg-white dark:bg-gray-800 leading-tight focus:outline-none focus:ring-2 focus:ring-indigo-500"
-                                      placeholder="Enter Podcast Title"
+                                      
                                       //
                                       required
                                     />
@@ -255,7 +256,7 @@ const MyPodcasts = () => {
                                     <textarea
                                       name="description"
                                       className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700  dark:text-gray-200 bg-white dark:bg-gray-800 leading-tight focus:outline-none focus:ring-2 focus:ring-indigo-500"
-                                      placeholder="Enter podcast details"
+                                      defaultValue={podcast.description}
                                       rows="4"
                                     ></textarea>
                                   </div>
@@ -302,14 +303,14 @@ const MyPodcasts = () => {
                                       type="text"
                                       name="category"
                                       className="shadow appearance-none border rounded w-full py-2 px-3 dark:text-gray-200 bg-white dark:bg-gray-800   leading-tight focus:outline-none focus:ring-2 focus:ring-indigo-500"
-                                      placeholder="Enter podcast category"
+                                      defaultValue={podcast.category}
                                     />
                                   </div>
                                 </div>
                                 <div className="flex items-center justify-center">
                                   <input
                                     type="submit"
-                                    value="Upload Podcast"
+                                    value="Update Podcast"
                                     className="bg-[#0077b6] hover:bg-[#03045e] w-full text-white font-bold py-2 px-4 rounded focus:outline-none focus:ring-2 focus:ring-indigo-500"
                                   />
                                 </div>
