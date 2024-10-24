@@ -87,11 +87,7 @@ const History = () => {
             <div className=" ">
 
                 <div className="mx-auto max-w-screen-xl px-4 my-4 md:px-8">
-
-               
-
                     <div>
-
                         <div className="flex flex-col items-center gap-4 md:flex-row lg:gap-6 scale-90">
                             <a href="#" className="group relative block h-56 w-full shrink-0 self-start overflow-hidden rounded-lg bg-gray-100 shadow-lg md:h-24 md:w-24 lg:h-40 lg:w-40">
                                 <Image
