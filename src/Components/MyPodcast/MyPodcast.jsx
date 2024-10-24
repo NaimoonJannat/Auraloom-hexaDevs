@@ -52,7 +52,7 @@ const MyPodcasts = () => {
                 text: "Your file has been deleted.",
                 icon: "success",
               });
-              // setItem(items.filter((i) => i._id !== id));
+              setItem(item.filter((i) => i._id !== id));
             }
           });
       }
