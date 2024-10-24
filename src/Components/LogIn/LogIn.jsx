@@ -34,8 +34,8 @@ const LogIn = () => {
     };
 
     return (
-        <div className=" dark:bg-gray-200">
-            <div className="flex flex-col-reverse lg:flex-row my-12 dark:bg-gray-200 p-7">
+        <div className=" ">
+            <div className="flex flex-col-reverse lg:flex-row my-12  p-7">
                 <div className="items-center w-full max-w-md px-6 mx-auto lg:w-2/6">
                     <div className="flex-1">
                         <div className="text-center">
