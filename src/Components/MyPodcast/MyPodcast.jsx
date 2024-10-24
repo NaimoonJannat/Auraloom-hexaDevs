@@ -16,6 +16,7 @@ const MyPodcasts = () => {
          getData()
     }, [user])
     console.log(item)
+    console.log(user)
     return (
         <div className="p-6 rounded-lg shadow-md">
             <h3 className='text-[#03045e] font-montserrat font-medium text-center lg:text-3xl text-xl'>My Added Podcasts</h3>
