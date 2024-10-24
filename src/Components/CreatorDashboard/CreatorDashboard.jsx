@@ -125,12 +125,9 @@ const CreatorDashboard = () => {
                     </div>
                 </div>
                 <div
-                    className="grid grid-cols-1 lg:grid-cols-2  gap-4 items-center bg-cover bg-center rounded-lg"
+                    className="grid grid-cols-1 gap-4 items-center bg-cover bg-center rounded-lg"
                 >
-                    <div className='w-full'><AddPodcast /></div>
-                    
-
-
+                    <div className='w-full col-span-1'><AddPodcast /></div>
                     {/* Valuation is up */}
                     {/* <div className="col-span-4 p-4 bg-green-100 rounded-lg">
                         <h2 className="text-lg font-semibold text-center">Generate Thumbnail</h2>
@@ -138,7 +135,7 @@ const CreatorDashboard = () => {
                         <Link href={'/generate-thumbnail'} className="btn bg-blue-500 text-white border-none mt-4 flex justify-center items-center">Generate Thumbnail</Link>
                     </div> */}
                     <motion.div
-                        className="p-4 row-span-2 bg-green-100 rounded-lg shadow-lg"
+                        className="p-4 bg-green-100 rounded-lg shadow-lg"
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.5, ease: 'easeOut' }}
@@ -176,9 +173,14 @@ const CreatorDashboard = () => {
                             </motion.button>
                         </Link>
                     </motion.div>
-                    <div className='row-span-2'>
+                    <motion.div className='m-4'
+                     initial={{ opacity: 0, y: 20 }}
+                     animate={{ opacity: 1, y: 0 }}
+                     transition={{ duration: 0.5, ease: 'easeOut' }}
+                     whileHover={{ scale: 1.05 }}
+                    >
                         <MyPodcasts/>
-                    </div>
+                    </motion.div>
                     {/* <div className="m-4">
                         <h2 className="text-lg font-semibold mb-4">Receivable Growth</h2>
                         <ReceivableGrowth /> 

@@ -85,14 +85,14 @@ const AddPodcast = () => {
         >
           
         </div>
-        <div className="flex-grow h-full my-14 md:w-1/2 flex items-center justify-center p-3 translate-y-10">
+        <div className="flex-grow h-full my-14  flex items-center justify-center p-3 translate-y-10">
           <div className='flex flex-col  p-6 rounded-md sm:p-10 bg-[#90e0ef] bg-opacity-90 text-gray-900'>
 
 
             {/*PODCAST FORM */}
             <form
               onSubmit={handleSubmit}
-              className="w-full max-w-md"
+              className="w-full "
             >
               <h2 className="text-2xl font-bold mb-6 text-center text-[#03045e]">Upload New Podcast</h2>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
