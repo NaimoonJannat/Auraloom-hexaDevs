@@ -15,7 +15,6 @@ import { motion } from 'framer-motion';
 import Lottie from "lottie-react";
 import creatordashboardanimation from '../../../public/creatordashboard.json';
 import studio from '../../../public/studio.jpg'
-
 import AddPodcast from '../add-podcast/AddPodcast';
 const CreatorDashboard = () => {
     const { user, logout } = useContext(AuthContext);
@@ -25,16 +24,10 @@ const CreatorDashboard = () => {
             .then(() => { })
             .catch(() => { });
     };
-
-    const [podcasts, setPodcasts] = useState([
-        { id: 1, title: 'Tech Talks', creator: 'Naimoon Jannat Prapti', description: 'Tech news and updates', likes: 3 },
-        { id: 2, title: 'Storytime', creator: 'Naimoon Jannat Prapti', description: 'Fictional stories', likes: 4 },
-        { id: 3, title: 'Music Vibes', creator: 'Naimoon Jannat Prapti', description: 'Best chill music playlists', likes: 1 },
-    ]);
     return (
-        <div className="min-h-screen bg-gray-50 flex">
+        <div className="min-h-screen flex">
             {/* Sidebar */}
-            <aside className="w-64  p-6">
+            <aside className="w-64 min-h-screen  shadow-lg">
                 <div>
                     <div>
                         {/* Avatar dropdown */}
@@ -74,11 +67,6 @@ const CreatorDashboard = () => {
                             <FaChartBar className="h-6 w-6 " />
                             <span>Analytics</span>
                         </Link>
-                        {/* <li>
-                            <a href="/" className="flex items-center p-2 text-gray-700 hover:bg-gray-100 rounded-md">
-                                <span className="text-sm font-medium">Messages</span>
-                            </a>
-                        </li> */}
                         <Link href={"/Settings"} className="flex items-center space-x-2 hover:bg-blue-400 hover:text-white p-2 rounded-md">
                             <CiSettings className="h-6 w-6 " />
                             <span>Settings</span>
@@ -99,9 +87,8 @@ const CreatorDashboard = () => {
                     </ul>
                 </nav>
             </aside>
-
             {/* Main content */}
-            <main className="flex-1 p-10">
+            <main className="flex-1 p-10 ">
                 <div
                     className="hero min-h-72"
                     style={{
@@ -115,7 +102,8 @@ const CreatorDashboard = () => {
                                 <Typewriter
                                     words={[
                                         `Hello ${user?.displayName || 'Guest'}`,
-                                        'Be a creator!'
+                                        'your story starts here!',
+                                        'Share your voice with the world'
                                     ]}
                                     loop={20}
                                     cursor
@@ -125,24 +113,22 @@ const CreatorDashboard = () => {
                                     delaySpeed={1000}
                                 />
                             </h1>
-                            {/* <Link href={'/add-podcast'} className="btn bg-blue-500 text-white border-none">Add A New Podcast</Link> */}
                         </div>
                     </div>
                 </div>
                 <div
-                    className="grid grid-cols-1 lg:grid-cols-2  gap-4 items-center bg-cover bg-center rounded-lg"
+                    className="grid grid-cols-1 gap-4 items-center bg-cover bg-center rounded-lg"
                 >
-                    <AddPodcast />
-
-
-                    {/* Valuation is up */}
-                    {/* <div className="col-span-4 p-4 bg-green-100 rounded-lg">
-                        <h2 className="text-lg font-semibold text-center">Generate Thumbnail</h2>
-                        <p className='text-center'>Create custom thumbnails to make your podcast stand out and attract more listeners.</p>
-                        <Link href={'/generate-thumbnail'} className="btn bg-blue-500 text-white border-none mt-4 flex justify-center items-center">Generate Thumbnail</Link>
-                    </div> */}
                     <motion.div
-                        className="p-4 row-span-2 bg-green-100 rounded-lg shadow-lg"
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.5, ease: 'easeOut' }}
+                        whileHover={{ scale: 1.05 }}
+                        className='w-full col-span-1'>
+                        <AddPodcast />
+                    </motion.div>
+                    <motion.div
+                        className="p-4 bg-[#caf0f8] rounded-lg shadow-lg"
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.5, ease: 'easeOut' }}
@@ -156,12 +142,9 @@ const CreatorDashboard = () => {
                         >
                             Generate Thumbnail
                         </motion.h2>
-
                         <p className='text-center font-medium text-gray-700 font-montserrat'>
                             Create custom thumbnails to make your podcast stand out and attract more listeners.
                         </p>
-
-                        {/* Lottie Animation */}
                         <div className="flex justify-center items-center mt-4">
                             <Lottie
                                 animationData={creatordashboardanimation}
@@ -169,7 +152,6 @@ const CreatorDashboard = () => {
                                 className="w-32 h-32"
                             />
                         </div>
-
                         <Link href={'/generate-thumbnail'}>
                             <motion.button
                                 className="btn bg-blue-500 text-white border-none mt-4 px-4 py-2 rounded-lg flex mx-auto justify-center items-center"
@@ -180,33 +162,15 @@ const CreatorDashboard = () => {
                             </motion.button>
                         </Link>
                     </motion.div>
-                    <div className='row-span-2'>
-                        <MyPodcasts podcasts={podcasts} />
-                    </div>
-                    {/* Valuation past 89 days */}
-                    {/* <div className="col-span-2 p-4 bg-gray-100 rounded-lg">
-                        <h2 className="text-lg font-semibold">Generate Idea</h2>
-                        <p>Lorem ipsum dolor sit amet.</p>
-                        <Link href={'/add-podcast'} className="btn bg-blue-500 text-white border-none mt-4">Add A New Podcast</Link>
-                    </div> */}
-                    <div className="m-4">
-                        <h2 className="text-lg font-semibold mb-4">Receivable Growth</h2>
-                        <ReceivableGrowth /> {/* Render the ReceivableGrowth component */}
-                    </div>
-
-
-
+                    <motion.div className='m-4 bg-[#caf0f8] '
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.5, ease: 'easeOut' }}
+                        whileHover={{ scale: 1.05 }}
+                    >
+                        <MyPodcasts />
+                    </motion.div>
                 </div>
-
-
-
-
-
-                {/* Overview */}
-                {/* <h1 className="text-2xl font-semibold mb-8">Overview</h1> */}
-
-                {/* Receivable Growth */}
-
             </main>
         </div>
     );
