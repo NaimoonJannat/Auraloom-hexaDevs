@@ -103,7 +103,7 @@ const Navbar = () => {
       className={`z-20 sticky top-0 transition-colors duration-50 ${isScrolled ? "bg-[#3493f1d7]" : "bg-[#3493f1d7]"
         } ${isScrolled ? "text-white" : "text-white"} hover:bg-[#3493f1d7]`}
     >
-      <div className="navbar h-20 font-montserrat">
+      <div className="navbar h-20 font-montserrat container mx-auto">
         <div className="navbar-start flex items-center gap-4">
           <Link href="/" className="btn btn-ghost text-xl">
             <Image
