@@ -93,7 +93,7 @@ const AddPodcast = () => {
             >
               <h2 className="text-2xl font-bold mb-6 text-center text-[#03045e]">Upload New Podcast</h2>
               <div className="grid grid-cols-1 lg:grid-cols-9 gap-4">
-                <div className="mb-4 col-span-9">
+                <div className="mb-4 lg:col-span-9 col-span-1">
                   <label className="block text-[#03045e] text-sm font-bold mb-2">
                     Title of Podcast
                   </label>
@@ -105,7 +105,7 @@ const AddPodcast = () => {
                     required
                   />
                 </div>
-                <div className="mb-4 col-span-5">
+                <div className="mb-4 lg:col-span-5 col-span-1">
                   <label className="block text-[#03045e] text-sm font-bold mb-2" htmlFor="details">
                     Description (Mini blog or description)
                   </label>
@@ -117,7 +117,7 @@ const AddPodcast = () => {
                   ></textarea>
                 </div>
 
-                <div className="mb-4 col-span-2">
+                <div className="mb-4 lg:col-span-2 col-span-1">
                   <label className="block text-[#03045e] text-sm font-bold mb-2">
                     Wallpaper (Optional)
                   </label>
@@ -130,7 +130,7 @@ const AddPodcast = () => {
                   />
                 </div>
 
-                <div className="mb-4 col-span-2">
+                <div className="mb-4 lg:col-span-2 col-span-1">
                   <label className="block text-[#03045e] text-sm font-bold mb-2" htmlFor="audioFile">
                     Attach the Audio
                   </label>
@@ -145,7 +145,7 @@ const AddPodcast = () => {
 
 
 
-                <div className="mb-4 col-span-9">
+                <div className="mb-4 lg:col-span-9 col-span-1">
                   <label className="block text-[#03045e] text-sm font-bold mb-2">
                     Category
                   </label>

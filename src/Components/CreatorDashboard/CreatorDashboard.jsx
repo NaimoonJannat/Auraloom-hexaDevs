@@ -18,16 +18,37 @@ import studio from '../../../public/studio.jpg'
 import AddPodcast from '../add-podcast/AddPodcast';
 const CreatorDashboard = () => {
     const { user, logout } = useContext(AuthContext);
+    const [isSidebarOpen, setIsSidebarOpen] = useState(false);
     console.log(user);
     const signOutUser = () => {
         logout()
             .then(() => { })
             .catch(() => { });
     };
+      // Toggle sidebar function for mobile devices
+      const toggleSidebar = () => {
+        setIsSidebarOpen(!isSidebarOpen);
+    };
+
     return (
         <div className="min-h-screen flex">
+                 {/* Mobile menu button */}
+                 <button 
+                className="block md:hidden p-4 focus:outline-none" 
+                onClick={toggleSidebar}
+            >
+                <svg
+                    className="w-6 h-6"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                    xmlns="http://www.w3.org/2000/svg"
+                >
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+                </svg>
+            </button>
             {/* Sidebar */}
-            <aside className="w-64 min-h-screen  shadow-lg">
+            <aside  className={`w-64 min-h-screen p-6 bg-white shadow-lg z-10 md:relative md:translate-x-0 fixed transform transition-transform ${isSidebarOpen ? "translate-x-0" : "-translate-x-full"} md:flex md:flex-col`}>
                 <div>
                     <div>
                         {/* Avatar dropdown */}
