@@ -27,7 +27,8 @@ const TopContent = () => {
 
                     <div className="grid gap-4 sm:grid-cols-2 md:gap-6 lg:grid-cols-3 xl:grid-cols-4 xl:gap-8">
 
-                        <div className="flex flex-col overflow-hidden rounded-lg border  hover:border-[#0077b6] max-w-96">
+                        <div className="flex flex-col overflow-hidden rounded-lg border-2  hover:border-[#0077b6] max-w-96">
+
                             <div href="#" className="group relative block h-48 overflow-hidden bg-gray-100 md:h-64">
                                 <Image
                                     src={img5}
@@ -154,6 +155,7 @@ const TopContent = () => {
                                     </div>
 
                                     <span className="btn  rounded-full border text-sm text-gray-500 scale-90"><FaPlay /></span>
+
                                 </div>
                             </div>
                         </div>
@@ -197,6 +199,7 @@ const TopContent = () => {
                                     </div>
 
                                     <span className="btn  rounded-full border text-sm text-gray-500 scale-90"><FaPlay /></span>
+
                                 </div>
                             </div>
                         </div>
