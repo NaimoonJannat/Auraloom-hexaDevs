@@ -14,7 +14,7 @@ const Loader = () => {
             ariaLabel="circles-with-bar-loading"
             visible={true}
             
-            />;
+            />
     </div>
     );
 };
