@@ -82,19 +82,19 @@ const AudioPlayer = ({ audioUrl }) => {
 
       {/* Control Buttons */}
       <div className="controls flex justify-center items-center space-x-6 text-3xl text-white">
-        <FaStepBackward className="cursor-pointer hover:text-yellow-400" title="Rewind 10s" onClick={handleSkipBackward} />
+        <FaStepBackward className="cursor-pointer hover:text-[#1D232A] text-2xl md:text-3xl" title="Rewind 10s" onClick={handleSkipBackward} />
         {playing ? (
-          <FaPause className="cursor-pointer bg-gray-800 p-3 rounded-full hover:bg-gray-900" onClick={handlePlayPause} />
-        ) : (
-          <FaPlay className="cursor-pointer bg-gray-800 p-3 rounded-full hover:bg-gray-900" onClick={handlePlayPause} />
+          <FaPause className="cursor-pointer bg-gray-800 p-3 rounded-full hover:bg-gray-900 text-2xl md:text-3xl" onClick={handlePlayPause} />
+        ) : ( 
+          <FaPlay className="cursor-pointer bg-gray-800 p-2 md:p-[10px] rounded-full hover:bg-gray-900 text-3xl md:text-4xl" onClick={handlePlayPause} />
         )}
-        <FaStepForward className="cursor-pointer hover:text-yellow-400" title="Forward 10s" onClick={handleSkipForward} />
-        <FaRedo className="cursor-pointer hover:text-yellow-400" title="Replay" onClick={handleReplay} />
+        <FaStepForward className="cursor-pointer hover:text-[#1D232A] text-2xl md:text-3xl" title="Forward 10s " onClick={handleSkipForward} />
+        <FaRedo className="cursor-pointer hover:text-[#1D232A] text-2xl md:text-3xl" title="Replay" onClick={handleReplay} />
 
         {/* Speed Control Icon */}
         <div className="relative">
           <FaTachometerAlt
-            className="cursor-pointer hover:text-yellow-400"
+            className="cursor-pointer hover:text-[#1D232A] text-2xl md:text-3xl" 
             title="Playback Speed"
             onClick={toggleSpeedMenu}
           />
