@@ -50,8 +50,8 @@ const UserDashboardFee = () => {
 
   return (
     <PrivateRoute>
-      <div className="feed-container mx-auto p-6  text-white">
-        <style>
+      <div className="feed-container mx-auto p-6 ml-64 text-white">
+      <style>
           {`
                 .text-wrapper {
                     position: absolute;
@@ -93,21 +93,11 @@ const UserDashboardFee = () => {
           </div>
         </div>
 
-        {/* Horizontal Nav */}
-        {/* <div className="horizontal-nav mt-6">
-        <ul className="flex space-x-8 text-lg font-semibold">
-          <li className="hover:text-orange-500 cursor-pointer">Playlist</li>
-          <li className="hover:text-orange-500 cursor-pointer">Artists</li>
-          <li className="hover:text-orange-500 cursor-pointer">Albums</li>
-          <li className="hover:text-orange-500 cursor-pointer">Streams</li>
-          <li className="hover:text-orange-500 cursor-pointer">Listen Later</li>
-        </ul>
-      </div> */}
         {/* listenLater Section */}
         <ListenLater></ListenLater>
 
         {/* show individual playlist */}
-        {/* <div className="mt-10">
+        <div className="mt-10">
           <div>
             <h1>
               <DashboardHeading className="bg-black" title={"Your Playlists"}></DashboardHeading>
@@ -138,7 +128,7 @@ const UserDashboardFee = () => {
               </div>
             ))}
           </div>
-        </div> */}
+        </div>
       </div>
     </PrivateRoute>
   );

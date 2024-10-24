@@ -1,9 +1,10 @@
+import MyPodcasts from '@/Components/MyPodcast/MyPodcast';
 import React from 'react';
 
 const page = () => {
     return (
         <div>
-            <h1>my podcast</h1>
+            <MyPodcasts></MyPodcasts>
         </div>
     );
 };

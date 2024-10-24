@@ -13,38 +13,22 @@ const PodcastDirectory = () => {
     const [isLoading, setIsLoading] = useState(true);
 
     // Pagination
-    const [page, setPage] = useState(1); // Current page
-    const [totalPages, setTotalPages] = useState(1); // Total number of pages
-    const limit = 9; // Number of podcasts per page
+    const [page, setPage] = useState(1); 
+    const [totalPages, setTotalPages] = useState(1);
+    const limit = 8;
 
     // Searching
-    const searchParams = useSearchParams(); // Use Next.js hook to get query params from URL
-    const initialSearchQuery = searchParams.get("search") || ""; // Get the 'search' query from the URL
-    const [searchInput, setSearchInput] = useState(""); // State for the input field (controlled component)
-    const router = useRouter(); // For navigation
+    const searchParams = useSearchParams();
+    const initialSearchQuery = searchParams.get("search") || ""; 
+    const [searchInput, setSearchInput] = useState(initialSearchQuery); 
+    const [searchQuery, setSearchQuery] = useState(initialSearchQuery);
+    const router = useRouter();
 
-    // Fetch total number of podcasts separately
-    const fetchTotalPodcasts = async (searchQuery) => {
-        try {
-            // Build the URL for the total count API
-            let url = `https://auraloom-backend.vercel.app/podcasts/count`;
-            if (searchQuery) {
-                url += `?search=${encodeURIComponent(searchQuery)}`;
-            }
-
-            const response = await fetch(url);
-
-            if (!response.ok) {
-                throw new Error("Failed to fetch total podcast count");
-            }
-
-            const data = await response.json();
-            return data.totalPodcasts;
-        } catch (error) {
-            console.error("Error fetching total podcast count:", error);
-            return 0;
-        }
-    };
+    // Sync the searchInput state with the URL only when the URL changes
+    useEffect(() => {
+        setSearchInput(initialSearchQuery);
+        setSearchQuery(initialSearchQuery);
+    }, [initialSearchQuery]);
 
     // Fetch podcasts when the page or the search query changes
     useEffect(() => {
@@ -52,25 +36,27 @@ const PodcastDirectory = () => {
             setIsLoading(true);
 
             // Fetch the total number of podcasts first
-            const totalPodcasts = await fetchTotalPodcasts(initialSearchQuery);
-            setTotalPages(Math.ceil(totalPodcasts / limit)); // Calculate total number of pages
+            const totalPodcasts = await fetchTotalPodcasts(searchQuery);
+            if (totalPodcasts > 0) {
+                setTotalPages(Math.ceil(totalPodcasts / limit)); 
+            } else {
+                setTotalPages(1);
+            }
 
-            // Build the URL for the API request, including search and pagination parameters
-            let url = `https://auraloom-backend.vercel.app/podcasts?page=${page}&limit=${limit}`;
-            if (initialSearchQuery) {
-                url += `&search=${encodeURIComponent(initialSearchQuery)}`;
+            // Build the URL for fetching paginated podcasts
+            let url = `http://localhost:5000/podcasts-pagination?page=${page}&limit=${limit}`;
+            if (searchQuery) {
+                url += `&search=${encodeURIComponent(searchQuery)}`;
             }
 
             try {
                 const response = await fetch(url);
-
                 if (!response.ok) {
                     throw new Error("Failed to fetch data");
                 }
 
                 const data = await response.json();
-                setPodcasts(data); // Set the podcasts directly as an array
-
+                setPodcasts(data);
                 setIsLoading(false);
             } catch (error) {
                 console.error("Error fetching data:", error);
@@ -79,16 +65,48 @@ const PodcastDirectory = () => {
         };
 
         fetchData();
-    }, [page, initialSearchQuery]); // Re-fetch data whenever page or search query changes
+    }, [page, searchQuery]);
 
-    // Handle search submission (only triggered when user hits "Enter" or clicks search icon)
-    const handleSearchSubmit = (e) => {
-        e.preventDefault(); // Prevent form submission from reloading the page
+    // Fetch the total number of podcasts based on the search query
+    const fetchTotalPodcasts = async (query) => {
+        try {
+            let url = 'http://localhost:5000/podcasts-pagination/count';
+            if (query) {
+                url += `?search=${encodeURIComponent(query)}`;
+            }
 
-        if (searchInput.trim()) {
-            // Redirect to the current page with the search query as a URL parameter
-            router.push(`/podcast?search=${encodeURIComponent(searchInput)}`);
+            const response = await fetch(url);
+            if (!response.ok) {
+                throw new Error("Failed to fetch total podcast count");
+            }
+
+            const data = await response.json();
+            if (data && typeof data.totalPodcasts === 'number') {
+                return data.totalPodcasts;
+            } else {
+                console.error('Invalid data format:', data);
+                return 0;
+            }
+        } catch (error) {
+            console.error("Error fetching total podcast count:", error);
+            return 0;
         }
+    };
+
+    // Handle search submission
+    const handleSearchSubmit = (e) => {
+        e.preventDefault();
+        setSearchQuery(searchInput.trim());
+        setPage(1); 
+        router.push(`/podcast?search=${encodeURIComponent(searchInput.trim())}`);
+    };
+
+    // Reset to show all podcasts when navigating back to directory
+    const resetToDirectory = () => {
+        setSearchQuery("");
+        setSearchInput("");
+        setPage(1);
+        router.push("/podcast");
     };
 
     // Pagination Controls
@@ -108,67 +126,64 @@ const PodcastDirectory = () => {
         setPage(pageNumber);
     };
 
-    // If the data is still loading, show a loading message
+    // Loading state
     if (isLoading) {
-        return <div className="flex justify-center items-center lg:mt-20">
-            <CirclesWithBar
-                height="100"
-                width="100"
-                color="#4F46E5"
-                outerCircleColor="#4F46E5"
-                innerCircleColor="#4F46E5"
-                barColor="#4F46E5"
-                ariaLabel="circles-with-bar-loading"
-                visible={true}
-                
-                />;
-        </div>
+        return (
+            <div className="flex justify-center items-center lg:mt-20">
+                <CirclesWithBar
+                    height="100"
+                    width="100"
+                    color="#4F46E5"
+                    outerCircleColor="#4F46E5"
+                    innerCircleColor="#4F46E5"
+                    barColor="#4F46E5"
+                    ariaLabel="circles-with-bar-loading"
+                    visible={true}
+                />
+            </div>
+        );
     }
-    
 
-    // If there are no podcasts available or the API failed to return valid data
+    // No podcasts available
     if (!podcasts || !podcasts.length) {
         return <div>No podcasts available at the moment.</div>;
     }
 
     return (
         <div>
-            <SectionTitle title={"Podcast Directory"}></SectionTitle>
+            <SectionTitle title={"Podcast Directory"} />
             {/* Search Bar */}
             <form className="input input-bordered flex w-fit mx-auto items-center gap-2" onSubmit={handleSearchSubmit}>
                 <input
                     type="text"
                     className="w-fit"
                     placeholder="Search Podcasts..."
-                    value={searchInput} // Bind the input value to state
-                    onChange={(e) => setSearchInput(e.target.value)} // Update search input on typing
+                    value={searchInput}
+                    onChange={(e) => setSearchInput(e.target.value)}
                 />
                 <button type="submit">
                     <IoIosSearch />
                 </button>
             </form>
 
-            <div className="mx-auto md:w-5/6 lg:w-4/5">
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-14 mt-16 mx-14 lg:px-10 text-white">
+            <div className="mx-auto w-full">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-14 mt-16 mx-14 lg:px-10 text-white">
                     {podcasts.map((podcast) => (
-                        <Link key={podcast._id} podcast={podcast} href={`/podcast/${podcast._id}`}>
-                            <div className="relative rounded-lg overflow-hidden shadow-lg w-52 h-52 md:w-64 md:h-64 lg:w-80 lg:h-80">
-                                {/* Background Image */}
+                        <Link key={podcast._id} href={`/podcast/${podcast._id}`}>
+                            <div className="relative rounded-lg overflow-hidden shadow-lg w-52 h-52 md:w-72 md:h-72 lg:w-96 lg:h-96">
                                 <div
                                     className="absolute inset-0 bg-cover bg-center"
                                     style={{ backgroundImage: `url(${podcast.imgUrl})` }}
                                 >
                                     <div className="bg-black bg-opacity-30 h-full w-full"></div>
                                 </div>
-
-                                {/* Content Wrapper */}
                                 <div className="relative z-10 flex flex-col justify-between h-full p-3 md:p-4">
-                                    <div className="text-white text-sm mb-2">
+                                    <div className="text-white text-sm md:text-base mb-2">
                                         <span>{podcast.category}</span>
                                     </div>
                                     <div className="flex gap-2 md:gap-4 lg:gap-6 items-center mt-auto">
                                         <IoPlayCircle className="text-3xl md:text-5xl lg:text-6xl text-white" />
-                                        <span className="lg:text-xl md:text-base text-sm font-bold text-white w-10/12 md:w-11/12 lg:w-3/4">
+                                        <span className="lg:text-lg md:text-base text-sm font-bold text-white w-10/12 md:w-11/12 lg:w-3/4">
                                             {podcast.title}
                                         </span>
                                     </div>
@@ -188,12 +203,11 @@ const PodcastDirectory = () => {
                         Previous
                     </button>
 
-                    {/* Dynamic Page Numbers */}
                     {Array.from({ length: totalPages }, (_, index) => (
                         <button
                             key={index + 1}
                             onClick={() => handlePageJump(index + 1)}
-                            className={`text-white text-xs  md:text-sm p-2 lg:p-3 rounded-xl font-normal mx-1 ${
+                            className={`text-white text-xs md:text-sm p-2 lg:p-3 rounded-xl font-normal mx-1 ${
                                 page === index + 1 ? 'bg-[#2e8cea]' : 'bg-[#79bcff]'
                             }`}
                         >

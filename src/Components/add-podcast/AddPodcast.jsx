@@ -3,7 +3,6 @@ import axios from 'axios';
 import { useContext, useState } from 'react';
 import { CirclesWithBar } from 'react-loader-spinner';
 import Swal from 'sweetalert2';
-//import { Typewriter } from 'react-simple-typewriter'
 import { AuthContext } from '../Provider/AuthProvider/AuthProvider';
 import Loader from '../Loader/Loader';
 
@@ -24,12 +23,8 @@ const AddPodcast = () => {
       let resourceType = type === 'image' ? 'image' : 'raw';
       let api = `https://api.cloudinary.com/v1_1/auraloom/${resourceType}/upload`;
 
-      const res = await axios.post(api, data, {
-        timeout: 60000 // Set timeout to 60 seconds (60000 milliseconds)
-      });
-
+      const res = await axios.post(api, data);
       const { secure_url } = res.data;
-      // console.log(secure_url);
       return secure_url;
     } catch (error) {
       console.log(error);
@@ -39,9 +34,9 @@ const AddPodcast = () => {
   // Function to handle form submission
   const handleSubmit = async (e) => {
     e.preventDefault();
-    
+    setLoading(true);
+
     try {
-      setLoading(true);
       // Upload image to Cloudinary
       const imgUrl = img ? await uploadFile('image') : null;
 
@@ -60,7 +55,7 @@ const AddPodcast = () => {
       const comments = [];
 
       const newPodcast = { title, creator, email, description, category, imgUrl, audioUrl, likes, dislikes, comments };
-      // console.log(newPodcast);
+      console.log(newPodcast);
       // Send data to the backend to save in MongoDB
       const res = await axios.post('https://auraloom-backend.vercel.app/podcasts', newPodcast);
 
@@ -85,54 +80,45 @@ const AddPodcast = () => {
 
   return (
     <div className='mx-auto container flex  flex-col justify-center items-center z-10'>
-      {/* <h1 className="mt-2 text-2xl lg:text-4xl font-bold font-montserrat text-[#03045e] capitalize  dark:text-white">
-        <Typewriter
-          words={['Bring Your Podcast to Life', 'Share Your Passion with the World!']}
-          loop={10}
-          cursor
-          cursorStyle='_'
-          typeSpeed={70}
-          deleteSpeed={50}
-          delaySpeed={1000}
-        />
-      </h1> */}
       <main className="relative z-10 w-full  md:flex md:items-center xl:mt-12">
-        <div className="absolute inset-0 z-11 md:h-[800px] rounded-2xl">
-        </div>
-        <div className="flex-grow h-full my-14 md:w-1/2 flex items-center justify-center p-3 translate-y-10">
-          <div className='flex flex-col  p-6 rounded-md sm:p-10 bg-[#90e0ef] bg-opacity-90 text-gray-900'>
+        
+        <div className="flex-1 h-full my-14  flex items-center justify-center p-3 translate-y-10">
+          <div className='flex flex-col  p-6 rounded-md sm:p-10 bg-[#caf0f8] bg-opacity-90 text-gray-900'>
+
+
             {/*PODCAST FORM */}
             <form
               onSubmit={handleSubmit}
-              className="w-full max-w-md"
+              className="w-full"
             >
               <h2 className="text-2xl font-bold mb-6 text-center text-[#03045e]">Upload New Podcast</h2>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                <div className="mb-4 col-span-2">
+              <div className="grid grid-cols-1 lg:grid-cols-9 gap-4">
+                <div className="mb-4 lg:col-span-9 col-span-1">
                   <label className="block text-[#03045e] text-sm font-bold mb-2">
                     Title of Podcast
                   </label>
                   <input
                     type="text"
                     name="title"
-                    className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                    className="shadow appearance-none border rounded w-full py-2 px-3  text-gray-700 dark:text-gray-200 bg-white dark:bg-gray-800 leading-tight focus:outline-none focus:ring-2 focus:ring-indigo-500"
                     placeholder="Enter Podcast Title"
+                    //
                     required
                   />
                 </div>
-                <div className="mb-4 col-span-2">
+                <div className="mb-4 lg:col-span-5 col-span-1">
                   <label className="block text-[#03045e] text-sm font-bold mb-2" htmlFor="details">
                     Description (Mini blog or description)
                   </label>
                   <textarea
                     name="description"
-                    className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                    className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700  dark:text-gray-200 bg-white dark:bg-gray-800 leading-tight focus:outline-none focus:ring-2 focus:ring-indigo-500"
                     placeholder="Enter podcast details"
                     rows="4"
                   ></textarea>
                 </div>
 
-                <div className="mb-4">
+                <div className="mb-4 lg:col-span-2 col-span-1">
                   <label className="block text-[#03045e] text-sm font-bold mb-2">
                     Wallpaper (Optional)
                   </label>
@@ -141,12 +127,13 @@ const AddPodcast = () => {
                     name="wallpaper"
                     accept="image/*"
                     onChange={(e) => setImg(e.target.files[0])}
-                    className="block w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-indigo-50 file:text-indigo-600 hover:file:bg-indigo-100"
+                    //
+                    className="block w-full text-sm text-gray-500 p-4  rounded dark:text-gray-200 bg-white dark:bg-gray-800 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-indigo-50 file:text-indigo-600 hover:file:bg-indigo-100"
                   />
                 </div>
 
-                <div className="mb-4">
-                  <label className="block text-[#03045e] text-sm font-bold mb-2" htmlFor="audioFile">
+                <div className="mb-4 lg:col-span-2 col-span-1">
+                  <label className="block text-[#03045e] text-sm  font-bold mb-2" htmlFor="audioFile">
                     Attach the Audio
                   </label>
                   <input
@@ -154,18 +141,20 @@ const AddPodcast = () => {
                     name="audio"
                     accept="audio/*"
                     onChange={(e) => setAudio(e.target.files[0])}
-                    className="block w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-indigo-50 file:text-indigo-600 hover:file:bg-indigo-100"
+                    className="block w-full text-sm p-4 text-gray-500  rounded dark:text-gray-200 bg-white dark:bg-gray-800  file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-indigo-50 file:text-indigo-600 hover:file:bg-indigo-100"
                   />
                 </div>
 
-                <div className="mb-4 col-span-2">
+
+
+                <div className="mb-4 lg:col-span-9 col-span-1">
                   <label className="block text-[#03045e] text-sm font-bold mb-2">
                     Category
                   </label>
                   <input
                     type="text"
                     name="category"
-                    className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                    className="shadow appearance-none border rounded w-full py-2 px-3 dark:text-gray-200 bg-white dark:bg-gray-800   leading-tight focus:outline-none focus:ring-2 focus:ring-indigo-500"
                     placeholder="Enter podcast category"
                   />
                 </div>
@@ -179,7 +168,7 @@ const AddPodcast = () => {
               </div>
             </form>
 
-            {loading && <Loader />}
+            {loading && <Loader></Loader>}
           </div>
         </div>
       </main>
