@@ -51,7 +51,7 @@ const Settings = () => {
     return (
         <div className="min-h-screen bg-gray-100 font-montserrat flex">
             {/* Sidebar */}
-            <aside className="bg-white w-1/4 min-h-screen p-6 shadow-lg">
+            <aside className=" w-1/4 min-h-screen p-6 shadow-lg">
                 <h2 className="text-xl font-semibold mb-4">Account</h2>
                 <nav className="space-y-4">
                     <a href="#personal-info" className="block text-gray-800 hover:text-indigo-600">Personal Info</a>
@@ -64,7 +64,7 @@ const Settings = () => {
             {/* Main Content */}
             <main className="flex-1 p-8 space-y-12">
                 <motion.div
-                    className="bg-white shadow-lg rounded-lg p-6"
+                    className=" shadow-lg rounded-lg p-6"
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.8, ease: 'easeOut' }}
@@ -260,7 +260,7 @@ export default Settings;
 //     return (
 //         <div className="min-h-screen bg-gray-100 font-montserrat flex">
 //             {/* Sidebar */}
-//             <aside className="bg-white w-1/4 min-h-screen p-6 shadow-lg">
+//             <aside className=" w-1/4 min-h-screen p-6 shadow-lg">
 //                 <h2 className="text-xl font-semibold mb-4">Account</h2>
 //                 <nav className="space-y-4">
 //                     <a href="#personal-info" className="block text-gray-800 hover:text-indigo-600">Personal Info</a>
@@ -272,7 +272,7 @@ export default Settings;
 //             {/* Main Content */}
 //             <main className="flex-1 p-8 space-y-12">
 //                 <motion.div
-//                     className="bg-white shadow-lg rounded-lg p-6"
+//                     className=" shadow-lg rounded-lg p-6"
 //                     initial={{ opacity: 0, y: 20 }}
 //                     animate={{ opacity: 1, y: 0 }}
 //                     transition={{ duration: 0.8, ease: 'easeOut' }}
@@ -340,7 +340,7 @@ export default Settings;
 
 //                     {/* Share Podcast Section */}
 //                     <motion.div
-//                         className="bg-white shadow-lg rounded-lg p-6"
+//                         className=" shadow-lg rounded-lg p-6"
 //                         initial={{ opacity: 0 }}
 //                         whileInView={{ opacity: 1 }}
 //                         viewport={{ once: true }}

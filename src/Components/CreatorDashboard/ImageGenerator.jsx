@@ -52,7 +52,7 @@ const ImageGenerator = () => {
                         className={`relative w-14 h-7 ${mode === 'standard' ? 'bg-gray-600' : 'bg-sky-500'} rounded-full transition-all`}
                     >
                         <span
-                            className={`absolute left-1 top-1 w-5 h-5 bg-white rounded-full transition-all ${mode === 'advanced' ? 'transform translate-x-7' : ''}`}
+                            className={`absolute left-1 top-1 w-5 h-5  rounded-full transition-all ${mode === 'advanced' ? 'transform translate-x-7' : ''}`}
                         />
                     </button>
                     <span className="text-gray-300 ml-4">Advanced</span>

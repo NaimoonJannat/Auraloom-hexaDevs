@@ -187,7 +187,7 @@ const Navbar = () => {
                   </li>
                   <Link
                     href="/sign-up"
-                    className="btn bg-white font-bold text-[14px] rounded-full text-[#03045E]"
+                    className="btn  font-bold text-[14px] rounded-full text-[#03045E]"
                   >
                     Sign Up
                   </Link>

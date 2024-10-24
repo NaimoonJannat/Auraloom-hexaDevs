@@ -4,7 +4,7 @@ import { useContext, useState } from "react";
 import Link from "next/link";
 import { AuthContext } from "../Provider/AuthProvider/AuthProvider";
 import Image from "next/image";
-import  { Toaster } from "react-hot-toast";
+import { Toaster } from "react-hot-toast";
 
 const LogIn = () => {
     const { loginUser } = useContext(AuthContext);
@@ -25,7 +25,7 @@ const LogIn = () => {
             const result = await loginUser(email, password);
             if (result.user) {
                 // router.push("/dashboard");
-                router.push("/"); 
+                router.push("/");
             }
         } catch (error) {
             // toast.error("Login failed. Please check your credentials.");
@@ -34,8 +34,8 @@ const LogIn = () => {
     };
 
     return (
-        <div className="bg-white dark:bg-gray-300">
-            <div className="flex flex-col-reverse lg:flex-row bg-white dark:bg-gray-200 p-7">
+        <div className=" dark:bg-gray-300">
+            <div className="flex flex-col-reverse lg:flex-row  dark:bg-gray-200 p-7">
                 <div className="items-center w-full max-w-md px-6 mx-auto lg:w-2/6">
                     <div className="flex-1">
                         <div className="text-center">
@@ -64,7 +64,7 @@ const LogIn = () => {
                                         placeholder="Email"
                                         value={formData.email}
                                         onChange={handleInputChange}
-                                        className="block w-full px-4 py-2 mt-2 text-sky-700 placeholder-sky-700 bg-white border border-gray-200 rounded-lg dark:placeholder-gray-600 dark:bg-gray-900 dark:text-sky-700 dark:border-gray-700 focus:border-blue-400 dark:focus:border-blue-400 focus:ring-blue-400 focus:outline-none focus:ring focus:ring-opacity-40"
+                                        className="block w-full px-4 py-2 mt-2 text-sky-700 placeholder-sky-700  border border-gray-200 rounded-lg dark:placeholder-gray-600 dark:bg-gray-900 dark:text-sky-700 dark:border-gray-700 focus:border-blue-400 dark:focus:border-blue-400 focus:ring-blue-400 focus:outline-none focus:ring focus:ring-opacity-40"
                                     />
                                 </div>
 
@@ -79,7 +79,7 @@ const LogIn = () => {
                                         placeholder="Password"
                                         value={formData.password}
                                         onChange={handleInputChange}
-                                        className="block w-full px-4 py-2 mt-2 text-sky-700 placeholder-sky-700 bg-white border border-gray-200 rounded-lg dark:placeholder-gray-600 dark:bg-gray-900 dark:text-sky-700 dark:border-gray-700 focus:border-blue-400 dark:focus:border-blue-400 focus:ring-blue-400 focus:outline-none focus:ring focus:ring-opacity-40"
+                                        className="block w-full px-4 py-2 mt-2 text-sky-700 placeholder-sky-700  border border-gray-200 rounded-lg dark:placeholder-gray-600 dark:bg-gray-900 dark:text-sky-700 dark:border-gray-700 focus:border-blue-400 dark:focus:border-blue-400 focus:ring-blue-400 focus:outline-none focus:ring focus:ring-opacity-40"
                                     />
                                 </div>
 
@@ -90,7 +90,7 @@ const LogIn = () => {
                                     <Toaster />
                                 </div>
                             </form>
-                            
+
                             <p className="mt-6 text-sm text-center text-sky-700">
                                 Don&pos;t have an account yet? <Link href="/sign-up" className="text-blue-500 focus:outline-none focus:underline hover:underline">Sign up</Link>.
                             </p>
