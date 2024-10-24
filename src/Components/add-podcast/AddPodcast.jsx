@@ -100,9 +100,9 @@ const AddPodcast = () => {
                   <input
                     type="text"
                     name="title"
-                    className="shadow appearance-none border rounded w-full py-2 px-3  text-gray-700  leading-tight focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                    className="shadow appearance-none border rounded w-full py-2 px-3  text-gray-700 dark:text-gray-200 bg-white dark:bg-gray-800 leading-tight focus:outline-none focus:ring-2 focus:ring-indigo-500"
                     placeholder="Enter Podcast Title"
-                    //dark:text-gray-200 bg-white dark:bg-gray-800
+                    //
                     required
                   />
                 </div>
@@ -112,7 +112,7 @@ const AddPodcast = () => {
                   </label>
                   <textarea
                     name="description"
-                    className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700  leading-tight focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                    className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700  dark:text-gray-200 bg-white dark:bg-gray-800 leading-tight focus:outline-none focus:ring-2 focus:ring-indigo-500"
                     placeholder="Enter podcast details"
                     rows="4"
                   ></textarea>
@@ -127,8 +127,8 @@ const AddPodcast = () => {
                     name="wallpaper"
                     accept="image/*"
                     onChange={(e) => setImg(e.target.files[0])}
-                    //rounded dark:text-gray-200 bg-white dark:bg-gray-800
-                    className="block w-full text-sm text-gray-500 p-4  file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-indigo-50 file:text-indigo-600 hover:file:bg-indigo-100"
+                    //
+                    className="block w-full text-sm text-gray-500 p-4  rounded dark:text-gray-200 bg-white dark:bg-gray-800 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-indigo-50 file:text-indigo-600 hover:file:bg-indigo-100"
                   />
                 </div>
 
@@ -141,7 +141,7 @@ const AddPodcast = () => {
                     name="audio"
                     accept="audio/*"
                     onChange={(e) => setAudio(e.target.files[0])}
-                    className="block w-full text-sm p-4 text-gray-500  file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-indigo-50 file:text-indigo-600 hover:file:bg-indigo-100"
+                    className="block w-full text-sm p-4 text-gray-500  rounded dark:text-gray-200 bg-white dark:bg-gray-800  file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-indigo-50 file:text-indigo-600 hover:file:bg-indigo-100"
                   />
                 </div>
 
@@ -154,7 +154,7 @@ const AddPodcast = () => {
                   <input
                     type="text"
                     name="category"
-                    className="shadow appearance-none border rounded w-full py-2 px-3  leading-tight focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                    className="shadow appearance-none border rounded w-full py-2 px-3 dark:text-gray-200 bg-white dark:bg-gray-800   leading-tight focus:outline-none focus:ring-2 focus:ring-indigo-500"
                     placeholder="Enter podcast category"
                   />
                 </div>
