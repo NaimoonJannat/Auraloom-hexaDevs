@@ -129,7 +129,7 @@ const CreatorDashboard = () => {
                 >
                     <div className='w-full col-span-1'><AddPodcast /></div>
                     <motion.div
-                        className="p-4 bg-green-100 rounded-lg shadow-lg"
+                        className="p-4 bg-[#caf0f8] rounded-lg shadow-lg"
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.5, ease: 'easeOut' }}

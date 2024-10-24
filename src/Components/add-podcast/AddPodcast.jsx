@@ -83,7 +83,7 @@ const AddPodcast = () => {
       <main className="relative z-10 w-full  md:flex md:items-center xl:mt-12">
         
         <div className="flex-1 h-full my-14  flex items-center justify-center p-3 translate-y-10">
-          <div className='flex flex-col  p-6 rounded-md sm:p-10 bg-[#90e0ef] bg-opacity-90 text-gray-900'>
+          <div className='flex flex-col  p-6 rounded-md sm:p-10 bg-[#caf0f8] bg-opacity-90 text-gray-900'>
 
 
             {/*PODCAST FORM */}
@@ -92,8 +92,8 @@ const AddPodcast = () => {
               className="w-full"
             >
               <h2 className="text-2xl font-bold mb-6 text-center text-[#03045e]">Upload New Podcast</h2>
-              <div className="grid grid-cols-1 lg:grid-cols-5 gap-4">
-                <div className="mb-4 col-span-5">
+              <div className="grid grid-cols-1 lg:grid-cols-9 gap-4">
+                <div className="mb-4 col-span-9">
                   <label className="block text-[#03045e] text-sm font-bold mb-2">
                     Title of Podcast
                   </label>
@@ -145,7 +145,7 @@ const AddPodcast = () => {
 
 
 
-                <div className="mb-4 col-span-5">
+                <div className="mb-4 col-span-9">
                   <label className="block text-[#03045e] text-sm font-bold mb-2">
                     Category
                   </label>
