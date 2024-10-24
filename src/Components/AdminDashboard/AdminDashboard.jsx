@@ -200,18 +200,10 @@ const AdminDashboard = () => {
             <FaUsers className="text-4xl text-green-500 mb-4" />
             <h2 className="text-xl font-bold">Total Users</h2>
             <p className="text-gray-600 text-3xl">
-              <CountUp end={1200} duration={2} />
+              <CountUp end={items.length} duration={2} />
             </p>
           </div>
 
-          {/* Revenue */}
-          <div className=" shadow-lg p-6 rounded-lg">
-            <FaDollarSign className="text-4xl text-yellow-500 mb-4" />
-            <h2 className="text-xl font-bold">Revenue</h2>
-            <p className="text-gray-600 text-3xl">
-              $<CountUp end={25000} duration={2} />
-            </p>
-          </div>
 
           {/* Subscriptions */}
           <div className=" shadow-lg p-6 rounded-lg">
