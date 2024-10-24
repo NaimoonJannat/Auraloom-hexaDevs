@@ -23,8 +23,8 @@ const MyPodcasts = () => {
             {item.length === 0 ? (
                 <p className="text-center text-gray-600 font-montserrat lg:text-xl text-[16px]">No podcasts found. You haven&apos;t added any podcasts yet.</p>
             ) : (
-                <table className="min-w-full table-auto">
-                    <thead className="bg-gray-200">
+                <table className="min-w-full table-auto border-none">
+                    <thead className="">
                         <tr>
                             <th className="px-4 py-2">No.</th>
                             <th className="px-4 py-2">Podcast Name</th>
@@ -39,7 +39,7 @@ const MyPodcasts = () => {
                         {item.map((podcast, index) => (
                             <motion.tr
                                 key={podcast._id}
-                                className="bg-gray-100"
+                                className=""
                                 initial={{ opacity: 0, y: 20 }}
                                 animate={{ opacity: 1, y: 0 }}
                                 transition={{ duration: 0.6, ease: 'easeOut' }}
