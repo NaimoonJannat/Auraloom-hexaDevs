@@ -74,11 +74,6 @@ const CreatorDashboard = () => {
                             <FaChartBar className="h-6 w-6 " />
                             <span>Analytics</span>
                         </Link>
-                        {/* <li>
-                            <a href="/" className="flex items-center p-2 text-gray-700 hover:bg-gray-100 rounded-md">
-                                <span className="text-sm font-medium">Messages</span>
-                            </a>
-                        </li> */}
                         <Link href={"/Settings"} className="flex items-center space-x-2 hover:bg-blue-400 hover:text-white p-2 rounded-md">
                             <CiSettings className="h-6 w-6 " />
                             <span>Settings</span>

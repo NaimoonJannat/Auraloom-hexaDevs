@@ -3,7 +3,6 @@ import axios from 'axios';
 import { useContext, useState } from 'react';
 import { CirclesWithBar } from 'react-loader-spinner';
 import Swal from 'sweetalert2';
-//import { Typewriter } from 'react-simple-typewriter'
 import { AuthContext } from '../Provider/AuthProvider/AuthProvider';
 import Loader from '../Loader/Loader';
 
