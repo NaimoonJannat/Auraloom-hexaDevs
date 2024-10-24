@@ -1,5 +1,5 @@
 "use client"
-import React, { useContext, useState } from 'react';
+import React, { useContext,  useState } from 'react';
 import ReceivableGrowth from './ReceivableGrowth'; // Import the ReceivableGrowth component
 import Image from 'next/image';
 import { AuthContext } from '../Provider/AuthProvider/AuthProvider';
@@ -17,9 +17,10 @@ import creatordashboardanimation from '../../../public/creatordashboard.json';
 import studio from '../../../public/studio.jpg'
 
 import AddPodcast from '../add-podcast/AddPodcast';
+
 const CreatorDashboard = () => {
     const { user, logout } = useContext(AuthContext);
-    const [item,setItem] = useState([])
+    
     console.log(user);
     const signOutUser = () => {
         logout()
@@ -27,22 +28,11 @@ const CreatorDashboard = () => {
             .catch(() => { });
     };
    
-    useEffect(() => {
-        const getData =  async() =>
-         {
-            const {data} = await axios(`${import.meta.env.VITE_API_URL}/podcast/${user?.email}`)
-            setItem(data)
-         }
-         getData()
-    }, [])
+ 
 
-    const [podcasts, setPodcasts] = useState([
-        { id: 1, title: 'Tech Talks', creator: 'Naimoon Jannat Prapti', description: 'Tech news and updates', likes: 3 },
-        { id: 2, title: 'Storytime', creator: 'Naimoon Jannat Prapti', description: 'Fictional stories', likes: 4 },
-        { id: 3, title: 'Music Vibes', creator: 'Naimoon Jannat Prapti', description: 'Best chill music playlists', likes: 1 },
-    ]);
+   
     return (
-        <div className="min-h-screen bg-gray-50 flex">
+        <div className="min-h-screen  flex">
             {/* Sidebar */}
             <aside className="w-64  p-6">
                 <div>
@@ -191,7 +181,7 @@ const CreatorDashboard = () => {
                         </Link>
                     </motion.div>
                     <div className='row-span-2'>
-                        <MyPodcasts podcasts={podcasts} />
+                        <MyPodcasts/>
                     </div>
                     {/* Valuation past 89 days */}
                     {/* <div className="col-span-2 p-4 bg-gray-100 rounded-lg">
