@@ -16,7 +16,7 @@ const MyPodcasts = () => {
       try {
         setLoading(true);
         const { data } = await axios(
-          `https://auraloom-backend.vercel.app/podcasts/${user?.email}`
+          `http://localhost:5000/podcasts-email/${user?.email}`
         );
         setItem(data);
       } catch (error) {
@@ -79,7 +79,7 @@ const MyPodcasts = () => {
                   <button className="bg-blue-500 text-white px-3 py-1 rounded-lg mr-2">
                     Update
                   </button>
-                  <button className="bg-red-500 text-white px-3 py-1 rounded-lg">
+                  <button onClick={()=>handleDelete(_id)} className="bg-red-500 text-white px-3 py-1 rounded-lg">
                     Delete
                   </button>
                 </td>
