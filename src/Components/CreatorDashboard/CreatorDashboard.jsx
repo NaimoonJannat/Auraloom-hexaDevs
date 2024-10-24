@@ -34,7 +34,7 @@ const CreatorDashboard = () => {
     return (
         <div className="min-h-screen  flex">
             {/* Sidebar */}
-            <aside className="w-64  p-6">
+            <aside className="w-64  p-6 h-screen sticky top-0  overflow-y-auto shadow-lg">
                 <div>
                     <div>
                         {/* Avatar dropdown */}
@@ -120,14 +120,15 @@ const CreatorDashboard = () => {
                                     delaySpeed={1000}
                                 />
                             </h1>
-                            {/* <Link href={'/add-podcast'} className="btn bg-blue-500 text-white border-none">Add A New Podcast</Link> */}
+                           
                         </div>
                     </div>
                 </div>
                 <div
                     className="grid grid-cols-1 lg:grid-cols-2  gap-4 items-center bg-cover bg-center rounded-lg"
                 >
-                    <AddPodcast />
+                    <div className='w-full'><AddPodcast /></div>
+                    
 
 
                     {/* Valuation is up */}
@@ -178,30 +179,11 @@ const CreatorDashboard = () => {
                     <div className='row-span-2'>
                         <MyPodcasts/>
                     </div>
-                    {/* Valuation past 89 days */}
-                    {/* <div className="col-span-2 p-4 bg-gray-100 rounded-lg">
-                        <h2 className="text-lg font-semibold">Generate Idea</h2>
-                        <p>Lorem ipsum dolor sit amet.</p>
-                        <Link href={'/add-podcast'} className="btn bg-blue-500 text-white border-none mt-4">Add A New Podcast</Link>
-                    </div> */}
-                    <div className="m-4">
+                    {/* <div className="m-4">
                         <h2 className="text-lg font-semibold mb-4">Receivable Growth</h2>
-                        <ReceivableGrowth /> {/* Render the ReceivableGrowth component */}
-                    </div>
-
-
-
+                        <ReceivableGrowth /> 
+                    </div> */}
                 </div>
-
-
-
-
-
-                {/* Overview */}
-                {/* <h1 className="text-2xl font-semibold mb-8">Overview</h1> */}
-
-                {/* Receivable Growth */}
-
             </main>
         </div>
     );
