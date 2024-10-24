@@ -5,12 +5,17 @@ import Link from "next/link";
 import logo1 from "./../../../public/auraloom-logo.png";
 import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../Provider/AuthProvider/AuthProvider";
-import { FaRegUserCircle } from "react-icons/fa";
 import { IoMdNotificationsOutline, IoMdSearch } from "react-icons/io";
-import { useRouter } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
 
 const Navbar = () => {
   const { user, logout } = useContext(AuthContext);
+  const [theme, setTheme] = useState(localStorage.getItem("theme") || "light");
+  const [isScrolled, setIsScrolled] = useState(false);
+  const [searchInput, setSearchInput] = useState(""); // To capture the input in the search bar
+  const router = useRouter();
+  const searchParams = useSearchParams();
+  const currentSearchQuery = searchParams.get("search") || "";
 
   const [theme, setTheme] = useState("light");
 
@@ -37,32 +42,34 @@ const Navbar = () => {
   }, [theme]);
   
 
+
   const signOutUser = () => {
     logout()
-      .then(() => { })
-      .catch(() => { });
+      .then(() => {})
+      .catch(() => {});
   };
-
-  const [isScrolled, setIsScrolled] = useState(false);
-  const [searchQuery, setSearchQuery] = useState(""); // Search query state
-  const router = useRouter(); // To handle navigation
 
   // Function to handle scroll event
   const handleScroll = () => {
-    if (window.scrollY > 0) {
-      setIsScrolled(true);
-    } else {
-      setIsScrolled(false);
-    }
+    setIsScrolled(window.scrollY > 0);
   };
 
-  // Function to handle search and navigate to the directory page
+// Function to handle search and navigate to the directory page
   const handleSearchSubmit = (e) => {
     e.preventDefault(); // Prevent default form submission
 
-    if (searchQuery.trim()) {
-      router.push(`/podcast?search=${encodeURIComponent(searchQuery)}`); // Redirect to the directory page with the search query
+    if (searchInput.trim()) {
+        // Set the search query in the URL and navigate to the directory
+        router.push(`/podcast?search=${encodeURIComponent(searchInput.trim())}`);
+        router.refresh(); // Ensure the page re-fetches data based on the new URL
     }
+};
+
+  // Function to reset the search and show all podcasts when clicking on the "Directory" link
+  const handleDirectoryClick = (e) => {
+    e.preventDefault(); // Prevent the default link behavior
+    setSearchInput(""); // Clear the search input
+    router.push("/podcast"); // Navigate to the directory without any search parameters
   };
 
   useEffect(() => {
@@ -112,16 +119,14 @@ const Navbar = () => {
             onSubmit={handleSearchSubmit}
             className="flex items-center border border-gray-300 rounded-full overflow-hidden hover:shadow transition-all duration-300"
           >
-            {/* Search Icon */}
             <button type="submit" className="p-2">
               <IoMdSearch className="text-xl" />
             </button>
-            {/* Search Input */}
             <input
               type="text"
               className="px-2 w-48 outline-none bg-transparent text-white placeholder-slate-200"
-              value={searchQuery}
-              onChange={(e) => setSearchQuery(e.target.value)}
+              value={searchInput}
+              onChange={(e) => setSearchInput(e.target.value)}
               placeholder="Search Podcasts..."
             />
           </form>
@@ -136,9 +141,9 @@ const Navbar = () => {
                 </Link>
               </li>
               <li className="flex">
-                <Link rel="noopener noreferrer" href="/podcast">
+                <a href="/podcast" onClick={handleDirectoryClick}>
                   Directory
-                </Link>
+                </a>
               </li>
               <li className="flex">
                 <Link rel="noopener noreferrer" href="/history">
@@ -156,9 +161,9 @@ const Navbar = () => {
                 </Link>
               </li>
               <li className="flex">
-              <label className="swap swap-rotate mr-1 lg:mr-2">
-              <input type="checkbox" onChange={handleToggle} checked={theme==='light' ? false : true} className="toggle" defaultChecked />
-                        </label>
+                <label className="swap swap-rotate mr-1 lg:mr-2">
+                  <input type="checkbox" onChange={handleToggle} checked={theme === 'light' ? false : true} className="toggle" />
+                </label>
               </li>
               {user ? (
                 <>
@@ -173,7 +178,7 @@ const Navbar = () => {
                           <Image
                             src={user?.photoURL}
                             width={40}
-                            height={40} // Specify image dimensions
+                            height={40}
                             className="w-full"
                             alt="User avatar"
                           />
@@ -195,7 +200,7 @@ const Navbar = () => {
                   </li>
                   <Link
                     href="/sign-up"
-                    className="btn  font-bold text-[14px] rounded-full text-[#03045E]"
+                    className="btn font-bold text-[14px] rounded-full text-[#03045E]"
                   >
                     Sign Up
                   </Link>
@@ -203,6 +208,7 @@ const Navbar = () => {
               )}
             </ul>
           </div>
+          {/* Mobile view */}
           <div className="dropdown dropdown-left text-[#03045E] bg-base-100">
             <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
               <svg
@@ -230,9 +236,9 @@ const Navbar = () => {
                 </Link>
               </li>
               <li className="flex">
-                <Link rel="noopener noreferrer" href="/podcast">
+                <a href="/podcast" onClick={handleDirectoryClick}>
                   Directory
-                </Link>
+                </a>
               </li>
               <li className="flex">
                 <Link rel="noopener noreferrer" href="/history">
@@ -263,7 +269,7 @@ const Navbar = () => {
                           <Image
                             src={user?.photoURL}
                             width={40}
-                            height={40} // Specify image dimensions
+                            height={40}
                             className="w-full"
                             alt="User avatar"
                           />
@@ -275,36 +281,15 @@ const Navbar = () => {
               ) : (
                 <>
                   <li className="flex text-[#03045E]">
-                    <Link rel="noopener noreferrer" href="/">
-                      Home
+                    <Link rel="noopener noreferrer" href="/log-in">
+                      Sign In
                     </Link>
                   </li>
                   <li className="flex text-[#03045E]">
-                    <Link rel="noopener noreferrer" href="/podcast">
-                      Directory
+                    <Link rel="noopener noreferrer" href="/sign-up">
+                      Sign Up
                     </Link>
                   </li>
-                  <li className="flex text-[#03045E]">
-                    <Link rel="noopener noreferrer" href="/add-podcast">
-                      Add Podcast
-                    </Link>
-                  </li>
-                  <li className="flex text-[#03045E]">
-                    <Link rel="noopener noreferrer" href="/history">
-                      History
-                    </Link>
-                  </li>
-                  <li className="flex text-[#03045E]">
-                    <Link rel="noopener noreferrer" href="/notifications">
-                      <IoMdNotificationsOutline />
-                    </Link>
-                  </li>
-                  <li className="text-[#03045E]">
-                    <Link href="/log-in">Sign In</Link>
-                  </li>
-                  <Link href="/sign-up" className="text-[#03045E]">
-                    Sign Up
-                  </Link>
                 </>
               )}
             </ul>
