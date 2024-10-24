@@ -15,7 +15,7 @@ const PodcastDirectory = () => {
     // Pagination
     const [page, setPage] = useState(1); 
     const [totalPages, setTotalPages] = useState(1);
-    const limit = 9;
+    const limit = 8;
 
     // Searching
     const searchParams = useSearchParams();
@@ -44,7 +44,7 @@ const PodcastDirectory = () => {
             }
 
             // Build the URL for fetching paginated podcasts
-            let url = `https://auraloom-backend.vercel.app/podcasts-pagination?page=${page}&limit=${limit}`;
+            let url = `http://localhost:5000/podcasts-pagination?page=${page}&limit=${limit}`;
             if (searchQuery) {
                 url += `&search=${encodeURIComponent(searchQuery)}`;
             }
@@ -70,7 +70,7 @@ const PodcastDirectory = () => {
     // Fetch the total number of podcasts based on the search query
     const fetchTotalPodcasts = async (query) => {
         try {
-            let url = 'https://auraloom-backend.vercel.app/podcasts-pagination/count';
+            let url = 'http://localhost:5000/podcasts-pagination/count';
             if (query) {
                 url += `?search=${encodeURIComponent(query)}`;
             }
@@ -166,11 +166,11 @@ const PodcastDirectory = () => {
                 </button>
             </form>
 
-            <div className="mx-auto md:w-5/6 lg:w-4/5">
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-14 mt-16 mx-14 lg:px-10 text-white">
+            <div className="mx-auto w-full">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-14 mt-16 mx-14 lg:px-10 text-white">
                     {podcasts.map((podcast) => (
                         <Link key={podcast._id} href={`/podcast/${podcast._id}`}>
-                            <div className="relative rounded-lg overflow-hidden shadow-lg w-52 h-52 md:w-64 md:h-64 lg:w-80 lg:h-80">
+                            <div className="relative rounded-lg overflow-hidden shadow-lg w-52 h-52 md:w-72 md:h-72 lg:w-96 lg:h-96">
                                 <div
                                     className="absolute inset-0 bg-cover bg-center"
                                     style={{ backgroundImage: `url(${podcast.imgUrl})` }}
@@ -178,12 +178,12 @@ const PodcastDirectory = () => {
                                     <div className="bg-black bg-opacity-30 h-full w-full"></div>
                                 </div>
                                 <div className="relative z-10 flex flex-col justify-between h-full p-3 md:p-4">
-                                    <div className="text-white text-sm mb-2">
+                                    <div className="text-white text-sm md:text-base mb-2">
                                         <span>{podcast.category}</span>
                                     </div>
                                     <div className="flex gap-2 md:gap-4 lg:gap-6 items-center mt-auto">
                                         <IoPlayCircle className="text-3xl md:text-5xl lg:text-6xl text-white" />
-                                        <span className="lg:text-xl md:text-base text-sm font-bold text-white w-10/12 md:w-11/12 lg:w-3/4">
+                                        <span className="lg:text-lg md:text-base text-sm font-bold text-white w-10/12 md:w-11/12 lg:w-3/4">
                                             {podcast.title}
                                         </span>
                                     </div>

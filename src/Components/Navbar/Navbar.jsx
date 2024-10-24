@@ -53,7 +53,7 @@ const Navbar = () => {
     setIsScrolled(window.scrollY > 0);
   };
 
-// Function to handle search and navigate to the directory page
+  // Function to handle search and navigate to the directory page
   const handleSearchSubmit = (e) => {
     e.preventDefault(); // Prevent default form submission
 
