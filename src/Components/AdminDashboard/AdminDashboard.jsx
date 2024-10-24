@@ -10,6 +10,7 @@ import {
   FaListAlt,
   FaChartLine,
   FaCog,
+  FaHome,
   FaMoneyBillWave,
 } from "react-icons/fa";
 import { MdSubscriptions } from 'react-icons/md';
@@ -213,26 +214,29 @@ const AdminDashboard = () => {
 
         <nav className="mt-10">
           {/* Sidebar links */}
-          <a href="/overview" className="flex items-center py-3 px-6 text-lg hover:bg-[#00B4D8]">
+          {/* <a href="/overview" className="flex items-center py-3 px-6 text-lg hover:bg-[#00B4D8]">
             <FaChartLine className="mr-3" /> Overview
-          </a>
+          </a> */}
           <a href="/subscriptions" className="flex items-center py-3 text-lg px-6 hover:bg-[#00B4D8]">
             <MdSubscriptions className="mr-3" /> Subscriptions
           </a>
-          <a href="/transactions" className="flex items-center py-3 text-lg px-6 hover:bg-[#00B4D8]">
+          {/* <a href="/transactions" className="flex items-center py-3 text-lg px-6 hover:bg-[#00B4D8]">
             <FaMoneyBillWave className="mr-3" /> Transactions
-          </a>
-          <a href="/customers" className="flex items-center py-3 px-6 text-lg hover:bg-[#00B4D8]">
+          </a> */}
+          {/* <a href="/customers" className="flex items-center py-3 px-6 text-lg hover:bg-[#00B4D8]">
             <FaUsers className="mr-3" /> Customers
-          </a>
+          </a> */}
           <a href="/creators" className="flex items-center py-3 px-6 text-lg hover:bg-[#00B4D8]">
             <FaPodcast className="mr-3" /> Creators
           </a>
-          <a href="/statistics" className="flex items-center py-3 text-lg px-6 hover:bg-[#00B4D8]">
+          {/* <a href="/statistics" className="flex items-center py-3 text-lg px-6 hover:bg-[#00B4D8]">
             <FaChartBar className="mr-3" /> Statistics
-          </a>
+          </a> */}
           <a href="/Settings" className="flex items-center py-3 px-6 text-lg hover:bg-[#00B4D8]">
             <FaCog className="mr-3" /> Settings
+          </a>
+          <a href="/" className="flex items-center py-3 px-6 text-lg hover:bg-[#00B4D8]">
+            <FaHome className="mr-3" /> Home
           </a>
         </nav>
       </div>
