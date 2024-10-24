@@ -37,23 +37,23 @@ const Navbar = () => {
     setIsScrolled(window.scrollY > 0);
   };
 
-  // Function to handle search and navigate to the directory page
-//   const handleSearchSubmit = (e) => {
-//     e.preventDefault(); // Prevent default form submission
+// Function to handle search and navigate to the directory page
+  const handleSearchSubmit = (e) => {
+    e.preventDefault(); // Prevent default form submission
 
-//     if (searchInput.trim()) {
-//         // Set the search query in the URL and navigate to the directory
-//         router.push(`/podcast?search=${encodeURIComponent(searchInput.trim())}`);
-//         router.refresh(); // Ensure the page re-fetches data based on the new URL
-//     }
-// };
+    if (searchInput.trim()) {
+        // Set the search query in the URL and navigate to the directory
+        router.push(`/podcast?search=${encodeURIComponent(searchInput.trim())}`);
+        router.refresh(); // Ensure the page re-fetches data based on the new URL
+    }
+};
 
   // Function to reset the search and show all podcasts when clicking on the "Directory" link
-  // const handleDirectoryClick = (e) => {
-  //   e.preventDefault(); // Prevent the default link behavior
-  //   setSearchInput(""); // Clear the search input
-  //   router.push("/podcast"); // Navigate to the directory without any search parameters
-  // };
+  const handleDirectoryClick = (e) => {
+    e.preventDefault(); // Prevent the default link behavior
+    setSearchInput(""); // Clear the search input
+    router.push("/podcast"); // Navigate to the directory without any search parameters
+  };
 
   useEffect(() => {
     window.addEventListener("scroll", handleScroll);
