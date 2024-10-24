@@ -1,7 +1,12 @@
 import localFont from "next/font/local";
 import "./globals.css";
 import AuthProvider from "@/Components/Provider/AuthProvider/AuthProvider";
-import ClientLayout from "./clientLayout";
+
+import Navbar from "@/Components/Navbar/Navbar";
+import Footer from "@/Components/Footer/Footer";
+import { Suspense } from "react";
+
+import ClientLayout from "./ClientLayout";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -26,9 +31,12 @@ const RootLayout = ({ children }) => {
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         <AuthProvider>
+
+        {/* <Suspense> <Navbar /> </Suspense> */}
           <ClientLayout>
             {children}
           </ClientLayout>
+          {/* <Footer /> */}
         </AuthProvider>
       </body>
     </html>

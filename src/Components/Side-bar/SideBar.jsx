@@ -1,20 +1,31 @@
 "use client"
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import Link from "next/link";
 import Image from 'next/image';
 import { AuthContext } from '../Provider/AuthProvider/AuthProvider';
 import { HomeIcon, MusicNoteIcon, ClockIcon, BookOpenIcon, MicrophoneIcon } from '@heroicons/react/outline';
 import PrivateRoute from '../PrivateRoute/PrivateRoute';
-
+import ConfirmModal from './ConfirmModal';
 
 const Sidebar = () => {
     const { user, logout } = useContext(AuthContext);
-    console.log(user);
+    const [isModalOpen, setIsModalOpen] = useState(false); // Modal state
+
     const signOutUser = () => {
         logout()
             .then(() => { })
             .catch(() => { });
     };
+
+    const openModal = () => setIsModalOpen(true);
+    const closeModal = () => setIsModalOpen(false);
+
+    const handleConfirm = () => {
+        // Logic for confirming the user wants to be a creator
+        closeModal();
+        console.log("User confirmed to be a creator");
+    };
+
     return (
         <PrivateRoute>
             <div className="w-64 fixed h-screen bg-gray-800 p-5 text-white">
@@ -90,17 +101,18 @@ const Sidebar = () => {
                     )}
 
                     {/* Be a Creator Button */}
-                    <Link
-                        href="/creator-dashboard"
-                        className="btn mt-5 w-full  hover:bg-sky-400 border-none hover:text-black text-sky-700 py-3 px-7 rounded-md font-bold transition"
+                    <button
+                        onClick={openModal}
+                        className="btn mt-5 w-full hover:bg-sky-400 border-none hover:text-black text-sky-700 py-3 px-7 rounded-md font-bold transition"
                     >
                         Be a Creator
-                    </Link>
+                    </button>
                 </div>
 
+                {/* Modal */}
+                <ConfirmModal isOpen={isModalOpen} onClose={closeModal} onConfirm={handleConfirm} />
             </div>
         </PrivateRoute>
-
     );
 };
 
