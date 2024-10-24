@@ -1,5 +1,5 @@
 "use client"
-import React, { useContext,  useState } from 'react';
+import React, { useContext, useState } from 'react';
 import ReceivableGrowth from './ReceivableGrowth'; // Import the ReceivableGrowth component
 import Image from 'next/image';
 import { AuthContext } from '../Provider/AuthProvider/AuthProvider';
@@ -20,17 +20,17 @@ import AddPodcast from '../add-podcast/AddPodcast';
 
 const CreatorDashboard = () => {
     const { user, logout } = useContext(AuthContext);
-    
+
     console.log(user);
     const signOutUser = () => {
         logout()
             .then(() => { })
             .catch(() => { });
     };
-   
- 
 
-   
+
+
+
     return (
         <div className="min-h-screen  flex">
             {/* Sidebar */}
@@ -120,14 +120,21 @@ const CreatorDashboard = () => {
                                     delaySpeed={1000}
                                 />
                             </h1>
-                           
+
                         </div>
                     </div>
                 </div>
                 <div
                     className="grid grid-cols-1 gap-4 items-center bg-cover bg-center rounded-lg"
                 >
-                    <div className='w-full col-span-1'><AddPodcast /></div>
+                    <motion.div
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.5, ease: 'easeOut' }}
+                        whileHover={{ scale: 1.05 }}
+                        className='w-full col-span-1'>
+                        <AddPodcast />
+                    </motion.div>
                     <motion.div
                         className="p-4 bg-[#caf0f8] rounded-lg shadow-lg"
                         initial={{ opacity: 0, y: 20 }}
@@ -166,13 +173,13 @@ const CreatorDashboard = () => {
                             </motion.button>
                         </Link>
                     </motion.div>
-                    <motion.div className='m-4'
-                     initial={{ opacity: 0, y: 20 }}
-                     animate={{ opacity: 1, y: 0 }}
-                     transition={{ duration: 0.5, ease: 'easeOut' }}
-                     whileHover={{ scale: 1.05 }}
+                    <motion.div className='m-4 bg-[#caf0f8] '
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.5, ease: 'easeOut' }}
+                        whileHover={{ scale: 1.05 }}
                     >
-                    <MyPodcasts/>
+                        <MyPodcasts />
                     </motion.div>
                 </div>
             </main>

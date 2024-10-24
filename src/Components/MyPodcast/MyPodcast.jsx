@@ -18,7 +18,7 @@ const MyPodcasts = () => {
         <div className="p-6 rounded-lg shadow-md">
             <h3 className='text-[#03045e] font-montserrat font-medium text-center lg:text-3xl text-xl'>My Added Podcasts</h3>
             {item.length === 0 ? (
-                <p className="text-center text-gray-600">No podcasts found. You haven&apos;t added any podcasts yet.</p>
+                <p className="text-center text-gray-600 font-montserrat lg:text-xl text-[16px]">No podcasts found. You haven&apos;t added any podcasts yet.</p>
             ) : (
                 <table className="min-w-full table-auto">
                     <thead className="bg-gray-200">
