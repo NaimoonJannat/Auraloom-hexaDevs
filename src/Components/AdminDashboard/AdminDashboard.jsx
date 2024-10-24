@@ -1,6 +1,7 @@
 'use client';
 import React, { useContext, useEffect, useState } from "react";
 import CountUp from 'react-countup';
+import logo from '../../../public/auraloom-logo.png'
 import {
   FaChartBar,
   FaUsers,
@@ -144,8 +145,17 @@ const AdminDashboard = () => {
   return (
     <div className="flex flex-col lg:flex-row min-h-screen">
       {/* Sidebar */}
-      <div className="w-full lg:w-1/5 bg-[#03045E] text-white flex flex-col">
-        <div className="py-6 px-8 text-3xl font-bold">Auraloom</div>
+      <div className="w-full lg:w-1/5 bg-gray-100 shadow-lg text-[#03045E] flex flex-col">
+        <div className="py-6 px-8 flex items-center justify-center text-2xl font-bold">
+          <Image
+            src={logo}
+            alt="Auraloom Logo"
+            width={130}  
+            height={130} 
+            className="mr-3"
+          />
+        </div>
+
         <div className="py-6 px-8 flex items-center flex-col">
           <div className=" rounded-full border-2 border-sky-500 p-1">
             <Image
@@ -156,10 +166,9 @@ const AdminDashboard = () => {
               alt="User avatar"
             />
           </div>
-          <div className="ml-4 text-center">
+          <div className="ml-4 text-center text-[#03045E]">
             <p className="text-lg font-semibold">{user?.displayName}</p>
-            <p className="text-sm text-gray-300">Admin</p>
-            <p className="text-sm text-gray-300">{user?.email}</p>
+            <p className="text-sm ">{user?.email}</p>
           </div>
         </div>
 
@@ -268,15 +277,15 @@ const AdminDashboard = () => {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          <div className=" shadow-lg p-6 rounded-lg">
+          <div className=" shadow-lg p-6 rounded-lg col-span-1">
             <h2 className="text-2xl font-bold mb-4">Podcast Categories</h2>
             <Pie data={pieData} options={chartOptions} />
           </div>
 
-          <div className=" shadow-lg p-6 rounded-lg">
+          {/* <div className=" shadow-lg p-6 rounded-lg">
             <h2 className="text-2xl font-bold mb-4">Subscription Types</h2>
             <Doughnut data={doughnutData} options={chartOptions} />
-          </div>
+          </div> */}
         </div>
       </div>
     </div>
