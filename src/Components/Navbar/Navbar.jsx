@@ -12,22 +12,30 @@ import { useRouter } from "next/navigation";
 const Navbar = () => {
   const { user, logout } = useContext(AuthContext);
 
-  const [theme, setTheme] = useState(
-    localStorage.getItem("theme") ? localStorage.getItem("theme") : "light"
-  );
-  const handleToggle = (e) =>{
-    if (e.target.checked){
+  const [theme, setTheme] = useState("light");
+
+  useEffect(() => {
+    const storedTheme = localStorage.getItem("theme");
+    if (storedTheme) {
+      setTheme(storedTheme);
+    }
+  }, []);
+  
+  const handleToggle = (e) => {
+    if (e.target.checked) {
       setTheme("dark");
     } else {
       setTheme("light");
     }
-};
-
-  useEffect(()=>{
-    localStorage.setItem("theme",theme);
+    localStorage.setItem("theme", e.target.checked ? "dark" : "light");
+    document.querySelector("html").setAttribute("data-theme", e.target.checked ? "dark" : "light");
+  };
+  
+  useEffect(() => {
     const localTheme = localStorage.getItem("theme");
     document.querySelector("html").setAttribute("data-theme", localTheme);
-  }, [theme]); 
+  }, [theme]);
+  
 
   const signOutUser = () => {
     logout()
