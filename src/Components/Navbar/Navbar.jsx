@@ -103,7 +103,7 @@ const Navbar = () => {
       className={`z-20 sticky top-0 transition-colors duration-50 ${isScrolled ? "bg-[#3493f1d7]" : "bg-[#3493f1d7]"
         } ${isScrolled ? "text-white" : "text-white"} hover:bg-[#3493f1d7]`}
     >
-      <div className="navbar h-20 font-montserrat">
+      <div className="navbar h-20 font-montserrat container mx-auto">
         <div className="navbar-start flex items-center gap-4">
           <Link href="/" className="btn btn-ghost text-xl">
             <Image
@@ -116,14 +116,14 @@ const Navbar = () => {
           {/* Search Input with Icon - Always Open */}
           <form
             onSubmit={handleSearchSubmit}
-            className="flex items-center border border-gray-300 rounded-full overflow-hidden hover:shadow transition-all duration-300"
+            className="hidden lg:flex items-center border border-gray-300 rounded-full overflow-hidden hover:shadow transition-all duration-300"
           >
-            <button type="submit" className="p-2">
+            <button type="submit" className="p-2 px-4">
               <IoMdSearch className="text-xl" />
             </button>
             <input
               type="text"
-              className="px-2 w-48 outline-none bg-transparent text-white placeholder-slate-200"
+              className=" w-48 outline-none bg-transparent text-sm text-white placeholder-slate-200"
               value={searchInput}
               onChange={(e) => setSearchInput(e.target.value)}
               placeholder="Search Podcasts..."
@@ -133,7 +133,7 @@ const Navbar = () => {
         <div className="navbar-center"></div>
         <div className="navbar-end flex gap-4">
           <div className="hidden lg:flex">
-            <ul className="menu menu-horizontal px-1 flex items-center gap-3 text-[14px] font-medium text-white">
+            <ul className="menu menu-horizontal px-1 flex items-center gap-2 text-[14px] font-medium text-white">
               <li className="flex">
                 <Link rel="noopener noreferrer" href="/">
                   Home
@@ -167,7 +167,7 @@ const Navbar = () => {
               {user ? (
                 <>
                   <div>
-                    <div className="dropdown dropdown-end text-[#0A0D52]">
+                    <div className="dropdown dropdown-end">
                       <div
                         tabIndex={0}
                         role="button"
@@ -185,7 +185,7 @@ const Navbar = () => {
                       </div>
                       <ul
                         tabIndex={0}
-                        className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 p-2 shadow text-[#0A0D52]"
+                        className="menu menu-sm dropdown-content bg-[#3493f1d7] border-white border-1 rounded-box z-[1] mt-3 p-2 shadow "
                       >
                         {userLists}
                       </ul>
@@ -199,7 +199,7 @@ const Navbar = () => {
                   </li>
                   <Link
                     href="/sign-up"
-                    className="btn font-bold text-[14px] rounded-full text-[#03045E]"
+                    className="btn font-bold text-[14px] rounded-full "
                   >
                     Sign Up
                   </Link>
@@ -284,7 +284,7 @@ const Navbar = () => {
                       Sign In
                     </Link>
                   </li>
-                  <li className="flex text-[#03045E]">
+                  <li className="flex ">
                     <Link rel="noopener noreferrer" href="/sign-up">
                       Sign Up
                     </Link>

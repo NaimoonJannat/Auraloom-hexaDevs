@@ -3,12 +3,12 @@ import logo from "./../../../public/auraloom-logo.png";
 
 const Footer = () => {
   return (
-    <div className="bg-blue-100 font-montserrat">
+    <div className="bg-[#3493f1d7] font-montserrat text-black ">
       <footer className="container mx-auto">
         <div className="footer p-10">
           <aside>
             <Image className="w-64 mb-4" src={logo} alt="" priority />
-            <p>
+            <p className="font-bold">
               Auraloom Pvt Ltd.
               <br />
               Listen, Discover, Illuminate
@@ -35,9 +35,9 @@ const Footer = () => {
             <a className="link link-hover">Premium Family</a>
           </nav>
         </div>
-      <div className="footer bg-blue-100 items-center p-4">
+      <div className="footer  items-center p-4">
         <aside className="grid-flow-col items-center">
-          <p className="px-6">Copyright © {new Date().getFullYear()} - All right reserved to Team HexaDevs</p>
+          <p className="px-6 font-bold">Copyright © {new Date().getFullYear()} - All right reserved to Team HexaDevs</p>
         </aside>
         <nav className="grid-flow-col px-6 gap-4 md:place-self-center md:justify-self-end">
           <a>
