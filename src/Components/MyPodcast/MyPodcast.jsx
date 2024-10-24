@@ -16,7 +16,7 @@ const MyPodcasts = () => {
       try {
         setLoading(true);
         const { data } = await axios(
-          `https://auraloom-backend.vercel.app/podcasts/${user?.email}`
+          `https://auraloom-backend.vercel.app/creator-podcasts/${user?.email}`
         );
         setItem(data);
       } catch (error) {
