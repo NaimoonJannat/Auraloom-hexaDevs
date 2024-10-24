@@ -1,3 +1,4 @@
+"use client";
 import Image from 'next/image';
 import React from 'react';
 import { FaPlay } from "react-icons/fa";
@@ -60,6 +61,9 @@ const podcastData = [
 ];
 
 const TopContent = () => {
+
+
+
     return (
         <div>
             <span className="relative flex justify-center mt-20 mb-10 font-bold">
@@ -74,7 +78,7 @@ const TopContent = () => {
                 <div className="mx-auto max-w-screen-2xl px-4 md:px-8">
                     <div className="grid gap-4 sm:grid-cols-2 md:gap-6 lg:grid-cols-3 xl:grid-cols-4 xl:gap-8">
                         {podcastData.map((podcast, index) => (
-                            <div key={index} className="flex flex-col overflow-hidden rounded-lg border border-gray-200 dark:border-gray-700 hover:border-[#0077B6] transition-colors duration-200 bg-white dark:bg-gray-800 shadow-lg hover:shadow-2xl max-w-96">
+                            <div key={index} className="flex flex-col overflow-hidden rounded-lg border border-gray-200 dark:border-gray-700 hover:border-[#CAF0F8] transition-colors duration-200 bg-white dark:bg-gray-800 shadow-lg hover:shadow-2xl max-w-96">
                                 <a href={podcast.link} className="group relative block h-48 overflow-hidden bg-gray-100 dark:bg-gray-700 md:h-64">
                                     <Image
                                         src={podcast.image}
