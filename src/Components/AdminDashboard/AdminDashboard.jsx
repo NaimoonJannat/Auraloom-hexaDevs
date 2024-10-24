@@ -45,15 +45,15 @@ ChartJS.register(
 
 const AdminDashboard = () => {
   const [items, setItem] = useState([])
-  const { user} = useContext(AuthContext);
+  const { user, logout } = useContext(AuthContext);
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   console.log(user);
- 
+
   // Toggle sidebar function for mobile devices
   const toggleSidebar = () => {
-      setIsSidebarOpen(!isSidebarOpen);
+    setIsSidebarOpen(!isSidebarOpen);
   };
-  
+
   useEffect(() => {
     const getData = async () => {
       const { data } = await axios(`https://auraloom-backend.vercel.app/users`)
@@ -61,6 +61,11 @@ const AdminDashboard = () => {
     }
     getData()
   }, [])
+  const signOutUser = () => {
+    logout()
+      .then(() => { })
+      .catch(() => { });
+  };
   const listensData = {
     labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul'],
     datasets: [
@@ -157,8 +162,8 @@ const AdminDashboard = () => {
           <Image
             src={logo}
             alt="Auraloom Logo"
-            width={130}  
-            height={130} 
+            width={130}
+            height={130}
             className="mr-3"
           />
         </div>
