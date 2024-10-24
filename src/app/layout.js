@@ -28,9 +28,9 @@ export default function RootLayout({ children }) {
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         <AuthProvider>
-        {/* <Suspense fallback={<div>Loading podcasts...</div>}> */}
+        <Suspense fallback={<div>Loading podcasts...</div>}>
             <Navbar />
-        {/* </Suspense> */}
+        </Suspense>
           {children}
           <Footer />
         </AuthProvider>
