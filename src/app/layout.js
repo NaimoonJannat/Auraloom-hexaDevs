@@ -3,6 +3,7 @@ import "./globals.css";
 import AuthProvider from "@/Components/Provider/AuthProvider/AuthProvider";
 import Navbar from "@/Components/Navbar/Navbar";
 import Footer from "@/Components/Footer/Footer";
+import { Suspense } from "react";
  
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -27,7 +28,9 @@ export default function RootLayout({ children }) {
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         <AuthProvider>
-          <Navbar />
+        {/* <Suspense fallback={<div>Loading podcasts...</div>}> */}
+            <Navbar />
+        {/* </Suspense> */}
           {children}
           <Footer />
         </AuthProvider>
