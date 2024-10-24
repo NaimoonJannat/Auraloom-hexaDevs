@@ -30,7 +30,7 @@ import Image from "next/image";
 import axios from "axios";
 import Swal from "sweetalert2";
 import { AuthContext } from "../Provider/AuthProvider/AuthProvider";
-
+import { IoMdArrowBack } from 'react-icons/io';
 // Register components from Chart.js
 ChartJS.register(
   CategoryScale,
@@ -45,8 +45,15 @@ ChartJS.register(
 
 const AdminDashboard = () => {
   const [items, setItem] = useState([])
-  const { user } = useContext(AuthContext);
-  console.log(items)
+  const { user} = useContext(AuthContext);
+  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+  console.log(user);
+ 
+  // Toggle sidebar function for mobile devices
+  const toggleSidebar = () => {
+      setIsSidebarOpen(!isSidebarOpen);
+  };
+  
   useEffect(() => {
     const getData = async () => {
       const { data } = await axios(`https://auraloom-backend.vercel.app/users`)
