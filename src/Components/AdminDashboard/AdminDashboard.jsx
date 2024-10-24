@@ -156,8 +156,35 @@ const AdminDashboard = () => {
 
   return (
     <div className="flex flex-col lg:flex-row min-h-screen">
+      {/* Mobile menu button */}
+      <button
+        className="block md:hidden p-4 focus:outline-none"
+        onClick={toggleSidebar}
+      >
+        <svg
+          className="w-6 h-6"
+          fill="none"
+          stroke="currentColor"
+          viewBox="0 0 24 24"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+        </svg>
+      </button>
+
       {/* Sidebar */}
-      <div className="w-full lg:w-1/5 bg-gray-100 shadow-lg text-[#03045E] flex flex-col">
+      <div className={`fixed inset-0 lg:relative lg:translate-x-0 transition-transform transform ${isSidebarOpen ? "translate-x-0" : "-translate-x-full"} bg-gray-100 w-3/4 lg:w-1/5 z-50`}>
+        
+        {/* Back button for mobile & medium devices */}
+        <div className="flex justify-between p-4 bg-blue-500 text-white rounded-2xl m-5 md:hidden">
+          <h1 className="text-lg font-bold">Back</h1>
+          <button
+            className="focus:outline-none"
+            onClick={toggleSidebar}
+          >
+            <IoMdArrowBack className="w-6 h-6" />
+          </button>
+        </div>
         <div className="py-6 px-8 flex items-center justify-center text-2xl font-bold">
           <Image
             src={logo}
