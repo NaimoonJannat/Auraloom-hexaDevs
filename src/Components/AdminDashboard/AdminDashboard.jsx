@@ -175,7 +175,7 @@ const AdminDashboard = () => {
 
       {/* Sidebar */}
       <div className={`fixed inset-0 lg:relative lg:translate-x-0 transition-transform transform ${isSidebarOpen ? "translate-x-0" : "-translate-x-full"} bg-gray-100 w-3/4 lg:w-1/5 z-50`}>
-        
+
         {/* Back button for mobile & medium devices */}
         <div className="flex justify-between p-4 bg-blue-500 text-white rounded-2xl m-5 md:hidden">
           <h1 className="text-lg font-bold">Back</h1>
@@ -300,10 +300,17 @@ const AdminDashboard = () => {
                       <td className="px-2 sm:px-4 py-2">{item.email}</td>
                       <td className="px-2 sm:px-4 py-2">{item.role}</td>
                       <td className=" px-4 py-2 text-center">
-                        <button onClick={() => handleDelete(item._id)} className="bg-[#0077b6] text-white px-3 py-1 rounded-lg">
-                          Change Role
+                        <button onClick={() => setIsOPen(true)} className="bg-[#0077b6] text-white px-3 py-1 rounded-lg relative cursor-pointer inline-block">
+                          <span
+                            aria-hidden='true'
+                            className='absolute inset-0   rounded-full'
+                          ></span>
+                          <span className='relative text-white'>Change Role</span>
                         </button>
+                        {/* Update User Modal */}
+                        <UpdateUserModal isOpen={isOpen} setIsOpen={setIsOPen} modalHandler={modalHandler} item={item} />
                       </td>
+
                     </tr>
                   ))}
                 </tbody>
