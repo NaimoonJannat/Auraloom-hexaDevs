@@ -58,7 +58,7 @@ const CreatePlaylist = () => {
 
             <PlaylistHeading title={"My Playlist"}></PlaylistHeading>
 
-            <div className='lg:flex items-start mx-auto font-montserrat'>
+            <div className='lg:flex items-start mx-auto font-montserrat mb-10'>
                 <div className="mx-auto dark:text-gray-800 border border-[#0077b6] scale-90 rounded-md">
                     <div className="flex flex-col max-w-3xl mx-auto overflow-hidden rounded ">
                         <Image src={img1} alt="Image" className="w-full h-60 sm:h-96 object-cover p-4" />

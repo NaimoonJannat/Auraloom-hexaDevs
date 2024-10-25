@@ -67,7 +67,7 @@ const SubscriptionSlide = () => {
         <div className='m-auto'>
             <div>
                 <div class="flex flex-col items-center">
-                    <span className="relative flex justify-center mt-10 font-bold">
+                    <span className="relative flex justify-center mt-20 font-bold">
                         <div
                             className="absolute inset-x-0 top-1/2 h-px -translate-y-1/2 bg-transparent bg-gradient-to-r from-transparent via-gray-500 to-transparent opacity-75 scale-75"
                         ></div>
