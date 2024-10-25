@@ -5,7 +5,7 @@ const Footer = () => {
   return (
     <div className="bg-[#3493f1d7] font-montserrat">
       <footer className="container mx-auto">
-        <div className="footer p-10">
+        <div className="footer p-10 font-medium">
           <aside>
             <Image className="w-64 mb-4" src={logo} alt="" priority />
             <p>
@@ -36,7 +36,7 @@ const Footer = () => {
           </nav>
         </div>
         <div className="footer bg-blue-100 items-center p-4">
-          <aside className="grid-flow-col items-center">
+          <aside className="grid-flow-col items-center font-medium">
             <p className="px-6">Copyright © {new Date().getFullYear()} - All right reserved to Team HexaDevs</p>
           </aside>
           <nav className="grid-flow-col px-6 gap-4 md:place-self-center md:justify-self-end">
