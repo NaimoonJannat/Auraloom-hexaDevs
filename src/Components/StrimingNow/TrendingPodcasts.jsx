@@ -214,7 +214,7 @@ const TrendingPodcasts = () => {
                                     </a>
 
                                     <div className="flex flex-col gap-2">
-                                        <span className="text-sm text-gray-400">{podcast.uploadedDate}</span>
+                                        <span className="text-sm text-gray-500 font-medium">{podcast.uploadedDate}</span>
 
                                         <h2 className="text-lg font-bold">
                                             <a href="#" className=" hover:text-[#00b4d8] active:text-[#0077b6]">
