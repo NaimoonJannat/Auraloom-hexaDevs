@@ -19,7 +19,7 @@ const CheckoutPaage = () => {
     useEffect(() => {
         // Fetch the client secret from the backend
         if (totalPrice > 0) {
-            axios.post('https://auraloom-hexa-devs.vercel.app/create-payment-intent', { price: totalPrice })
+            axios.post('https://auraloom-backend.vercel.app/create-payment-intent', { price: totalPrice })
                 .then(res => {
                     setClientSecret(res.data.clientSecret);
                 })
@@ -91,7 +91,7 @@ const CheckoutPaage = () => {
             };
 
             try {
-                const res = await axios.post('https://auraloom-hexa-devs.vercel.app/payments', payment);
+                const res = await axios.post('https://auraloom-backend.vercel.app/payments', payment);
                 if (res.data?.insertedId) {
                     Swal.fire({
                         position: "top-end",

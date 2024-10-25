@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import WaveSurfer from 'wavesurfer.js';
 import { FaPlay, FaPause, FaStepBackward, FaStepForward, FaRedo, FaTachometerAlt } from 'react-icons/fa';
 
-const AudioPlayer = ({ audioUrl }) => {
+const AudioPlayer = ({ audioUrl, user, podcastId }) => {
   const [playing, setPlaying] = useState(false);
   const [playbackRate, setPlaybackRate] = useState(1);
   const [speedMenuOpen, setSpeedMenuOpen] = useState(false);
@@ -40,10 +40,43 @@ const AudioPlayer = ({ audioUrl }) => {
   }, [audioUrl]);
 
   // Toggle play/pause
-  const handlePlayPause = () => {
+  const handlePlayPause = async () => {
+    const currentTime = wavesurferRef.current.getCurrentTime();
+    const isBeginning = currentTime === 0; // Check if the user is starting from the beginning
+
     setPlaying(!playing);
     wavesurferRef.current.playPause();
-  };
+
+    // If the user is not logged in, allow play/pause but don't update the play count
+    // if (!user) {
+    //     console.log('User not logged in. Play count will not be updated.');
+    //     return;
+    // }
+
+    // Check if user is authenticated, podcast ID is available, and the audio is starting from the beginning
+    if (isBeginning && podcastId) {
+        try {
+            const response = await fetch(`https://auraloom-backend.vercel.app/podcasts/play/${podcastId}?email=${user.email}`, {
+                method: "PATCH",
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+            });
+
+            if (!response.ok) {
+                const errorData = await response.json();
+                throw new Error(errorData.message || 'Failed to update play count.');
+            }
+
+            const updatedPodcast = await response.json();
+            console.log("Podcast play count updated:", updatedPodcast);
+
+        } catch (error) {
+            console.error('Error updating play count:', error);
+        }
+    }
+};
+
 
   // Skip forward 10 seconds
   const handleSkipForward = () => {

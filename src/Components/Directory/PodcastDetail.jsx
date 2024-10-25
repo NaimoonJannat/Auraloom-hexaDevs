@@ -329,8 +329,12 @@ const handleDislike = async () => {
                         <div className="lg:text-3xl text-lg  font-bold mb-5 lg:mb-10">{podcast.title}</div>
                         <div className="lg:text-xl font-medium mb-6 lg:mb-12">{podcast.creator}</div>
 
-                         <AudioPlayer audioUrl={podcast.audioUrl} />      {/* playback control  */}
-                         
+                        {/* playback control  */}
+                         <AudioPlayer 
+                            audioUrl={podcast.audioUrl} 
+                            user={user} 
+                            podcastId={podcast._id} />      
+
                         <div className="flex gap-4 items-center flex-wrap lg:mt-10 justify-center mt-4 md:mt-6">
                         <button 
                             onClick={handleLike} 
