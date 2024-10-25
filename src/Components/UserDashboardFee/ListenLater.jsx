@@ -33,15 +33,19 @@ const ListenLater = () => {
 
     if (loading) return <p className="text-center">Loading...</p>;
     if (error) return <p className="text-center text-red-500">{error}</p>;
+
+    const limitedPodcasts = listenLater.filter((_, index) => index < 4);
+    console.log(limitedPodcasts);
+
     return (
         <div className='container mx-auto'>
             <DashboardHeading className="bg-black" title={"Listen Later"} />
 
-            {listenLater.length === 0 ? (
+            {limitedPodcasts.length === 0 ? (
                 <p className="text-center">No podcasts available to listen later.</p>
             ) : (
                 <div className="listenLater-grid grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-                    {listenLater.map((later) => (
+                    {limitedPodcasts.map((later) => (
                         <div key={later._id} className="later-card bg-gray-800 p-4 rounded-lg">
                             <div className="relative w-full h-40">
                                 <Image

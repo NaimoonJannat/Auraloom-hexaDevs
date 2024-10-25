@@ -10,7 +10,7 @@ const History = () => {
         <div>
             <span className="relative flex justify-center my-10 font-bold">
                 <div
-                    className="absolute inset-x-0 top-1/2 h-px -translate-y-1/2 bg-transparent bg-gradient-to-r from-transparent via-gray-500 to-transparent opacity-75 scale-90"
+                    className="absolute inset-x-0 top-1/2 h-px -translate-y-1/2 bg-transparent bg-gradient-to-r from-transparent via-gray-500 to-transparent opacity-75 scale-90 mt-6"
                 ></div>
 
                 <span className="relative z-10  px-6 text-2xl text-[#0077b6]">History</span>
@@ -87,11 +87,7 @@ const History = () => {
             <div className=" ">
 
                 <div className="mx-auto max-w-screen-xl px-4 my-4 md:px-8">
-
-               
-
                     <div>
-
                         <div className="flex flex-col items-center gap-4 md:flex-row lg:gap-6 scale-90">
                             <a href="#" className="group relative block h-56 w-full shrink-0 self-start overflow-hidden rounded-lg bg-gray-100 shadow-lg md:h-24 md:w-24 lg:h-40 lg:w-40">
                                 <Image

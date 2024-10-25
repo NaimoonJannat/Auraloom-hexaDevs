@@ -19,7 +19,7 @@ import { useRouter } from 'next/router';
 import { useForm } from 'react-hook-form';
 import AudioPlayer from "./AudioPlayer";
 import { CirclesWithBar } from "react-loader-spinner";
-
+import reviewGraphic from "/public/reviews_graphic.svg";
 
 const PodcastDetail = ({ id }) => {
     
@@ -73,178 +73,179 @@ const PodcastDetail = ({ id }) => {
         }
     }, [id]);
 
+    // Initial effect to set the like and dislike states based on the user's email
+        useEffect(() => {
+            if (podcast && user) {
+                setIsLiked(podcast.likes.includes(user.email));
+                setIsDisliked(podcast.dislikes.includes(user.email));
+            }
+        }, [podcast, user]);
+
     // If the data is still loading, show a loading message
     if (isLoading) {
-        return <div className="flex justify-center items-center lg:mt-20">
-            <CirclesWithBar
-                height="100"
-                width="100"
-                color="#4F46E5"
-                outerCircleColor="#4F46E5"
-                innerCircleColor="#4F46E5"
-                barColor="#4F46E5"
-                ariaLabel="circles-with-bar-loading"
-                visible={true}
-                
-                />;
-        </div>
+        return (
+            <div className="min-h-screen ">
+            <div className="lg:flex justify-center items-center lg:mt-80 mx-auto hidden ">
+                <CirclesWithBar
+                    height="120"
+                    width="120"
+                    color="#4F46E5"
+                    outerCircleColor="#4F46E5"
+                    innerCircleColor="#4F46E5"
+                    barColor="#4F46E5"
+                    ariaLabel="circles-with-bar-loading"
+                    visible={true}
+                    
+                    />
+            </div>
+            <div className="md:flex justify-center items-center md:mt-72 mx-auto hidden lg:hidden">
+                <CirclesWithBar
+                    height="100"
+                    width="100"
+                    color="#4F46E5"
+                    outerCircleColor="#4F46E5"
+                    innerCircleColor="#4F46E5"
+                    barColor="#4F46E5"
+                    ariaLabel="circles-with-bar-loading"
+                    visible={true}
+                    
+                    />
+            </div>            
+            <div className="md:hidden flex justify-center items-center mt-40 mx-auto ">
+                <CirclesWithBar
+                    height="80"
+                    width="80"
+                    color="#4F46E5"
+                    outerCircleColor="#4F46E5"
+                    innerCircleColor="#4F46E5"
+                    barColor="#4F46E5"
+                    ariaLabel="circles-with-bar-loading"
+                    visible={true}
+                    
+                    />
+            </div>
+            </div>
+        )
     }
 
-    // LIKING PODCAST
-    const handleLike = async () => {
-        // Redirect user to login if no user
-        if (!user) {
-            router.push({
-                pathname: '/login',
-                query: { from: router.asPath }
-            });
-            return; // Stop further execution
-        }
     
-        // Do not let user like if they are the owner of the podcast
-        if (user.email === email) {
-            Swal.fire({
-                title: 'Failure!',
-                text: 'You cannot like your own podcast!',
-                icon: 'error',
-                confirmButtonText: 'Close'
-            });
-            return; // Stop further execution
-        }
     
-        // Do not let user like if they have already liked this podcast
-        if (isLiked) {
-            Swal.fire({
-                title: 'Failure!',
-                text: 'You already liked this podcast!',
-                icon: 'error',
-                confirmButtonText: 'Close'
-            });
-            return;
-        }
-    
-        // Update likes if the user has not liked this podcast yet
-        try {
-            const response = await fetch(`https://auraloom-backend.vercel.app/podcasts/like/${podcast._id}?email=${user.email}`, {
-                method: "PATCH",
-                headers: {
-                    'content-type': 'application/json'
-                }
-            });
-    
-            const data = await response.json();
-    
-            if (response.ok) {
-                // Update the local state with the new like count
-                setPodcast((podcast) => ({
-                    ...podcast,
-                    likes: [...podcast.likes, user.email] // Add the user's email to the likes array
-                }));
-                setIsLiked(true);
-    
-                Swal.fire({
-                    title: 'Liked!',
-                    text: 'You have successfully liked this podcast!',
-                    icon: 'success',
-                    confirmButtonText: 'Close'
-                });
-            } else {
-                Swal.fire({
-                    title: 'Error!',
-                    text: data.message || 'Failed to like the podcast.',
-                    icon: 'error',
-                    confirmButtonText: 'Close'
-                });
-            }
-        } catch (error) {
-            console.error('Error liking podcast:', error);
-            Swal.fire({
-                title: 'Error!',
-                text: 'Something went wrong!',
-                icon: 'error',
-                confirmButtonText: 'Close'
-            });
-        }
-    };
+// LIKING PODCAST
+const handleLike = async () => {
+    if (!user) {
+        router.push({
+            pathname: '/login',
+            query: { from: router.asPath }
+        });
+        return;
+    }
 
-    // DISLIKING PODCAST
-    const handleDislike = async () => {
-        // Redirect user to login if no user
-        if (!user) {
-            router.push({
-                pathname: '/login',
-                query: { from: router.asPath }
-            });
-            return; // Stop further execution
-        }
-    
-        // Do not let user dislike if they are the owner of the podcast
-        if (user.email === email) {
-            Swal.fire({
-                title: 'Failure!',
-                text: 'You cannot dislike your own podcast!',
-                icon: 'error',
-                confirmButtonText: 'Close'
-            });
-            return; // Stop further execution
-        }
-    
-        // Do not let user dislike if they have already disliked this podcast
-        if (isDisliked) {
-            Swal.fire({
-                title: 'Failure!',
-                text: 'You already disliked this podcast!',
-                icon: 'error',
-                confirmButtonText: 'Close'
-            });
-            return;
-        }
-        
-    
-        // Update dislikes if the user has not disliked this podcast yet
-        try {
-            const response = await fetch(`https://auraloom-backend.vercel.app/podcasts/dislike/${podcast._id}?email=${user.email}`, {
-                method: "PATCH",
-                headers: {
-                    'content-type': 'application/json'
-                }
-            });
-    
-            const data = await response.json();
-    
-            if (response.ok) {
-                // Update the local state with the new dislike count
-                setPodcast((podcast) => ({
-                    ...podcast,
-                    dislikes: [...podcast.dislikes, user.email] // Add the user's email to the dislikes array
-                }));
-                setIsDisliked(true);
-    
-                Swal.fire({
-                    title: 'Disliked!',
-                    text: 'You have successfully liked this podcast!',
-                    icon: 'success',
-                    confirmButtonText: 'Close'
-                });
-            } else {
-                Swal.fire({
-                    title: 'Error!',
-                    text: data.message || 'Failed to dislike the podcast.',
-                    icon: 'error',
-                    confirmButtonText: 'Close'
-                });
+    if (user.email === podcast.creatorEmail) {
+        Swal.fire({
+            title: 'Failure!',
+            text: 'You cannot like your own podcast!',
+            icon: 'error',
+            confirmButtonText: 'Close',
+            confirmButtonColor: '#01BECA',
+            color: '#0077B6',
+            background: '#1D232A',
+        });
+        return;
+    }
+
+    try {
+        const response = await fetch(`https://auraloom-backend.vercel.app/podcasts/like/${podcast._id}?email=${user.email}`, {
+            method: "PATCH",
+            headers: {
+                'content-type': 'application/json'
             }
-        } catch (error) {
-            console.error('Error disliking podcast:', error);
-            Swal.fire({
-                title: 'Error!',
-                text: 'Something went wrong!',
-                icon: 'error',
-                confirmButtonText: 'Close'
-            });
+        });
+
+        if (!response.ok) {
+            const errorData = await response.json();
+            throw new Error(errorData.message || 'Failed to like the podcast.');
         }
-    };
-    
+
+        const updatedPodcast = await response.json();
+        setPodcast(updatedPodcast);
+
+        // Update state based on the updated podcast data
+        setIsLiked(updatedPodcast.likes.includes(user.email));
+        setIsDisliked(updatedPodcast.dislikes.includes(user.email));
+
+    } catch (error) {
+        console.error('Error liking podcast:', error);
+        Swal.fire({
+            title: 'Error!',
+            text: error.message,
+            icon: 'error',
+            confirmButtonText: 'Close',
+            confirmButtonColor: '#01BECA',
+            color: '#0077B6',
+            background: '#1D232A',
+        });
+    }
+};
+
+// DISLIKING PODCAST
+const handleDislike = async () => {
+    if (!user) {
+        router.push({
+            pathname: '/login',
+            query: { from: router.asPath }
+        });
+        return;
+    }
+
+    if (user.email === podcast.creatorEmail) {
+        Swal.fire({
+            title: 'Failure!',
+            text: 'You cannot dislike your own podcast!',
+            icon: 'error',
+            confirmButtonText: 'Close',
+            confirmButtonColor: '#01BECA',
+            color: '#0077B6',
+            background: '#1D232A',
+        });
+        return;
+    }
+
+    try {
+        const response = await fetch(`https://auraloom-backend.vercel.app/podcasts/dislike/${podcast._id}?email=${user.email}`, {
+            method: "PATCH",
+            headers: {
+                'content-type': 'application/json'
+            }
+        });
+
+        if (!response.ok) {
+            const errorData = await response.json();
+            throw new Error(errorData.message || 'Failed to dislike the podcast.');
+        }
+
+        const updatedPodcast = await response.json();
+        setPodcast(updatedPodcast);
+
+        // Update state based on the updated podcast data
+        setIsLiked(updatedPodcast.likes.includes(user.email));
+        setIsDisliked(updatedPodcast.dislikes.includes(user.email));
+
+    } catch (error) {
+        console.error('Error disliking podcast:', error);
+        Swal.fire({
+            title: 'Error!',
+            text: error.message,
+            icon: 'error',
+            confirmButtonText: 'Close',
+            confirmButtonColor: '#01BECA',
+            color: '#0077B6',
+            background: '#1D232A',
+        });
+    }
+};
+
+
+
 
      // ADD REVIEW
      const onSubmit = async (data) => {
@@ -319,39 +320,39 @@ const PodcastDetail = ({ id }) => {
                     <div className="relative z-10 text-white justify-between h-full p-3 md:p-4 lg:w-1/2 mx-auto my-32">
                         {/* Episode Info */}
                         <div className=" mb-10 lg:flex space-y-4 justify-between items-center">
-                            <span className="bg-[#01BECA] px-2  items-center border border-transparent rounded-badge w-fit">{podcast.category}</span>
+                            <span className="bg-[#01BECA] px-2  items-center border border-transparent rounded-badge w-fit text-sm">{podcast.category}</span>
                             <div className="flex gap-10 text-lg font-medium">
-                                <span className="flex items-center gap-2"> <FcLike className="text-3xl" /> {podcast && podcast.likes ? podcast.likes.length : 0} Likes</span>
-                                <span className="flex items-center gap-2"> <FcDislike className="text-3xl" />{podcast && podcast.dislikes ? podcast.dislikes.length : 0} Dislikes</span>
+                                <span className="flex items-center gap-2 text-sm md:text-base"> <FcLike className="text-2xl lg:text-3xl" /> {podcast && podcast.likes ? podcast.likes.length : 0} Likes</span>
+                                <span className="flex items-center gap-2 text-sm md:text-base"> <FcDislike className="text-2xl lg:text-3xl" />{podcast && podcast.dislikes ? podcast.dislikes.length : 0} Dislikes</span>
                             </div>
                         </div>
-                        <div className="lg:text-3xl text-2xl  font-bold mb-5 lg:mb-10">{podcast.title}</div>
+                        <div className="lg:text-3xl text-lg  font-bold mb-5 lg:mb-10">{podcast.title}</div>
                         <div className="lg:text-xl font-medium mb-6 lg:mb-12">{podcast.creator}</div>
 
                          <AudioPlayer audioUrl={podcast.audioUrl} />      {/* playback control  */}
                          
-                        <div className="flex gap-4 items-center flex-wrap lg:mt-10 justify-center">
+                        <div className="flex gap-4 items-center flex-wrap lg:mt-10 justify-center mt-4 md:mt-6">
                         <button 
                             onClick={handleLike} 
-                            className="flex items-center gap-2 border text-base border-b-slate-300 py-3 font-medium px-7 rounded-badge bg-[#01BECA]"
+                            className="flex items-center gap-2 border text-sm md:text-base border-b-slate-300 py-1 md:py-2 lg:py-3 font-medium px-5 md:px-6 lg:px-7 rounded-badge bg-[#01BECA]"
                         >
                             <FcLike className="text-2xl"/>
                             {isLiked ? "Liked" : "Like"}
                         </button>
                         <button 
                             onClick={handleDislike} 
-                            className="flex items-center gap-2 border text-base border-b-slate-300 py-3 font-medium px-7 rounded-badge bg-[#01BECA]"
+                            className="flex items-center gap-2 border text-sm md:text-base border-b-slate-300 py-1 md:py-2 lg:py-3 font-medium px-5 md:px-6 lg:px-7 rounded-badge bg-[#01BECA]"
                         >
                             <FcDislike className="text-2xl"/>
                             {isDisliked ? "Disliked" : "Dislike"}
                         </button>
-                            <button className="flex items-center gap-2 border text-base border-b-slate-300 py-3 font-medium px-7 rounded-badge bg-[#01BECA]"><FaPlus className="text-2xl"/>Add to Playlist</button>
+                            <button className="flex items-center gap-2 border text-sm md:text-base border-b-slate-300 py-1 md:py-2 lg:py-3 font-medium px-5 md:px-6 lg:px-7 rounded-badge bg-[#01BECA]"><FaPlus className="text-2xl"/>Add to Playlist</button>
                             <button
                             onClick={() => handleSharePodcast('Inspiring Podcast')}
-                            className="flex items-center gap-2 border text-base border-b-slate-300 py-3 font-medium px-7 rounded-badge bg-[#01BECA]"
+                            className="flex items-center gap-2 border text-sm md:text-base border-b-slate-300 py-1 md:py-2 lg:py-3 font-medium px-5 md:px-6 lg:px-7 rounded-badge bg-[#01BECA]"
                         >
                             <FaShare className="text-2xl"/>
-                            Share;
+                            Share
                         </button>
 
                         </div>                        
@@ -360,8 +361,20 @@ const PodcastDetail = ({ id }) => {
             
             {/* Review Form */}
             <SectionTitle title={"Leave a review!"}></SectionTitle>
-            <ReviewForm onSubmit={onSubmit}></ReviewForm>
-
+            <div className="flex flex-col md:flex-row gap-0 md:gap-4 items-center justify-center">
+                <div className="w-full md:w-[45%] flex justify-end">
+                    <ReviewForm onSubmit={onSubmit}></ReviewForm>
+                </div>
+                <div className="w-full md:w-auto flex justify-start">
+                    <Image
+                        width={350}
+                        height={350}
+                        src={reviewGraphic}
+                        alt="Review Graphic"
+                        className="object-contain max-h-[500px] md:max-h-[600px]"
+                    />
+                </div>
+            </div>
             {/* Review Carousel */}
             <div className="flex flex-col mt-4 md:mt-14 lg:mt-16 justify-center items-center mb-16">
                 <div className="lg:carousel md:carousel carousel-center w-2/5 p-4 space-x-4 rounded-box hidden bg-[#0077B6] ">
