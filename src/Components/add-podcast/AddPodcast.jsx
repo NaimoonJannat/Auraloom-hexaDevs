@@ -53,11 +53,12 @@ const AddPodcast = () => {
       const likes = [];
       const dislikes = [];
       const comments = [];
-
-      const newPodcast = { title, creator, email, description, category, imgUrl, audioUrl, likes, dislikes, comments };
+      const plays = [];
+      
+      const newPodcast = { title, creator, email, description, category, imgUrl, audioUrl, likes, dislikes, comments, plays };
       console.log(newPodcast);
       // Send data to the backend to save in MongoDB
-      const res = await axios.post('https://auraloom-backend.vercel.app/podcasts', newPodcast);
+      const res = await axios.post('http://localhost:5000/podcasts', newPodcast);
 
       if (res.data.insertedId) {
         Swal.fire({
