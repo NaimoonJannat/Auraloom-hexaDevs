@@ -1,11 +1,12 @@
 'use client';
 /* eslint-disable react/prop-types */
-import toast from 'react-hot-toast'
+import toast, { Toaster } from 'react-hot-toast'
 import Image from "next/image";
 import { useContext, useState } from "react"
 import UpdateUserModal from "../modal/UpdateUserModal"
 import { useMutation } from '@tanstack/react-query'
 import { AuthContext } from '../Provider/AuthProvider/AuthProvider';
+import axios from 'axios';
 const UserTable = ({ item }) => {
     console.log(item)
     const [isOpen, setIsOPen] = useState(false)
@@ -61,6 +62,7 @@ const UserTable = ({ item }) => {
                         </button>
                         {/* Update User Modal */}
                         <UpdateUserModal isOpen={isOpen} setIsOpen={setIsOPen} modalHandler={modalHandler} item={item} />
+                        <Toaster />
                       </td>
         </tr>
     )

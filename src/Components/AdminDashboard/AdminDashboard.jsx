@@ -116,7 +116,6 @@ const AdminDashboard = () => {
       },
     ],
   };
-
   const chartOptions = {
     responsive: true,
     plugins: {
@@ -134,11 +133,8 @@ const AdminDashboard = () => {
       toast.error('Action Not Allowed')
       return setIsOPen(false)
     }
-
-
     const userRole = {
       role: selected,
-      status: 'Verified',
     }
 
     try {
@@ -147,7 +143,6 @@ const AdminDashboard = () => {
       console.log(err)
       toast.error(err.message)
     }
-
   }
   //deleting user
   const handleDelete = _id => {
@@ -313,35 +308,12 @@ const AdminDashboard = () => {
                   </tr>
                 </thead>
                 <tbody>
-                {
-                items.map(item => <UserTable
-                 key={item._id}
-                item ={item}
-                
-                >
-                </UserTable>)}
-                  {items.map((item, index) => (
-                    <tr key={index}>
-                      <td className="px-2 sm:px-4 py-2">
-                        <Image src={item.photoURL} alt={item.photo} width={50} height={50} className="rounded-full object-cover" />
-                      </td>
-                      <td className="px-2 sm:px-4 py-2">{item.name}</td>
-                      <td className="px-2 sm:px-4 py-2">{item.email}</td>
-                      <td className="px-2 sm:px-4 py-2">{item.role}</td>
-                      <td className=" px-4 py-2 text-center">
-                        <button onClick={() => setIsOPen(true)} className="bg-[#0077b6] text-white px-3 py-1 rounded-lg relative cursor-pointer inline-block">
-                          <span
-                            aria-hidden='true'
-                            className='absolute inset-0   rounded-full'
-                          ></span>
-                          <span className='relative text-white'>Change Role</span>
-                        </button>
-                        {/* Update User Modal */}
-                        <UpdateUserModal isOpen={isOpen} setIsOpen={setIsOPen} modalHandler={modalHandler} item={item} />
-                      </td>
-
-                    </tr>
-                  ))}
+                  {
+                    items.map(item => <UserTable
+                      key={item._id}
+                      item={item}
+                    >
+                    </UserTable>)}
                 </tbody>
               </table>
             </div>
