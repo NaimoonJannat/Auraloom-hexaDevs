@@ -2,8 +2,31 @@
 import Head from "next/head";
 import Image from "next/image";
 import img from "../../../public/idea2.gif";
+import { useState } from "react";
+import axios from "axios";
 
 export default function IdeaGeneration() {
+  const [prompt, setPrompt] = useState('');
+  const [response, setResponse] = useState('');
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState('');
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setLoading(true);
+    setError('');
+    setResponse('');
+
+    try {
+      const res = await axios.post("http://localhost:5000/chat", { prompt });
+      setResponse(res.data);
+    } catch (err) {
+      console.error("Error:", err.message);
+      setError('Failed to get a response from the server. Please try again.');
+    } finally {
+      setLoading(false);
+    }
+  };
   return (
     <div className="min-h-screen flex items-center justify-center bg-gray-100">
       <Head>
@@ -26,28 +49,29 @@ export default function IdeaGeneration() {
         </div>
 
         {/* Main Content */}
-        <div className="absolute bottom-28 transform translate-y-1/2 w-full flex flex-col items-center justify-center text-center z-10">
+        <form onSubmit={handleSubmit} className="absolute bottom-28 transform translate-y-1/2 w-full flex flex-col items-center justify-center text-center z-10">
           <div className="flex flex-col sm:flex-row items-center space-y-4 sm:space-y-0 sm:space-x-4">
             {/* Input Field */}
             <input
               type="text"
               placeholder="What research methods were used in..."
+              value={prompt}
+              onChange={(e) => setPrompt(e.target.value)}
               className="px-4 py-2 w-full sm:w-96 border border-gray-300 rounded-full focus:outline-none focus:ring-2 focus:ring-blue-400"
             />
 
             {/* Generate Button */}
-            <button className="px-6 py-2 w-full sm:w-auto bg-blue-500 text-white font-bold rounded-full hover:bg-blue-600 transition duration-300">
-              Generate
+            <button type="submit" className="px-6 py-2 w-full sm:w-auto bg-blue-500 text-white font-bold rounded-full hover:bg-blue-600 transition duration-300" disabled={loading}>
+              {loading ? 'Generating...' : 'Generate'}
             </button>
           </div>
-
-          <div className="mt-4">
-            <a href="#" className="text-white hover:underline">
-              {/* Show other categories */}
-            </a>
-          </div>
-        </div>
+        </form>
       </main>
+      {/* Response/Error Display */}
+      <div className="absolute top-20 left-1/2 transform -translate-x-1/2">
+        {error && <p className="text-red-500 font-bold">{error}</p>}
+        {response && <p className="text-black font-bold">{response}</p>}
+      </div>
     </div>
   );
 }
