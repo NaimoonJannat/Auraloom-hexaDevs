@@ -7,15 +7,15 @@ import UpdateUserModal from "../modal/UpdateUserModal"
 import { useMutation } from '@tanstack/react-query'
 import { AuthContext } from '../Provider/AuthProvider/AuthProvider';
 import axios from 'axios';
-const UserTable = ({ item }) => {
+const UserTable = ({ item ,refetch}) => {
     console.log(item)
     const [isOpen, setIsOPen] = useState(false)
     const { user: loggedInUser, logout } = useContext(AuthContext);
     const { mutateAsync } = useMutation({
         mutationFn: async role => {
           const { data } = await axios.patch(
-            `/users/update/${item?.email}`,
-            role
+            `https://auraloom-backend.vercel.app/users/update/${item?.email}`,
+             role
           )
           return data
         },
@@ -23,7 +23,6 @@ const UserTable = ({ item }) => {
           refetch()
           console.log(data)
           toast.success('User role updated successfully!')
-     
           setIsOPen(false)
         },
       })
@@ -35,14 +34,12 @@ const UserTable = ({ item }) => {
         const userRole = {
             role: selected,
         }
-
         try {
             await mutateAsync(userRole)
         } catch (err) {
             console.log(err)
             toast.error(err.message)
         }
-
     }
     return (
         <tr className="">
@@ -67,7 +64,5 @@ const UserTable = ({ item }) => {
         </tr>
     )
 }
-
-
 
 export default UserTable

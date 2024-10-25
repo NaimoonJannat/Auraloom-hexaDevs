@@ -34,6 +34,7 @@ import { AuthContext } from "../Provider/AuthProvider/AuthProvider";
 import { IoMdArrowBack } from 'react-icons/io';
 import UpdateUserModal from "../modal/UpdateUserModal";
 import UserTable from "./UserTable";
+import { useQuery } from '@tanstack/react-query'
 // Register components from Chart.js
 ChartJS.register(
   CategoryScale,
@@ -47,7 +48,7 @@ ChartJS.register(
 );
 
 const AdminDashboard = () => {
-  const [items, setItem] = useState([])
+  //const [items, setItem] = useState([])
   const { user: loggedInUser, logout } = useContext(AuthContext);
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   const [isOpen, setIsOPen] = useState(false)
@@ -58,13 +59,25 @@ const AdminDashboard = () => {
     setIsSidebarOpen(!isSidebarOpen);
   };
 
-  useEffect(() => {
-    const getData = async () => {
+  // useEffect(() => {
+  //   const getData = async () => {
+  //     const { data } = await axios(`https://auraloom-backend.vercel.app/users`)
+  //     setItem(data)
+  //   }
+  //   getData()
+  // }, [])
+ 
+  const {
+    data: items = [],
+    //isLoading,
+    refetch,
+  } = useQuery({
+    queryKey: ['users'],
+    queryFn: async () => {
       const { data } = await axios(`https://auraloom-backend.vercel.app/users`)
-      setItem(data)
-    }
-    getData()
-  }, [])
+      return data
+    },
+  })
   const signOutUser = () => {
     logout()
       .then(() => { })
@@ -128,22 +141,7 @@ const AdminDashboard = () => {
       },
     },
   };
-  const modalHandler = async selected => {
-    if (loggedInUser.email === item.email) {
-      toast.error('Action Not Allowed')
-      return setIsOPen(false)
-    }
-    const userRole = {
-      role: selected,
-    }
 
-    try {
-      await mutateAsync(userRole)
-    } catch (err) {
-      console.log(err)
-      toast.error(err.message)
-    }
-  }
   //deleting user
   const handleDelete = _id => {
     Swal.fire({
@@ -312,6 +310,7 @@ const AdminDashboard = () => {
                     items.map(item => <UserTable
                       key={item._id}
                       item={item}
+                      refetch={refetch}
                     >
                     </UserTable>)}
                 </tbody>
