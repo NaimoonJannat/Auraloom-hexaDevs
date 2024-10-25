@@ -10,21 +10,22 @@ const UserTable = ({ item }) => {
     console.log(item)
     const [isOpen, setIsOPen] = useState(false)
     const { user: loggedInUser, logout } = useContext(AuthContext);
-    const updateUserRole = async (role, email) => {
-        try {
-            const { data } = await axios.patch(`/users/update/${email}`, role, {
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-            });
-            toast.success('User role updated successfully!');
-            return data;
-        } catch (error) {
-            console.error('Error updating user role:', error);
-            toast.error('Failed to update user role');
-            throw error;
-        }
-    };
+    const { mutateAsync } = useMutation({
+        mutationFn: async role => {
+          const { data } = await axios.patch(
+            `/users/update/${item?.email}`,
+            role
+          )
+          return data
+        },
+        onSuccess: data => {
+          refetch()
+          console.log(data)
+          toast.success('User role updated successfully!')
+     
+          setIsOPen(false)
+        },
+      })
     const modalHandler = async selected => {
         if (loggedInUser.email === item.email) {
             toast.error('Action Not Allowed')
