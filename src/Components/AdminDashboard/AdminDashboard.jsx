@@ -32,6 +32,7 @@ import axios from "axios";
 import Swal from "sweetalert2";
 import { AuthContext } from "../Provider/AuthProvider/AuthProvider";
 import { IoMdArrowBack } from 'react-icons/io';
+import UpdateUserModal from "../modal/UpdateUserModal";
 // Register components from Chart.js
 ChartJS.register(
   CategoryScale,
