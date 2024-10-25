@@ -19,7 +19,7 @@ import { useRouter } from 'next/router';
 import { useForm } from 'react-hook-form';
 import AudioPlayer from "./AudioPlayer";
 import { CirclesWithBar } from "react-loader-spinner";
-
+import reviewGraphic from "/public/reviews_graphic.svg";
 
 const PodcastDetail = ({ id }) => {
     
@@ -361,8 +361,20 @@ const handleDislike = async () => {
             
             {/* Review Form */}
             <SectionTitle title={"Leave a review!"}></SectionTitle>
-            <ReviewForm onSubmit={onSubmit}></ReviewForm>
-
+            <div className="flex flex-col md:flex-row gap-0 md:gap-4 items-center justify-center">
+                <div className="w-full md:w-[45%] flex justify-end">
+                    <ReviewForm onSubmit={onSubmit}></ReviewForm>
+                </div>
+                <div className="w-full md:w-auto flex justify-start">
+                    <Image
+                        width={350}
+                        height={350}
+                        src={reviewGraphic}
+                        alt="Review Graphic"
+                        className="object-contain max-h-[500px] md:max-h-[600px]"
+                    />
+                </div>
+            </div>
             {/* Review Carousel */}
             <div className="flex flex-col mt-4 md:mt-14 lg:mt-16 justify-center items-center mb-16">
                 <div className="lg:carousel md:carousel carousel-center w-2/5 p-4 space-x-4 rounded-box hidden bg-[#0077B6] ">
