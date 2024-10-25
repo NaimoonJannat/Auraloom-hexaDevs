@@ -73,19 +73,19 @@ const Register = () => {
                     }}
                 ></div>
                 <div className='w-full px-6 py-8 md:px-8 lg:w-1/2'>
-                    <p className='mt-3 lg:text-2xl font-medium text-[16px] text-center text-[#161D6F] '>
+                    <p className='mt-3 lg:text-2xl font-medium text-[16px] text-center '>
                         Welcome to Auraloom!
                     </p>
                     <div className='flex items-center justify-between mt-4'>
                         <span className='w-1/5 border-b border-[#161D6F] lg:w-1/4'></span>
-                        <div className='text-xs text-center text-[#161D6F] uppercase hover:underline'>
+                        <div className='text-xs text-center uppercase hover:underline'>
                             Sign Up with email
                         </div>
                         <span className='w-1/5 border-b border-[#161D6F] lg:w-1/4'></span>
                     </div>
                     <form onSubmit={handleSubmit} className="grid grid-cols-1 gap-6 mt-8 md:grid-cols-2">
                         <div>
-                            <label className="block mb-2 text-sm text-sky-950 dark:text-sky-950">Name</label>
+                            <label className="block mb-2 text-sm ">Name</label>
                             <input
                                 type="text"
                                 name="name"
@@ -97,7 +97,7 @@ const Register = () => {
                         </div>
 
                         <div>
-                            <label className="block mb-2 text-sm text-sky-950 dark:text-sky-950">Photo URL</label>
+                            <label className="block mb-2 text-sm ">Photo URL</label>
                             <input
                                 type="text"
                                 name="photoURL"
@@ -109,7 +109,7 @@ const Register = () => {
                         </div>
 
                         <div>
-                            <label className="block mb-2 text-sm text-sky-950 dark:text-sky-950">Email address</label>
+                            <label className="block mb-2 text-sm ">Email address</label>
                             <input
                                 type="email"
                                 name="email"
@@ -121,7 +121,7 @@ const Register = () => {
                         </div>
 
                         <div>
-                            <label className="block mb-2 text-sm text-sky-950 dark:text-sky-950">Password</label>
+                            <label className="block mb-2 text-sm ">Password</label>
                             <input
                                 type="password"
                                 name="password"
@@ -138,9 +138,9 @@ const Register = () => {
                         </div>
                     </form>
                     <div>
-                        <p className="mt-4 text-center text-sky-950 dark:text-sky-950">
+                        <p className="mt-4 text-center">
                             Already have an account?{" "}
-                            <Link href="/log-in" className="underline text-sky-950 dark:text-sky-950">
+                            <Link href="/log-in" className="underline">
                                 Log In
                             </Link>
                         </p>

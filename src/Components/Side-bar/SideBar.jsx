@@ -55,7 +55,7 @@ const Sidebar = () => {
                     <Link href={"/create-playlist"} className=" text-orange-500 flex items-center space-x-2 hover:bg-gray-700 p-2 rounded-md">Create new playlist +</Link>
                 </nav>
 
-                <div className="mt-7 md:mt-12 lg:mt-12 flex flex-col items-center space-y-4">
+                <div className="mt-7 md:mt-12 lg:mt-12 flex flex-col items-center space-y-2">
                     {user ? (
                         <>
                             <div>
@@ -85,9 +85,20 @@ const Sidebar = () => {
                                     {user?.displayName || 'user'}
                                 </button>
                             </div>
+
+                            <div>
+                                <button className="text-white font-semibold text-sm hover:text-blue-400 transition">
+                                    {user?.email || 'user@email.com'}
+                                </button>
+                            </div>
+                            <div>
+                                <button  onClick={signOutUser} className="text-white font-semibold text-sm hover:text-blue-400 transition">
+                                    Log Out
+                                </button>
+                            </div>
                         </>
                     ) : (
-                        <div className="flex flex-col items-center space-y-2">
+                        <div className="flex flex-col items-center space-y-4">
                             {/* Sign In */}
                             <Link href="/log-in" className="text-white font-semibold hover:underline">
                                 Sign In
@@ -103,7 +114,7 @@ const Sidebar = () => {
                     {/* Be a Creator Button */}
                     <button
                         onClick={openModal}
-                        className="btn mt-5 w-full hover:bg-sky-400 border-none hover:text-black text-sky-700 py-3 px-7 rounded-md font-bold transition"
+                        className="btn mt-5 lg:mt-10 w-full hover:bg-sky-400 border-none hover:text-black text-sky-700 py-3 px-7 rounded-md font-bold transition"
                     >
                         Be a Creator
                     </button>
