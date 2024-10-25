@@ -33,6 +33,7 @@ import Swal from "sweetalert2";
 import { AuthContext } from "../Provider/AuthProvider/AuthProvider";
 import { IoMdArrowBack } from 'react-icons/io';
 import UpdateUserModal from "../modal/UpdateUserModal";
+import UserTable from "./UserTable";
 // Register components from Chart.js
 ChartJS.register(
   CategoryScale,
@@ -47,9 +48,9 @@ ChartJS.register(
 
 const AdminDashboard = () => {
   const [items, setItem] = useState([])
-  const { user:loggedInUser, logout } = useContext(AuthContext);
+  const { user: loggedInUser, logout } = useContext(AuthContext);
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
-  const [isOpen,setIsOPen] = useState(false)
+  const [isOpen, setIsOPen] = useState(false)
   console.log(loggedInUser);
 
   // Toggle sidebar function for mobile devices
@@ -128,7 +129,26 @@ const AdminDashboard = () => {
       },
     },
   };
+  const modalHandler = async selected => {
+    if (loggedInUser.email === item.email) {
+      toast.error('Action Not Allowed')
+      return setIsOPen(false)
+    }
 
+
+    const userRole = {
+      role: selected,
+      status: 'Verified',
+    }
+
+    try {
+      await mutateAsync(userRole)
+    } catch (err) {
+      console.log(err)
+      toast.error(err.message)
+    }
+
+  }
   //deleting user
   const handleDelete = _id => {
     Swal.fire({
@@ -293,6 +313,13 @@ const AdminDashboard = () => {
                   </tr>
                 </thead>
                 <tbody>
+                {
+                items.map(item => <UserTable
+                 key={item._id}
+                item ={item}
+                
+                >
+                </UserTable>)}
                   {items.map((item, index) => (
                     <tr key={index}>
                       <td className="px-2 sm:px-4 py-2">
