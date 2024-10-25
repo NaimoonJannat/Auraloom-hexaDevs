@@ -32,6 +32,9 @@ import axios from "axios";
 import Swal from "sweetalert2";
 import { AuthContext } from "../Provider/AuthProvider/AuthProvider";
 import { IoMdArrowBack } from 'react-icons/io';
+import UpdateUserModal from "../modal/UpdateUserModal";
+import UserTable from "./UserTable";
+import { useQuery } from '@tanstack/react-query'
 // Register components from Chart.js
 ChartJS.register(
   CategoryScale,
@@ -45,23 +48,36 @@ ChartJS.register(
 );
 
 const AdminDashboard = () => {
-  const [items, setItem] = useState([])
-  const { user, logout } = useContext(AuthContext);
+  //const [items, setItem] = useState([])
+  const { user: loggedInUser, logout } = useContext(AuthContext);
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
-  console.log(user);
+  const [isOpen, setIsOPen] = useState(false)
+  console.log(loggedInUser);
 
   // Toggle sidebar function for mobile devices
   const toggleSidebar = () => {
     setIsSidebarOpen(!isSidebarOpen);
   };
 
-  useEffect(() => {
-    const getData = async () => {
+  // useEffect(() => {
+  //   const getData = async () => {
+  //     const { data } = await axios(`https://auraloom-backend.vercel.app/users`)
+  //     setItem(data)
+  //   }
+  //   getData()
+  // }, [])
+ 
+  const {
+    data: items = [],
+    //isLoading,
+    refetch,
+  } = useQuery({
+    queryKey: ['users'],
+    queryFn: async () => {
       const { data } = await axios(`https://auraloom-backend.vercel.app/users`)
-      setItem(data)
-    }
-    getData()
-  }, [])
+      return data
+    },
+  })
   const signOutUser = () => {
     logout()
       .then(() => { })
@@ -113,7 +129,6 @@ const AdminDashboard = () => {
       },
     ],
   };
-
   const chartOptions = {
     responsive: true,
     plugins: {
@@ -175,7 +190,7 @@ const AdminDashboard = () => {
 
       {/* Sidebar */}
       <div className={`fixed inset-0 lg:relative lg:translate-x-0 transition-transform transform ${isSidebarOpen ? "translate-x-0" : "-translate-x-full"} bg-gray-100 w-3/4 lg:w-1/5 z-50`}>
-        
+
         {/* Back button for mobile & medium devices */}
         <div className="flex justify-between p-4 bg-blue-500 text-white rounded-2xl m-5 md:hidden">
           <h1 className="text-lg font-bold">Back</h1>
@@ -199,7 +214,7 @@ const AdminDashboard = () => {
         <div className="py-6 px-8 flex items-center flex-col">
           <div className=" rounded-full border-2 border-sky-500 p-1">
             <Image
-              src={user?.photoURL}
+              src={loggedInUser?.photoURL}
               width={80}
               height={80}
               className="rounded-full"
@@ -207,8 +222,8 @@ const AdminDashboard = () => {
             />
           </div>
           <div className="ml-4 text-center text-[#03045E]">
-            <p className="text-lg font-semibold">{user?.displayName}</p>
-            <p className="text-sm ">{user?.email}</p>
+            <p className="text-lg font-semibold">{loggedInUser?.displayName}</p>
+            <p className="text-sm ">{loggedInUser?.email}</p>
           </div>
         </div>
 
@@ -291,21 +306,13 @@ const AdminDashboard = () => {
                   </tr>
                 </thead>
                 <tbody>
-                  {items.map((item, index) => (
-                    <tr key={index}>
-                      <td className="px-2 sm:px-4 py-2">
-                        <Image src={item.photoURL} alt={item.photo} width={50} height={50} className="rounded-full object-cover" />
-                      </td>
-                      <td className="px-2 sm:px-4 py-2">{item.name}</td>
-                      <td className="px-2 sm:px-4 py-2">{item.email}</td>
-                      <td className="px-2 sm:px-4 py-2">{item.role}</td>
-                      <td className=" px-4 py-2 text-center">
-                        <button onClick={() => handleDelete(item._id)} className="bg-[#0077b6] text-white px-3 py-1 rounded-lg">
-                          Change Role
-                        </button>
-                      </td>
-                    </tr>
-                  ))}
+                  {
+                    items.map(item => <UserTable
+                      key={item._id}
+                      item={item}
+                      refetch={refetch}
+                    >
+                    </UserTable>)}
                 </tbody>
               </table>
             </div>
