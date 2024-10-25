@@ -48,10 +48,10 @@ const AudioPlayer = ({ audioUrl, user, podcastId }) => {
     wavesurferRef.current.playPause();
 
     // If the user is not logged in, allow play/pause but don't update the play count
-    // if (!user) {
-    //     console.log('User not logged in. Play count will not be updated.');
-    //     return;
-    // }
+    if (!user) {
+        console.log('User not logged in. Play count will not be updated.');
+        return;
+    }
 
     // Check if user is authenticated, podcast ID is available, and the audio is starting from the beginning
     if (isBeginning && podcastId) {
