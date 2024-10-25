@@ -47,9 +47,10 @@ ChartJS.register(
 
 const AdminDashboard = () => {
   const [items, setItem] = useState([])
-  const { user, logout } = useContext(AuthContext);
+  const { user:loggedInUser, logout } = useContext(AuthContext);
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
-  console.log(user);
+  const [isOpen,setIsOPen] = useState(false)
+  console.log(loggedInUser);
 
   // Toggle sidebar function for mobile devices
   const toggleSidebar = () => {
@@ -200,7 +201,7 @@ const AdminDashboard = () => {
         <div className="py-6 px-8 flex items-center flex-col">
           <div className=" rounded-full border-2 border-sky-500 p-1">
             <Image
-              src={user?.photoURL}
+              src={loggedInUser?.photoURL}
               width={80}
               height={80}
               className="rounded-full"
@@ -208,8 +209,8 @@ const AdminDashboard = () => {
             />
           </div>
           <div className="ml-4 text-center text-[#03045E]">
-            <p className="text-lg font-semibold">{user?.displayName}</p>
-            <p className="text-sm ">{user?.email}</p>
+            <p className="text-lg font-semibold">{loggedInUser?.displayName}</p>
+            <p className="text-sm ">{loggedInUser?.email}</p>
           </div>
         </div>
 

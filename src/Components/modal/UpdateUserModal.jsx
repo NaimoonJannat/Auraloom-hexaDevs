@@ -1,4 +1,5 @@
 /* eslint-disable react/prop-types */
+'use client';
 import PropTypes from 'prop-types'
 import { Fragment, useState } from 'react'
 import {
@@ -14,7 +15,7 @@ import {
 } from '@headlessui/react'
 import { BsCheckLg } from 'react-icons/bs'
 import { AiOutlineDown } from 'react-icons/ai'
-const roles = ['user', 'admin']
+const roles = ['user', 'creator']
 
 const UpdateUserModal = ({ setIsOpen, isOpen, modalHandler, item }) => {
   const [selected, setSelected] = useState(item.role)
@@ -111,14 +112,14 @@ const UpdateUserModal = ({ setIsOpen, isOpen, modalHandler, item }) => {
                 <div className='flex mt-2 justify-center gap-5'>
                   <button
                     type='button'
-                    className='inline-flex justify-center rounded-md border border-transparent bg-green-100 px-4 py-2 text-sm font-medium text-green-900 hover:bg-green-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-green-500 focus-visible:ring-offset-2'
+                    className='inline-flex justify-center rounded-md border border-transparent bg-[#00b4d8] px-4 py-2 text-sm font-medium text-white hover:bg-[#0077b6] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#03045e] focus-visible:ring-offset-2'
                     onClick={() => modalHandler(selected)}
                   >
                     Update
                   </button>
                   <button
                     type='button'
-                    className='inline-flex justify-center rounded-md border border-transparent bg-red-100 px-4 py-2 text-sm font-medium text-red-900 hover:bg-red-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-red-500 focus-visible:ring-offset-2'
+                    className='inline-flex justify-center rounded-md border border-transparent bg-[] px-4 py-2 text-sm font-medium text-red-900 hover:bg-red-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-red-500 focus-visible:ring-offset-2'
                     onClick={() => setIsOpen(false)}
                   >
                     Cancel
