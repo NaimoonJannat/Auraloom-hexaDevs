@@ -22,6 +22,7 @@ const Register = () => {
         const { name, photoURL, email, password } = formData;
         const createdAt = new Date(); // Capture the current date and time
         const role = 'user';
+        const played = [];
 
         try {
             console.log("Attempting to create user..."); // Log when user creation starts
@@ -35,7 +36,8 @@ const Register = () => {
                 email,
                 photoURL,
                 createdAt, // Add the account creation time
-                role
+                role,
+                played
             };
 
             // Send data to the backend after successful user creation
