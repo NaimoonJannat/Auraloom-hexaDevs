@@ -52,7 +52,7 @@ const TopCreator = () => {
                         <div className="grid gap-4 sm:grid-cols-2 md:gap-6 lg:grid-cols-3 xl:grid-cols-4">
                             {creators.map((creator) => (
                                 <div key={creator.id}>
-                                    <a href="#" className="group relative flex h-96 items-end overflow-hidden rounded-lg bg-gray-100 dark:bg-gray-800 p-4 shadow-lg transition duration-200 hover:shadow-2xl hover:bg-[#CAF0F8] dark:hover:bg-[#0077B6] border-2">
+                                    <a href="#" className="group relative flex h-96 items-end overflow-hidden rounded-lg bg-gray-100 dark:bg-gray-800 p-4 shadow-lg transition duration-200 hover:shadow-2xl hover:bg-[#CAF0F8] dark:hover:bg-[#0077B6] border-2 ">
                                         <Image
                                             height={600}
                                             width={400}
@@ -62,7 +62,7 @@ const TopCreator = () => {
                                             className="absolute inset-0 h-full w-full object-cover object-center transition duration-200 group-hover:scale-110"
                                         />
                                         <div className="relative flex w-full flex-col rounded-lg bg-gray-100  p-4 text-center">
-                                            <span className="text-lg font-bold text-gray-800 lg:text-xl">
+                                            <span className="text-lg font-bold text-[#0077b6] lg:text-xl">
                                                 {creator.name}
                                             </span>
                                             <div className="flex justify-center pt-3">

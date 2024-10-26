@@ -18,8 +18,8 @@ const Payment = () => {
 
     return (
         <div>
-            <div className="min-h-screen flex items-center justify-center">
-                <div className=" p-8 rounded-lg shadow-lg max-w-lg w-full">
+            <div className="min-h-screen flex items-center justify-center my-10">
+                <div className=" p-8 rounded-lg shadow-lg max-w-lg w-full border">
                     <div className="flex justify-center mb-6">
                         <Image
                             src={logo1}

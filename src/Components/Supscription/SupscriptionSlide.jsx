@@ -89,7 +89,7 @@ const SubscriptionSlide = () => {
                     </a>
                 </div>
             </div>
-            <div className="mt-14 slider-container">
+            <div className="my-14 slider-container">
                 <Slider {...settings}>
                     {data.map((d) => (
                         <div
@@ -124,7 +124,7 @@ const SubscriptionSlide = () => {
                                     Free Trial
                                 </button>
                                 <Link href='/payment'>
-                                    <button disabled={d.price == '$0.00'} className="inline-flex items-center justify-center px-6 py-2 font-medium text-white uppercase transition-colors bg-orange-500 rounded-lg hover:bg-orange-700 focus:outline-none shadow-md">
+                                    <button disabled={d.price == '$0.00'} className="inline-flex items-center justify-center px-6 py-2 font-medium text-white uppercase transition-colors bg- rounded-lg bg-[#00b4d8] hover:bg-[#0077b6] focus:outline-none shadow-md">
                                         Checkout
                                     </button>
                                 </Link>

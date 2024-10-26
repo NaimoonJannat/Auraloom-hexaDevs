@@ -26,7 +26,7 @@ const CreatePlaylist = () => {
         };
 
         try {
-            const response = await axios.post('https://auraloom-hexa-devs.vercel.app/playlists', newPlaylist);
+            const response = await axios.post('https://auraloom-backend.vercel.app/playlists', newPlaylist);
             console.log('Playlist created:', response.data);
             // Optionally, reset form or show success message
         } catch (error) {
@@ -39,7 +39,7 @@ const CreatePlaylist = () => {
         const fetchPlaylists = async () => {
             if (user?.email) {
                 try {
-                    const response = await axios.get(`https://auraloom-hexa-devs.vercel.app/playlists/${user.email}`);
+                    const response = await axios.get(`https://auraloom-backend.vercel.app/playlists/${user.email}`);
                     setPlaylists(response.data);
                 } catch (error) {
                     console.error('Error fetching playlists:', error);
@@ -58,7 +58,7 @@ const CreatePlaylist = () => {
 
             <PlaylistHeading title={"My Playlist"}></PlaylistHeading>
 
-            <div className='lg:flex items-start mx-auto font-montserrat'>
+            <div className='lg:flex items-start mx-auto font-montserrat mb-10'>
                 <div className="mx-auto dark:text-gray-800 border border-[#0077b6] scale-90 rounded-md">
                     <div className="flex flex-col max-w-3xl mx-auto overflow-hidden rounded ">
                         <Image src={img1} alt="Image" className="w-full h-60 sm:h-96 object-cover p-4" />
