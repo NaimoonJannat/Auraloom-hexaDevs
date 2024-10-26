@@ -8,7 +8,7 @@ const Footer = () => {
         <div className="footer p-10 font-medium">
           <aside>
             <Image className="w-64 mb-4" src={logo} alt="" priority />
-            <p>
+            <p className="font-bold">
               Auraloom Pvt Ltd.
               <br />
               Listen, Discover, Illuminate

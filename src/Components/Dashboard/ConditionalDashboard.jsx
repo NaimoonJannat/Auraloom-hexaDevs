@@ -6,6 +6,7 @@ import Sidebar from '../Side-bar/SideBar';
 import UserDashboardFee from '../UserDashboardFee/UserDashboardFee';
 import CreatorDashboard from '../CreatorDashboard/CreatorDashboard';
 import AdminDashboard from '../AdminDashboard/AdminDashboard';
+import { CirclesWithBar } from 'react-loader-spinner';
 
 const ConditionalDashboard = () => {
   const { user } = useContext(AuthContext);
@@ -39,7 +40,18 @@ const ConditionalDashboard = () => {
   }, [user]);
 
   if (loading) {
-    return <div>Loading...</div>;
+    return             <div className="flex justify-center min-h-screen items-center lg:mt-20">
+    <CirclesWithBar
+        height="100"
+        width="100"
+        color="#4F46E5"
+        outerCircleColor="#4F46E5"
+        innerCircleColor="#4F46E5"
+        barColor="#4F46E5"
+        ariaLabel="circles-with-bar-loading"
+        visible={true}
+    />
+</div>;
   }
 
   if (!user) {

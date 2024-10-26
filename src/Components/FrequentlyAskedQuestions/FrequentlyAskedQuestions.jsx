@@ -27,7 +27,7 @@ const FrequentlyAskedQuestions = () => {
                             // { question: "What are some good methods to promote a podcast?", answer: "Utilizing social media, creating a website, and networking with other podcasters are effective methods." },
                             // { question: "How do I monetize my podcast?", answer: "You can monetize your podcast through sponsorships, listener donations, or premium content." },
                         ].map(({ question, answer }, index) => (
-                            <div key={index} className="p-4 text-sky-500 border-2 border-slate-300  rounded-lg hover:bg-gray-100 transition duration-200">
+                            <div key={index} className="p-4  border-2 border-slate-300  rounded-lg hover:bg-gray-100 hover:text-black transition duration-200">
                                 <button
                                     className="flex items-center justify-between w-full focus:outline-none"
                                     onClick={() => toggleAnswer(index)}
@@ -42,7 +42,7 @@ const FrequentlyAskedQuestions = () => {
                                     </span>
                                 </button>
                                 {openIndex === index && (
-                                    <p className="mt-4 text-sm text-gray-600">{answer}</p>
+                                    <p className="mt-4 text-sm">{answer}</p>
                                 )}
                             </div>
                         ))}
