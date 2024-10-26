@@ -95,12 +95,12 @@ const TopContent = () => {
                                 </a>
 
                                 <div className="flex flex-1 flex-col p-4 sm:p-6">
-                                    <span className="text-sm text-gray-400 mb-1">{podcast.date}</span>
+                                    <span className="text-sm text-gray-500 font-medium mb-1">{podcast.date}</span>
                                     <h2 className="mb-2 text-lg font-semibold  ">
                                         <a href={podcast.link} className="transition duration-100  hover:text-[#00B4D8] active:text-[#0077B6] text-xl font-bold">{podcast.title}</a>
                                     </h2>
                                     <hr className="border-gray-300 dark:border-gray-600" />
-                                    <p className="mb-8 mt-2 text-gray-500 ">{podcast.description}</p>
+                                    <p className="mb-8 mt-2 text-gray-500 font-semibold">{podcast.description}</p>
                                     <div className="mt-auto flex items-center justify-between">
                                         <div className="flex items-center gap-2">
                                             <div className="h-10 w-10 shrink-0 overflow-hidden rounded-full bg-gray-100 dark:bg-gray-600">
@@ -112,10 +112,10 @@ const TopContent = () => {
                                             </div>
                                             <div>
                                                 <span className="block text-[#0077B6] font-semibold ">Hosted By:</span>
-                                                <span className="block text-sm text-gray-400 dark:text-gray-500">{podcast.host.name}</span>
+                                                <span className="block text-sm text-gray-400 font-medium">{podcast.host.name}</span>
                                             </div>
                                         </div>
-                                        <span className="btn rounded-full border text-sm text-gray-500 dark:text-gray-400 hover:bg-[#0077B6] hover:text-white dark:hover:bg-[#00B4D8] transition-colors">
+                                        <span className="btn rounded-full border text-sm text-gray-500 hover:bg-[#0077B6] hover:text-white dark:hover:bg-[#00B4D8] transition-colors">
                                             <FaPlay />
                                         </span>
                                     </div>
