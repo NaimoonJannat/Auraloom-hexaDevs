@@ -35,6 +35,7 @@ const Footer = () => {
             <a className="link link-hover">Premium Family</a>
           </nav>
         </div>
+
         <div className="footer bg-blue-100 items-center p-4">
           <aside className="grid-flow-col items-center font-medium">
             <p className="px-6">Copyright © {new Date().getFullYear()} - All right reserved to Team HexaDevs</p>
