@@ -6,7 +6,7 @@ import { AuthContext } from '../Provider/AuthProvider/AuthProvider';
 import MyPodcasts from '../MyPodcast/MyPodcast';
 import Link from 'next/link';
 import { ChartBarIcon, HeartIcon, MusicNoteIcon, SelectorIcon } from '@heroicons/react/outline';
-import { FcIdea } from 'react-icons/fc';
+import { FcIdea, FaHome } from 'react-icons/fc';
 import { MdGeneratingTokens } from 'react-icons/md';
 import { CiSettings } from 'react-icons/ci';
 import { FaChartBar, FaMusic } from 'react-icons/fa';
@@ -50,7 +50,7 @@ const CreatorDashboard = () => {
                 </svg>
             </button>
             {/* Sidebar */}
-            <aside className={`w-64 min-h-screen p-6  shadow-lg z-10 md:relative md:translate-x-0 fixed transform transition-transform ${isSidebarOpen ? "translate-x-0" : "-translate-x-full"} bg-gray-100 md:flex md:flex-col`}>
+            <aside className={`w-64 min-h-screen p-6  shadow-lg z-10 md:relative md:translate-x-0 fixed transform transition-transform ${isSidebarOpen ? "translate-x-0" : "-translate-x-full"} light:bg-gray-100   md:flex md:flex-col`}>
                 <div>
                     {/* Back button for mobile & medium devices */}
                     <div className="flex justify-between p-4 bg-blue-500 text-white rounded-2xl m-5 md:hidden">
@@ -81,6 +81,7 @@ const CreatorDashboard = () => {
                                 </div>
                             </div>
                         </div>
+                        
                     </div>
 
                     {/* Display user's name */}
@@ -88,6 +89,9 @@ const CreatorDashboard = () => {
                         <button className=" font-semibold text-sm hover:text-blue-400 transition">
                             {user?.displayName || 'user'}
                         </button>
+                        {/* <button className=" font-semibold text-sm hover:text-blue-400 transition">
+                            {user?.displayName || 'user'}
+                        </button> */}
                     </div>
                 </div>
                 <nav className="mt-10">
@@ -112,11 +116,19 @@ const CreatorDashboard = () => {
                             <FcIdea className="h-6 w-6 " />
                             <span>Idea Generate</span>
                         </Link>
+                        {/* <Link href={"/"} className="flex items-center space-x-2 hover:bg-blue-400 hover:text-white p-2 rounded-md">
+                            <FaHome className="h-6 w-6 " />
+                            <span>Home</span>
+                        </Link> */}
+                        {/* <a href="/" className="flex items-center py-3 px-6 text-lg hover:bg-[#00B4D8]">
+                            <FaHome className="mr-3" /> Home
+                        </a> */}
+                        {/* 
                         <li>
                             <a href="/" className="flex items-center space-x-2 hover:bg-blue-400 hover:text-white p-2 rounded-md">
-                                <span className="text-sm font-medium">Logout</span>
+                            <FaHome className="h-6 w-6 " /> <span className="text-sm font-medium">Home</span>
                             </a>
-                        </li>
+                        </li> */}
                     </ul>
                 </nav>
             </aside>
