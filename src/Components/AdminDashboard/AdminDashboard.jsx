@@ -59,14 +59,7 @@ const AdminDashboard = () => {
     setIsSidebarOpen(!isSidebarOpen);
   };
 
-  // useEffect(() => {
-  //   const getData = async () => {
-  //     const { data } = await axios(`https://auraloom-backend.vercel.app/users`)
-  //     setItem(data)
-  //   }
-  //   getData()
-  // }, [])
- 
+  
   const {
     data: items = [],
     //isLoading,
@@ -189,7 +182,7 @@ const AdminDashboard = () => {
       </button>
 
       {/* Sidebar */}
-      <div className={`fixed inset-0 lg:relative lg:translate-x-0 transition-transform transform ${isSidebarOpen ? "translate-x-0" : "-translate-x-full"} bg-gray-100 w-3/4 lg:w-1/5 z-50`}>
+      <div className={`fixed inset-0 lg:relative lg:translate-x-0 transition-transform transform ${isSidebarOpen ? "translate-x-0" : "-translate-x-full"} light:bg-gray-100 w-3/4 lg:w-1/5 z-50`}>
 
         {/* Back button for mobile & medium devices */}
         <div className="flex justify-between p-4 bg-blue-500 text-white rounded-2xl m-5 md:hidden">
@@ -256,7 +249,7 @@ const AdminDashboard = () => {
         </nav>
       </div>
       {/* Main Content */}
-      <div className="w-full md:w-3/4 p-6 bg-gray-50">
+      <div className="w-full md:w-3/4 p-6 light:bg-gray-50">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-6">
           {/* Total Listens */}
           <div className=" shadow-lg p-6 rounded-lg">
