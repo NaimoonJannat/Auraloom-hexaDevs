@@ -174,16 +174,17 @@ const MyPodcasts = () => {
           No podcasts found. You haven&apos;t added any podcasts yet.
         </p>
       ) : (
+        <div className="overflow-x-auto">
         <table className="min-w-full table-auto border-none">
           <thead className="">
             <tr>
-              <th className="px-4 py-2">No.</th>
-              <th className="px-4 py-2">Podcast Name</th>
-              <th className="px-4 py-2">Creator</th>
-              <th className="px-4 py-2">Likes</th>
-              <th className="px-4 py-2">DisLikes</th>
-              <th className="px-4 py-2">Comments</th>
-              <th className="px-4 py-2">Actions</th>
+              <th className="px-4 py-2 text-xs md:text-base">No.</th>
+              <th className="px-4 py-2 text-xs md:text-base">Podcast Name</th>
+              <th className="px-4 py-2 text-xs md:text-base">Creator</th>
+              <th className="px-4 py-2 text-xs md:text-base">Likes</th>
+              <th className="px-4 py-2 text-xs md:text-base">DisLikes</th>
+              <th className="px-4 py-2 text-xs md:text-base">Comments</th>
+              <th className="px-4 py-2 text-xs md:text-base">Actions</th>
             </tr>
           </thead>
           <tbody>
@@ -206,7 +207,9 @@ const MyPodcasts = () => {
                 <td className="border px-4 py-2 text-center">
                   {podcast.comments.length}
                 </td>
+
                 <td className="border px-4 py-2 text-center">
+                  <div className="flex flex-wrap justify-center gap-2 ">
                   <button
                     onClick={() =>
                       document.getElementById("my_modal_3").showModal()
@@ -216,7 +219,7 @@ const MyPodcasts = () => {
                     Update
                   </button>
                   <dialog id="my_modal_3" className="modal">
-                    <div className="modal-box bg-[#CAF0F8] h-[1000px]">
+                    <div className="modal-box bg-[#CAF0F8] h-[1000px] overflow-auto">
                       <form method="dialog">
                         {/* if there is a button in form, it will close the modal */}
                         <button className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">
@@ -331,11 +334,14 @@ const MyPodcasts = () => {
                   >
                     Delete
                   </button>
+                  </div>
+                
                 </td>
               </motion.tr>
             ))}
           </tbody>
         </table>
+        </div>
       )}
     </div>
   );
