@@ -60,7 +60,7 @@ const UserTable = () => {
                 </thead>
                 <tbody>
                 {items.map((podcast) => (
-                        <tr key={podcast._id} className="text-gray-800 dark:text-gray-200">
+                        <tr key={podcast._id} className="light:text-gray-800 dark:text-white">
                             <td className="px-2 sm:px-4 py-2">{podcast.title}</td>
                             <td className="px-2 sm:px-4 py-2">{podcast.creator}</td>
                             <td className="px-2 sm:px-4 py-2">{podcast.category}</td>

@@ -183,7 +183,7 @@ const AdminDashboard = () => {
       </button>
 
       {/* Sidebar */}
-      <div className={`fixed inset-0 lg:relative lg:translate-x-0 transition-transform transform ${isSidebarOpen ? "translate-x-0" : "-translate-x-full"} light:bg-gray-100 w-3/4 lg:w-1/5 z-50`}>
+      <div className={`fixed inset-0 lg:relative  bg-gray-200  lg:translate-x-0 transition-transform transform ${isSidebarOpen ? "translate-x-0 " : "-translate-x-full"}  w-3/4 lg:w-1/5 z-50`}>
 
         {/* Back button for mobile & medium devices */}
         <div className="flex justify-between p-4 bg-blue-500 text-white rounded-2xl m-5 md:hidden">
@@ -215,7 +215,7 @@ const AdminDashboard = () => {
               alt="User avatar"
             />
           </div>
-          <div className="ml-4 text-center text-[#03045E]">
+          <div className="ml-4 text-center light:text-[#03045E]">
             <p className="text-lg font-semibold">{loggedInUser?.displayName}</p>
             <p className="text-sm ">{loggedInUser?.email}</p>
           </div>
@@ -226,31 +226,31 @@ const AdminDashboard = () => {
           {/* <a href="/overview" className="flex items-center py-3 px-6 text-lg hover:bg-[#00B4D8]">
             <FaChartLine className="mr-3" /> Overview
           </a> */}
-          <a href="/subscriptions" className="flex items-center py-3 text-lg px-6 hover:bg-[#00B4D8]">
+          {/* <a href="/subscriptions" className="flex items-center py-3 text-lg px-6 hover:bg-[#00B4D8]">
             <MdSubscriptions className="mr-3" /> Subscriptions
-          </a>
+          </a> */}
           {/* <a href="/transactions" className="flex items-center py-3 text-lg px-6 hover:bg-[#00B4D8]">
             <FaMoneyBillWave className="mr-3" /> Transactions
           </a> */}
           {/* <a href="/customers" className="flex items-center py-3 px-6 text-lg hover:bg-[#00B4D8]">
             <FaUsers className="mr-3" /> Customers
           </a> */}
-          <a href="/creators" className="flex items-center py-3 px-6 text-lg hover:bg-[#00B4D8]">
+          {/* <a href="/creators" className="flex items-center py-3 px-6 text-lg hover:bg-[#00B4D8]">
             <FaPodcast className="mr-3" /> Creators
-          </a>
+          </a> */}
           {/* <a href="/statistics" className="flex items-center py-3 text-lg px-6 hover:bg-[#00B4D8]">
             <FaChartBar className="mr-3" /> Statistics
           </a> */}
-          <a href="/Settings" className="flex items-center py-3 px-6 text-lg hover:bg-[#00B4D8]">
+          <a href="/Settings" className="flex items-center py-3 px-6 text-lg hover:bg-gray-400">
             <FaCog className="mr-3" /> Settings
           </a>
-          <a href="/" className="flex items-center py-3 px-6 text-lg hover:bg-[#00B4D8]">
+          <a href="/" className="flex items-center py-3 px-6 text-lg hover:bg-gray-400">
             <FaHome className="mr-3" /> Home
           </a>
         </nav>
       </div>
       {/* Main Content */}
-      <div className="w-full md:w-3/4 p-6 light:bg-gray-50">
+      <div className="w-full md:w-3/4 p-6">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-6">
           {/* Total Listens */}
           <div className=" shadow-lg p-6 rounded-lg">
