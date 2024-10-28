@@ -34,6 +34,7 @@ import { AuthContext } from "../Provider/AuthProvider/AuthProvider";
 import { IoMdArrowBack } from 'react-icons/io';
 import UpdateUserModal from "../modal/UpdateUserModal";
 import UserTable from "./UserTable";
+import AllPodcasts from './AllPodcasts'
 import { useQuery } from '@tanstack/react-query'
 // Register components from Chart.js
 ChartJS.register(
@@ -48,7 +49,7 @@ ChartJS.register(
 );
 
 const AdminDashboard = () => {
-  //const [items, setItem] = useState([])
+  
   const { user: loggedInUser, logout } = useContext(AuthContext);
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   const [isOpen, setIsOPen] = useState(false)
@@ -311,11 +312,18 @@ const AdminDashboard = () => {
             </div>
           </div>
           <div className=" shadow-lg p-4 sm:p-6 rounded-lg mb-6 w-full ">
+            <h2 className="text-lg sm:text-xl font-bold mb-4">All Podcasts</h2>
+            <div className="mx-auto mb-4">
+               <AllPodcasts/>
+            </div>
+          </div>
+          <div className=" shadow-lg p-4 sm:p-6 rounded-lg mb-6 w-full ">
             <h2 className="text-lg sm:text-xl font-bold mb-4">Monthly Listens</h2>
             <div className="h-48 sm:h-64 md:h-72 lg:h-80">
               <Line data={listensData} options={chartOptions} />
             </div>
           </div>
+
 
         </div>
 
