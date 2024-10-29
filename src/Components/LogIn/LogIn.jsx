@@ -23,13 +23,13 @@ const LogIn = () => {
         const { email, password } = formData;
         try {
             const result = await loginUser(email, password);
-            if (result.user) {
-                // router.push("/dashboard");
-                router.push("/");
+            if (result?.user) {
+                router.push("/dashboard");
+                //router.push("/");
             }
         } catch (error) {
-            // toast.error("Login failed. Please check your credentials.");
-            // console.error("Login error:", error);
+            //toast.error("Login failed. Please check your credentials.");
+            console.error("Login error:", error);
         }
     };
 
