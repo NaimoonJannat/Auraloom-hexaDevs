@@ -99,7 +99,7 @@ const CreatePlaylist = () => {
                     <div className="grid gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 overflow-hidden">
                         {playlists.slice(currentIndex * itemsPerPage, (currentIndex + 1) * itemsPerPage).map((playlist) => (
                             <div key={playlist._id}>
-                                <Link href={`/playlists/${playlist._id}`}> {/* Add Link here */}
+                                <Link href={`/create-playlist/${playlist._id}`}> {/* Add Link here */}
                                     <motion.div
                                         whileHover={{ scale: 1.1 }}
                                         transition={{ duration: 0.3 }}
