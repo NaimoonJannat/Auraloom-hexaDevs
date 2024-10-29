@@ -105,7 +105,9 @@ const AddToPlaylist = () => {
             </div>
 
             <div className="flex justify-center scale-90 my-10">
+
                 <button type="button" onClick={() => document.getElementById('my_modal_1').showModal()} className="px-8 py-3 font-semibold rounded-full border border-[#0077b6] flex items-center gap-2 text-lg">Add to the playlist <IoIosAddCircleOutline className='text-3xl pt-1 font-bold' /> </button>
+
             </div>
 
             {/* MODAL */}

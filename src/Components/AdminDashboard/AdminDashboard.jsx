@@ -34,6 +34,7 @@ import { AuthContext } from "../Provider/AuthProvider/AuthProvider";
 import { IoMdArrowBack } from 'react-icons/io';
 import UpdateUserModal from "../modal/UpdateUserModal";
 import UserTable from "./UserTable";
+import AllPodcasts from './AllPodcasts'
 import { useQuery } from '@tanstack/react-query'
 // Register components from Chart.js
 ChartJS.register(
@@ -48,7 +49,7 @@ ChartJS.register(
 );
 
 const AdminDashboard = () => {
-  //const [items, setItem] = useState([])
+  
   const { user: loggedInUser, logout } = useContext(AuthContext);
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   const [isOpen, setIsOPen] = useState(false)
@@ -59,14 +60,7 @@ const AdminDashboard = () => {
     setIsSidebarOpen(!isSidebarOpen);
   };
 
-  // useEffect(() => {
-  //   const getData = async () => {
-  //     const { data } = await axios(`https://auraloom-backend.vercel.app/users`)
-  //     setItem(data)
-  //   }
-  //   getData()
-  // }, [])
- 
+  
   const {
     data: items = [],
     //isLoading,
@@ -189,7 +183,7 @@ const AdminDashboard = () => {
       </button>
 
       {/* Sidebar */}
-      <div className={`fixed inset-0 lg:relative lg:translate-x-0 transition-transform transform ${isSidebarOpen ? "translate-x-0" : "-translate-x-full"} bg-gray-100 w-3/4 lg:w-1/5 z-50`}>
+      <div className={`fixed inset-0 lg:relative  bg-gray-200  lg:translate-x-0 transition-transform transform ${isSidebarOpen ? "translate-x-0 " : "-translate-x-full"}  w-3/4 lg:w-1/5 z-50`}>
 
         {/* Back button for mobile & medium devices */}
         <div className="flex justify-between p-4 bg-blue-500 text-white rounded-2xl m-5 md:hidden">
@@ -221,7 +215,7 @@ const AdminDashboard = () => {
               alt="User avatar"
             />
           </div>
-          <div className="ml-4 text-center text-[#03045E]">
+          <div className="ml-4 text-center light:text-[#03045E]">
             <p className="text-lg font-semibold">{loggedInUser?.displayName}</p>
             <p className="text-sm ">{loggedInUser?.email}</p>
           </div>
@@ -232,31 +226,31 @@ const AdminDashboard = () => {
           {/* <a href="/overview" className="flex items-center py-3 px-6 text-lg hover:bg-[#00B4D8]">
             <FaChartLine className="mr-3" /> Overview
           </a> */}
-          <a href="/subscriptions" className="flex items-center py-3 text-lg px-6 hover:bg-[#00B4D8]">
+          {/* <a href="/subscriptions" className="flex items-center py-3 text-lg px-6 hover:bg-[#00B4D8]">
             <MdSubscriptions className="mr-3" /> Subscriptions
-          </a>
+          </a> */}
           {/* <a href="/transactions" className="flex items-center py-3 text-lg px-6 hover:bg-[#00B4D8]">
             <FaMoneyBillWave className="mr-3" /> Transactions
           </a> */}
           {/* <a href="/customers" className="flex items-center py-3 px-6 text-lg hover:bg-[#00B4D8]">
             <FaUsers className="mr-3" /> Customers
           </a> */}
-          <a href="/creators" className="flex items-center py-3 px-6 text-lg hover:bg-[#00B4D8]">
+          {/* <a href="/creators" className="flex items-center py-3 px-6 text-lg hover:bg-[#00B4D8]">
             <FaPodcast className="mr-3" /> Creators
-          </a>
+          </a> */}
           {/* <a href="/statistics" className="flex items-center py-3 text-lg px-6 hover:bg-[#00B4D8]">
             <FaChartBar className="mr-3" /> Statistics
           </a> */}
-          <a href="/Settings" className="flex items-center py-3 px-6 text-lg hover:bg-[#00B4D8]">
+          <a href="/Settings" className="flex items-center py-3 px-6 text-lg hover:bg-gray-400">
             <FaCog className="mr-3" /> Settings
           </a>
-          <a href="/" className="flex items-center py-3 px-6 text-lg hover:bg-[#00B4D8]">
+          <a href="/" className="flex items-center py-3 px-6 text-lg hover:bg-gray-400">
             <FaHome className="mr-3" /> Home
           </a>
         </nav>
       </div>
       {/* Main Content */}
-      <div className="w-full md:w-3/4 p-6 bg-gray-50">
+      <div className="w-full md:w-3/4 p-6">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-6">
           {/* Total Listens */}
           <div className=" shadow-lg p-6 rounded-lg">
@@ -318,11 +312,18 @@ const AdminDashboard = () => {
             </div>
           </div>
           <div className=" shadow-lg p-4 sm:p-6 rounded-lg mb-6 w-full ">
+            <h2 className="text-lg sm:text-xl font-bold mb-4">All Podcasts</h2>
+            <div className="mx-auto mb-4">
+               <AllPodcasts/>
+            </div>
+          </div>
+          <div className=" shadow-lg p-4 sm:p-6 rounded-lg mb-6 w-full ">
             <h2 className="text-lg sm:text-xl font-bold mb-4">Monthly Listens</h2>
             <div className="h-48 sm:h-64 md:h-72 lg:h-80">
               <Line data={listensData} options={chartOptions} />
             </div>
           </div>
+
 
         </div>
 
