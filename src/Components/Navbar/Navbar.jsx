@@ -84,9 +84,6 @@ const Navbar = () => {
         <Link href={"/dashboard"}>Dashboard</Link>
       </li>
       <li>
-        <Link href={"/profile"}>Profile</Link>
-      </li>
-      <li>
         <Link href={"/Settings"}>Settings</Link>
       </li>
       <li>
