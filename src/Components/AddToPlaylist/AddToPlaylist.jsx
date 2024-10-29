@@ -97,7 +97,7 @@ const AddToPlaylist = () => {
                             <p className="mt-2 text-xs font-medium text-gray-500 sm:mt-0">
                                 Featuring <a href="#" className="underline hover:text-gray-700">Barry</a>,
                                 <a href="#" className="underline hover:text-gray-700">Sandra</a> and
-                                <a href="#" className="underline hover:text-gray-700">August</a>
+                                <a href="#" className="underline hover:text-gray-700"> Others...</a>
                             </p>
                         </div>
                     </div>
@@ -105,7 +105,9 @@ const AddToPlaylist = () => {
             </div>
 
             <div className="flex justify-center scale-90 my-10">
-                <button type="button" onClick={() => document.getElementById('my_modal_1').showModal()} className="px-8 py-3 font-semibold rounded-full border hover:border-[#0077b6] flex items-center gap-2 text-lg">Add to the playlist <IoIosAddCircleOutline className='text-3xl pt-1 font-bold' /> </button>
+
+                <button type="button" onClick={() => document.getElementById('my_modal_1').showModal()} className="px-8 py-3 font-semibold rounded-full border border-[#0077b6] flex items-center gap-2 text-lg">Add to the playlist <IoIosAddCircleOutline className='text-3xl pt-1 font-bold' /> </button>
+
             </div>
 
             {/* MODAL */}
