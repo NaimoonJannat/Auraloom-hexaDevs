@@ -31,7 +31,7 @@ const AddToPlaylist = ({ id }) => {
         const fetchPlaylist = async () => {
             if (id) {
                 try {
-                    const response = await axios.get(`http://localhost:5000/playlists/${id}`);
+                    const response = await axios.get(`https://auraloom-backend.vercel.app/playlist-detail/${id}`);
                     setPlaylist(response.data);
                     //console.log(playlist)
                 } catch (error) {
