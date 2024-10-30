@@ -115,7 +115,7 @@ const CreatePlaylist = () => {
                                     </motion.div>
                                 </Link>
                                 <div className="flex flex-col">
-                                    <Link href={`/playlists/${playlist._id}`} className="text-lg font-bold transition duration-100 hover:text-gray-500 lg:text-xl">{playlist.name}</Link>
+                                    <Link href={`/create-playlist/${playlist._id}`} className="text-lg font-bold transition duration-100 hover:text-gray-500 lg:text-xl">{playlist.name}</Link>
                                     <span className="">by {playlist.userName}</span>
                                 </div>
                             </div>

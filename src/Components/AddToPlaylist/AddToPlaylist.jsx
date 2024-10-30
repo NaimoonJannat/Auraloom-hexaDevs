@@ -1,21 +1,84 @@
 'use-client';
 import Image from 'next/image';
-import React, { useContext } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { IoIosAddCircleOutline } from "react-icons/io";
 import img1 from '../../../public/avatar.jpg';
 import { AuthContext } from '../Provider/AuthProvider/AuthProvider';
+import { CirclesWithBar } from 'react-loader-spinner';
+import axios from 'axios';
 
-const AddToPlaylist = () => {
+const AddToPlaylist = ({ id }) => {
 
     const { user } = useContext(AuthContext);
+    const [playlist, setPlaylist] = useState(null);
+
+    // useEffect(() => {
+    //     const fetchPlaylist = async () => {
+    //         if (id) {
+    //             try {
+    //                 const response = await axios.get(`https://auraloom-backend.vercel.app/playlists/${id}`);
+    //                 setPlaylist(response.data);
+    //             } catch (error) {
+    //                 console.error('Error fetching playlist:', error);
+    //             }
+    //         }
+    //     };
+    //     fetchPlaylist();
+    // }, [id]);
+
+    useEffect(() => {
+        console.log("Playlist ID:", id);  // Log the id to verify
+        const fetchPlaylist = async () => {
+            if (id) {
+                try {
+                    const response = await axios.get(`http://localhost:5000/playlists/${id}`);
+                    setPlaylist(response.data);
+                    //console.log(playlist)
+                } catch (error) {
+                    console.error('Error fetching playlist:', error);
+                }
+            }
+        };
+        fetchPlaylist();
+    }, [id]);
+
+
+
+    // if (!playlist) {
+    //     return (
+    //         <div className="flex justify-center items-center h-screen">
+    //             <CirclesWithBar height={80} width={80} color="#0077b6" />
+    //         </div>
+    //     );
+    // }
 
     return (
         <div>
-            {/* BANNER */}
-            <div class=" py-6 sm:py-8 lg:py-12">
-                <div class="mx-auto max-w-screen-2xl px-4 md:px-8">
+            {playlist ? (
+                <>
+                    <h1>{playlist.name}</h1>
+                    <Image
+                        src={playlist?.image}
+                        alt={playlist?.name || 'Playlist Image'}
+                        width={500}
+                        height={500}
+                        priority // <--- Add priority for above-the-fold images
+                        className="h-48 w-full object-cover transition-transform duration-300 group-hover:scale-110"
+                    />
+                    {/* Rest of the JSX content */}
+                </>
+            ) : (
+                <div className="flex justify-center items-center h-screen">
+                    <CirclesWithBar height={80} width={80} color="#0077b6" />
+                </div>
+            )}
 
-                    <section class=" relative flex flex-1 shrink-0 items-center justify-center overflow-hidden rounded-lg bg-gray-100 py-16 shadow-lg md:py-20 xl:py-48">
+
+            {/* BANNER */}
+            <div className=" py-6 sm:py-8 lg:py-12">
+                <div className="mx-auto max-w-screen-2xl px-4 md:px-8">
+
+                    <section className=" relative flex flex-1 shrink-0 items-center justify-center overflow-hidden rounded-lg bg-gray-100 py-16 shadow-lg md:py-20 xl:py-48">
                         <Image
                             src={img1 || '/default-image.jpg'} // Provide a fallback image path
                             alt={'image'}
@@ -24,16 +87,16 @@ const AddToPlaylist = () => {
                             className="absolute inset-0 w-full object-cover object-center"
                         />
 
-                        <div class="absolute inset-0 bg-[#0077b6] mix-blend-multiply"></div>
+                        <div className="absolute inset-0 bg-[#0077b6] mix-blend-multiply"></div>
 
-                        <div class="relative flex flex-col items-center p-4 sm:max-w-2xl">
+                        <div className="relative flex flex-col items-center p-4 sm:max-w-2xl">
                             {/* <p class="mb-4 text-center text-lg text-indigo-200 sm:text-xl md:mb-8">Very proud to introduce</p> */}
-                            <h1 class="mb-8 text-center text-4xl font-bold text-white sm:text-5xl md:mb-12 md:text-6xl">Let us start building your playlist</h1>
+                            <h1 className="mb-8 text-center text-4xl font-bold text-white sm:text-5xl md:mb-12 md:text-6xl">Let us start building your playlist</h1>
 
-                            <div class="flex w-full flex-col gap-2.5 sm:flex-row sm:justify-center">
-                                <a href="#" class="inline-block rounded-lg bg-indigo-500 px-8 py-3 text-center text-sm font-semibold text-white outline-none ring-indigo-300 transition duration-100 hover:bg-indigo-600 focus-visible:ring active:bg-indigo-700 md:text-base">Start now</a>
+                            <div className="flex w-full flex-col gap-2.5 sm:flex-row sm:justify-center">
+                                <a href="#" className="inline-block rounded-lg bg-indigo-500 px-8 py-3 text-center text-sm font-semibold text-white outline-none ring-indigo-300 transition duration-100 hover:bg-indigo-600 focus-visible:ring active:bg-indigo-700 md:text-base">Start now</a>
 
-                                <a href="#" class="inline-block rounded-lg bg-gray-200 px-8 py-3 text-center text-sm font-semibold text-gray-500 outline-none ring-indigo-300 transition duration-100 hover:bg-gray-300 focus-visible:ring active:text-gray-700 md:text-base">Take tour</a>
+                                <a href="#" className="inline-block rounded-lg bg-gray-200 px-8 py-3 text-center text-sm font-semibold text-gray-500 outline-none ring-indigo-300 transition duration-100 hover:bg-gray-300 focus-visible:ring active:text-gray-700 md:text-base">Take tour</a>
                             </div>
                         </div>
 
@@ -112,11 +175,10 @@ const AddToPlaylist = () => {
             <dialog id="my_modal_1" className="modal">
                 <div className="modal-box max-w-4xl">
                     {/* CARD */}
-                    <div className=" ">
+                    <div className="">
                         <div className="mx-auto max-w-screen-xl px-4 md:px-8">
 
                             <div className="">
-
                                 <div className="flex flex-col items-center gap-4 md:flex-row lg:gap-6 scale-90">
                                     <a href="#" className="group relative block h-56 w-full shrink-0 self-start overflow-hidden rounded-lg bg-gray-100 shadow-lg md:h-24 md:w-24 lg:h-40 lg:w-40">
                                         <Image
@@ -179,7 +241,6 @@ const AddToPlaylist = () => {
                                         <button className='lg:pl-10'><IoIosAddCircleOutline className='text-3xl font-bold hover:text-[#0077b6]' /></button>
                                     </div>
                                 </div>
-
 
                             </div>
                         </div>
