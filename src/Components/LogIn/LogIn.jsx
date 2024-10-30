@@ -36,11 +36,7 @@ const LogIn = () => {
                 router.push("/dashboard");
                 //router.push("/");
             }
-        } catch (error) {
-            //toast.error("Login failed. Please check your credentials.");
-            console.error("Login error:", error);
-
-        }
+        } 
     };
 
     // Redirect to dashboard if user is logged in
