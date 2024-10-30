@@ -82,6 +82,7 @@ const Register = () => {
                         </div>
                         <span className='w-1/5 border-b border-[#161D6F] lg:w-1/4'></span>
                     </div>
+
                     <form onSubmit={handleSubmit} className="grid grid-cols-1 gap-6 mt-8 md:grid-cols-2">
                         <div>
                             <label className="block mb-2 text-sm ">Name</label>

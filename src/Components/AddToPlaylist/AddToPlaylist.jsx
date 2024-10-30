@@ -1,47 +1,49 @@
 'use-client';
 import Image from 'next/image';
-import React from 'react';
+import React, { useContext } from 'react';
 import { IoIosAddCircleOutline } from "react-icons/io";
+import img1 from '../../../public/avatar.jpg';
+import { AuthContext } from '../Provider/AuthProvider/AuthProvider';
 
 const AddToPlaylist = () => {
+
+    const { user } = useContext(AuthContext);
+
     return (
         <div>
-            {/* <section class="text-neutral-700 dark:text-neutral-300 mx-auto">
-                <div class="grid gap-6 text-center md:grid-cols-3">
-                    <div>
-                        <div
-                            class="block rounded-lg  shadow-lg dark:bg-neutral-700 dark:shadow-black/30">
-                            <div class="h-28 overflow-hidden rounded-t-lg bg-[#6d5b98]"></div>
-                            <div
-                                class="mx-auto -mt-12 w-24 overflow-hidden rounded-full border-2 border-white  dark:border-neutral-800 dark:bg-neutral-800">
-                                <img
-                                    src="https://tecdn.b-cdn.net/img/Photos/Avatars/img%20(9).webp" />
-                            </div>
-                            <div class="p-6">
-                                <h4 class="mb-4 text-2xl font-semibold">John Smith</h4>
-                                <hr />
-                                <p class="mt-4">
-                                    <span class="inline-block pe-2 [&>svg]:w-5"
-                                    ><svg
-                                        xmlns="http://www.w3.org/2000/svg"
-                                        fill="currentColor"
-                                        viewBox="0 0 448 512">
+            {/* BANNER */}
+            <div class=" py-6 sm:py-8 lg:py-12">
+                <div class="mx-auto max-w-screen-2xl px-4 md:px-8">
 
-                                            <path
-                                                d="M0 216C0 149.7 53.7 96 120 96h8c17.7 0 32 14.3 32 32s-14.3 32-32 32h-8c-30.9 0-56 25.1-56 56v8h64c35.3 0 64 28.7 64 64v64c0 35.3-28.7 64-64 64H64c-35.3 0-64-28.7-64-64V320 288 216zm256 0c0-66.3 53.7-120 120-120h8c17.7 0 32 14.3 32 32s-14.3 32-32 32h-8c-30.9 0-56 25.1-56 56v8h64c35.3 0 64 28.7 64 64v64c0 35.3-28.7 64-64 64H320c-35.3 0-64-28.7-64-64V320 288 216z" />
-                                        </svg>
-                                    </span>
-                                    Delectus impedit saepe officiis ab aliquam repellat rem unde
-                                    ducimus.
-                                </p>
+                    <section class=" relative flex flex-1 shrink-0 items-center justify-center overflow-hidden rounded-lg bg-gray-100 py-16 shadow-lg md:py-20 xl:py-48">
+                        <Image
+                            src={img1 || '/default-image.jpg'} // Provide a fallback image path
+                            alt={'image'}
+                            width={500}
+                            height={500}
+                            className="absolute inset-0 w-full object-cover object-center"
+                        />
+
+                        <div class="absolute inset-0 bg-[#0077b6] mix-blend-multiply"></div>
+
+                        <div class="relative flex flex-col items-center p-4 sm:max-w-2xl">
+                            {/* <p class="mb-4 text-center text-lg text-indigo-200 sm:text-xl md:mb-8">Very proud to introduce</p> */}
+                            <h1 class="mb-8 text-center text-4xl font-bold text-white sm:text-5xl md:mb-12 md:text-6xl">Let us start building your playlist</h1>
+
+                            <div class="flex w-full flex-col gap-2.5 sm:flex-row sm:justify-center">
+                                <a href="#" class="inline-block rounded-lg bg-indigo-500 px-8 py-3 text-center text-sm font-semibold text-white outline-none ring-indigo-300 transition duration-100 hover:bg-indigo-600 focus-visible:ring active:bg-indigo-700 md:text-base">Start now</a>
+
+                                <a href="#" class="inline-block rounded-lg bg-gray-200 px-8 py-3 text-center text-sm font-semibold text-gray-500 outline-none ring-indigo-300 transition duration-100 hover:bg-gray-300 focus-visible:ring active:text-gray-700 md:text-base">Take tour</a>
                             </div>
                         </div>
-                    </div>
-                </div>
-            </section> */}
 
-            <article className="rounded-xl  p-4 ring ring-indigo-50 sm:p-6 lg:p-8 mt-10">
-                <div className="flex items-start sm:gap-8">
+                    </section>
+                </div>
+            </div>
+
+            {/* USER INFO */}
+            <div className="rounded-xl p-4 ring sm:p-6 lg:p-8 mx-8">
+                <div className="flex items-center sm:gap-8">
                     <div
                         className="hidden sm:grid sm:size-20 sm:shrink-0 sm:place-content-center sm:rounded-full sm:border-2 sm:border-indigo-500"
                         aria-hidden="true"
@@ -56,21 +58,19 @@ const AddToPlaylist = () => {
                     </div>
 
                     <div>
-                        <strong
+                        {/* <strong
                             className="rounded border border-indigo-500 bg-indigo-500 px-3 py-1.5 text-[10px] font-medium text-white"
                         >
                             Episode #101
-                        </strong>
+                        </strong> */}
 
-                        <h3 className="mt-4 text-lg font-medium sm:text-xl">
-                            <a href="#" className="hover:underline"> Some Interesting Podcast Title </a>
+                        <h3 className="text-2xl font-bold transition duration-100 hover:text-gray-500 lg:text-3xl">
+                            <a href="#" className="hover:underline"> Beats </a>
                         </h3>
 
-                        <p className="mt-1 text-sm text-gray-700">
-                            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ipsam nulla amet voluptatum sit
-                            rerum, atque, quo culpa ut necessitatibus eius suscipit eum accusamus, aperiam voluptas
-                            exercitationem facere aliquid fuga. Sint.
-                        </p>
+                        <span className="mt-1 ">
+                            by Sayeed Hossain
+                        </span>
 
                         <div className="mt-4 sm:flex sm:items-center sm:gap-2">
                             <div className="flex items-center gap-1 text-gray-500">
@@ -97,15 +97,17 @@ const AddToPlaylist = () => {
                             <p className="mt-2 text-xs font-medium text-gray-500 sm:mt-0">
                                 Featuring <a href="#" className="underline hover:text-gray-700">Barry</a>,
                                 <a href="#" className="underline hover:text-gray-700">Sandra</a> and
-                                <a href="#" className="underline hover:text-gray-700">August</a>
+                                <a href="#" className="underline hover:text-gray-700"> Others...</a>
                             </p>
                         </div>
                     </div>
                 </div>
-            </article>
+            </div>
 
-            <div className="flex justify-center scale-90">
-                <button type="button" onClick={() => document.getElementById('my_modal_1').showModal()} className="px-8 py-3 font-semibold rounded-full bg-slate-200 hover:bg-[#90e0ef] flex items-center gap-2 text-lg">Add here <IoIosAddCircleOutline className='text-xl text-[#0077b6] font-bold' /> </button>
+            <div className="flex justify-center scale-90 my-10">
+
+                <button type="button" onClick={() => document.getElementById('my_modal_1').showModal()} className="px-8 py-3 font-semibold rounded-full border border-[#0077b6] flex items-center gap-2 text-lg">Add to the playlist <IoIosAddCircleOutline className='text-3xl pt-1 font-bold' /> </button>
+
             </div>
 
             {/* MODAL */}
