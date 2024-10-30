@@ -1,18 +1,18 @@
 "use client";
-import { useContext, useState } from "react";
-// import { useRouter } from "next/navigation";
+import { useContext, useState, useEffect } from "react";
+import { useRouter } from "next/navigation";
 import Link from "next/link";
 import { AuthContext } from "../Provider/AuthProvider/AuthProvider";
 import Image from "next/image";
-import { Toaster } from "react-hot-toast";
+import { Toaster, toast } from "react-hot-toast";
 
 const LogIn = () => {
-    const { loginUser } = useContext(AuthContext);
+    const { loginUser, user } = useContext(AuthContext); // Get user from context
+    const router = useRouter();
     const [formData, setFormData] = useState({
         email: "",
         password: ""
     });
-    // const router = useRouter();
 
     const handleInputChange = (e) => {
         setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -21,21 +21,34 @@ const LogIn = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         const { email, password } = formData;
+
         try {
-            const result = await loginUser(email, password);
-            if (result.user) {
-                // router.push("/dashboard");
-                router.push("/");
-            }
+
+            await loginUser(email, password);
+            // Login is successful if no errors are thrown
+            // toast.success("Login successful! Redirecting to dashboard...");
         } catch (error) {
-            // toast.error("Login failed. Please check your credentials.");
-            // console.error("Login error:", error);
-        }
+            toast.error("Login failed. Please check your credentials.");
+            console.error("Login error:", error.message);
+
+            const result = await loginUser(email, password);
+            if (result?.user) {
+                router.push("/dashboard");
+                //router.push("/");
+            }
+        } 
     };
 
+    // Redirect to dashboard if user is logged in
+    useEffect(() => {
+        if (user) {
+            router.push("/dashboard");
+        }
+    }, [user, router]);
+
     return (
-        <div className=" ">
-            <div className="flex flex-col-reverse lg:flex-row my-12  p-7">
+        <div className="">
+            <div className="flex flex-col-reverse lg:flex-row my-12 p-7">
                 <div className="items-center w-full max-w-md px-6 mx-auto lg:w-2/6">
                     <div className="flex-1">
                         <div className="text-center">
@@ -64,7 +77,7 @@ const LogIn = () => {
                                         placeholder="Email"
                                         value={formData.email}
                                         onChange={handleInputChange}
-                                        className="block w-full px-4 py-2 mt-2 text-sky-700 placeholder-sky-700  border border-gray-200 rounded-lg dark:placeholder-gray-600 dark:bg-gray-900 dark:text-sky-700 dark:border-gray-700 focus:border-blue-400 dark:focus:border-blue-400 focus:ring-blue-400 focus:outline-none focus:ring focus:ring-opacity-40"
+                                        className="block w-full px-4 py-2 mt-2 text-sky-700 placeholder-sky-700 border border-gray-200 rounded-lg dark:placeholder-gray-600 dark:bg-gray-900 dark:text-sky-700 dark:border-gray-700 focus:border-blue-400 dark:focus:border-blue-400 focus:ring-blue-400 focus:outline-none focus:ring focus:ring-opacity-40"
                                     />
                                 </div>
 
@@ -79,7 +92,7 @@ const LogIn = () => {
                                         placeholder="Password"
                                         value={formData.password}
                                         onChange={handleInputChange}
-                                        className="block w-full px-4 py-2 mt-2 text-sky-700 placeholder-sky-700  border border-gray-200 rounded-lg dark:placeholder-gray-600 dark:bg-gray-900 dark:text-sky-700 dark:border-gray-700 focus:border-blue-400 dark:focus:border-blue-400 focus:ring-blue-400 focus:outline-none focus:ring focus:ring-opacity-40"
+                                        className="block w-full px-4 py-2 mt-2 text-sky-700 placeholder-sky-700 border border-gray-200 rounded-lg dark:placeholder-gray-600 dark:bg-gray-900 dark:text-sky-700 dark:border-gray-700 focus:border-blue-400 dark:focus:border-blue-400 focus:ring-blue-400 focus:outline-none focus:ring focus:ring-opacity-40"
                                     />
                                 </div>
 
@@ -92,7 +105,7 @@ const LogIn = () => {
                             </form>
 
                             <p className="mt-6 text-sm text-center text-sky-700">
-                                Don&pos;t have an account yet? <Link href="/sign-up" className="text-blue-500 focus:outline-none focus:underline hover:underline">Sign up</Link>.
+                                Don’t have an account yet? <Link href="/sign-up" className="text-blue-500 focus:outline-none focus:underline hover:underline">Sign up</Link>.
                             </p>
                         </div>
                     </div>

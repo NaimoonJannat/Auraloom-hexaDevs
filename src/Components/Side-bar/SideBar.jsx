@@ -9,7 +9,8 @@ import ConfirmModal from './ConfirmModal';
 
 const Sidebar = () => {
     const { user, logout } = useContext(AuthContext);
-    const [isModalOpen, setIsModalOpen] = useState(false); // Modal state
+    const [isModalOpen, setIsModalOpen] = useState(false);
+    const [isRequestPending, setIsRequestPending] = useState(false); // Track request status
 
     const signOutUser = () => {
         logout()
@@ -20,10 +21,31 @@ const Sidebar = () => {
     const openModal = () => setIsModalOpen(true);
     const closeModal = () => setIsModalOpen(false);
 
-    const handleConfirm = () => {
-        // Logic for confirming the user wants to be a creator
+    const handleConfirm = async () => {
+        if (user && user.email) {
+            try {
+                const response = await fetch('https://auraloom-backend.vercel.app/users', {
+                    method: 'PATCH',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        email: user.email,
+                        request: 'beCreator',
+                    }),
+                });
+
+                if (response.ok) {
+                    setIsRequestPending(true); // Update the button to "Request Pending"
+                    console.log("User request to be a creator sent successfully.");
+                } else {
+                    console.error("Failed to send creator request.");
+                }
+            } catch (error) {
+                console.error("Error sending request:", error);
+            }
+        }
         closeModal();
-        console.log("User confirmed to be a creator");
     };
 
     return (
@@ -92,7 +114,7 @@ const Sidebar = () => {
                                 </button>
                             </div>
                             <div>
-                                <button  onClick={signOutUser} className="text-white font-semibold text-sm hover:text-blue-400 transition">
+                                <button onClick={signOutUser} className="text-white font-semibold text-sm hover:text-blue-400 transition">
                                     Log Out
                                 </button>
                             </div>
@@ -105,7 +127,7 @@ const Sidebar = () => {
                             </Link>
 
                             {/* Sign Up Button */}
-                            <Link href="/sign-up" className="btn  text-gray-900 font-bold hover:bg-orange-500 hover:text-white transition px-6 py-2 rounded-full">
+                            <Link href="/sign-up" className="btn text-gray-900 font-bold hover:bg-orange-500 hover:text-white transition px-6 py-2 rounded-full">
                                 Sign Up
                             </Link>
                         </div>
@@ -114,9 +136,10 @@ const Sidebar = () => {
                     {/* Be a Creator Button */}
                     <button
                         onClick={openModal}
-                        className="btn mt-5 lg:mt-10 w-full hover:bg-sky-400 border-none hover:text-black text-sky-700 py-3 px-7 rounded-md font-bold transition"
+                        className={`mt-5 lg:mt-10 w-full ${isRequestPending ? "bg-gray-500 cursor-not-allowed" : "hover:bg-sky-400"} border-none hover:text-black text-sky-700 py-3 px-7 rounded-md font-bold transition`}
+                        disabled={isRequestPending} // Disable if request is pending
                     >
-                        Be a Creator
+                        {isRequestPending ? "Request Pending" : "Be a Creator"}
                     </button>
                 </div>
 
