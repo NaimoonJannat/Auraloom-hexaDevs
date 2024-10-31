@@ -9,9 +9,7 @@ import PodcastDetail from "@/Components/Directory/PodcastDetail";
 
 const page = ({ params }) => {
 
-
     const { id } = params;
-
 
     return (
         <div>
