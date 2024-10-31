@@ -52,14 +52,15 @@ const Sidebar = () => {
     return (
         <PrivateRoute>
             <div className="w-64 fixed h-screen bg-gray-800 p-5 text-white">
-                <Link href="/" className="btn btn-ghost text-xl">
+                <h1 className="text-2xl font-bold mb-10">AURALOOM</h1>
+                {/* <Link href="/" className="btn btn-ghost text-xl">
                     <Image
                         src={logo1}
                         className="w-40 -my-5"
                         alt="Website logo"
                         priority
                     />
-                </Link>
+                </Link> */}
                 <nav className="space-y-1">
                     <Link href={"/"} className="flex items-center space-x-2 hover:bg-gray-700 p-2 rounded-md">
                         <HomeIcon className="h-6 w-6 text-white" />
