@@ -5,7 +5,6 @@ import { useRouter } from 'next/navigation';
 import { AuthContext } from '../Provider/AuthProvider/AuthProvider';
 import Loader from '../Loader/Loader';
 
-
 const History = () => {
     const { user } = useContext(AuthContext);
     const [historyData, setHistoryData] = useState([]);
@@ -45,7 +44,7 @@ const History = () => {
         fetchHistory();
     }, [user]);
 
-    if (loading) return <Loader></Loader>;
+    if (loading) return <Loader />;
 
     return (
         <div>
@@ -67,25 +66,26 @@ const History = () => {
             ) : (
                 <div className="mx-auto max-w-screen-xl px-4 my-4 md:px-8">
                     {historyData.map((item) => (
-                        <div key={item._id} className="flex flex-col items-center gap-4 md:flex-row lg:gap-6 scale-90 mb-8">
-                            <a href={`/podcast/${item._id}`} className="group relative block h-56 w-full shrink-0 self-start overflow-hidden rounded-lg bg-gray-100 shadow-lg transition duration-200 hover:shadow-2xl md:h-24 md:w-24 lg:h-40 lg:w-40">
+                        <div key={item._id} className="flex flex-col items-center md:items-start gap-4 md:flex-row lg:gap-6 mb-8 w-full">
+                            <a href={`/podcast/${item._id}`} className="group relative block h-56 w-full md:w-1/4 overflow-hidden rounded-lg bg-gray-100 shadow-lg transition duration-200 hover:shadow-2xl">
                                 <Image
                                     src={item.imgUrl}
                                     alt={item.title}
                                     loading="lazy"
                                     width={600}
                                     height={400}
-                                    className="absolute inset-0 h-full w-full object-cover object-center transition duration-200 group-hover:scale-110 group-hover:bg-[#CAF0F8]"
+                                    className="absolute inset-0 h-full w-full object-cover object-center transition duration-200 group-hover:scale-110"
                                 />
                             </a>
-                            <div className="flex flex-col gap-2">
-                                <span className="text-sm text-gray-500 font-medium">{new Date(item.createdAt).toLocaleDateString()}</span>
+                            <div className="flex flex-col gap-2 w-full md:w-3/4">
+                                <span className="text-sm text-gray-500 font-medium"></span>
                                 <h2 className="text-xl font-bold hover:text-black">
                                     <a href={`/podcast/${item._id}`} className="transition duration-100 hover:text-[#00B4D8]">
                                         {item.title}
                                     </a>
                                 </h2>
-                                <p className="text-gray-500 dark:text-gray-400">{item.description}</p>
+                                <h2 className='text-sm font-semibold'>by {item.creator}</h2>
+                                <p className="text-gray-500">{item.description}</p>
                                 <div>
                                     <a 
                                         href={`/podcast/${item._id}`} 

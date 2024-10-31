@@ -7,6 +7,7 @@ import UserDashboardFee from '../UserDashboardFee/UserDashboardFee';
 import CreatorDashboard from '../CreatorDashboard/CreatorDashboard';
 import AdminDashboard from '../AdminDashboard/AdminDashboard';
 import { CirclesWithBar } from 'react-loader-spinner';
+import Loader from '../Loader/Loader';
 
 const ConditionalDashboard = () => {
   const { user } = useContext(AuthContext);
@@ -55,11 +56,11 @@ const ConditionalDashboard = () => {
   }
 
   if (!user) {
-    return <div>No user logged in.</div>;
+    return <Loader></Loader>;
   }
 
   if (!role) {
-    return <div>No role assigned to the user.</div>;
+    return <Loader></Loader>;
   }
 
   // Conditional rendering based on the role
