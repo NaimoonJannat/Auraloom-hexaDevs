@@ -61,7 +61,7 @@ const UserDashboardFee = () => {
                     text-align: center;
                     font-size: 32px;
                     font-weight: bold; 
-                    color: #f97316;
+                    color: #bae6fd;
                 }
                 `}
         </style>
@@ -86,7 +86,7 @@ const UserDashboardFee = () => {
                 loop={Infinity}
               />
             </div>
-            <Link href={"/podcast"} className="flex btn items-center space-x-2 mb-2 hover:bg-orange-500 hover:text-white p-2 font-bold border-none mt-6 w-2/5 px-6 py-3  text-sky-700 rounded-full text-lg transition">
+            <Link href={"/podcast"} className="flex btn items-center space-x-2 mb-2 hover:bg-sky-500 hover:text-white p-2 font-bold border-none mt-6 w-2/5 px-6 py-3  text-sky-700 rounded-full text-lg transition">
               <span>Listen Now</span>
               <PlayIcon className="h-6 w-6 hover:text-white text-sky-700" />
             </Link>
@@ -120,7 +120,7 @@ const UserDashboardFee = () => {
                   <p className="text-gray-400">Created by {playlist.creator}</p>
                 </div>
                 <div className="ml-auto">
-                  <button className="bg-orange-500 hover:bg-orange-600 text-white py-2 px-4 rounded-lg flex items-center">
+                  <button className="bg-sky-500 hover:bg-sky-600 text-white py-2 px-4 rounded-lg flex items-center">
                     <PlayIcon className="h-5 w-5 mr-2" />
                     Play
                   </button>
