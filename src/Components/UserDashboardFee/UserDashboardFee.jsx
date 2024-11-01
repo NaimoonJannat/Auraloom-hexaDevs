@@ -77,7 +77,7 @@ const UserDashboardFee = () => {
 
   return (
     <PrivateRoute>
-      <div className="feed-container mx-auto p-6 ml-64 text-white">
+      <div className="feed-container mx-auto p-6 ml-0 md:ml-64 lg:ml-64 text-white">
         <style>
           {`
                 .text-wrapper {
@@ -113,7 +113,7 @@ const UserDashboardFee = () => {
                 loop={Infinity}
               />
             </div>
-            <Link href={"/podcast"} className="flex btn items-center space-x-2 mb-2 hover:bg-sky-500 hover:text-white p-2 font-bold border-none mt-6 w-2/5 px-6 py-3  text-sky-700 rounded-full text-lg transition">
+            <Link href={"/podcast"} className="flex btn items-center space-x-2 mb-2 hover:bg-sky-500 hover:text-white p-2 font-bold border-none mt-6 w-full lg:w-2/5 px-6 py-3  text-sky-700 rounded-full text-lg transition">
               <span>Listen Now</span>
               <PlayIcon className="h-6 w-6 hover:text-white text-sky-700" />
             </Link>
@@ -132,7 +132,7 @@ const UserDashboardFee = () => {
           </div>
           <div className="playlist-list flex flex-col space-y-4">
             {playlists.map((playlist) => (
-              <div key={playlist.id} className="playlist-item flex items-center bg-gray-800 p-4 rounded-lg hover:bg-gray-700 transition">
+              <div key={playlist.id} className="playlist-item flex flex-col md:flex-row lg:flex-row items-center bg-gray-800 p-4 rounded-lg hover:bg-gray-700 transition">
                 <div className="w-24 h-24 relative flex-shrink-0">
                   <Image
                     src={playlist.image}
