@@ -145,7 +145,7 @@ const Sidebar = () => {
                     {/* Be a Creator Button */}
                     <button
                         onClick={openModal}
-                        className={`mt-5 lg:mt-10 w-full ${isRequestPending ? "bg-gray-500 cursor-not-allowed" : "hover:bg-sky-400"} border-none hover:text-black text-sky-700 py-3 px-7 rounded-md font-bold transition`}
+                        className={`mt-5 lg:mt-10 bg-blue-500 w-full ${isRequestPending ? "bg-sky-500 cursor-not-allowed" : "hover:bg-sky-800"} border-none text-white py-3 px-7 rounded-md font-bold transition`}
                         disabled={isRequestPending} // Disable if request is pending
                     >
                         {isRequestPending ? "Request Pending" : "Be a Creator"}
