@@ -1,616 +1,400 @@
 [
   {
-    "title": "Secrets Episode 59",
-    "artist": "Rishad",
-    "cover": "https://t4.ftcdn.net/jpg/01/01/04/97/360_F_101049774_sEoWobtUla8ygcWQdczPHm1sToF4YDqG.jpg",
-    "audio": "https://drive.google.com/file/d/1xOEu4mvIol8D2jvIMDhWgXmVrmF7H7mf/preview",
-    "category": "Life",
-    "plays": 1250,
-    "upvotes": 200,
-    "downvotes": 10,
-    "comments": [],
-    "description": "Explore the cutting-edge world of technology with Tech Innovations! In this podcast, TechTalks dives deep into the latest trends, gadgets, and breakthroughs shaping our future. Whether you’re a tech enthusiast, an innovator, or just curious about how technology affects our daily lives, this podcast brings expert insights and thought-provoking discussions. From AI advancements to the next big smartphone release, we cover it all. Stay informed and ahead of the curve with each episode, as we take a look at how tech continues to transform industries, from healthcare to entertainment. Don’t miss out—tune in and get inspired!"
+  "_id": "6706116b006d2c98b350d26e",
+  "title": "Phitron",
+  "creator": "MONIRA ISLAM 0242320005341017",
+  "creatorPhoto": "",
+  "description": "Foundation As A Programmer\nCSE Fundamentals with Phitron\nLearn and Master Basic Programming, Data Structures, Algorithm, OOP, Database and solve 500+ coding problems to become an exceptionally well world-class Programmer.",
+  "category": "Education",
+  "imgUrl": "https://res.cloudinary.com/auraloom/image/upload/v1728450909/dbzfqmk16np4ccfrcjdv.jpg",
+  "audioUrl": "https://res.cloudinary.com/auraloom/raw/upload/v1728450920/hwznxszjjtc1ykgpjxzr.mp3",
+  "likes": [],
+  "dislikes": [],
+  "comments": [],
+  "email": "islam2305341017@diu.edu.bd",
+  "plays": []
   },
   {
-    "title": "Story of Life",
-    "artist": "Jisan Soaib",
-    "cover": "https://www.univariety.com/blog/wp-content/uploads/2014/08/motivational-goals.jpg",
-    "audio":"https://drive.google.com/file/d/1cqN6w8LunANFW7VWiXZwCGb3eBeYXkYw/preview",
-    "category": "Motivation",
-    "plays": 950,
-    "upvotes": 180,
-    "downvotes": 15,
-    "comments": [],
-    "description": "Whether you're a seasoned developer or just starting your coding journey, 'Coding Unlocked' is your go-to resource for all things programming. In this podcast, TechTalks unpacks coding concepts, discusses popular programming languages, and shares tips for overcoming coding challenges. Each episode covers essential topics like debugging, best practices in development, and new coding tools, making it a perfect listen for developers of all skill levels. Get hands-on advice from industry experts, learn from real-life coding success stories, and unlock the secrets to becoming a more efficient coder. Tune in to 'Coding Unlocked' and level up your programming skills!"
-  },
+  "_id": "66fd557d555ff1ad2eb5f255",
+  "title": "English Podcast For Learning English",
+  "creator": "Naimoon Jannat",
+  "creatorPhoto": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQp2BGSbLTFs8iu_VRSopUnd2UwimyFhSYNMg&s",
+  "description": "English Podcast For Learning English - Episode 6 - English Leap Podcast - Talk About Daily Routine",
+  "category": "Education",
+  "imgUrl": "https://res.cloudinary.com/auraloom/image/upload/v1727878521/iv96mzfvnfmts2olznj5.avif",
+  "audioUrl": "https://res.cloudinary.com/auraloom/raw/upload/v1727878524/ct7ivfxxwdx7koqgt2nn.mp3",
+  "likes": [],
+  "dislikes": [],
+  "comments": [
   {
-    "title": "Kuasha FM Episode 122",
-    "artist": "TechTalks",
-    "cover": "https://img.freepik.com/premium-photo/horror-creepy-scary-nature-environment_492154-1549.jpg",
-    "category": "Horror",
-    "plays": 780,
-    "upvotes": 140,
-    "downvotes": 12,
-    "comments": [],
-    "description": "In 'Future of Work,' TechTalks explores how technology is transforming the workplace. From remote work trends to the rise of AI-powered automation, this podcast covers the tools, techniques, and innovations reshaping industries worldwide. Hear from thought leaders in business and tech as they discuss how companies are adapting to new working conditions and what the future holds for employees and entrepreneurs alike. Whether you're an employer looking to stay competitive or a worker navigating the changing job market, 'Future of Work' offers valuable insights and practical tips. Tune in to stay ahead in the evolving world of work!"
-  },
-  {
-    "title": "Secrets Episode 59",
-    "artist": "Rishad",
-    "cover": "https://t4.ftcdn.net/jpg/01/01/04/97/360_F_101049774_sEoWobtUla8ygcWQdczPHm1sToF4YDqG.jpg",
-    "audio": "https://drive.google.com/file/d/1xOEu4mvIol8D2jvIMDhWgXmVrmF7H7mf/preview",
-    "category": "Life",
-    "plays": 1250,
-    "upvotes": 200,
-    "downvotes": 10,
-    "comments": [{
-      "id": "c1fb9b3c-8a6d-42f7-a62f-2bb66f992f8e",
-      "username": "John Doe",
-      "email": "john.doe@example.com",
-      "comment": "A very informative podcast indeed!"
-    },
-    {
-      "id": "c210d3c7-5a3c-4b0e-bde6-7c33a646b07b",
-      "username": "Sarah Lee",
-      "email": "sarah.lee@example.com",
-      "comment": "The artist has a great way with words!"
-    },
-    {
-      "id": "4b9ec587-fcd2-41f6-9eae-7b36a85bc999",
-      "username": "Alex Green",
-      "email": "alex.green@example.com",
-      "comment": "A great message"
-    }],
-    "description": "Explore the cutting-edge world of technology with Tech Innovations! In this podcast, TechTalks dives deep into the latest trends, gadgets, and breakthroughs shaping our future. Whether you’re a tech enthusiast, an innovator, or just curious about how technology affects our daily lives, this podcast brings expert insights and thought-provoking discussions. From AI advancements to the next big smartphone release, we cover it all. Stay informed and ahead of the curve with each episode, as we take a look at how tech continues to transform industries, from healthcare to entertainment. Don’t miss out—tune in and get inspired!"
-  },
-  {
-    "title": "Story of Life",
-    "artist": "Jisan Soaib",
-    "cover": "https://www.univariety.com/blog/wp-content/uploads/2014/08/motivational-goals.jpg",
-    "audio":"https://drive.google.com/file/d/1cqN6w8LunANFW7VWiXZwCGb3eBeYXkYw/preview",
-    "category": "Motivation",
-    "plays": 950,
-    "upvotes": 180,
-    "downvotes": 15,
-    "comments": [{
-      "id": "c1fb9b3c-8a6d-42f7-a62f-2bb66f992f8e",
-      "username": "John Doe",
-      "email": "john.doe@example.com",
-      "comment": "A very informative podcast indeed!"
-    },
-    {
-      "id": "c210d3c7-5a3c-4b0e-bde6-7c33a646b07b",
-      "username": "Sarah Lee",
-      "email": "sarah.lee@example.com",
-      "comment": "The artist has a great way with words!"
-    },
-    {
-      "id": "4b9ec587-fcd2-41f6-9eae-7b36a85bc999",
-      "username": "Alex Green",
-      "email": "alex.green@example.com",
-      "comment": "A great message"
-    }],
-    "description": "Whether you're a seasoned developer or just starting your coding journey, 'Coding Unlocked' is your go-to resource for all things programming. In this podcast, TechTalks unpacks coding concepts, discusses popular programming languages, and shares tips for overcoming coding challenges. Each episode covers essential topics like debugging, best practices in development, and new coding tools, making it a perfect listen for developers of all skill levels. Get hands-on advice from industry experts, learn from real-life coding success stories, and unlock the secrets to becoming a more efficient coder. Tune in to 'Coding Unlocked' and level up your programming skills!"
-  },
-  {
-    "title": "Kuasha FM Episode 122",
-    "artist": "TechTalks",
-    "cover": "https://img.freepik.com/premium-photo/horror-creepy-scary-nature-environment_492154-1549.jpg",
-    "category": "Horror",
-    "plays": 780,
-    "upvotes": 140,
-    "downvotes": 12,
-    "comments": [{
-      "id": "c1fb9b3c-8a6d-42f7-a62f-2bb66f992f8e",
-      "username": "John Doe",
-      "email": "john.doe@example.com",
-      "comment": "A very informative podcast indeed!"
-    },
-    {
-      "id": "c210d3c7-5a3c-4b0e-bde6-7c33a646b07b",
-      "username": "Sarah Lee",
-      "email": "sarah.lee@example.com",
-      "comment": "The artist has a great way with words!"
-    },
-    {
-      "id": "4b9ec587-fcd2-41f6-9eae-7b36a85bc999",
-      "username": "Alex Green",
-      "email": "alex.green@example.com",
-      "comment": "A great message"
-    }],
-    "description": "In 'Future of Work,' TechTalks explores how technology is transforming the workplace. From remote work trends to the rise of AI-powered automation, this podcast covers the tools, techniques, and innovations reshaping industries worldwide. Hear from thought leaders in business and tech as they discuss how companies are adapting to new working conditions and what the future holds for employees and entrepreneurs alike. Whether you're an employer looking to stay competitive or a worker navigating the changing job market, 'Future of Work' offers valuable insights and practical tips. Tune in to stay ahead in the evolving world of work!"
-  },
-  {
-    "title": "TechTalk Episode 1",
-    "artist": "Mark Evans",
-    "cover": "https://t3.ftcdn.net/jpg/01/76/24/11/360_F_176241162_VOSGjYOt7VpOSeQKbAUp6U0vMC29WB7h.jpg",
-    "audio": "https://drive.google.com/file/d/1xxZrT0YleNnqv3XkSbjMOBDePdOeuFsf/preview",
-    "category": "Technology",
-    "plays": 3200,
-    "upvotes": 300,
-    "downvotes": 15,
-    "comments": [{
-      "id": "c1fb9b3c-8a6d-42f7-a62f-2bb66f992f8e",
-      "username": "John Doe",
-      "email": "john.doe@example.com",
-      "comment": "A very informative podcast indeed!"
-    },
-    {
-      "id": "c210d3c7-5a3c-4b0e-bde6-7c33a646b07b",
-      "username": "Sarah Lee",
-      "email": "sarah.lee@example.com",
-      "comment": "The artist has a great way with words!"
-    },
-    {
-      "id": "4b9ec587-fcd2-41f6-9eae-7b36a85bc999",
-      "username": "Alex Green",
-      "email": "alex.green@example.com",
-      "comment": "A great message"
-    }],
-    "description": "Deep dive into the world of artificial intelligence and how it's transforming our daily lives."
-  },
-  {
-    "title": "Tech Innovations Episode 3",
-    "artist": "Sarah Jones",
-    "cover": "https://t4.ftcdn.net/jpg/02/30/48/59/360_F_230485974_jC7TCVvGh3BQkRdQePnMG3qFMzyIiHWp.jpg",
-    "audio": "https://drive.google.com/file/d/1E3sBlY5qZfm_aqI9T6LNR4s3oBkfY7L-/preview",
-    "category": "Technology",
-    "plays": 5000,
-    "upvotes": 600,
-    "downvotes": 40,
-    "comments": [{
-      "id": "c1fb9b3c-8a6d-42f7-a62f-2bb66f992f8e",
-      "username": "John Doe",
-      "email": "john.doe@example.com",
-      "comment": "A very informative podcast indeed!"
-    },
-    {
-      "id": "c210d3c7-5a3c-4b0e-bde6-7c33a646b07b",
-      "username": "Sarah Lee",
-      "email": "sarah.lee@example.com",
-      "comment": "The artist has a great way with words!"
-    },
-    {
-      "id": "4b9ec587-fcd2-41f6-9eae-7b36a85bc999",
-      "username": "Alex Green",
-      "email": "alex.green@example.com",
-      "comment": "A great message"
-    }],
-    "description": "An overview of tech trends, from blockchain to the rise of 5G connectivity."
-  },
-  {
-    "title": "History Explained Episode 5",
-    "artist": "David Wright",
-    "cover": "https://t4.ftcdn.net/jpg/03/23/67/28/360_F_323672837_xtCJTDxyhhsupXNYAe3iDdjOCFQnd4de.jpg",
-    "audio": "https://drive.google.com/file/d/1F6TzOws_zF9r5zJhp7mkRgt9eJzdYSk8/preview",
-    "category": "History",
-    "plays": 2500,
-    "upvotes": 320,
-    "downvotes": 20,
-    "comments": [{
-      "id": "c1fb9b3c-8a6d-42f7-a62f-2bb66f992f8e",
-      "username": "John Doe",
-      "email": "john.doe@example.com",
-      "comment": "A very informative podcast indeed!"
-    },
-    {
-      "id": "c210d3c7-5a3c-4b0e-bde6-7c33a646b07b",
-      "username": "Sarah Lee",
-      "email": "sarah.lee@example.com",
-      "comment": "The artist has a great way with words!"
-    },
-    {
-      "id": "4b9ec587-fcd2-41f6-9eae-7b36a85bc999",
-      "username": "Alex Green",
-      "email": "alex.green@example.com",
-      "comment": "A great message"
-    }],
-    "description": "Exploring ancient civilizations and their long-lasting impacts on modern society."
-  },
-  {
-    "title": "The Forgotten Wars Episode 12",
-    "artist": "Emily Parker",
-    "cover": "https://t4.ftcdn.net/jpg/02/23/44/90/360_F_223449081_ABNEkGHtMX5WRAfpR9dFTU2gOVN59rYb.jpg",
-    "audio": "https://drive.google.com/file/d/1gXc9B29NVsDS91n9sg3TfAWksY_rSGBe/preview",
-    "category": "History",
-    "plays": 3400,
-    "upvotes": 450,
-    "downvotes": 30,
-    "comments": [{
-      "id": "c1fb9b3c-8a6d-42f7-a62f-2bb66f992f8e",
-      "username": "John Doe",
-      "email": "john.doe@example.com",
-      "comment": "A very informative podcast indeed!"
-    },
-    {
-      "id": "c210d3c7-5a3c-4b0e-bde6-7c33a646b07b",
-      "username": "Sarah Lee",
-      "email": "sarah.lee@example.com",
-      "comment": "The artist has a great way with words!"
-    },
-    {
-      "id": "4b9ec587-fcd2-41f6-9eae-7b36a85bc999",
-      "username": "Alex Green",
-      "email": "alex.green@example.com",
-      "comment": "A great message"
-    }],
-    "description": "Uncovering lesser-known conflicts throughout history and their political significance."
-  },
-  {
-    "title": "Healthy Living Episode 20",
-    "artist": "Sophie Lee",
-    "cover": "https://t4.ftcdn.net/jpg/02/35/48/19/360_F_235481920_Cv8VZnMSZyFEC5aMFL84rsNFV5A9nT6P.jpg",
-    "audio": "https://drive.google.com/file/d/1QZgldUS98TuZczNYfkXSuw2pFcbfjqjM/preview",
-    "category": "Lifestyle",
-    "plays": 4100,
-    "upvotes": 530,
-    "downvotes": 25,
-    "comments": [{
-      "id": "c1fb9b3c-8a6d-42f7-a62f-2bb66f992f8e",
-      "username": "John Doe",
-      "email": "john.doe@example.com",
-      "comment": "A very informative podcast indeed!"
-    },
-    {
-      "id": "c210d3c7-5a3c-4b0e-bde6-7c33a646b07b",
-      "username": "Sarah Lee",
-      "email": "sarah.lee@example.com",
-      "comment": "The artist has a great way with words!"
-    },
-    {
-      "id": "4b9ec587-fcd2-41f6-9eae-7b36a85bc999",
-      "username": "Alex Green",
-      "email": "alex.green@example.com",
-      "comment": "A great message"
-    }],
-    "description": "Discussing lifestyle choices that promote wellness, mental health, and happiness."
-  },
-  {
-    "title": "Minimalist Life Episode 11",
-    "artist": "Rachel Kim",
-    "cover": "https://t3.ftcdn.net/jpg/01/23/44/90/360_F_123449081_UtQoRflcftmxrrTRjv2Qjb9M4kfdrciR.jpg",
-    "audio": "https://drive.google.com/file/d/1FfKdeyb5_XL8N6AlTflFqCjleNcr4RS8/preview",
-    "category": "Lifestyle",
-    "plays": 2200,
-    "upvotes":280,
-    "downvotes": 10,
-    "comments": [{
-      "id": "c1fb9b3c-8a6d-42f7-a62f-2bb66f992f8e",
-      "username": "John Doe",
-      "email": "john.doe@example.com",
-      "comment": "A very informative podcast indeed!"
-    },
-    {
-      "id": "c210d3c7-5a3c-4b0e-bde6-7c33a646b07b",
-      "username": "Sarah Lee",
-      "email": "sarah.lee@example.com",
-      "comment": "The artist has a great way with words!"
-    },
-    {
-      "id": "4b9ec587-fcd2-41f6-9eae-7b36a85bc999",
-      "username": "Alex Green",
-      "email": "alex.green@example.com",
-      "comment": "A great message"
-    }],
-    "description": "Exploring the benefits of a minimalist lifestyle and how it can improve mental clarity and productivity."
-  },
-  {
-    "title": "Music Vibes Episode 30",
-    "artist": "Lily Hernandez",
-    "cover": "https://t4.ftcdn.net/jpg/02/98/74/89/360_F_298748993_vXbgBFpHKICIH7IoL8B2eTUtJTeuZfn7.jpg",
-    "audio": "https://drive.google.com/file/d/1BQBCZC7lmMYlCoQAKy8NzO8MRoYXVgBQ/preview",
-    "category": "Music",
-    "plays": 6000,
-    "upvotes": 620,
-    "downvotes": 45,
-    "comments": [{
-      "id": "c1fb9b3c-8a6d-42f7-a62f-2bb66f992f8e",
-      "username": "John Doe",
-      "email": "john.doe@example.com",
-      "comment": "A very informative podcast indeed!"
-    },
-    {
-      "id": "c210d3c7-5a3c-4b0e-bde6-7c33a646b07b",
-      "username": "Sarah Lee",
-      "email": "sarah.lee@example.com",
-      "comment": "The artist has a great way with words!"
-    },
-    {
-      "id": "4b9ec587-fcd2-41f6-9eae-7b36a85bc999",
-      "username": "Alex Green",
-      "email": "alex.green@example.com",
-      "comment": "A great message"
-    }],
-    "description": "Analyzing the latest music trends and exploring the impact of new technology on the music industry."
-  },
-  {
-    "title": "Melody Makers Episode 15",
-    "artist": "Jake Harper",
-    "cover": "https://t3.ftcdn.net/jpg/01/23/44/11/360_F_123441197_OqWyCxF4f9g7XE2h6a3xQi8gplPsf4fS.jpg",
-    "audio": "https://drive.google.com/file/d/1E2kFAfe_Q7gEK-pt3YmjXBFXuTZQAv6e/preview",
-    "category": "Music",
-    "plays": 3100,
-    "upvotes": 400,
-    "downvotes": 25,
-    "comments": [{
-      "id": "c1fb9b3c-8a6d-42f7-a62f-2bb66f992f8e",
-      "username": "John Doe",
-      "email": "john.doe@example.com",
-      "comment": "A very informative podcast indeed!"
-    },
-    {
-      "id": "c210d3c7-5a3c-4b0e-bde6-7c33a646b07b",
-      "username": "Sarah Lee",
-      "email": "sarah.lee@example.com",
-      "comment": "The artist has a great way with words!"
-    },
-    {
-      "id": "4b9ec587-fcd2-41f6-9eae-7b36a85bc999",
-      "username": "Alex Green",
-      "email": "alex.green@example.com",
-      "comment": "A great message"
-    }],
-    "description": "Featuring upcoming musicians and the creative process behind composing memorable melodies."
-  },
-  {
-    "title": "Cook Smart Episode 5",
-    "artist": "Megan Lynn",
-    "cover": "https://t4.ftcdn.net/jpg/01/95/76/89/360_F_195768986_GgkCMK9oficJHzTjGGFj7zDdwh41RmTp.jpg",
-    "audio": "https://drive.google.com/file/d/1HfbdKpGvfhJ3QquTLGFV9zRH3iXE3WDy/preview",
-    "category": "Cooking",
-    "plays": 1700,
-    "upvotes": 200,
-    "downvotes": 12,
-    "comments": [{
-      "id": "c1fb9b3c-8a6d-42f7-a62f-2bb66f992f8e",
-      "username": "John Doe",
-      "email": "john.doe@example.com",
-      "comment": "A very informative podcast indeed!"
-    },
-    {
-      "id": "c210d3c7-5a3c-4b0e-bde6-7c33a646b07b",
-      "username": "Sarah Lee",
-      "email": "sarah.lee@example.com",
-      "comment": "The artist has a great way with words!"
-    },
-    {
-      "id": "4b9ec587-fcd2-41f6-9eae-7b36a85bc999",
-      "username": "Alex Green",
-      "email": "alex.green@example.com",
-      "comment": "A great message"
-    }],
-    "description": "Learn easy, healthy, and delicious recipes to make at home with minimal ingredients."
-  },
-  {
-    "title": "Cooking for Two Episode 19",
-    "artist": "Amanda Rose",
-    "cover": "https://t3.ftcdn.net/jpg/01/87/64/85/360_F_187648592_d9ScSpht3B2BtFeIADrRKHtKjnbhO9nE.jpg",
-    "audio": "https://drive.google.com/file/d/1GjhrJEvNSNdBmCJwr2rKJ4YHJJiXlRJH/preview",
-    "category": "Cooking",
-    "plays": 2600,
-    "upvotes": 310,
-    "downvotes": 20,
-    "comments": [{
-      "id": "c1fb9b3c-8a6d-42f7-a62f-2bb66f992f8e",
-      "username": "John Doe",
-      "email": "john.doe@example.com",
-      "comment": "A very informative podcast indeed!"
-    },
-    {
-      "id": "c210d3c7-5a3c-4b0e-bde6-7c33a646b07b",
-      "username": "Sarah Lee",
-      "email": "sarah.lee@example.com",
-      "comment": "The artist has a great way with words!"
-    },
-    {
-      "id": "4b9ec587-fcd2-41f6-9eae-7b36a85bc999",
-      "username": "Alex Green",
-      "email": "alex.green@example.com",
-      "comment": "A great message"
-    }],
-    "description": "Quick and easy meals designed for two people, perfect for weeknight dinners."
-  },
-  {
-    "title": "Fitness 101 Episode 10",
-    "artist": "Jake White",
-    "cover": "https://t4.ftcdn.net/jpg/02/73/10/15/360_F_273101517_P4y4IWbkGuTFeZh21Me7YbeELrXwG7je.jpg",
-    "audio": "https://drive.google.com/file/d/1GjWEcOvwk5qxSxW-QL55NeRMZYOPxKuh/preview",
-    "category": "Fitness",
-    "plays": 1250,
-    "upvotes": 150,
-    "downvotes": 8,
-    "comments": [{
-      "id": "c1fb9b3c-8a6d-42f7-a62f-2bb66f992f8e",
-      "username": "John Doe",
-      "email": "john.doe@example.com",
-      "comment": "A very informative podcast indeed!"
-    },
-    {
-      "id": "c210d3c7-5a3c-4b0e-bde6-7c33a646b07b",
-      "username": "Sarah Lee",
-      "email": "sarah.lee@example.com",
-      "comment": "The artist has a great way with words!"
-    },
-    {
-      "id": "4b9ec587-fcd2-41f6-9eae-7b36a85bc999",
-      "username": "Alex Green",
-      "email": "alex.green@example.com",
-      "comment": "A great message"
-    }],
-    "description": "A comprehensive guide to building a fitness routine that fits your lifestyle and goals."
-  },
-  {
-    "title": "Strength Training Episode 22",
-    "artist": "Ethan Shaw",
-    "cover": "https://t3.ftcdn.net/jpg/01/12/46/09/360_F_112460949_IgbVfIsp8lXNHtdfFmj8qqlyDnTqgndS.jpg",
-    "audio": "https://drive.google.com/file/d/1HlNYTgP3n_FHkQVhPlxMYP_SmX5kNuLo/preview",
-    "category": "Fitness",
-    "plays": 3100,
-    "upvotes": 420,
-    "downvotes": 30,
-    "comments": [{
-      "id": "c1fb9b3c-8a6d-42f7-a62f-2bb66f992f8e",
-      "username": "John Doe",
-      "email": "john.doe@example.com",
-      "comment": "A very informative podcast indeed!"
-    },
-    {
-      "id": "c210d3c7-5a3c-4b0e-bde6-7c33a646b07b",
-      "username": "Sarah Lee",
-      "email": "sarah.lee@example.com",
-      "comment": "The artist has a great way with words!"
-    },
-    {
-      "id": "4b9ec587-fcd2-41f6-9eae-7b36a85bc999",
-      "username": "Alex Green",
-      "email": "alex.green@example.com",
-      "comment": "A great message"
-    }],
-    "description": "Get the best tips for strength training, muscle building, and avoiding injuries."
-  },
-  {
-    "title": "Sci-Fi Adventures Episode 15",
-    "artist": "Evan Parker",
-    "cover": "https://t4.ftcdn.net/jpg/03/04/09/84/360_F_304098471_aWFEqkZC5CeIYZoBQGNcKPfxSkM2gup5.jpg",
-    "audio": "https://drive.google.com/file/d/1YgfK0Nf1IoLgDrGf0YgMFJxs0hGxomLQ/preview",
-    "category": "Fiction",
-    "plays": 3500,
-    "upvotes": 380,
-    "downvotes": 20,
-    "comments": [{
-      "id": "c1fb9b3c-8a6d-42f7-a62f-2bb66f992f8e",
-      "username": "John Doe",
-      "email": "john.doe@example.com",
-      "comment": "A very informative podcast indeed!"
-    },
-    {
-      "id": "c210d3c7-5a3c-4b0e-bde6-7c33a646b07b",
-      "username": "Sarah Lee",
-      "email": "sarah.lee@example.com",
-      "comment": "The artist has a great way with words!"
-    },
-    {
-      "id": "4b9ec587-fcd2-41f6-9eae-7b36a85bc999",
-      "username": "Alex Green",
-      "email": "alex.green@example.com",
-      "comment": "A great message"
-    }],
-    "description": "Explore futuristic worlds, space battles, and advanced technology in this thrilling sci-fi series."
-  },
-  {
-    "title": "Fantasy Tales Episode 32",
-    "artist": "Isabella Scott",
-    "cover": "https://t4.ftcdn.net/jpg/01/76/04/07/360_F_176040785_9pdXjbIF5FcBdhhNFRPLhqevkdf2ohpX.jpg",
-    "audio": "https://drive.google.com/file/d/1SHTVCWkE1NgfnmA5JSZb1DRBghRPOkMF/preview",
-    "category": "Fiction",
-    "plays": 2700,
-    "upvotes": 320,
-    "downvotes": 18,
-    "comments": [{
-      "id": "c1fb9b3c-8a6d-42f7-a62f-2bb66f992f8e",
-      "username": "John Doe",
-      "email": "john.doe@example.com",
-      "comment": "A very informative podcast indeed!"
-    },
-    {
-      "id": "c210d3c7-5a3c-4b0e-bde6-7c33a646b07b",
-      "username": "Sarah Lee",
-      "email": "sarah.lee@example.com",
-      "comment": "The artist has a great way with words!"
-    },
-    {
-      "id": "4b9ec587-fcd2-41f6-9eae-7b36a85bc999",
-      "username": "Alex Green",
-      "email": "alex.green@example.com",
-      "comment": "A great message"
-    }],
-    "description": "Dive into a world of magic, dragons, and mythical beings in this enchanting fantasy series."
-  },
-  {
-    "title": "Comedy Club Episode 7",
-    "artist": "John Doe",
-    "cover": "https://t3.ftcdn.net/jpg/01/90/76/54/360_F_190765458_eOph0VRTClCBl8ldUEmvVphkIMrYOuBZ.jpg",
-    "audio": "https://drive.google.com/file/d/1gUBY9gyEJlSbXxoKMubxaKbNFMWibQdL/preview",
-    "category": "Comedy",
-    "plays": 1800,
-    "upvotes": 250,
-    "downvotes": 10,
-    "comments": [{
-      "id": "c1fb9b3c-8a6d-42f7-a62f-2bb66f992f8e",
-      "username": "John Doe",
-      "email": "john.doe@example.com",
-      "comment": "A very informative podcast indeed!"
-    },
-    {
-      "id": "c210d3c7-5a3c-4b0e-bde6-7c33a646b07b",
-      "username": "Sarah Lee",
-      "email": "sarah.lee@example.com",
-      "comment": "The artist has a great way with words!"
-    },
-    {
-      "id": "4b9ec587-fcd2-41f6-9eae-7b36a85bc999",
-      "username": "Alex Green",
-      "email": "alex.green@example.com",
-      "comment": "A great message"
-    }],
-    "description": "Laugh along with hilarious jokes, quirky stories, and comical takes on everyday life."
-  },
-  {
-    "title": "Business Strategy Episode 14",
-    "artist": "Brian Jones",
-    "cover": "https://t4.ftcdn.net/jpg/01/23/47/12/360_F_123471201_Rt6LUoXZzCb8FGx8shhTrhNWbTdk5Xgl.jpg",
-    "audio": "https://drive.google.com/file/d/1DCVFWv59Aye3TOfVCQHqcpnXDnHrmkvG/preview",
-    "category": "Business",
-    "plays": 3500,
-    "upvotes": 500,
-    "downvotes": 30,
-    "comments": [{
-      "id": "c1fb9b3c-8a6d-42f7-a62f-2bb66f992f8e",
-      "username": "John Doe",
-      "email": "john.doe@example.com",
-      "comment": "A very informative podcast indeed!"
-    },
-    {
-      "id": "c210d3c7-5a3c-4b0e-bde6-7c33a646b07b",
-      "username": "Sarah Lee",
-      "email": "sarah.lee@example.com",
-      "comment": "The artist has a great way with words!"
-    },
-    {
-      "id": "4b9ec587-fcd2-41f6-9eae-7b36a85bc999",
-      "username": "Alex Green",
-      "email": "alex.green@example.com",
-      "comment": "A great message"
-    }],
-    "description": "Insightful discussions on business strategies, leadership, and entrepreneurship in today's market."
-  },
-  {
-    "title": "Start-Up Stories Episode 3",
-    "artist": "Sarah Miller",
-    "cover": "https://t4.ftcdn.net/jpg/02/94/58/74/360_F_294587438_kMsIFgOZ11hS7Jpc2ieo4T1OV9bGShCT.jpg",
-    "audio": "https://drive.google.com/file/d/1EZKpYRCYp-FL7hbZKOgLEGL2KtiRJ3nM/preview",
-    "category": "Business",
-    "plays": 2700,
-    "upvotes": 360,
-    "downvotes": 22,
-    "comments": [{
-      "id": "c1fb9b3c-8a6d-42f7-a62f-2bb66f992f8e",
-      "username": "John Doe",
-      "email": "john.doe@example.com",
-      "comment": "A very informative podcast indeed!"
-    },
-    {
-      "id": "c210d3c7-5a3c-4b0e-bde6-7c33a646b07b",
-      "username": "Sarah Lee",
-      "email": "sarah.lee@example.com",
-      "comment": "The artist has a great way with words!"
-    },
-    {
-      "id": "4b9ec587-fcd2-41f6-9eae-7b36a85bc999",
-      "username": "Alex Green",
-      "email": "alex.green@example.com",
-      "comment": "A great message"
-    }],
-    "description": "Real stories from successful entrepreneurs and the challenges they overcame to build their companies."
+  "username": "Mahbub Sarwar Shafi",
+  "email": "mahbubsarwar5@gmail.com",
+  "review": "Good Podcast",
+  "_id": "6706e4d909e1a4cc5ecde0cb"
   }
-]
+  ],
+  "email": "naimoonjannat@gmail.com",
+  "plays": [
+  {
+  "email": "sayeed.hossain360@gmail.com",
+  "count": 1
+  }
+  ]
+  },
+  {
+  "_id": "66fd55ff555ff1ad2eb5f257",
+  "title": "Kuasha-Episode 04-Purono Banglo",
+  "creator": "Naimoon Jannat",
+  "creatorPhoto": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQp2BGSbLTFs8iu_VRSopUnd2UwimyFhSYNMg&s",
+  "description": "একটি পুরোনো বাংলোর রহস্যময় কাহিনী নিয়ে এই পর্ব। ভয়ের গল্পের সাথে শিহরণ জাগানো পরিস্থিতির বর্ণনা।",
+  "category": "Horror",
+  "imgUrl": "https://res.cloudinary.com/auraloom/image/upload/v1727878648/pw1j2fuspylt9n8qearg.jpg",
+  "likes": [],
+  "dislikes": [
+  "error@joss.com"
+  ],
+  "comments": [
+  {
+  "username": "Fleur Roth",
+  "email": "xemiga@mailinator.com",
+  "review": "Pariatur Aut unde t"
+  }
+  ],
+  "audioUrl": "https://res.cloudinary.com/auraloom/video/upload/v1727879224/Kuasha-Episode_04-Purono_Banglo_FusionBD.Com_wooycw.mp3",
+  "email": "naimoonjannat@gmail.com",
+  "plays": []
+  },
+  {
+  "_id": "66fd5545555ff1ad2eb5f254",
+  "title": "Ek Purani Kahani - Baarish [Full Story] - Saadat Hassan Manto",
+  "creator": "Naimoon Jannat",
+  "creatorPhoto": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQp2BGSbLTFs8iu_VRSopUnd2UwimyFhSYNMg&s",
+  "description": "সাদাত হাসান মান্টোর বিখ্যাত গল্প 'বারিশ' নিয়ে এই পর্বে আলোচনা করা হয়েছে। এটি একটি কাব্যময় এবং আবেগপূর্ণ গল্প।",
+  "category": "Literature",
+  "imgUrl": "https://res.cloudinary.com/auraloom/image/upload/v1727878464/ndyudd8ffy0z8g0e5ylt.jpg",
+  "likes": [
+  "naimoonjannat@gmail.com"
+  ],
+  "dislikes": [
+  "naimoonjannat@gmail.com"
+  ],
+  "comments": [],
+  "audioUrl": "https://res.cloudinary.com/auraloom/video/upload/v1727879206/Ek_Purani_Kahani___Baarish__Full_Story____Saadat_Hassan_Manto___Radio_Mirchi_128k_mm9fuz.mp3",
+  "email": "naimoonjannat@gmail.com",
+  "plays": []
+  },
+  {
+  "_id": "66fd54e41ebad9ecd859a96a",
+  "title": "গুছিয়ে কথা বলার সহজ Strategy - সুন্দর করে গল্প বলার উপায়গুলো কি",
+  "creator": "Naimoon Jannat",
+  "creatorPhoto": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQp2BGSbLTFs8iu_VRSopUnd2UwimyFhSYNMg&s",
+  "description": "এই পর্বে আমরা সুন্দর এবং গুছিয়ে কথা বলার সহজ কৌশল সম্পর্কে আলোচনা করেছি। গল্প বলার দক্ষতা বাড়ানোর উপায়গুলোও তুলে ধরা হয়েছে।",
+  "category": "Self-Improvement",
+  "imgUrl": "https://res.cloudinary.com/auraloom/image/upload/v1727878366/tp3bu8cgtvbgonbswxir.jpg",
+  "likes": [
+  "john.doe@gmail.com",
+  "sarah@gmail.com",
+  "test@gmail.com",
+  "jfmirza130300@gmail.com"
+  ],
+  "dislikes": [
+  "sarah.lee@gmail.com"
+  ],
+  "comments": [
+  {
+  "username": "John Doe",
+  "email": "john.doe@gmail.com",
+  "review": "A very informative podcast!",
+  "_id": "6706e4d909e1a4cc5ecde0ca"
+  }
+  ],
+  "audioUrl": "https://res.cloudinary.com/auraloom/video/upload/v1727879211/%E0%A6%97%E0%A7%81%E0%A6%9B%E0%A6%BF%E0%A6%AF%E0%A6%BC%E0%A7%87_%E0%A6%95%E0%A6%A5%E0%A6%BE_%E0%A6%AC%E0%A6%B2%E0%A6%BE%E0%A6%B0_%E0%A6%B8%E0%A6%B9%E0%A6%9C_Strategy____%E0%A6%B8%E0%A7%81%E0%A6%A8%E0%A7%8D%E0%A6%A6%E0%A6%B0_%E0%A6%95%E0%A6%B0%E0%A7%87_%E0%A6%97%E0%A6%B2%E0%A7%8D%E0%A6%AA_%E0%A6%AC%E0%A6%B2%E0%A6%BE%E0%A6%B0_%E0%A6%89%E0%A6%AA%E0%A6%BE%E0%A6%AF%E0%A6%BC_%E0%A6%97%E0%A7%81%E0%A6%B2%E0%A7%8B_%E0%A6%95%E0%A6%BF__128k_kl5zbc.mp3",
+  "email": "naimoonjannat@gmail.com",
+  "plays": []
+  },
+  {
+  "_id": "66fd55c9555ff1ad2eb5f256",
+  "title": "Jibon Golpo-Episode 62-Street Child",
+  "creator": "Naimoon Jannat",
+  "creatorPhoto": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQp2BGSbLTFs8iu_VRSopUnd2UwimyFhSYNMg&s",
+  "description": "এই পর্বে আমরা একটি স্ট্রিট চাইল্ডের জীবনের গল্প নিয়ে কথা বলেছি, যেটি আমাদের সমাজের অবহেলিত শিশুদের দুর্ভোগকে তুলে ধরে।",
+  "category": "Social Issue",
+  "imgUrl": "https://res.cloudinary.com/auraloom/image/upload/v1727878594/grabcancfzfv4cjsluzz.jpg",
+  "likes": [
+  "naimoonjannat@gmail.com",
+  "jfmirza1303@gmail.com",
+  "islam2305341017@diu.edu.bd"
+  ],
+  "dislikes": [
+  "naimoonjannat@gmail.com"
+  ],
+  "comments": [
+  {
+  "username": "Liberty Weaver",
+  "email": "nifymy@mailinator.com",
+  "review": "Sapiente illum ut i"
+  }
+  ],
+  "audioUrl": "https://res.cloudinary.com/auraloom/video/upload/v1727879212/Jibon_Golpo-Episode_62-Street_Child_FusionBD.Com_oz4moj.mp3",
+  "email": "naimoonjannat@gmail.com",
+  "plays": []
+  },
+  {
+  "_id": "66fd569e555ff1ad2eb5f25a",
+  "title": "Secrets-Episode 59-Mitu",
+  "creator": "Naimoon Jannat",
+  "description": "মিতুর এক গোপন গল্প যা সবাইকে শিহরিত করবে। এই পর্বে আমরা মিতুর জীবনের অজানা দিকগুলো তুলে ধরেছি।",
+  "category": "Horror",
+  "imgUrl": "https://res.cloudinary.com/auraloom/image/upload/v1727878808/wpciewcdncheywltifn3.jpg",
+  "likes": [],
+  "dislikes": [],
+  "comments": [
+  {
+  "username": "Venice Canals",
+  "email": "abc@gmail.com",
+  "review": "This is amazing",
+  "_id": "6706e4d909e1a4cc5ecde0cc"
+  },
+  {
+  "username": "Prapti",
+  "email": "naimoon@gmail.com",
+  "review": "This is so full of secrets!",
+  "_id": "6706e4d909e1a4cc5ecde0cd"
+  }
+  ],
+  "audioUrl": "https://res.cloudinary.com/auraloom/video/upload/v1727879213/Secrets-Episode_59-Mitu_FusionBD.Com_mwy9ke.mp3",
+  "email": "naimoonjannat@gmail.com",
+  "plays": []
+  },
+  {
+  "_id": "66fd563c555ff1ad2eb5f258",
+  "title": "Learn English With Podcast Conversation - Episode 1",
+  "creator": "Naimoon Jannat",
+  "description": "ইংরেজি শেখার জন্য শুরু করা ব্যক্তিদের জন্য সহজ কথোপকথন শেখানো হয়েছে এই পর্বে।",
+  "category": "Education",
+  "imgUrl": "https://res.cloudinary.com/auraloom/image/upload/v1727878712/zhneyywmrszikpfqn1wf.png",
+  "audioUrl": "https://res.cloudinary.com/auraloom/raw/upload/v1727878714/dyxnnckhzoftffph79tz.mp3",
+  "likes": [],
+  "dislikes": [],
+  "comments": [],
+  "email": "naimoonjannat@gmail.com",
+  "plays": []
+  },
+  {
+  "_id": "66fd5668555ff1ad2eb5f259",
+  "title": "Nishi Rater Nupur-Bhuter Golpo",
+  "creator": "Naimoon Jannat",
+  "description": "গভীর রাতের ভৌতিক গল্প নিয়ে রোমাঞ্চকর এক পর্ব, যেখানে ভয় এবং কৌতূহলের সম্মিলন ঘটেছে।",
+  "category": "Horror",
+  "imgUrl": "https://res.cloudinary.com/auraloom/image/upload/v1727878757/puuzfuhgjtvkr9uy5pap.jpg",
+  "likes": [
+  "jfmirza130300@gmail.com"
+  ],
+  "dislikes": [
+  "jfmirza130300@gmail.com"
+  ],
+  "comments": [],
+  "audioUrl": "https://res.cloudinary.com/auraloom/video/upload/v1727879207/Nishi_Rater_Nupur-Bhuter_Golpo__Govir_Rater_Gopon_Kotha_New_Story__Bangla_Story_Horror_Story__Ghost_128k_khqlo1.mp3",
+  "email": "naimoonjannat@gmail.com",
+  "plays": []
+  },
+  {
+  "_id": "67120812695976bb6895b8e5",
+  "title": "Why Do We Dream",
+  "creator": "Jannatul Ferdous Mirza",
+  "description": "In the 3rd millennium BCE, Mesopotamian kings recorded and interpreted their dreams on wax tablets. In the years since, we haven't paused in our quest to understand why we dream. And while we still don’t have any definitive answers, we have some theories. Amy Adkins reveals the top seven reasons why we might dream.",
+  "category": "Science",
+  "imgUrl": "https://res.cloudinary.com/auraloom/image/upload/v1729234955/hzn3wegk1esi8znu0pcr.png",
+  "audioUrl": "https://res.cloudinary.com/auraloom/raw/upload/v1729234960/bpiv8yuqn0kmjgrrduyo.mp3",
+  "likes": [],
+  "dislikes": [],
+  "comments": [],
+  "email": "jfmirza130300@gmail.com ",
+  "plays": []
+  },
+  {
+  "_id": "671209a7695976bb6895b8e8",
+  "title": "A simple guide to chaos theory",
+  "creator": "Jannatul Ferdous Mirza",
+  "description": "According to classical physics and the laws of Isaac Newton, it should be easy to predict the behaviour of objects throughout the universe with relative ease.",
+  "category": "Science",
+  "imgUrl": "https://res.cloudinary.com/auraloom/image/upload/v1729235359/vhse3p9ulhfhz5lrdtjc.png",
+  "audioUrl": "https://res.cloudinary.com/auraloom/raw/upload/v1729235365/eyhyshjbwrhdygge9p4i.mp3",
+  "likes": [],
+  "dislikes": [],
+  "comments": [],
+  "email": "jfmirza130300@gmail.com ",
+  "plays": []
+  },
+  {
+  "_id": "67120ea5695976bb6895b8e9",
+  "title": "Twilight | Audiobook",
+  "creator": "Naimoon Jannat Prapti",
+  "description": "When Bella Swan moves to a small town in the Pacific Northwest, she falls in love with Edward Cullen, a mysterious classmate who reveals himself to be a 108-year-old vampire.",
+  "category": "Book",
+  "imgUrl": "https://res.cloudinary.com/auraloom/image/upload/v1729236642/rjft0hqge4uyj6qcucuc.jpg",
+  "audioUrl": "https://res.cloudinary.com/auraloom/raw/upload/v1729236644/q0lcw0iavkrrtxidsnfw.mp3",
+  "likes": [
+  "jfmirza130300@gmail.com",
+  "naimoonjannat@gmail.com"
+  ],
+  "dislikes": [],
+  "comments": [
+  {
+  "username": "Jannatul",
+  "email": "jfmirza130300@gmail.com",
+  "review": "great"
+  },
+  {
+  "username": "Mahbub Sarwar",
+  "email": "mahbubsarwar5@gmail.com",
+  "review": "Great podcast"
+  },
+  {
+  "username": "Mahbub Sarwar",
+  "email": "mahbubsarwar5@gmail.com",
+  "review": "A wonderful podcast! Very attention grabbing story."
+  }
+  ],
+  "email": "naimoonjannat@gmail.com",
+  "plays": [
+  {
+  "email": "jfmirza130300@gmail.com",
+  "count": 3
+  },
+  {
+  "email": "naimoonjannat@gmail.com",
+  "count": 2
+  }
+  ]
+  },
+  {
+  "_id": "6717f3350c6ed2d44f88e138",
+  "title": "Twilight | Chapter 1 Audiobook",
+  "creator": "Naimoon Jannat Prapti",
+  "description": "An amazing storyline written by Stephane Mayer where Bella swan meets Edward Cullen and her life changes.",
+  "category": "Audiobook",
+  "imgUrl": "https://res.cloudinary.com/auraloom/image/upload/v1729622832/cgksgoheq1a4nkoxbtmx.jpg",
+  "likes": [
+  "naimoonjannat@gmail.com"
+  ],
+  "dislikes": [],
+  "comments": [],
+  "audioUrl": "https://res.cloudinary.com/auraloom/video/upload/v1729623259/Twilight-Chapter-1-First-Sight-A_qa0u53.mp3",
+  "email": "naimoonjannat@Gmail.com",
+  "plays": []
+  },
+  {
+  "_id": "6719f15fe73b6b4875649007",
+  "title": "The Stranger",
+  "creator": "Naimoon Jannat Prapti",
+  "email": "naimoonjannat@gmail.com",
+  "description": "\"The Stranger\" award winning short horror story by Reed Beebe ― Chilling Tales for Dark Nights",
+  "category": "Horror",
+  "imgUrl": "https://res.cloudinary.com/auraloom/image/upload/v1729753430/yzplh4vlgagq0t5ocwvm.jpg",
+  "audioUrl": "https://res.cloudinary.com/auraloom/raw/upload/v1729753437/jrzyfuiportzgk6xzmym.mp3",
+  "likes": [
+  "naimoonjannat@gmail.com"
+  ],
+  "dislikes": [],
+  "comments": [
+  {
+  "username": "Henry",
+  "email": "henry@yahoo.com",
+  "review": "Well this is a scary one!!"
+  }
+  ],
+  "plays": [
+  {
+  "email": "rehana@gmail.com",
+  "count": 1
+  },
+  {
+  "email": "naimoonjannat@gmail.com",
+  "count": 1
+  }
+  ]
+  },
+  {
+  "_id": "671a27c2e53ab6c1c1b05608",
+  "title": "The 5 Minute Rule",
+  "creator": "Raisa Nuzhat Tarin",
+  "email": "raisa.csecu@gmail.com",
+  "description": "While no one is immune from procrastination, there is a really simple way to trick your brain into pushing through the inertia most of us feel at the beginning of a difficult task.",
+  "category": "education",
+  "imgUrl": "https://res.cloudinary.com/auraloom/image/upload/v1729767337/qwfk1qarsx6czznd1tjd.jpg",
+  "audioUrl": "https://res.cloudinary.com/auraloom/raw/upload/v1729767360/l9yruuvv4tad2yawn4dn.mp3",
+  "likes": [],
+  "dislikes": [],
+  "comments": [],
+  "plays": [
+  {
+  "email": "naimoonjannat@gmail.com",
+  "count": 1
+  }
+  ]
+  },
+  {
+  "_id": "671aafdce524fbc0e3d0dc18",
+  "title": "A Simple Guide To Chaos Theory",
+  "creator": "Jannatul Ferdous Mirza",
+  "email": "jfmirza130300@gmail.com",
+  "description": "Chaos theory is an interdisciplinary area of scientific study and branch of mathematics. It focuses on underlying patterns and deterministic laws of dynamical systems that are highly sensitive to initial conditions.",
+  "category": "Science",
+  "imgUrl": "https://res.cloudinary.com/auraloom/image/upload/v1729802197/zwtkako2srwy9elgibhv.png",
+  "audioUrl": "https://res.cloudinary.com/auraloom/raw/upload/v1729802202/xnvgxpnyrofexzjxqape.mp3",
+  "likes": [],
+  "dislikes": [],
+  "comments": [],
+  "plays": []
+  },
+  {
+  "_id": "671ab1ece524fbc0e3d0dc19",
+  "title": "Why Do We Dream",
+  "creator": "Jannatul Ferdous Mirza",
+  "email": "jfmirza130300@gmail.com",
+  "description": "Some dreams may help our brains process our thoughts and the events of the day. Others may just be the result of normal brain activity and mean very little, if anything.",
+  "category": "Science",
+  "imgUrl": "https://res.cloudinary.com/auraloom/image/upload/v1729802721/svim72mjcanqttfurjgq.png",
+  "audioUrl": "https://res.cloudinary.com/auraloom/raw/upload/v1729802731/dfbj6j3xbaxymiwdwlq0.mp3",
+  "likes": [],
+  "dislikes": [],
+  "comments": [],
+  "plays": []
+  },
+  {
+  "_id": "671b6d3739c8f7ef6dce3d59",
+  "title": "A one minute TEDx Talk for the digital age",
+  "creator": "Naimoon Jannat Prapti",
+  "email": "naimoonjannat@gmail.com",
+  "description": "Woody Roseland is a natural-born entertainer constantly socializing and telling jokes, much to the chagrin of virtually every teacher he ever had. Woody is a professional filmmaker, photographer, and comedy writer. On any given day you’ll find him with his head in the clouds at Cheeseman Park. He enjoys living out of his backpack in random corners of the world and likes bikes very, very much. ",
+  "category": "Lifestyle",
+  "imgUrl": "https://res.cloudinary.com/auraloom/image/upload/v1729850671/habvxsr4ipohtzmcrowk.png",
+  "audioUrl": "https://res.cloudinary.com/auraloom/raw/upload/v1729850678/bkdy9iib6u0a8puv9z2w.mp3",
+  "likes": [],
+  "dislikes": [],
+  "comments": [],
+  "plays": []
+  },
+  {
+  "_id": "671c49d13bc5ccbdc024e6c5",
+  "title": "The danger of silence",
+  "creator": "Naimoon Jannat Prapti",
+  "email": "naimoonjannat@gmail.com",
+  "description": "The danger of silence - Klint Smith Ted talk motivational speaking",
+  "category": "Motivational",
+  "imgUrl": "https://res.cloudinary.com/auraloom/image/upload/v1729907150/nr5dhzesjxpeqluhuxd7.jpg",
+  "audioUrl": "https://res.cloudinary.com/auraloom/raw/upload/v1729907152/neya3rjaisespzyr6lcz.mp3",
+  "likes": [
+  "naimoonjannat@gmail.com"
+  ],
+  "dislikes": [],
+  "comments": [],
+  "plays": [
+  {
+  "email": "naimoonjannat@gmail.com",
+  "count": 1
+  }
+  ]
+  }
+  ]
