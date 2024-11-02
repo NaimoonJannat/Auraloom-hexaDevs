@@ -1,6 +1,6 @@
 "use client"
 import Image from "next/image";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 // import SectionTitle from "../Heading/SectionTitle";
 import DashboardHeading from "../Heading/DashboardHeading";
 import { PlayIcon } from "@heroicons/react/solid";
@@ -8,50 +8,40 @@ import { Typewriter } from "react-simple-typewriter";
 import Link from "next/link";
 import PrivateRoute from "../PrivateRoute/PrivateRoute";
 import ListenLater from "./ListenLater";
+import { AuthContext } from "../Provider/AuthProvider/AuthProvider";
 
 const UserDashboardFee = () => {
   const [playlists, setPlaylists] = useState([]);
+  const { user } = useContext(AuthContext);
 
-  // Fetch playlist data (you can replace this with actual API call)
+
   useEffect(() => {
     const fetchPlaylists = async () => {
-      const data = [
-        {
-          id: 1,
-          name: "Chill Vibes",
-          creator: "Naimoon Jannat Prapti",
-          image: "https://i.ibb.co.com/dsZRYK5/7fd5ba33a4a9c6c6f530a825df3f7580.jpg",
-        },
-        {
-          id: 2,
-          name: "Focus Beats",
-          creator: "Naimoon Jannat Prapti",
-          image: "https://i.ibb.co.com/R0Gy2h0/d9d615645ba316e9e8086da6a0c7a111.jpg",
-        },
-        {
-          id: 3,
-          name: "Party Hits",
-          creator: "Naimoon Jannat Prapti",
-          image: "https://i.ibb.co.com/99g5b4g/38324762f7c33de0b27659a2628fba03.jpg",
-        },
-        {
-          id: 4,
-          name: "Road Trip Tunes",
-          creator: "Naimoon Jannat Prapti",
-          image: "https://i.ibb.co.com/MVjTFwx/3851974ace3ea131a4841a9c4b04ce4c.jpg",
-        },
-      ];
-      setPlaylists(data);
-    };
-    fetchPlaylists();
-  }, []);
+      try {
+        const response = await fetch("https://auraloom-backend.vercel.app/playlists");
+        if (!response.ok) {
+          throw new Error("Network response was not ok");
+        }
+        const data = await response.json();
 
+        // Filter playlists based on the logged-in user's email
+        const filteredData = data.filter((playlist) => playlist.email === user.email);
+        setPlaylists(filteredData);
+      } catch (error) {
+        console.error("Failed to fetch playlists:", error);
+      }
+    };
+
+    if (user?.email) {
+      fetchPlaylists();
+    }
+  }, [user?.email]);
 
 
   return (
     <PrivateRoute>
-      <div className="feed-container mx-auto p-6 ml-64 text-white">
-      <style>
+      <div className="feed-container mx-auto p-6 ml-0 md:ml-64 lg:ml-64 text-white">
+        <style>
           {`
                 .text-wrapper {
                     position: absolute;
@@ -61,7 +51,7 @@ const UserDashboardFee = () => {
                     text-align: center;
                     font-size: 32px;
                     font-weight: bold; 
-                    color: #f97316;
+                    color: #bae6fd;
                 }
                 `}
         </style>
@@ -86,7 +76,7 @@ const UserDashboardFee = () => {
                 loop={Infinity}
               />
             </div>
-            <Link href={"/podcast"} className="flex btn items-center space-x-2 mb-2 hover:bg-orange-500 hover:text-white p-2 font-bold border-none mt-6 w-2/5 px-6 py-3  text-sky-700 rounded-full text-lg transition">
+            <Link href={"/podcast"} className="flex btn items-center space-x-2 mb-2 hover:bg-sky-500 hover:text-white p-2 font-bold border-none mt-6 w-full lg:w-2/5 px-6 py-3  text-sky-700 rounded-full text-lg transition">
               <span>Listen Now</span>
               <PlayIcon className="h-6 w-6 hover:text-white text-sky-700" />
             </Link>
@@ -96,7 +86,7 @@ const UserDashboardFee = () => {
         {/* listenLater Section */}
         <ListenLater></ListenLater>
 
-        {/* show individual playlist */}
+        {/* Show Individual Playlist */}
         <div className="mt-10">
           <div>
             <h1>
@@ -104,29 +94,34 @@ const UserDashboardFee = () => {
             </h1>
           </div>
           <div className="playlist-list flex flex-col space-y-4">
-            {playlists.map((playlist) => (
-              <div key={playlist.id} className="playlist-item flex items-center bg-gray-800 p-4 rounded-lg hover:bg-gray-700 transition">
-                <div className="w-24 h-24 relative flex-shrink-0">
-                  <Image
-                    src={playlist.image}
-                    alt={playlist.name}
-                    layout="fill"
-                    objectFit="cover"
-                    className="rounded-lg"
-                  />
+            {playlists.map((playlist) => {
+              const playlistImage = playlist.image?.startsWith("http")
+                ? playlist.image.split(" ")[0] 
+                : "/path-to-placeholder-image.jpg";
+              return (
+                <div key={playlist._id} className="playlist-item flex flex-col md:flex-row lg:flex-row items-center bg-gray-800 p-4 rounded-lg hover:bg-gray-700 transition">
+                  <div className="w-24 h-24 relative flex-shrink-0">
+                    <Image
+                      src={playlistImage}
+                      alt={playlist.name}
+                      layout="fill"
+                      objectFit="cover"
+                      className="rounded-lg"
+                    />
+                  </div>
+                  <div className="ml-4">
+                    <h3 className="text-xl font-semibold">{playlist.name}</h3>
+                    <p className="text-gray-400">Created by {playlist.email}</p>
+                  </div>
+                  <div className="ml-auto">
+                    <button className="bg-sky-500 hover:bg-sky-600 text-white py-2 px-4 rounded-lg flex items-center">
+                      <PlayIcon className="h-5 w-5 mr-2" />
+                      Play
+                    </button>
+                  </div>
                 </div>
-                <div className="ml-4">
-                  <h3 className="text-xl font-semibold">{playlist.name}</h3>
-                  <p className="text-gray-400">Created by {playlist.creator}</p>
-                </div>
-                <div className="ml-auto">
-                  <button className="bg-orange-500 hover:bg-orange-600 text-white py-2 px-4 rounded-lg flex items-center">
-                    <PlayIcon className="h-5 w-5 mr-2" />
-                    Play
-                  </button>
-                </div>
-              </div>
-            ))}
+              );
+            })}
           </div>
         </div>
       </div>

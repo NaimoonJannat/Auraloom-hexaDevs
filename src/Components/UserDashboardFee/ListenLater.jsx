@@ -67,7 +67,7 @@ const ListenLater = () => {
 
             <div className="text-center mt-6 lg:mt-10">
                 <Link href={'/podcast'}
-                    className="bg-orange-500 hover:bg-orange-600 text-white font-bold px-6 py-3 rounded-md">
+                    className="bg-sky-500 hover:bg-sky-600 text-white font-bold px-6 py-3 rounded-md">
                     Want to explore more! 👉
                 </Link>
             </div>
