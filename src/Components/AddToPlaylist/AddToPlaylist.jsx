@@ -45,6 +45,13 @@ const AddToPlaylist = ({ id }) => {
         fetchPodcasts();
     }, []);
 
+
+    const handleAddToPlaylist = (podcast) => {
+        // Logic to add the selected podcast to the playlist
+        console.log("Added to playlist:", podcast);
+    };
+
+
     return (
         <div>
 
@@ -174,13 +181,16 @@ const AddToPlaylist = ({ id }) => {
                     <div className="max-h-96 overflow-y-auto">
                         {podcasts.length > 0 ? (
                             podcasts.map((podcast) => (
-                                <div key={podcast._id} className="flex items-center gap-4 py-4 border-b border-gray-200">
+                                <div
+                                    key={podcast._id}
+                                    className="flex items-center gap-4 p-4 border-b border-gray-200 hover:bg-gray-100 rounded-lg transition duration-200 ease-in-out"
+                                >
                                     <Image
                                         src={podcast?.imgUrl || '/path/to/fallback.jpg'} // Fallback image
                                         alt={podcast.title}
                                         width={80}
                                         height={80}
-                                        className="object-cover rounded-lg"
+                                        className="object-cover rounded-lg max-w-20 max-h-12"
                                     />
                                     <div className="flex-1">
                                         <h3 className="text-lg font-bold text-gray-800 truncate">{podcast.title}</h3>
@@ -190,7 +200,11 @@ const AddToPlaylist = ({ id }) => {
                                             {podcast.description?.split(" ").length > 10 && " ..."}
                                         </p>
                                     </div>
-                                    <button className="text-2xl text-gray-500 hover:text-[#0077b6]" aria-label="Add to Playlist">
+                                    <button
+                                        onClick={() => handleAddToPlaylist(podcast)}
+                                        className="text-2xl text-gray-500 hover:text-blue-500 transition duration-200"
+                                        aria-label="Add to Playlist"
+                                    >
                                         <IoIosAddCircleOutline />
                                     </button>
                                 </div>
@@ -208,6 +222,7 @@ const AddToPlaylist = ({ id }) => {
                     </div>
                 </div>
             </dialog>
+
 
 
         </div>
