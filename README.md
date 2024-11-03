@@ -1,36 +1,32 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+Auraloom
 
-## Getting Started
+Website Name: Auraloom
 
-First, run the development server:
+Live Site URL: https://auraloom.com
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+Project Overview
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Auraloom is a dynamic podcast-sharing platform that allows users to explore, upload, and share podcasts across various categories. The platform aims to provide an engaging and personalized experience for listeners and creators alike, with advanced features like AI-driven recommendations, custom playlists, and secure user authentication.
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+Features
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+Diverse Podcast Library: Explore a wide range of podcasts organized by categories and trending topics.
 
-## Learn More
+Personalized Playlists: Users can create, save, and manage playlists for a customized listening experience.
 
-To learn more about Next.js, take a look at the following resources:
+AI-Powered Thumbnails: Automatically generate podcast thumbnails with AI to enhance visual appeal.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+User and Creator Dashboards: Separate dashboards with tailored functionalities for listeners and content creators.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+Secure Authentication: Data security and privacy ensured through Firebase and other authentication protocols.
 
-## Deploy on Vercel
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Technologies Used
+NextJs
+React
+Firebase Authentication
+Tailwind CSS
+MongoDB
+ClipDrop AI API
+Framer Motion
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
