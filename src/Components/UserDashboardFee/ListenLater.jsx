@@ -17,7 +17,7 @@ const ListenLater = () => {
                     throw new Error(`HTTP error! status: ${response.status}`);
                 }
                 const result = await response.json();
-                console.log(result);
+                // console.log(result);
                 if (result && Array.isArray(result)) {
                     setListenLater(result);
                 }
@@ -35,7 +35,7 @@ const ListenLater = () => {
     if (error) return <p className="text-center text-red-500">{error}</p>;
 
     const limitedPodcasts = listenLater.filter((_, index) => index < 4);
-    console.log(limitedPodcasts);
+    // console.log(limitedPodcasts);
 
     return (
         <div className='container mx-auto'>
