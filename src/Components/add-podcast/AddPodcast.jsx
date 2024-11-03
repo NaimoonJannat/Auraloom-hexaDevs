@@ -81,7 +81,7 @@ const AddPodcast = () => {
 
   return (
     <div className='mx-auto container flex  flex-col justify-center items-center '>
-      <main className="relative  w-full  md:flex md:items-center xl:mt-12">
+      <main className="relative  w-full  md:flex md:items-center ">
         
         <div className="flex-1 h-full my-14  flex items-center justify-center p-3 translate-y-10">
           <div className='flex flex-col  p-6 rounded-md sm:p-10 bg-[#caf0f8] bg-opacity-90 text-gray-900'>
