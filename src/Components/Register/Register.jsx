@@ -83,7 +83,7 @@ const Register = () => {
                         <span className='w-1/5 border-b border-[#161D6F] lg:w-1/4'></span>
                     </div>
 
-                    <form onSubmit={handleSubmit} className="grid grid-cols-1 gap-6 mt-8 md:grid-cols-2">
+                    <form onSubmit={handleSubmit} className="grid grid-cols-1 gap-6 mt-8 lg:grid-cols-2">
                         <div>
                             <label className="block mb-2 text-sm ">Name</label>
                             <input
@@ -92,7 +92,7 @@ const Register = () => {
                                 placeholder="Name"
                                 value={formData.name}
                                 onChange={handleInputChange}
-                                className="block w-full px-5 py-3 mt-2 w-full border rounded-md border-gray-300 focus:outline-[#98DED9] text-gray-900"
+                                className="block px-5 py-3 mt-2 w-full border rounded-md border-gray-300 focus:outline-[#98DED9] text-gray-900"
                             />
                         </div>
 
@@ -104,7 +104,7 @@ const Register = () => {
                                 placeholder="Photo URL"
                                 value={formData.photoURL}
                                 onChange={handleInputChange}
-                                className="block w-full px-5 py-3 mt-2 w-full border rounded-md border-gray-300 focus:outline-[#98DED9] text-gray-900"
+                                className="block w-full px-5 py-3 mt-2 border rounded-md border-gray-300 focus:outline-[#98DED9] text-gray-900"
                             />
                         </div>
 
@@ -116,7 +116,7 @@ const Register = () => {
                                 placeholder="Email"
                                 value={formData.email}
                                 onChange={handleInputChange}
-                                className="block w-full px-5 py-3 mt-2 w-full border rounded-md border-gray-300 focus:outline-[#98DED9] text-gray-900"
+                                className="block w-full px-5 py-3 mt-2  border rounded-md border-gray-300 focus:outline-[#98DED9] text-gray-900"
                             />
                         </div>
 
@@ -128,7 +128,7 @@ const Register = () => {
                                 placeholder="Password"
                                 value={formData.password}
                                 onChange={handleInputChange}
-                                className="block w-full px-5 py-3 mt-2 w-full border rounded-md border-gray-300 focus:outline-[#98DED9] text-gray-900"
+                                className="block  px-5 py-3 mt-2 w-full border rounded-md border-gray-300 focus:outline-[#98DED9] text-gray-900"
                             />
                         </div>
 
