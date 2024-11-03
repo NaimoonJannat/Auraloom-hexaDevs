@@ -47,16 +47,38 @@ const AddToPlaylist = ({ id }) => {
     }, []);
 
 
-    const handleAddToPlaylist = (podcast) => {
-        // Logic to add the selected podcast to the playlist
-        if (playlist) {
-            const updatedPlaylist = {
-                ...playlist,
-                podcasts: [...(playlist.podcasts || []), podcast]
-            };
-            setPlaylist(updatedPlaylist);
+
+    const handleAddToPlaylist = async (podcast) => {
+        if (!playlist) return;
+
+        // Optimistic UI update
+        const updatedPlaylist = {
+            ...playlist,
+            podcasts: [...(playlist.podcasts || []), podcast]
+        };
+        setPlaylist(updatedPlaylist);
+
+        try {
+            // Send request to the backend to update the playlist
+            const response = await axios.put(`https://auraloom-backend.vercel.app/playlists/${id}/add-podcast`, {
+                podcast
+            });
+
+            // If successful, update the playlist with the response data
+            setPlaylist(response.data);
+        } catch (error) {
+            console.error("Error adding podcast to playlist:", error);
+
+            // Rollback optimistic update if the request fails
+            setPlaylist((prev) => ({
+                ...prev,
+                podcasts: prev.podcasts.filter((p) => p._id !== podcast._id)
+            }));
+            alert("Failed to add podcast. Please try again.");
         }
     };
+
+
 
 
     return (

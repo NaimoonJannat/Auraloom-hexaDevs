@@ -66,10 +66,10 @@ const Sidebar = () => {
                         <HomeIcon className="h-6 w-6 text-white" />
                         <span>Feed</span>
                     </Link>
-                    <Link href={"/add-to-playlist"} className="flex items-center space-x-2 hover:bg-gray-700 p-2 rounded-md">
+                    {/* <Link href={"/add-to-playlist"} className="flex items-center space-x-2 hover:bg-gray-700 p-2 rounded-md">
                         <MusicNoteIcon className="h-6 w-6 text-white" />
                         <span>Playlists</span>
-                    </Link>
+                    </Link> */}
                     <Link href={"/listen-later"} className="flex items-center space-x-2 mb-2 hover:bg-gray-700 p-2 rounded-md">
                         <ClockIcon className="h-5 w-5 text-white" />
                         <span>Listen Later</span>
