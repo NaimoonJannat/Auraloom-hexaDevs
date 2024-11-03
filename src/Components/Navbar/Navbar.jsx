@@ -151,11 +151,11 @@ const Navbar = () => {
                   Contact
                 </Link>
               </li>
-              <li className="flex">
+              {/* <li className="flex">
                 <Link rel="noopener noreferrer" href="/notifications">
                   <IoMdNotificationsOutline className="text-2xl" />
                 </Link>
-              </li>
+              </li> */}
               <li className="flex">
                 <label className="swap swap-rotate mr-1 lg:mr-2">
                   <input type="checkbox" onChange={handleToggle} checked={theme === 'light' ? false : true} className="toggle" />
@@ -246,11 +246,11 @@ const Navbar = () => {
                   Contact
                 </Link>
               </li>
-              <li className="flex">
+              {/* <li className="flex">
                 <Link rel="noopener noreferrer" href="/notifications">
                   Notifications
                 </Link>
-              </li>
+              </li> */}
               {user ? (
                 <>
                   <div>
