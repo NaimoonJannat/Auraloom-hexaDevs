@@ -9,6 +9,7 @@ import Link from "next/link";
 import PrivateRoute from "../PrivateRoute/PrivateRoute";
 import ListenLater from "./ListenLater";
 import { AuthContext } from "../Provider/AuthProvider/AuthProvider";
+import UserBadgeList from "./UserBadgeList";
 
 const UserDashboardFee = () => {
   const [playlists, setPlaylists] = useState([]);
@@ -85,6 +86,9 @@ const UserDashboardFee = () => {
 
         {/* listenLater Section */}
         <ListenLater></ListenLater>
+
+        {/* Badges */}
+        <UserBadgeList />
 
         {/* Show Individual Playlist */}
         <div className="mt-10">

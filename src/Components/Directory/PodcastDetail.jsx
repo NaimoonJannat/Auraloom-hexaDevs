@@ -348,7 +348,7 @@ const PodcastDetail = ({ id }) => {
                             <FcDislike className="text-2xl" />
                             {isDisliked ? "Disliked" : "Dislike"}
                         </button>
-                        <button className="flex items-center gap-2 border text-sm md:text-base border-b-slate-300 py-1 md:py-2 lg:py-3 font-medium px-5 md:px-6 lg:px-7 rounded-badge bg-[#01BECA]"><FaPlus className="text-2xl" />Add to Playlist</button>
+                        {/* <button className="flex items-center gap-2 border text-sm md:text-base border-b-slate-300 py-1 md:py-2 lg:py-3 font-medium px-5 md:px-6 lg:px-7 rounded-badge bg-[#01BECA]"><FaPlus className="text-2xl" />Add to Playlist</button> */}
                         <button
                             onClick={() => handleSharePodcast('Inspiring Podcast')}
                             className="flex items-center gap-2 border text-sm md:text-base border-b-slate-300 py-1 md:py-2 lg:py-3 font-medium px-5 md:px-6 lg:px-7 rounded-badge bg-[#01BECA]"

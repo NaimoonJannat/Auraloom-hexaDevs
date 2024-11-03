@@ -130,8 +130,8 @@ const Settings = () => {
                         )}
                     </motion.div>
 
-                    {/* Other Sections with Animations */}
-                    <motion.div
+                    Other Sections with Animations
+                    {/* <motion.div
                         id="preferences"
                         className="mb-20"
                         initial={{ opacity: 0 }}
@@ -141,7 +141,7 @@ const Settings = () => {
                     >
 
 
-                        {/* Unfollow Creators Section */}
+                        Unfollow Creators Section
                         <h3 className="text-xl font-bold mb-4 light:text-sky-950">Followed Creators</h3>
                         {followedCreators.length > 0 ? (
                             followedCreators.map((creator, index) => (
@@ -163,7 +163,7 @@ const Settings = () => {
                         ) : (
                             <p className="text-gray-600">You are not following any creators.</p>
                         )}
-                    </motion.div>
+                    </motion.div> */}
 
 
                     <motion.div id="about-us" className="mb-10" initial={{ opacity: 0 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 2, ease: 'easeOut' }}>

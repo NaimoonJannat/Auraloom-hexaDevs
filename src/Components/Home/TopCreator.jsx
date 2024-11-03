@@ -1,67 +1,56 @@
+"use client";
 import Image from 'next/image';
-import React from 'react';
-import img1 from '../../../public/avatar (1).jpg'
-import img2 from '../../../public/avatar (2).jpg'
-import img3 from '../../../public/avatar (3).jpg'
-import img4 from '../../../public/avatar.jpg'
+import React, { useEffect, useState } from 'react';
 
 const TopCreator = () => {
+    const [creators, setCreators] = useState([]);
 
-    const creators = [
-        {
-            "id": 1,
-            "name": "Austin Wade",
-            "profileImage": img1
-        },
-        {
-            "id": 2,
-            "name": "Alexandru Zdrobau",
-            "profileImage": img2
-        },
-        {
-            "id": 3,
-            "name": "Albert Dera",
-            "profileImage": img3
-        },
-        {
-            "id": 4,
-            "name": "Stefan Stefancik",
-            "profileImage": img4
-        }
-    ]
+    useEffect(() => {
+        const fetchCreators = async () => {
+            try {
+                const response = await fetch('https://auraloom-backend.vercel.app/users');
+                const data = await response.json();
+                // Filter to get only users with the role "creator" and limit to 4 creators
+                const filteredCreators = data.filter(user => user.role === 'creator').slice(0, 4);
+                setCreators(filteredCreators);
+            } catch (error) {
+                console.error('Error fetching creators:', error);
+            }
+        };
+        fetchCreators();
+    }, []);
 
     return (
         <div>
             <div className="py-3 md:py-4">
                 <div className="mx-auto max-w-screen px-4 md:px-8">
-
                     <div className="mb-10 md:mb-16">
                         <span className="relative flex justify-center mt-20 mb-10 font-bold">
                             <div
                                 className="absolute inset-x-0 top-1/2 h-px -translate-y-1/2 bg-transparent bg-gradient-to-r from-transparent via-gray-500 to-transparent opacity-75 scale-75 mt-6"
                             ></div>
-
                             <span className="relative z-10 px-6 text-2xl text-[#0077b6] font-montserrat">Top Creators</span>
                         </span>
-
-                        <p className="mx-auto max-w-screen-md text-center text-gray-500 md:text-lg">This is a section of some simple filler text, also known as placeholder text. It shares some characteristics of a real written text but is random or otherwise generated.</p>
+                        <p className="mx-auto max-w-screen-md text-center text-gray-500 md:text-lg">
+                        Discover Auraloom&apos;s standout creators, each bringing impactful content to the podcasting space. Explore profiles with names, images, and social links, and connect with creators who inspire and engage our community.
+                        </p>
                     </div>
 
                     {/* CARD */}
                     <div className="mx-auto max-w-screen px-4 md:px-8">
                         <div className="grid gap-4 sm:grid-cols-2 md:gap-6 lg:grid-cols-3 xl:grid-cols-4">
                             {creators.map((creator) => (
-                                <div key={creator.id}>
+                                <div key={creator._id}>
                                     <a href="#" className="group relative flex h-96 items-end overflow-hidden rounded-lg bg-gray-100 dark:bg-gray-800 p-4 shadow-lg transition duration-200 hover:shadow-2xl hover:bg-[#CAF0F8] dark:hover:bg-[#0077B6] border-2 ">
                                         <Image
                                             height={600}
                                             width={400}
-                                            src={creator.profileImage}
+                                            src={creator.photoURL}
                                             loading="lazy"
                                             alt={`Photo by ${creator.name}`}
                                             className="absolute inset-0 h-full w-full object-cover object-center transition duration-200 group-hover:scale-110"
                                         />
-                                        <div className="relative flex w-full flex-col rounded-lg bg-gray-100  p-4 text-center">
+                                        <div className="relative flex w-full flex-col rounded-lg bg-gray-100 p-4 text-center">
                                             <span className="text-lg font-bold text-[#0077b6] lg:text-xl">
                                                 {creator.name}
                                             </span>
