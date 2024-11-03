@@ -152,6 +152,11 @@ const Navbar = () => {
                 </Link>
               </li>
               <li className="flex">
+                <Link rel="noopener noreferrer" href="/about-us">
+                  About Us
+                </Link>
+              </li>
+              <li className="flex">
                 <Link rel="noopener noreferrer" href="/notifications">
                   <IoMdNotificationsOutline className="text-2xl" />
                 </Link>
@@ -244,6 +249,11 @@ const Navbar = () => {
               <li className="flex">
                 <Link rel="noopener noreferrer" href="/contact-us">
                   Contact
+                </Link>
+              </li>
+              <li className="flex">
+                <Link rel="noopener noreferrer" href="/about-us">
+                  About Us
                 </Link>
               </li>
               <li className="flex">
