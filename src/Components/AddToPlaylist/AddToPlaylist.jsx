@@ -47,16 +47,38 @@ const AddToPlaylist = ({ id }) => {
     }, []);
 
 
-    const handleAddToPlaylist = (podcast) => {
-        // Logic to add the selected podcast to the playlist
-        if (playlist) {
-            const updatedPlaylist = {
-                ...playlist,
-                podcasts: [...(playlist.podcasts || []), podcast]
-            };
-            setPlaylist(updatedPlaylist);
+
+    const handleAddToPlaylist = async (podcast) => {
+        if (!playlist) return;
+
+        // Optimistic UI update
+        const updatedPlaylist = {
+            ...playlist,
+            podcasts: [...(playlist.podcasts || []), podcast]
+        };
+        setPlaylist(updatedPlaylist);
+
+        try {
+            // Send request to the backend to update the playlist
+            const response = await axios.put(`https://auraloom-backend.vercel.app/playlists/${id}/add-podcast`, {
+                podcast
+            });
+
+            // If successful, update the playlist with the response data
+            setPlaylist(response.data);
+        } catch (error) {
+            console.error("Error adding podcast to playlist:", error);
+
+            // Rollback optimistic update if the request fails
+            setPlaylist((prev) => ({
+                ...prev,
+                podcasts: prev.podcasts.filter((p) => p._id !== podcast._id)
+            }));
+            alert("Failed to add podcast. Please try again.");
         }
     };
+
+
 
 
     return (
@@ -65,40 +87,6 @@ const AddToPlaylist = ({ id }) => {
             <div className="container mx-auto px-4">
                 {playlist ? (
                     <>
-                        {/* Header Section */}
-                        {/* <div className="py-6 sm:py-8 lg:py-12">
-                            <div className="mx-auto max-w-screen-2xl px-4 md:px-8">
-                                <section className="relative flex items-center justify-center overflow-hidden rounded-lg bg-gray-100 py-16 shadow-lg md:py-20 xl:py-48">
-                                    <Image
-                                        src={playlist.image || '/path/to/fallback-image.jpg'}
-                                        alt="Background image"
-                                        layout="fill"
-                                        className="absolute inset-0 w-full h-full object-cover object-center"
-                                    />
-                                    <div className="absolute inset-0 bg-gradient-to-r from-purple-700 via-pink-500 to-red-500 opacity-70"></div>
-
-                                    <div className="relative z-10 flex flex-col items-center p-4 sm:max-w-2xl">
-                                        <h1 className="mb-8 text-center text-4xl font-bold text-white sm:text-5xl md:mb-12 md:text-6xl">
-                                            Let us start building your playlist
-                                        </h1>
-                                        <div className="flex w-full flex-col gap-2.5 sm:flex-row sm:justify-center">
-                                            <a
-                                                href="#"
-                                                className="inline-block rounded-lg bg-indigo-500 px-8 py-3 text-center text-sm font-semibold text-white outline-none transition duration-100 hover:bg-indigo-600"
-                                            >
-                                                Start now
-                                            </a>
-                                            <a
-                                                href="#"
-                                                className="inline-block rounded-lg bg-gray-200 px-8 py-3 text-center text-sm font-semibold text-gray-700 outline-none transition duration-100 hover:bg-gray-300"
-                                            >
-                                                Take tour
-                                            </a>
-                                        </div>
-                                    </div>
-                                </section>
-                            </div>
-                        </div> */}
 
                         {/* Playlist Info Section */}
                         <div className="rounded-xl p-4 sm:p-6 lg:p-8 m-4 sm:mx-8 lg:mx-12 bg-gradient-to-r from-blue-800 to-indigo-900 shadow-lg">
@@ -169,9 +157,11 @@ const AddToPlaylist = ({ id }) => {
                                     className="object-cover rounded-lg"
                                 />
                                 <div>
-                                    <h4 className="text-lg font-bold text-gray-800">{podcast.title}</h4>
-                                    <p className="text-sm text-gray-400">{podcast.date}</p>
-                                    <p className="text-gray-600">{podcast.description?.slice(0, 50)}...</p>
+
+                                    <h4 className="text-lg font-bold ">{podcast.title}</h4>
+                                    <p className="text-sm ">{podcast.date}</p>
+                                    <p className="">{podcast.description?.slice(0, 50)}...</p>
+
                                 </div>
                             </div>
                         ))}
@@ -205,16 +195,18 @@ const AddToPlaylist = ({ id }) => {
                                         className="object-cover rounded-lg max-w-20 max-h-12"
                                     />
                                     <div className="flex-1">
-                                        <h3 className="text-lg font-bold text-gray-800 truncate">{podcast.title}</h3>
+                                        <h3 className="text-lg font-bold truncate">{podcast.title}</h3>
                                         <p className="text-sm text-gray-400">{podcast.date}</p>
-                                        <p className="text-gray-600 truncate">
+                                        <p className="truncate">
                                             {podcast.description?.split(" ").slice(0, 10).join(" ")}
                                             {podcast.description?.split(" ").length > 10 && " ..."}
                                         </p>
                                     </div>
                                     <button
                                         onClick={() => handleAddToPlaylist(podcast)}
-                                        className="text-2xl text-gray-500 hover:text-blue-500 transition duration-200"
+
+                                        className="text-2xl hover:text-blue-500 transition duration-200"
+
                                         aria-label="Add to Playlist"
                                     >
                                         <IoIosAddCircleOutline />
@@ -222,7 +214,7 @@ const AddToPlaylist = ({ id }) => {
                                 </div>
                             ))
                         ) : (
-                            <p className="text-center text-gray-600">No podcasts available</p>
+                            <p className="text-center">No podcasts available</p>
                         )}
                     </div>
 
