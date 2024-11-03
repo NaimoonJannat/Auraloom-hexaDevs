@@ -10,6 +10,7 @@ const Settings = () => {
     const [loading, setLoading] = useState(false);
     const [message, setMessage] = useState('');
     const [photoURL, setPhotoURL] = useState('');
+    const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
     const { user } = useContext(AuthContext);
     const [followedCreators, setFollowedCreators] = useState([
@@ -20,21 +21,67 @@ const Settings = () => {
     ]);
 
     // Function to handle profile update
+    // const handleUpdateProfile = async () => {
+    //     if (!userName.trim()) {
+    //         setMessage('Please enter a valid name.');
+    //         return;
+    //     }
+
+    //     setLoading(true);
+    //     setMessage('');
+
+    //     const auth = getAuth();
+    //     try {
+    //         await updateProfile(auth.currentUser, {
+    //             displayName: userName || user.displayName,
+    //             photoURL: photoURL || user.photoURL,
+    //         });
+    //         setMessage('Profile updated successfully!');
+    //     } catch (error) {
+    //         setMessage(`Error updating profile: ${error.message}`);
+    //     } finally {
+    //         setLoading(false);
+    //     }
+    // };
+    const toggleSidebar = () => {
+        setIsSidebarOpen(!isSidebarOpen);
+      };
     const handleUpdateProfile = async () => {
         if (!userName.trim()) {
             setMessage('Please enter a valid name.');
             return;
         }
-
+    
         setLoading(true);
         setMessage('');
-
+    
         const auth = getAuth();
         try {
+            // Update the profile in Firebase Authentication
             await updateProfile(auth.currentUser, {
                 displayName: userName || user.displayName,
                 photoURL: photoURL || user.photoURL,
             });
+    
+            // Prepare the user data to update in the users collection
+            const updatedUserData = {
+                name: userName || user.displayName,
+                photoURL: photoURL || user.photoURL,
+            };
+    
+            // Update the user in your backend database
+            const response = await fetch(`https://auraloom-backend.vercel.app/users/update/${auth.currentUser.uid}`, {
+                method: 'PATCH',  // Or 'PATCH' based on your backend setup
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(updatedUserData),
+            });
+    
+            if (!response.ok) {
+                throw new Error("Failed to update user data in the database.");
+            }
+    
             setMessage('Profile updated successfully!');
         } catch (error) {
             setMessage(`Error updating profile: ${error.message}`);
@@ -42,16 +89,30 @@ const Settings = () => {
             setLoading(false);
         }
     };
-
-    // Function to handle unfollowing a creator
+    
     const handleUnfollow = (creator) => {
         setFollowedCreators(followedCreators.filter((c) => c !== creator));
     };
 
     return (
         <div className="min-h-screen  font-montserrat flex ">
+                 
+      <button
+        className="block md:hidden p-4 focus:outline-none"
+        onClick={toggleSidebar}
+      >
+        <svg
+          className="w-6 h-6"
+          fill="none"
+          stroke="currentColor"
+          viewBox="0 0 24 24"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+        </svg>
+      </button>
             {/* Sidebar */}
-            <aside className=" w-1/4 min-h-screen p-6 shadow-lg light:bg-gray-100">
+            <aside className={`fixed inset-0 bg-[#90e0ef] p-6 lg:relative lg:translate-x-0 transition-transform transform ${isSidebarOpen ? "translate-x-0 " : "-translate-x-full"}  w-3/4 lg:w-1/5 `}>
                 <h2 className="text-xl font-semibold mb-4">Account</h2>
                 <nav className="space-y-4">
                     <a href="#personal-info" className="block light:text-gray-800 hover:text-indigo-600">Personal Info</a>
