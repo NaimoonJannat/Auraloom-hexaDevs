@@ -17,11 +17,11 @@ const ContactBanner = () => {
     };
 
     return (
-        <section className=" text-slate-900">
+        <section className=" ">
             <div className="container px-6 py-12 mx-auto">
                 <div className="text-center">
-                    <h1 className="mt-2 text-3xl font-semibold text-gray-800 md:text-3xl">Contact Our Friendly Team</h1>
-                    <p className="mt-3 text-gray-500">Chat to our friendly team.</p>
+                    <h1 className="mt-2 text-3xl font-semibold  md:text-3xl">Contact Our Friendly Team</h1>
+                    <p className="mt-3 ">Chat to our friendly team.</p>
                 </div>
 
                 {/* Slider Section */}
