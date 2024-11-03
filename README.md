@@ -2,7 +2,7 @@ Auraloom
 
 Website Name: Auraloom
 
-Live Site URL: https://auraloom.com
+Live Site URL: https://auraloom-hexa-devs.vercel.app/
 
 Project Overview
 
