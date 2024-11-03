@@ -47,6 +47,7 @@ const AddToPlaylist = ({ id }) => {
     }, []);
 
 
+
     const handleAddToPlaylist = async (podcast) => {
         if (!playlist) return;
 
@@ -79,12 +80,14 @@ const AddToPlaylist = ({ id }) => {
 
 
 
+
     return (
         <div>
 
             <div className="container mx-auto px-4">
                 {playlist ? (
                     <>
+
                         {/* Playlist Info Section */}
                         <div className="rounded-xl p-4 sm:p-6 lg:p-8 m-4 sm:mx-8 lg:mx-12 bg-gradient-to-r from-blue-800 to-indigo-900 shadow-lg">
                             <div className="flex flex-col sm:flex-row sm:gap-8 items-center text-white">
@@ -154,9 +157,11 @@ const AddToPlaylist = ({ id }) => {
                                     className="object-cover rounded-lg"
                                 />
                                 <div>
+
                                     <h4 className="text-lg font-bold ">{podcast.title}</h4>
                                     <p className="text-sm ">{podcast.date}</p>
                                     <p className="">{podcast.description?.slice(0, 50)}...</p>
+
                                 </div>
                             </div>
                         ))}
@@ -199,7 +204,9 @@ const AddToPlaylist = ({ id }) => {
                                     </div>
                                     <button
                                         onClick={() => handleAddToPlaylist(podcast)}
+
                                         className="text-2xl hover:text-blue-500 transition duration-200"
+
                                         aria-label="Add to Playlist"
                                     >
                                         <IoIosAddCircleOutline />

@@ -1,6 +1,7 @@
 'use client';
 import React, { useContext, useEffect, useState } from "react";
 import CountUp from 'react-countup';
+import { Bar } from 'react-chartjs-2';
 import logo from '../../../public/auraloom-logo.png'
 import {
   FaChartBar,
@@ -45,14 +46,16 @@ ChartJS.register(
   ArcElement,
   Title,
   Tooltip,
-  Legend
+  Legend,
+  BarElement
 );
 
 const AdminDashboard = () => {
-  
+
   const { user: loggedInUser, logout } = useContext(AuthContext);
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   const [isOpen, setIsOPen] = useState(false)
+  const [categoryCounts, setCategoryCounts] = useState({});
   console.log(loggedInUser);
 
   // Toggle sidebar function for mobile devices
@@ -60,7 +63,24 @@ const AdminDashboard = () => {
     setIsSidebarOpen(!isSidebarOpen);
   };
 
-  
+  const [podcasts, setPodcasts] = useState([])
+  // Fetch podcasts and calculate category counts
+  useEffect(() => {
+    const getData = async () => {
+      const { data } = await axios(`https://auraloom-backend.vercel.app/podcasts`);
+      setPodcasts(data);
+
+      // Calculate category counts dynamically
+      const counts = data.reduce((acc, podcast) => {
+        const category = podcast.category;
+        acc[category] = (acc[category] || 0) + 1;
+        return acc;
+      }, {});
+
+      setCategoryCounts(counts);
+    };
+    getData();
+  }, []);
   const {
     data: items = [],
     //isLoading,
@@ -77,52 +97,108 @@ const AdminDashboard = () => {
       .then(() => { })
       .catch(() => { });
   };
-  const listensData = {
-    labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul'],
-    datasets: [
-      {
-        label: 'Monthly Listens',
-        data: [65, 59, 80, 81, 56, 55, 40],
-        borderColor: 'rgba(75,192,192,1)',
-        backgroundColor: 'rgba(75,192,192,0.2)',
-        tension: 0.4,
-      },
-    ],
-  };
+  // const listensData = {
+  //   labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul'],
+  //   datasets: [
+  //     {
+  //       label: 'Monthly Listens',
+  //       data: [65, 59, 80, 81, 56, 55, 40],
+  //       borderColor: 'rgba(75,192,192,1)',
+  //       backgroundColor: 'rgba(75,192,192,0.2)',
+  //       tension: 0.4,
+  //     },
+  //   ],
+  // };
 
-  const pieData = {
-    labels: ['Technology', 'Health', 'Business', 'Entertainment', 'Education'],
+  // Generate colors dynamically for each category
+  // const generateColors = (numColors) => {
+  //   const colors = [];
+  //   for (let i = 0; i < numColors; i++) {
+  //     const hue = (i * 360 / numColors) % 360;
+  //     colors.push(`hsl(${hue}, 70%, 60%)`);  // Adjust saturation and lightness as needed
+  //   }
+  //   return colors;
+  // };
+
+  // const pieData = {
+  //   labels: Object.keys(categoryCounts),
+  //   datasets: [
+  //     {
+  //       label: 'Podcast Categories',
+  //       data: Object.values(categoryCounts),
+  //       backgroundColor: generateColors(Object.keys(categoryCounts).length),
+  //       borderWidth: 1,
+  //     },
+  //   ],
+  // };
+  // const categoriesData = {
+  //   labels: Object.keys(categoryCounts),
+  //   datasets: [
+  //     {
+  //       label: 'Number of Podcasts in Each Category',
+  //       data: Object.values(categoryCounts),
+  //       backgroundColor: generateColors(Object.keys(categoryCounts).length),
+  //       borderColor: generateColors(Object.keys(categoryCounts).length),
+  //       borderWidth: 1,
+  //     },
+  //   ],
+  // };
+
+  // Chart options for categories bar chart
+  // const barChartOptions = {
+  //   responsive: true,
+  //   plugins: {
+  //     legend: {
+  //       position: 'top',
+  //     },
+  //     title: {
+  //       display: true,
+  //       text: 'Podcast Categories Count',
+  //     },
+  //   },
+  // };
+
+  // const doughnutData = {
+  //   labels: ['Basic', 'Premium', 'Pro'],
+  //   datasets: [
+  //     {
+  //       label: 'Subscription Types',
+  //       data: [500, 200, 100],
+  //       backgroundColor: [
+  //         'rgba(255, 159, 64, 0.6)',
+  //         'rgba(54, 162, 235, 0.6)',
+  //         'rgba(255, 99, 132, 0.6)',
+  //       ],
+  //       borderWidth: 1,
+  //     },
+  //   ],
+  // };
+  // const chartOptions = {
+  //   responsive: true,
+  //   plugins: {
+  //     legend: {
+  //       position: 'top',
+  //     },
+  //     title: {
+  //       display: true,
+  //       text: 'Podcast Categories Distribution',
+  //     },
+  //   },
+  // };
+  // Bar chart data for podcast categories
+  const barData = {
+    labels: Object.keys(categoryCounts),
     datasets: [
       {
         label: 'Podcast Categories',
-        data: [300, 50, 100, 200, 150],
-        backgroundColor: [
-          'rgba(255, 99, 132, 0.6)',
-          'rgba(54, 162, 235, 0.6)',
-          'rgba(255, 206, 86, 0.6)',
-          'rgba(75, 192, 192, 0.6)',
-          'rgba(153, 102, 255, 0.6)',
-        ],
+        data: Object.values(categoryCounts),
+        backgroundColor: '#00b4d8',
+        borderColor: '#0077b6',
         borderWidth: 1,
       },
     ],
   };
 
-  const doughnutData = {
-    labels: ['Basic', 'Premium', 'Pro'],
-    datasets: [
-      {
-        label: 'Subscription Types',
-        data: [500, 200, 100],
-        backgroundColor: [
-          'rgba(255, 159, 64, 0.6)',
-          'rgba(54, 162, 235, 0.6)',
-          'rgba(255, 99, 132, 0.6)',
-        ],
-        borderWidth: 1,
-      },
-    ],
-  };
   const chartOptions = {
     responsive: true,
     plugins: {
@@ -131,11 +207,10 @@ const AdminDashboard = () => {
       },
       title: {
         display: true,
-        text: 'Performance Overview',
+        text: 'Podcast Categories Distribution',
       },
     },
   };
-
   //deleting user
   const handleDelete = _id => {
     Swal.fire({
@@ -204,7 +279,6 @@ const AdminDashboard = () => {
             className="mr-3"
           />
         </div>
-
         <div className="py-6 px-8 flex items-center flex-col">
           <div className=" rounded-full border-2 border-sky-500 p-1">
             <Image
@@ -220,28 +294,9 @@ const AdminDashboard = () => {
             <p className="text-sm ">{loggedInUser?.email}</p>
           </div>
         </div>
-
         <nav className="mt-10">
-          {/* Sidebar links */}
-          {/* <a href="/overview" className="flex items-center py-3 px-6 text-lg hover:bg-[#00B4D8]">
-            <FaChartLine className="mr-3" /> Overview
-          </a> */}
-          {/* <a href="/subscriptions" className="flex items-center py-3 text-lg px-6 hover:bg-[#00B4D8]">
-            <MdSubscriptions className="mr-3" /> Subscriptions
-          </a> */}
-          {/* <a href="/transactions" className="flex items-center py-3 text-lg px-6 hover:bg-[#00B4D8]">
-            <FaMoneyBillWave className="mr-3" /> Transactions
-          </a> */}
-          {/* <a href="/customers" className="flex items-center py-3 px-6 text-lg hover:bg-[#00B4D8]">
-            <FaUsers className="mr-3" /> Customers
-          </a> */}
-          {/* <a href="/creators" className="flex items-center py-3 px-6 text-lg hover:bg-[#00B4D8]">
-            <FaPodcast className="mr-3" /> Creators
-          </a> */}
-          {/* <a href="/statistics" className="flex items-center py-3 text-lg px-6 hover:bg-[#00B4D8]">
-            <FaChartBar className="mr-3" /> Statistics
-          </a> */}
-          <a href="/Settings" className="flex items-center py-3 px-6 text-lg hover:bg-gray-400">
+
+          <a href="/Settings" className="flex items-center py-3 px-6  text-lg hover:bg-gray-400">
             <FaCog className="mr-3" /> Settings
           </a>
           <a href="/" className="flex items-center py-3 px-6 text-lg hover:bg-gray-400">
@@ -257,7 +312,7 @@ const AdminDashboard = () => {
             <FaPodcast className="text-4xl text-blue-500 mb-4" />
             <h2 className="text-xl font-bold">Total Listens</h2>
             <p className="text-gray-600 text-3xl">
-              <CountUp end={15000} duration={2} />
+              <CountUp end={26} duration={2} />
             </p>
           </div>
 
@@ -280,12 +335,8 @@ const AdminDashboard = () => {
             </p>
           </div>
         </div>
-
         {/* Other sections */}
         <div className="flex flex-col ">
-
-
-
           <div className=" shadow-lg p-4 sm:p-6 rounded-lg mb-6 w-full">
             <h2 className="text-lg sm:text-xl font-bold mb-4">All Users</h2>
             <div className="overflow-x-auto">
@@ -314,29 +365,19 @@ const AdminDashboard = () => {
           <div className=" shadow-lg p-4 sm:p-6 rounded-lg mb-6 w-full ">
             <h2 className="text-lg sm:text-xl font-bold mb-4">All Podcasts</h2>
             <div className="mx-auto mb-4">
-               <AllPodcasts/>
+              <AllPodcasts />
             </div>
           </div>
-          <div className=" shadow-lg p-4 sm:p-6 rounded-lg mb-6 w-full ">
-            <h2 className="text-lg sm:text-xl font-bold mb-4">Monthly Listens</h2>
-            <div className="h-48 sm:h-64 md:h-72 lg:h-80">
-              <Line data={listensData} options={chartOptions} />
-            </div>
-          </div>
-
-
         </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          <div className=" shadow-lg p-6 rounded-lg col-span-1">
+        <div className="grid grid-cols-1  gap-6">
+          {/* <div className=" shadow-lg p-6 rounded-lg col-span-1">
+          <h2 className="text-2xl font-bold mb-4">Podcast Categories</h2>
+          <Pie data={pieData} options={chartOptions} />
+        </div> */}
+          <div className="shadow-lg p-6 rounded-lg col-span-1">
             <h2 className="text-2xl font-bold mb-4">Podcast Categories</h2>
-            <Pie data={pieData} options={chartOptions} />
+            <Bar data={barData} options={chartOptions} />  {/* Use Bar component */}
           </div>
-
-          {/* <div className=" shadow-lg p-6 rounded-lg">
-            <h2 className="text-2xl font-bold mb-4">Subscription Types</h2>
-            <Doughnut data={doughnutData} options={chartOptions} />
-          </div> */}
         </div>
       </div>
     </div>
