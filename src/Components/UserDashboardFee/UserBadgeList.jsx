@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useContext } from "react";
-import SectionTitle from "../Heading/SectionTitle";
 import Image from "next/image";
 import { AuthContext } from "../Provider/AuthProvider/AuthProvider";
+import DashboardHeading from "../Heading/DashboardHeading";
 
 const UserBadgeList = () => {
   const [badges, setBadges] = useState([]);
@@ -60,7 +60,7 @@ const UserBadgeList = () => {
 
   return (
     <div className="mt-10">
-      <SectionTitle title="Your Badges" />
+        <DashboardHeading title={"Your Badges" }></DashboardHeading>
       {earnedBadges.length > 0 ? (
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
           {earnedBadges.map((badge) => (
