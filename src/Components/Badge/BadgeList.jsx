@@ -9,7 +9,7 @@ const BadgeList = () => {
   useEffect(() => {
     const fetchBadges = async () => {
       try {
-        const response = await fetch('http://localhost:5000/badges');
+        const response = await fetch('https://auraloom-backend.vercel.app/badges');
         const data = await response.json();
         console.log("Fetched badge data:", data); // Log the data to check if it is correct
         setBadges(data); // Update badges state
@@ -26,7 +26,7 @@ const BadgeList = () => {
   // Handle badge deletion
   const handleDelete = async (badgeId) => {
     try {
-      const response = await fetch(`http://localhost:5000/badges/${badgeId}`, {
+      const response = await fetch(`https://auraloom-backend.vercel.app/badges/${badgeId}`, {
         method: 'DELETE',
       });
 

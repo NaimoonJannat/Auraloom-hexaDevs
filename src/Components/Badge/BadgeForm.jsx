@@ -70,7 +70,7 @@ const BadgeForm = () => {
       console.log("Badge Data:", badgeData);
   
       // Send badge data to the backend
-      const response = await fetch("http://localhost:5000/badges", {
+      const response = await fetch("https://auraloom-backend.vercel.app/badges", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(badgeData),

@@ -12,7 +12,7 @@ const UserBadgeList = () => {
   useEffect(() => {
     const fetchCustomUserData = async () => {
       try {
-        const response = await fetch(`http://localhost:5000/user/${user.email}`);
+        const response = await fetch(`https://auraloom-backend.vercel.app/user/${user.email}`);
         if (!response.ok) {
           throw new Error("Failed to fetch custom user data");
         }
@@ -31,7 +31,7 @@ const UserBadgeList = () => {
   useEffect(() => {
     const fetchBadges = async () => {
       try {
-        const badgeResponse = await fetch("http://localhost:5000/badges");
+        const badgeResponse = await fetch("https://auraloom-backend.vercel.app/badges");
         if (!badgeResponse.ok) {
           throw new Error("Failed to fetch badges");
         }
