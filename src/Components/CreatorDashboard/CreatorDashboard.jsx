@@ -51,113 +51,115 @@ const CreatorDashboard = () => {
                 </svg>
             </button>
             {/* Sidebar */}
-            <aside className={`w-64 min-h-screen p-6  shadow-lg z-10 md:relative md:translate-x-0 fixed transform transition-transform ${isSidebarOpen ? "translate-x-0 light:bg-gray-300" : "-translate-x-full"} light:bg-gray-300 md:flex md:flex-col`}>
-                <div>
-                    {/* Back button for mobile & medium devices */}
-                    <div className="flex justify-between p-4 bg-blue-500 text-white rounded-2xl m-5 md:hidden">
-                        <h1 className="text-lg font-bold">Back</h1>
-                        <button
-                            className="focus:outline-none"
-                            onClick={toggleSidebar}
-                        >
-                            <IoMdArrowBack className="w-6 h-6" />
-                        </button>
-                    </div>
+            <div className='fixed'>
+                <aside className={`w-64 min-h-screen p-6  shadow-lg z-10 md:relative md:translate-x-0 fixed transform transition-transform ${isSidebarOpen ? "translate-x-0 light:bg-gray-300" : "-translate-x-full"} light:bg-gray-300 md:flex md:flex-col`} >
+                    <div>
+                        {/* Back button for mobile & medium devices */}
+                        <div className="flex justify-between p-4 bg-blue-500 text-white rounded-2xl m-5 md:hidden">
+                            <h1 className="text-lg font-bold">Back</h1>
+                            <button
+                                className="focus:outline-none"
+                                onClick={toggleSidebar}
+                            >
+                                <IoMdArrowBack className="w-6 h-6" />
+                            </button>
+                        </div>
 
-                    {/* Display user's name */}
-                    <div className="mt-7 md:mt-12 lg:mt-12 flex flex-col items-center space-y-2">
-                        {user ? (
-                            <>
-                                {/* Avatar dropdown */}
-                                <div className="dropdown dropdown-end">
-                                    <div
-                                        tabIndex={0}
-                                        role="button"
-                                        className="btn btn-ghost btn-circle avatar hover:scale-105 transform transition"
-                                    >
-                                        <div className="w-10 h-10 rounded-full border-2 border-sky-500 p-1">
-                                            <Image
-                                                src={user?.photoURL || '/path/to/default-avatar.png'}
-                                                width={40}
-                                                height={40}
-                                                className="rounded-full"
-                                                alt="User avatar"
-                                            />
+                        {/* Display user's name */}
+                        <div className="mt-7 md:mt-12 lg:mt-12 flex flex-col items-center space-y-2">
+                            {user ? (
+                                <>
+                                    {/* Avatar dropdown */}
+                                    <div className="dropdown dropdown-end">
+                                        <div
+                                            tabIndex={0}
+                                            role="button"
+                                            className="btn btn-ghost btn-circle avatar hover:scale-105 transform transition"
+                                        >
+                                            <div className="w-10 h-10 rounded-full border-2 border-sky-500 p-1">
+                                                <Image
+                                                    src={user?.photoURL || '/path/to/default-avatar.png'}
+                                                    width={40}
+                                                    height={40}
+                                                    className="rounded-full"
+                                                    alt="User avatar"
+                                                />
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
 
-                                {/* Display user's name */}
-                                <button className=" font-semibold text-sm hover:text-blue-400 transition">
-                                    {user.displayName || 'User'}
-                                </button>
+                                    {/* Display user's name */}
+                                    <button className=" font-semibold text-sm hover:text-blue-400 transition">
+                                        {user.displayName || 'User'}
+                                    </button>
 
-                                {/* Display user's email */}
-                                <button className=" font-semibold text-sm hover:text-blue-400 transition">
-                                    {user.email || 'user@email.com'}
-                                </button>
+                                    {/* Display user's email */}
+                                    <button className=" font-semibold text-sm hover:text-blue-400 transition">
+                                        {user.email || 'user@email.com'}
+                                    </button>
 
-                                {/* Log out button */}
-                                <button onClick={signOutUser} className=" font-semibold text-sm hover:text-blue-400 transition">
-                                    Log Out
-                                </button>
-                            </>
-                        ) : null}
+                                    {/* Log out button */}
+                                    <button onClick={signOutUser} className=" font-semibold text-sm hover:text-blue-400 transition">
+                                        Log Out
+                                    </button>
+                                </>
+                            ) : null}
+                        </div>
+
                     </div>
-
-                </div>
-                <nav className="mt-10">
-                    <ul className="space-y-2">
-                        <Link href={"/"} className="flex items-center space-x-2 hover:bg-blue-400 p-2 rounded-md">
-                            <HomeIcon className="h-6 w-6" />
-                            <span>Feed</span>
-                        </Link>
-                        <Link href={"/my-podcast"} className="flex items-center space-x-2 mb-2 hover:bg-blue-400 hover:text-white p-2 rounded-md">
-                            <FaMusic className="h-6 w-6 " />
-                            <span>My Podcast</span>
-                        </Link>
-                        <Link href={"/podcast"} className="flex items-center space-x-2 mb-2 hover:bg-blue-400 p-2 rounded-md">
-                            <MicrophoneIcon className="h-6 w-6 " />
-                            <span>Podcasts</span>
-                        </Link>
-                        <Link href={"/receivable-growth"} className="flex items-center space-x-2 hover:bg-blue-400 hover:text-white p-2 rounded-md">
-                            <FaChartBar className="h-6 w-6" />
-                            <span>Analytics</span>
-                        </Link>
-                        <Link href={"/history"} className="flex items-center space-x-2 mb-2 hover:bg-blue-400 p-2 rounded-md">
-                            <BookOpenIcon className="h-6 w-6 " />
-                            <span>History</span>
-                        </Link>
-                        <Link href={"/Settings"} className="flex items-center space-x-2 hover:bg-blue-400 hover:text-white p-2 rounded-md">
-                            <CiSettings className="h-6 w-6" />
-                            <span>Settings</span>
-                        </Link>
-                        <Link href={"/generate-thumbnail"} className="flex items-center space-x-2 hover:bg-blue-400 hover:text-white p-2 rounded-md">
-                            <MdGeneratingTokens className="h-6 w-6" />
-                            <span>Get Thumbnail</span>
-                        </Link>
-                        <Link href={"/idea-generate"} className="flex items-center space-x-2 hover:bg-blue-400 hover:text-white p-2 rounded-md">
-                            <FcIdea className="h-6 w-6" />
-                            <span>Idea Generate</span>
-                        </Link>
-                        {/* <Link href={"/"} className="flex items-center space-x-2 hover:bg-blue-400 hover:text-white p-2 rounded-md">
+                    <nav className="mt-10">
+                        <ul className="space-y-2">
+                            <Link href={"/"} className="flex items-center space-x-2 hover:bg-blue-400 p-2 rounded-md">
+                                <HomeIcon className="h-6 w-6" />
+                                <span>Feed</span>
+                            </Link>
+                            <Link href={"/my-podcast"} className="flex items-center space-x-2 mb-2 hover:bg-blue-400 hover:text-white p-2 rounded-md">
+                                <FaMusic className="h-6 w-6 " />
+                                <span>My Podcast</span>
+                            </Link>
+                            <Link href={"/podcast"} className="flex items-center space-x-2 mb-2 hover:bg-blue-400 p-2 rounded-md">
+                                <MicrophoneIcon className="h-6 w-6 " />
+                                <span>Podcasts</span>
+                            </Link>
+                            <Link href={"/receivable-growth"} className="flex items-center space-x-2 hover:bg-blue-400 hover:text-white p-2 rounded-md">
+                                <FaChartBar className="h-6 w-6" />
+                                <span>Analytics</span>
+                            </Link>
+                            <Link href={"/history"} className="flex items-center space-x-2 mb-2 hover:bg-blue-400 p-2 rounded-md">
+                                <BookOpenIcon className="h-6 w-6 " />
+                                <span>History</span>
+                            </Link>
+                            <Link href={"/Settings"} className="flex items-center space-x-2 hover:bg-blue-400 hover:text-white p-2 rounded-md">
+                                <CiSettings className="h-6 w-6" />
+                                <span>Settings</span>
+                            </Link>
+                            <Link href={"/generate-thumbnail"} className="flex items-center space-x-2 hover:bg-blue-400 hover:text-white p-2 rounded-md">
+                                <MdGeneratingTokens className="h-6 w-6" />
+                                <span>Get Thumbnail</span>
+                            </Link>
+                            <Link href={"/idea-generate"} className="flex items-center space-x-2 hover:bg-blue-400 hover:text-white p-2 rounded-md">
+                                <FcIdea className="h-6 w-6" />
+                                <span>Idea Generate</span>
+                            </Link>
+                            {/* <Link href={"/"} className="flex items-center space-x-2 hover:bg-blue-400 hover:text-white p-2 rounded-md">
                             <FaHome className="h-6 w-6 " />
                             <span>Home</span>
                         </Link> */}
-                        {/* <a href="/" className="flex items-center py-3 px-6 text-lg hover:bg-[#00B4D8]">
+                            {/* <a href="/" className="flex items-center py-3 px-6 text-lg hover:bg-[#00B4D8]">
                             <FaHome className="mr-3" /> Home
                         </a> */}
-                        {/* 
+                            {/* 
                         <li>
                             <a href="/" className="flex items-center space-x-2 hover:bg-blue-400 hover:text-white p-2 rounded-md">
                             <FaHome className="h-6 w-6 " /> <span className="text-sm font-medium">Home</span>
                             </a>
                         </li> */}
-                    </ul>
-                </nav>
-            </aside>
+                        </ul>
+                    </nav>
+                </aside>
+            </div>
             {/* Main content */}
-            <main className="flex-1 p-10 ">
+            <main className="flex-1 p-10 feed-container mx-auto ml-0 md:ml-64 lg:ml-64 text-white">
                 <div
                     className="hero min-h-72"
                     style={{
