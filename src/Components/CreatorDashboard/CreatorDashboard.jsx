@@ -146,6 +146,7 @@ const CreatorDashboard = () => {
                             <FaHome className="h-6 w-6 " />
                             <span>Home</span>
                         </Link> */}
+                        
                             {/* <a href="/" className="flex items-center py-3 px-6 text-lg hover:bg-[#00B4D8]">
                             <FaHome className="mr-3" /> Home
                         </a> */}
