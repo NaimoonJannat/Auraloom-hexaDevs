@@ -41,8 +41,8 @@ const ConditionalDashboard = () => {
   }, [user]);
 
   if (loading) {
-    return             <div className="flex justify-center min-h-screen items-center lg:mt-20">
-    <CirclesWithBar
+    return <div className="flex justify-center min-h-screen items-center lg:mt-20">
+      <CirclesWithBar
         height="100"
         width="100"
         color="#4F46E5"
@@ -51,8 +51,8 @@ const ConditionalDashboard = () => {
         barColor="#4F46E5"
         ariaLabel="circles-with-bar-loading"
         visible={true}
-    />
-</div>;
+      />
+    </div>;
   }
 
   if (!user) {
@@ -67,8 +67,10 @@ const ConditionalDashboard = () => {
   return (
     <div>
       {role === 'user' && (
-        <div className="flex flex-col lg:flex-row h-auto bg-slate-900">
-          <Sidebar />
+        <div className=" h-auto bg-slate-900">
+          <div className='hidden md:block lg:block'>
+            <Sidebar />
+          </div>
           <UserDashboardFee />
         </div>
       )}

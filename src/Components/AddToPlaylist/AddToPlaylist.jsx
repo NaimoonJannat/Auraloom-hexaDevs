@@ -2,7 +2,8 @@
 import Image from 'next/image';
 import React, { useContext, useEffect, useState } from 'react';
 import { IoIosAddCircleOutline } from "react-icons/io";
-import img1 from '../../../public/avatar.jpg';
+import { IoPlayCircle } from 'react-icons/io5';
+import { FiShare2, FiEdit3 } from 'react-icons/fi';
 import { AuthContext } from '../Provider/AuthProvider/AuthProvider';
 import { CirclesWithBar } from 'react-loader-spinner';
 import axios from 'axios';
@@ -11,7 +12,10 @@ const AddToPlaylist = ({ id }) => {
 
     const { user } = useContext(AuthContext);
     const [playlist, setPlaylist] = useState(null);
+    const [podcasts, setPodcasts] = useState([]);
 
+
+    // Fetch playlist details based on the provided ID
     useEffect(() => {
         console.log("Playlist ID:", id);  // Log the id to verify
         const fetchPlaylist = async () => {
@@ -28,278 +32,203 @@ const AddToPlaylist = ({ id }) => {
         fetchPlaylist();
     }, [id]);
 
+
+    // Fetch all podcasts to show in the modal
+    useEffect(() => {
+        const fetchPodcasts = async () => {
+            try {
+                const response = await axios.get('https://auraloom-backend.vercel.app/podcasts');
+                setPodcasts(response.data);  // Save podcasts data
+            } catch (error) {
+                console.error('Error fetching podcasts:', error);
+            }
+        };
+        fetchPodcasts();
+    }, []);
+
+
+
+    const handleAddToPlaylist = async (podcast) => {
+        if (!playlist) return;
+
+        // Optimistic UI update
+        const updatedPlaylist = {
+            ...playlist,
+            podcasts: [...(playlist.podcasts || []), podcast]
+        };
+        setPlaylist(updatedPlaylist);
+
+        try {
+            // Send request to the backend to update the playlist
+            const response = await axios.put(`https://auraloom-backend.vercel.app/playlists/${id}/add-podcast`, {
+                podcast
+            });
+
+            // If successful, update the playlist with the response data
+            setPlaylist(response.data);
+        } catch (error) {
+            console.error("Error adding podcast to playlist:", error);
+
+            // Rollback optimistic update if the request fails
+            setPlaylist((prev) => ({
+                ...prev,
+                podcasts: prev.podcasts.filter((p) => p._id !== podcast._id)
+            }));
+            alert("Failed to add podcast. Please try again.");
+        }
+    };
+
+
+
+
     return (
         <div>
-            {playlist ? (
-                <>
-                    <div className=" py-6 sm:py-8 lg:py-12">
-                        <div className="mx-auto max-w-screen-2xl px-4 md:px-8">
 
-                            <section className=" relative flex flex-1 shrink-0 items-center justify-center overflow-hidden rounded-lg bg-gray-100 py-16 shadow-lg md:py-20 xl:py-48">
-                                <Image
-                                    src={playlist.image} // Provide a fallback image path
-                                    alt={'image'}
-                                    width={500}
-                                    height={500}
-                                    className="absolute inset-0 w-full object-cover object-center"
-                                />
+            <div className="container mx-auto px-4">
+                {playlist ? (
+                    <>
 
-                                <div className="absolute inset-0  mix-blend-multiply"></div>
+                        {/* Playlist Info Section */}
+                        <div className="rounded-xl p-4 sm:p-6 lg:p-8 m-4 sm:mx-8 lg:mx-12 bg-gradient-to-r from-blue-800 to-indigo-900 shadow-lg">
+                            <div className="flex flex-col sm:flex-row sm:gap-8 items-center text-white">
+                                {/* Playlist Image */}
+                                <div className="w-20 h-20 sm:w-24 sm:h-24 rounded-lg overflow-hidden bg-gray-300 shadow-md">
 
-                                <div className="relative flex flex-col items-center p-4 sm:max-w-2xl">
-                                    {/* <p class="mb-4 text-center text-lg text-indigo-200 sm:text-xl md:mb-8">Very proud to introduce</p> */}
-                                    <h1 className="mb-8 text-center text-4xl font-bold text-white sm:text-5xl md:mb-12 md:text-6xl">Let us start building your playlist</h1>
+                                    <Image
+                                        src={playlist.image || '/default-image.jpg'} // Provide a fallback image path
+                                        alt={playlist.name || 'Playlist Image'}
+                                        width={500}
+                                        height={500}
+                                        className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
+                                    />
+                                </div>
 
-                                    <div className="flex w-full flex-col gap-2.5 sm:flex-row sm:justify-center">
-                                        <a href="#" className="inline-block rounded-lg bg-indigo-500 px-8 py-3 text-center text-sm font-semibold text-white outline-none ring-indigo-300 transition duration-100 hover:bg-indigo-600 focus-visible:ring active:bg-indigo-700 md:text-base">Start now</a>
+                                {/* Playlist Details */}
+                                <div className="flex-1 text-center sm:text-left mt-4 sm:mt-0">
+                                    <h3 className="text-2xl font-semibold lg:text-3xl">
+                                        <a href="#" className="hover:underline">
+                                            {playlist.name}
+                                        </a>
+                                    </h3>
+                                    <span className="block text-gray-300 mt-1">by {user?.displayName}</span>
 
-                                        <a href="#" className="inline-block rounded-lg bg-gray-200 px-8 py-3 text-center text-sm font-semibold text-gray-500 outline-none ring-indigo-300 transition duration-100 hover:bg-gray-300 focus-visible:ring active:text-gray-700 md:text-base">Take tour</a>
+                                    <div className="flex flex-col sm:flex-row sm:items-center gap-2 mt-4">
+                                        <div className="flex items-center gap-1 text-gray-400">
+                                            <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                                            </svg>
+                                            <p className="text-xs font-medium">48:32 minutes</p>
+                                        </div>
+                                        <span className="hidden sm:block" aria-hidden="true">&middot;</span>
+                                        <p className="text-xs font-medium text-gray-400">
+                                            Featuring <a href="#" className="underline hover:text-gray-200">Barry</a>, <a href="#" className="underline hover:text-gray-200">Sandra</a> and <a href="#" className="underline hover:text-gray-200">Others...</a>
+                                        </p>
                                     </div>
                                 </div>
 
-                            </section>
+                                {/* Play Button */}
+                                <button className="flex items-center space-x-2 bg-blue-500 text-white rounded-full px-4 py-2 hover:bg-blue-600 transition duration-200 shadow-md mt-4 sm:mt-0">
+                                    <span className="text-sm font-semibold">Play now</span>
+                                    <IoPlayCircle size={20} />
+                                </button>
+                            </div>
                         </div>
-                    </div>
 
-                    <div className="rounded-xl p-4 ring sm:p-6 lg:p-8 mx-8">
-                        <div className="flex items-center sm:gap-8">
-                            <div
-                                className="hidden sm:grid sm:size-20 sm:shrink-0 sm:place-content-center sm:rounded-full sm:border-2 sm:border-indigo-500"
-                                aria-hidden="true"
+
+                        {/* Modal Button */}
+                        <div className="my-10 mx-8 flex justify-center">
+                            <button
+                                type="button"
+                                onClick={() => document.getElementById('my_modal_1').showModal()}
+                                className="px-8 py-3 text-lg font-semibold border border-[#0077b6] rounded-lg flex items-center gap-2"
                             >
-                                <div className="flex items-center gap-1">
-                                    <span className="h-8 w-0.5 rounded-full bg-indigo-500"></span>
-                                    <span className="h-6 w-0.5 rounded-full bg-indigo-500"></span>
-                                    <span className="h-4 w-0.5 rounded-full bg-indigo-500"></span>
-                                    <span className="h-6 w-0.5 rounded-full bg-indigo-500"></span>
-                                    <span className="h-8 w-0.5 rounded-full bg-indigo-500"></span>
+                                Add to the playlist <IoIosAddCircleOutline className="text-3xl" />
+                            </button>
+                        </div>
+
+                        {/* Playlist Podcasts */}
+                        {playlist?.podcasts?.map((podcast, index) => (
+                            <div key={index} className="flex items-center gap-4 p-4 mx-4 sm:mx-8 lg:mx-12 border rounded-xl my-4">
+                                <Image
+                                    src={podcast.imgUrl || '/path/to/fallback.jpg'}
+                                    alt={podcast.title}
+                                    width={80}
+                                    height={80}
+                                    className="object-cover rounded-lg"
+                                />
+                                <div>
+
+                                    <h4 className="text-lg font-bold ">{podcast.title}</h4>
+                                    <p className="text-sm ">{podcast.date}</p>
+                                    <p className="">{podcast.description?.slice(0, 50)}...</p>
+
                                 </div>
                             </div>
-
-                            <div>
-                                <h3 className="text-2xl font-bold transition duration-100 hover:text-gray-500 lg:text-3xl">
-                                    <a href="#" className="hover:underline"> {playlist.name} </a>
-                                </h3>
-
-                                <span className="mt-1 ">
-                                    by {user?.displayName}
-                                </span>
-
-                                <div className="mt-4 sm:flex sm:items-center sm:gap-2">
-                                    <div className="flex items-center gap-1 text-gray-500">
-                                        <svg
-                                            className="size-4"
-                                            fill="none"
-                                            stroke="currentColor"
-                                            viewBox="0 0 24 24"
-                                            xmlns="http://www.w3.org/2000/svg"
-                                        >
-                                            <path
-                                                strokeLinecap="round"
-                                                strokeLinejoin="round"
-                                                strokeWidth="2"
-                                                d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"
-                                            ></path>
-                                        </svg>
-
-                                        <p className="text-xs font-medium">48:32 minutes</p>
-                                    </div>
-
-                                    <span className="hidden sm:block" aria-hidden="true">&middot;</span>
-
-                                    <p className="mt-2 text-xs font-medium text-gray-500 sm:mt-0">
-                                        Featuring <a href="#" className="underline hover:text-gray-700">Barry</a>,
-                                        <a href="#" className="underline hover:text-gray-700">Sandra</a> and
-                                        <a href="#" className="underline hover:text-gray-700"> Others...</a>
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
+                        ))}
+                    </>
+                ) : (
+                    <div className="flex justify-center items-center h-screen">
+                        <CirclesWithBar height={80} width={80} color="#0077b6" />
                     </div>
-                </>
-            ) : (
-                <div className="flex justify-center items-center h-screen">
-                    <CirclesWithBar height={80} width={80} color="#0077b6" />
-                </div>
-            )}
-
-
-            {/* BANNER */}
-            {/* <div className=" py-6 sm:py-8 lg:py-12">
-                <div className="mx-auto max-w-screen-2xl px-4 md:px-8">
-
-                    <section className=" relative flex flex-1 shrink-0 items-center justify-center overflow-hidden rounded-lg bg-gray-100 py-16 shadow-lg md:py-20 xl:py-48">
-                        <Image
-                            src={img1 || '/default-image.jpg'} // Provide a fallback image path
-                            alt={'image'}
-                            width={500}
-                            height={500}
-                            className="absolute inset-0 w-full object-cover object-center"
-                        />
-
-                        <div className="absolute inset-0 bg-[#0077b6] mix-blend-multiply"></div>
-
-                        <div className="relative flex flex-col items-center p-4 sm:max-w-2xl">
-                            
-                            <h1 className="mb-8 text-center text-4xl font-bold text-white sm:text-5xl md:mb-12 md:text-6xl">Let us start building your playlist</h1>
-
-                            <div className="flex w-full flex-col gap-2.5 sm:flex-row sm:justify-center">
-                                <a href="#" className="inline-block rounded-lg bg-indigo-500 px-8 py-3 text-center text-sm font-semibold text-white outline-none ring-indigo-300 transition duration-100 hover:bg-indigo-600 focus-visible:ring active:bg-indigo-700 md:text-base">Start now</a>
-
-                                <a href="#" className="inline-block rounded-lg bg-gray-200 px-8 py-3 text-center text-sm font-semibold text-gray-500 outline-none ring-indigo-300 transition duration-100 hover:bg-gray-300 focus-visible:ring active:text-gray-700 md:text-base">Take tour</a>
-                            </div>
-                        </div>
-
-                    </section>
-                </div>
-            </div> */}
-
-            {/* USER INFO */}
-            {/* <div className="rounded-xl p-4 ring sm:p-6 lg:p-8 mx-8">
-                <div className="flex items-center sm:gap-8">
-                    <div
-                        className="hidden sm:grid sm:size-20 sm:shrink-0 sm:place-content-center sm:rounded-full sm:border-2 sm:border-indigo-500"
-                        aria-hidden="true"
-                    >
-                        <div className="flex items-center gap-1">
-                            <span className="h-8 w-0.5 rounded-full bg-indigo-500"></span>
-                            <span className="h-6 w-0.5 rounded-full bg-indigo-500"></span>
-                            <span className="h-4 w-0.5 rounded-full bg-indigo-500"></span>
-                            <span className="h-6 w-0.5 rounded-full bg-indigo-500"></span>
-                            <span className="h-8 w-0.5 rounded-full bg-indigo-500"></span>
-                        </div>
-                    </div>
-
-                    <div>
-                        <h3 className="text-2xl font-bold transition duration-100 hover:text-gray-500 lg:text-3xl">
-                            <a href="#" className="hover:underline"> Beats </a>
-                        </h3>
-
-                        <span className="mt-1 ">
-                            by Sayeed Hossain
-                        </span>
-
-                        <div className="mt-4 sm:flex sm:items-center sm:gap-2">
-                            <div className="flex items-center gap-1 text-gray-500">
-                                <svg
-                                    className="size-4"
-                                    fill="none"
-                                    stroke="currentColor"
-                                    viewBox="0 0 24 24"
-                                    xmlns="http://www.w3.org/2000/svg"
-                                >
-                                    <path
-                                        strokeLinecap="round"
-                                        strokeLinejoin="round"
-                                        strokeWidth="2"
-                                        d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"
-                                    ></path>
-                                </svg>
-
-                                <p className="text-xs font-medium">48:32 minutes</p>
-                            </div>
-
-                            <span className="hidden sm:block" aria-hidden="true">&middot;</span>
-
-                            <p className="mt-2 text-xs font-medium text-gray-500 sm:mt-0">
-                                Featuring <a href="#" className="underline hover:text-gray-700">Barry</a>,
-                                <a href="#" className="underline hover:text-gray-700">Sandra</a> and
-                                <a href="#" className="underline hover:text-gray-700"> Others...</a>
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </div> */}
-
-            {/* MODAL BUTTON */}
-            <div className="flex justify-center scale-90 my-10">
-                <button type="button" onClick={() => document.getElementById('my_modal_1').showModal()} className="px-8 py-3 font-semibold rounded-full border border-[#0077b6] flex items-center gap-2 text-lg">Add to the playlist <IoIosAddCircleOutline className='text-3xl pt-1 font-bold' /> </button>
+                )}
             </div>
 
             {/* MODAL */}
             <dialog id="my_modal_1" className="modal">
-                <div className="modal-box max-w-4xl">
-                    {/* CARD */}
-                    <div className="">
-                        <div className="mx-auto max-w-screen-xl px-4 md:px-8">
+                <div className="modal-box max-w-4xl p-6">
+                    {/* Header */}
+                    <h2 className="text-2xl font-semibold text-center mb-4">Add Podcasts to Playlist</h2>
 
-                            <div className="">
-                                <div className="flex flex-col items-center gap-4 md:flex-row lg:gap-6 scale-90">
-                                    <a href="#" className="group relative block h-56 w-full shrink-0 self-start overflow-hidden rounded-lg bg-gray-100 shadow-lg md:h-24 md:w-24 lg:h-40 lg:w-40">
-                                        <Image
-                                            src="https://images.unsplash.com/photo-1593508512255-86ab42a8e620?auto=format&q=75&fit=crop&w=600"
-                                            loading="lazy"
-                                            alt="Image description"
-                                            className="absolute inset-0 h-full w-full object-cover object-center transition duration-200 group-hover:scale-110"
-                                            width={600}  // specify the width based on the image's size
-                                            height={400} // specify the height based on the image's aspect ratio
-                                        />
-                                    </a>
-
-
-                                    <div className="flex flex-col gap-2">
-                                        <span className="text-sm text-gray-400">July 19, 2021</span>
-
-                                        <h2 className="text-xl font-bold text-gray-800">
-                                            <a href="#" className="transition duration-100 hover:text-[#00b4d8] active:text-[#0077b6]">New trends in Tech</a>
-                                        </h2>
-
-                                        <p className="">This is a section of some simple filler text... </p>
-
-                                        <div>
-                                            <a href="#" className="font-semibold text-[#00b4d8] transition duration-100 hover:text-[#0077b6] active:text-indigo-700">Read more</a>
-                                        </div>
+                    {/* Podcasts List */}
+                    <div className="max-h-96 overflow-y-auto">
+                        {podcasts.length > 0 ? (
+                            podcasts.map((podcast) => (
+                                <div
+                                    key={podcast._id}
+                                    className="flex items-center gap-4 p-4 border-b border-gray-200 hover:bg-gray-100 rounded-lg transition duration-200 ease-in-out"
+                                >
+                                    <Image
+                                        src={podcast?.imgUrl || '/path/to/fallback.jpg'} // Fallback image
+                                        alt={podcast.title}
+                                        width={80}
+                                        height={80}
+                                        className="object-cover rounded-lg max-w-20 max-h-12"
+                                    />
+                                    <div className="flex-1">
+                                        <h3 className="text-lg font-bold truncate">{podcast.title}</h3>
+                                        <p className="text-sm text-gray-400">{podcast.date}</p>
+                                        <p className="truncate">
+                                            {podcast.description?.split(" ").slice(0, 10).join(" ")}
+                                            {podcast.description?.split(" ").length > 10 && " ..."}
+                                        </p>
                                     </div>
+                                    <button
+                                        onClick={() => handleAddToPlaylist(podcast)}
 
-                                    <div>
-                                        <button className='lg:pl-10'><IoIosAddCircleOutline className='text-3xl font-bold hover:text-[#0077b6]' /></button>
-                                    </div>
+                                        className="text-2xl hover:text-blue-500 transition duration-200"
+
+                                        aria-label="Add to Playlist"
+                                    >
+                                        <IoIosAddCircleOutline />
+                                    </button>
                                 </div>
-                                <div className="flex flex-col items-center gap-4 md:flex-row lg:gap-6 scale-90">
-                                    <a href="#" className="group relative block h-56 w-full shrink-0 self-start overflow-hidden rounded-lg bg-gray-100 shadow-lg md:h-24 md:w-24 lg:h-40 lg:w-40">
-                                        <Image
-                                            src="https://images.unsplash.com/photo-1593508512255-86ab42a8e620?auto=format&q=75&fit=crop&w=600"
-                                            loading="lazy"
-                                            alt="Image description"
-                                            className="absolute inset-0 h-full w-full object-cover object-center transition duration-200 group-hover:scale-110"
-                                            width={600}  // specify the width based on the image's size
-                                            height={400} // specify the height based on the image's aspect ratio
-                                        />
-                                    </a>
-
-
-                                    <div className="flex flex-col gap-2">
-                                        <span className="text-sm text-gray-400">July 19, 2021</span>
-
-                                        <h2 className="text-xl font-bold text-gray-800">
-                                            <a href="#" className="transition duration-100 hover:text-[#00b4d8] active:text-[#0077b6]">New trends in Tech</a>
-                                        </h2>
-
-                                        <p className="">This is a section of some simple filler text... </p>
-
-                                        <div>
-                                            <a href="#" className="font-semibold text-[#00b4d8] transition duration-100 hover:text-[#0077b6] active:text-indigo-700">Read more</a>
-                                        </div>
-                                    </div>
-
-                                    <div>
-                                        <button className='lg:pl-10'><IoIosAddCircleOutline className='text-3xl font-bold hover:text-[#0077b6]' /></button>
-                                    </div>
-                                </div>
-
-                            </div>
-                        </div>
+                            ))
+                        ) : (
+                            <p className="text-center">No podcasts available</p>
+                        )}
                     </div>
 
-
-                    <div className="modal-action">
+                    {/* Modal Action */}
+                    <div className="modal-action mt-4">
                         <form method="dialog">
-                            {/* if there is a button in form, it will close the modal */}
-                            <button className="btn">Close</button>
+                            <button className="btn btn-primary">Close</button>
                         </form>
                     </div>
                 </div>
             </dialog>
+
+
+
         </div>
     );
 };
