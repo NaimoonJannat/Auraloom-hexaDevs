@@ -27,7 +27,7 @@ const CreatorDashboard = () => {
             .then(() => { })
             .catch(() => { });
     };
-    // Toggle sidebar function for mobile devices
+  
     const toggleSidebar = () => {
         setIsSidebarOpen(!isSidebarOpen);
     };
@@ -51,8 +51,24 @@ const CreatorDashboard = () => {
                 </svg>
             </button>
             {/* Sidebar */}
+
             <div className='fixed'>
                 <aside className={`w-64 min-h-screen p-6  shadow-lg z-10 md:relative md:translate-x-0 fixed transform transition-transform ${isSidebarOpen ? "translate-x-0 light:bg-gray-300" : "-translate-x-full"} light:bg-gray-300 md:flex md:flex-col`} >
+
+            <aside className={`w-64 bg-[#90e0ef]  min-h-screen p-6  inset-y-0 shadow-lg z-10 md:relative md:translate-x-0 fixed transform transition-transform ${isSidebarOpen ? "translate-x-0 light:bg-gray-300" : "-translate-x-full"} light:bg-gray-300 md:flex md:flex-col`}> 
+                
+                <div>
+                    {/* Back button for mobile & medium devices */}
+                    <div className="flex justify-between p-4 bg-blue-500 text-white rounded-2xl m-5 md:hidden">
+                        <h1 className="text-lg font-bold">Back</h1>
+                        <button
+                            className="focus:outline-none"
+                            onClick={toggleSidebar}
+                        >
+                            <IoMdArrowBack className="w-6 h-6" />
+                        </button>
+                    </div>
+
                     <div>
                         {/* Back button for mobile & medium devices */}
                         <div className="flex justify-between p-4 bg-blue-500 text-white rounded-2xl m-5 md:hidden">
@@ -107,6 +123,7 @@ const CreatorDashboard = () => {
                         </div>
 
                     </div>
+
                     <nav className="mt-10">
                         <ul className="space-y-2">
                             <Link href={"/"} className="flex items-center space-x-2 hover:bg-blue-400 p-2 rounded-md">
@@ -142,6 +159,27 @@ const CreatorDashboard = () => {
                                 <span>Idea Generate</span>
                             </Link>
                             {/* <Link href={"/"} className="flex items-center space-x-2 hover:bg-blue-400 hover:text-white p-2 rounded-md">
+                </div>
+                <nav className="mt-10">
+                    <ul className="space-y-2">
+                        <Link href={"/my-podcast"} className="flex items-center space-x-2 mb-2 hover:bg-blue-400 hover:text-white p-2 rounded-md">
+                            <FaMusic className="h-5 w-5 " />
+                            <span>My Podcast</span>
+                        </Link>
+                        
+                        <Link href={"/Settings"} className="flex items-center space-x-2 hover:bg-blue-400 hover:text-white p-2 rounded-md">
+                            <CiSettings className="h-6 w-6 " />
+                            <span>Settings</span>
+                        </Link>
+                        <Link href={"/generate-thumbnail"} className="flex items-center space-x-2 hover:bg-blue-400 hover:text-white p-2 rounded-md">
+                            <MdGeneratingTokens className="h-6 w-6 " />
+                            <span>Get Thumbnail</span>
+                        </Link>
+                        <Link href={"/idea-generate"} className="flex items-center space-x-2 hover:bg-blue-400 hover:text-white p-2 rounded-md">
+                            <FcIdea className="h-6 w-6 " />
+                            <span>Idea Generate</span>
+                        </Link>
+                        {/* <Link href={"/"} className="flex items-center space-x-2 hover:bg-blue-400 hover:text-white p-2 rounded-md">
                             <FaHome className="h-6 w-6 " />
                             <span>Home</span>
                         </Link> */}
