@@ -48,26 +48,34 @@ const AddToPlaylist = ({ id }) => {
 
 
     const handleAddToPlaylist = async (podcast) => {
-        if (playlist && playlist._id) {  // Ensure playlist ID is defined
-            try {
-                const response = await axios.put(
-                    `https://auraloom-backend.vercel.app/playlists/${playlist._id}/add-podcast`,
-                    podcast
-                );
-                if (response.data.modifiedCount > 0) {
-                    setPlaylist((prevPlaylist) => ({
-                        ...prevPlaylist,
-                        podcasts: [...prevPlaylist.podcasts, podcast]
-                    }));
-                }
-            } catch (error) {
-                console.error("Error adding podcast to playlist:", error);
-            }
-        } else {
-            console.error("Playlist ID is not defined");
+        if (!playlist) return;
+
+        // Optimistic UI update
+        const updatedPlaylist = {
+            ...playlist,
+            podcasts: [...(playlist.podcasts || []), podcast]
+        };
+        setPlaylist(updatedPlaylist);
+
+        try {
+            // Send request to the backend to update the playlist
+            const response = await axios.put(`https://auraloom-backend.vercel.app/playlists/${id}/add-podcast`, {
+                podcast
+            });
+
+            // If successful, update the playlist with the response data
+            setPlaylist(response.data);
+        } catch (error) {
+            console.error("Error adding podcast to playlist:", error);
+
+            // Rollback optimistic update if the request fails
+            setPlaylist((prev) => ({
+                ...prev,
+                podcasts: prev.podcasts.filter((p) => p._id !== podcast._id)
+            }));
+            alert("Failed to add podcast. Please try again.");
         }
     };
-
 
 
 
