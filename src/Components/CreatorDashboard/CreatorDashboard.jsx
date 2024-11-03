@@ -88,17 +88,17 @@ const CreatorDashboard = () => {
                                 </div>
 
                                 {/* Display user's name */}
-                                <button className="text-white font-semibold text-sm hover:text-blue-400 transition">
+                                <button className=" font-semibold text-sm hover:text-blue-400 transition">
                                     {user.displayName || 'User'}
                                 </button>
 
                                 {/* Display user's email */}
-                                <button className="text-white font-semibold text-sm hover:text-blue-400 transition">
+                                <button className=" font-semibold text-sm hover:text-blue-400 transition">
                                     {user.email || 'user@email.com'}
                                 </button>
 
                                 {/* Log out button */}
-                                <button onClick={signOutUser} className="text-white font-semibold text-sm hover:text-blue-400 transition">
+                                <button onClick={signOutUser} className=" font-semibold text-sm hover:text-blue-400 transition">
                                     Log Out
                                 </button>
                             </>
@@ -108,36 +108,36 @@ const CreatorDashboard = () => {
                 </div>
                 <nav className="mt-10">
                     <ul className="space-y-2">
-                        <Link href={"/"} className="flex items-center space-x-2 hover:bg-gray-700 p-2 rounded-md">
-                            <HomeIcon className="h-6 w-6 text-white" />
+                        <Link href={"/"} className="flex items-center space-x-2 hover:bg-blue-400 p-2 rounded-md">
+                            <HomeIcon className="h-6 w-6" />
                             <span>Feed</span>
                         </Link>
                         <Link href={"/my-podcast"} className="flex items-center space-x-2 mb-2 hover:bg-blue-400 hover:text-white p-2 rounded-md">
-                            <FaMusic className="h-5 w-5 " />
+                            <FaMusic className="h-6 w-6 " />
                             <span>My Podcast</span>
                         </Link>
-                        <Link href={"/podcast"} className="flex items-center space-x-2 mb-2 hover:bg-gray-700 p-2 rounded-md">
-                            <MicrophoneIcon className="h-5 w-5 text-white" />
+                        <Link href={"/podcast"} className="flex items-center space-x-2 mb-2 hover:bg-blue-400 p-2 rounded-md">
+                            <MicrophoneIcon className="h-6 w-6 " />
                             <span>Podcasts</span>
                         </Link>
                         <Link href={"/receivable-growth"} className="flex items-center space-x-2 hover:bg-blue-400 hover:text-white p-2 rounded-md">
-                            <FaChartBar className="h-6 w-6 " />
+                            <FaChartBar className="h-6 w-6" />
                             <span>Analytics</span>
                         </Link>
-                        <Link href={"/history"} className="flex items-center space-x-2 mb-2 hover:bg-gray-700 p-2 rounded-md">
-                            <BookOpenIcon className="h-5 w-5 text-white" />
+                        <Link href={"/history"} className="flex items-center space-x-2 mb-2 hover:bg-blue-400 p-2 rounded-md">
+                            <BookOpenIcon className="h-6 w-6 " />
                             <span>History</span>
                         </Link>
                         <Link href={"/Settings"} className="flex items-center space-x-2 hover:bg-blue-400 hover:text-white p-2 rounded-md">
-                            <CiSettings className="h-6 w-6 " />
+                            <CiSettings className="h-6 w-6" />
                             <span>Settings</span>
                         </Link>
                         <Link href={"/generate-thumbnail"} className="flex items-center space-x-2 hover:bg-blue-400 hover:text-white p-2 rounded-md">
-                            <MdGeneratingTokens className="h-6 w-6 " />
+                            <MdGeneratingTokens className="h-6 w-6" />
                             <span>Get Thumbnail</span>
                         </Link>
                         <Link href={"/idea-generate"} className="flex items-center space-x-2 hover:bg-blue-400 hover:text-white p-2 rounded-md">
-                            <FcIdea className="h-6 w-6 " />
+                            <FcIdea className="h-6 w-6" />
                             <span>Idea Generate</span>
                         </Link>
                         {/* <Link href={"/"} className="flex items-center space-x-2 hover:bg-blue-400 hover:text-white p-2 rounded-md">
