@@ -5,7 +5,7 @@ import Image from 'next/image';
 import { AuthContext } from '../Provider/AuthProvider/AuthProvider';
 import MyPodcasts from '../MyPodcast/MyPodcast';
 import Link from 'next/link';
-import { ChartBarIcon, HeartIcon, MusicNoteIcon, SelectorIcon } from '@heroicons/react/outline';
+import { ChartBarIcon, HeartIcon, MicrophoneIcon, MusicNoteIcon, SelectorIcon } from '@heroicons/react/outline';
 import { FcIdea, FaHome } from 'react-icons/fc';
 import { MdGeneratingTokens } from 'react-icons/md';
 import { CiSettings } from 'react-icons/ci';
@@ -17,6 +17,7 @@ import creatordashboardanimation from '../../../public/creatordashboard.json';
 import studio from '../../../public/studio.jpg'
 import AddPodcast from '../add-podcast/AddPodcast';
 import { IoMdArrowBack } from 'react-icons/io';
+import { BookOpenIcon, HomeIcon } from 'lucide-react';
 const CreatorDashboard = () => {
     const { user, logout } = useContext(AuthContext);
     const [isSidebarOpen, setIsSidebarOpen] = useState(false);
@@ -62,47 +63,70 @@ const CreatorDashboard = () => {
                             <IoMdArrowBack className="w-6 h-6" />
                         </button>
                     </div>
-                    <div>
-                        {/* Avatar dropdown */}
-                        <div className="dropdown dropdown-end">
-                            <div
-                                tabIndex={0}
-                                role="button"
-                                className="btn btn-ghost btn-circle avatar hover:scale-105 transform transition"
-                            >
-                                <div className="w-10 h-10 rounded-full border-2 border-sky-500 p-1">
-                                    <Image
-                                        src={user?.photoURL}
-                                        width={40}
-                                        height={40}
-                                        className="rounded-full"
-                                        alt="User avatar"
-                                    />
-                                </div>
-                            </div>
-                        </div>
-                        
-                    </div>
 
                     {/* Display user's name */}
-                    <div>
-                        <button className=" font-semibold text-sm hover:text-blue-400 transition">
-                            {user?.displayName || 'user'}
-                        </button>
-                        {/* <button className=" font-semibold text-sm hover:text-blue-400 transition">
-                            {user?.displayName || 'user'}
-                        </button> */}
+                    <div className="mt-7 md:mt-12 lg:mt-12 flex flex-col items-center space-y-2">
+                        {user ? (
+                            <>
+                                {/* Avatar dropdown */}
+                                <div className="dropdown dropdown-end">
+                                    <div
+                                        tabIndex={0}
+                                        role="button"
+                                        className="btn btn-ghost btn-circle avatar hover:scale-105 transform transition"
+                                    >
+                                        <div className="w-10 h-10 rounded-full border-2 border-sky-500 p-1">
+                                            <Image
+                                                src={user?.photoURL || '/path/to/default-avatar.png'}
+                                                width={40}
+                                                height={40}
+                                                className="rounded-full"
+                                                alt="User avatar"
+                                            />
+                                        </div>
+                                    </div>
+                                </div>
+
+                                {/* Display user's name */}
+                                <button className="text-white font-semibold text-sm hover:text-blue-400 transition">
+                                    {user.displayName || 'User'}
+                                </button>
+
+                                {/* Display user's email */}
+                                <button className="text-white font-semibold text-sm hover:text-blue-400 transition">
+                                    {user.email || 'user@email.com'}
+                                </button>
+
+                                {/* Log out button */}
+                                <button onClick={signOutUser} className="text-white font-semibold text-sm hover:text-blue-400 transition">
+                                    Log Out
+                                </button>
+                            </>
+                        ) : null}
                     </div>
+
                 </div>
                 <nav className="mt-10">
                     <ul className="space-y-2">
+                        <Link href={"/"} className="flex items-center space-x-2 hover:bg-gray-700 p-2 rounded-md">
+                            <HomeIcon className="h-6 w-6 text-white" />
+                            <span>Feed</span>
+                        </Link>
                         <Link href={"/my-podcast"} className="flex items-center space-x-2 mb-2 hover:bg-blue-400 hover:text-white p-2 rounded-md">
                             <FaMusic className="h-5 w-5 " />
                             <span>My Podcast</span>
                         </Link>
+                        <Link href={"/podcast"} className="flex items-center space-x-2 mb-2 hover:bg-gray-700 p-2 rounded-md">
+                            <MicrophoneIcon className="h-5 w-5 text-white" />
+                            <span>Podcasts</span>
+                        </Link>
                         <Link href={"/receivable-growth"} className="flex items-center space-x-2 hover:bg-blue-400 hover:text-white p-2 rounded-md">
                             <FaChartBar className="h-6 w-6 " />
                             <span>Analytics</span>
+                        </Link>
+                        <Link href={"/history"} className="flex items-center space-x-2 mb-2 hover:bg-gray-700 p-2 rounded-md">
+                            <BookOpenIcon className="h-5 w-5 text-white" />
+                            <span>History</span>
                         </Link>
                         <Link href={"/Settings"} className="flex items-center space-x-2 hover:bg-blue-400 hover:text-white p-2 rounded-md">
                             <CiSettings className="h-6 w-6 " />
