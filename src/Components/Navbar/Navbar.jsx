@@ -151,11 +151,11 @@ const Navbar = () => {
                   Contact
                 </Link>
               </li>
-              <li className="flex">
+              {/* <li className="flex">
                 <Link rel="noopener noreferrer" href="/notifications">
                   <IoMdNotificationsOutline className="text-2xl" />
                 </Link>
-              </li>
+              </li> */}
               <li className="flex">
                 <label className="swap swap-rotate mr-1 lg:mr-2">
                   <input type="checkbox" onChange={handleToggle} checked={theme === 'light' ? false : true} className="toggle" />
@@ -205,7 +205,7 @@ const Navbar = () => {
             </ul>
           </div>
           {/* Mobile view */}
-          <div className="dropdown dropdown-left text-[#03045E] bg-base-100">
+          <div className="dropdown dropdown-left text-[#03045E] ">
             <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -224,7 +224,7 @@ const Navbar = () => {
             </div>
             <ul
               tabIndex={0}
-              className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 p-2 shadow text-[#03045E] bg-[#3493f1d7]"
+              className="menu menu-sm dropdown-content  rounded-box z-[1] mt-3 p-2 shadow text-[#03045E] bg-[#3493f1d7]"
             >
               <li className="flex">
                 <Link rel="noopener noreferrer" href="/">
@@ -246,11 +246,11 @@ const Navbar = () => {
                   Contact
                 </Link>
               </li>
-              <li className="flex">
+              {/* <li className="flex">
                 <Link rel="noopener noreferrer" href="/notifications">
                   Notifications
                 </Link>
-              </li>
+              </li> */}
               {user ? (
                 <>
                   <div>
