@@ -1,34 +1,10 @@
 import Image from 'next/image';
 import React from 'react';
-import img1 from '../../../public/avatar (1).jpg'
-import img2 from '../../../public/avatar (2).jpg'
-import img3 from '../../../public/avatar (3).jpg'
-import img4 from '../../../public/avatar.jpg'
+
 
 const TopCreator = () => {
 
-    const creators = [
-        {
-            "id": 1,
-            "name": "Austin Wade",
-            "profileImage": img1
-        },
-        {
-            "id": 2,
-            "name": "Alexandru Zdrobau",
-            "profileImage": img2
-        },
-        {
-            "id": 3,
-            "name": "Albert Dera",
-            "profileImage": img3
-        },
-        {
-            "id": 4,
-            "name": "Stefan Stefancik",
-            "profileImage": img4
-        }
-    ]
+   
 
     return (
         <div>
