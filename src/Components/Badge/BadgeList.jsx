@@ -21,7 +21,25 @@ const BadgeList = () => {
     };
 
     fetchBadges();
-  }, []); // Make sure to pass an empty dependency array to run the effect only once
+  }, []);
+
+  // Handle badge deletion
+  const handleDelete = async (badgeId) => {
+    try {
+      const response = await fetch(`http://localhost:5000/badges/${badgeId}`, {
+        method: 'DELETE',
+      });
+
+      if (response.ok) {
+        // Remove the deleted badge from the state
+        setBadges(badges.filter((badge) => badge._id !== badgeId));
+      } else {
+        console.error('Failed to delete badge');
+      }
+    } catch (error) {
+      console.error('Error deleting badge:', error);
+    }
+  };
 
   if (loading) return <div>Loading...</div>; // Display loading message
   // Check if badges are available
@@ -30,7 +48,7 @@ const BadgeList = () => {
   return (
     <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 p-6">
       {badges.map((badge) => (
-        <BadgeCard key={badge._id} badge={badge} />
+        <BadgeCard key={badge._id} badge={badge} onDelete={handleDelete} />
       ))}
     </div>
   );
