@@ -114,6 +114,7 @@ const CreatorDashboard = () => {
                                 <span>Feed</span>
                             </Link>
                             <Link href={"/my-podcast"} className="flex items-center space-x-2 mb-2 hover:bg-blue-400 hover:text-white p-2 rounded-md">
+                            
                                 <FaMusic className="h-6 w-6 " />
                                 <span>My Podcast</span>
                             </Link>
