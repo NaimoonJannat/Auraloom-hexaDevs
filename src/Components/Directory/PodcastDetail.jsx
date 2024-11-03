@@ -367,7 +367,7 @@ const PodcastDetail = ({ id }) => {
                 <div className="w-full md:w-[45%] flex justify-end">
                     <ReviewForm onSubmit={onSubmit}></ReviewForm>
                 </div>
-                <div className="w-full md:w-auto flex justify-start">
+                <div className=" hidden md:w-auto md:flex justify-start">
                     <Image
                         width={350}
                         height={350}
